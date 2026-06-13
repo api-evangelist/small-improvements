@@ -1,0 +1,913 @@
+{
+  "@context": {
+    "@vocab": "https://schema.small-improvements.com/vocab#",
+    "si": "https://schema.small-improvements.com/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "User": {
+      "@id": "si:User"
+    },
+    "Feedback": {
+      "@id": "si:Feedback"
+    },
+    "Review": {
+      "@id": "si:Review"
+    },
+    "Objective": {
+      "@id": "si:Objective"
+    },
+    "Meeting": {
+      "@id": "si:Meeting"
+    },
+    "Survey": {
+      "@id": "si:Survey"
+    },
+    "Praise": {
+      "@id": "si:Praise"
+    },
+    "Assessment": {
+      "@id": "si:Assessment"
+    },
+    "ActionItem": {
+      "@id": "si:ActionItem"
+    },
+    "Badge": {
+      "@id": "si:Badge"
+    },
+    "Automation": {
+      "@id": "si:Automation"
+    },
+    "AuditRecord": {
+      "@id": "si:AuditRecord"
+    },
+    "Cycle": {
+      "@id": "si:Cycle"
+    },
+    "Questionnaire": {
+      "@id": "si:Questionnaire"
+    },
+    "Draft": {
+      "@id": "si:Draft"
+    },
+    "Insight": {
+      "@id": "si:Insight"
+    },
+    "Message": {
+      "@id": "si:Message"
+    },
+    "TalkingPoint": {
+      "@id": "si:TalkingPoint"
+    },
+    "MeetingNote": {
+      "@id": "si:MeetingNote"
+    },
+    "Notification": {
+      "@id": "si:Notification"
+    },
+    "Template": {
+      "@id": "si:Template"
+    },
+    "Integration": {
+      "@id": "si:Integration"
+    },
+    "Report": {
+      "@id": "si:Report"
+    },
+    "Token": {
+      "@id": "si:Token"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "email": "schema:email",
+    "url": "schema:url",
+    "image": "schema:image",
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "startDate": {
+      "@id": "schema:startDate",
+      "@type": "xsd:dateTime"
+    },
+    "endDate": {
+      "@id": "schema:endDate",
+      "@type": "xsd:dateTime"
+    },
+    "author": {
+      "@id": "schema:author",
+      "@type": "@id"
+    },
+    "recipient": {
+      "@id": "schema:recipient",
+      "@type": "@id"
+    },
+    "status": "schema:status",
+    "identifier": "schema:identifier",
+    "userId": {
+      "@id": "si:userId"
+    },
+    "managerId": {
+      "@id": "si:managerId"
+    },
+    "cycleId": {
+      "@id": "si:cycleId"
+    },
+    "feedbackCycleId": {
+      "@id": "si:feedbackCycleId"
+    },
+    "reviewCycleId": {
+      "@id": "si:reviewCycleId"
+    },
+    "objectiveCycleId": {
+      "@id": "si:objectiveCycleId"
+    },
+    "surveyInstanceKey": {
+      "@id": "si:surveyInstanceKey"
+    },
+    "meetingId": {
+      "@id": "si:meetingId"
+    },
+    "praiseId": {
+      "@id": "si:praiseId"
+    },
+    "assessmentId": {
+      "@id": "si:assessmentId"
+    },
+    "questionnaireId": {
+      "@id": "si:questionnaireId"
+    },
+    "progress": {
+      "@id": "si:progress",
+      "@type": "xsd:decimal"
+    },
+    "rating": {
+      "@id": "si:rating",
+      "@type": "xsd:decimal"
+    },
+    "isPublic": {
+      "@id": "si:isPublic",
+      "@type": "xsd:boolean"
+    },
+    "isArchived": {
+      "@id": "si:isArchived",
+      "@type": "xsd:boolean"
+    },
+    "isAnonymous": {
+      "@id": "si:isAnonymous",
+      "@type": "xsd:boolean"
+    },
+    "companyId": {
+      "@id": "si:companyId"
+    },
+    "subdomain": {
+      "@id": "si:subdomain"
+    },
+    "ActionItemDTO": {
+      "@id": "si:ActionItemDTO"
+    },
+    "AdminLink": {
+      "@id": "si:AdminLink"
+    },
+    "AnswerDto": {
+      "@id": "si:AnswerDto"
+    },
+    "AnytimeFeedbackDefaultDto": {
+      "@id": "si:AnytimeFeedbackDefaultDto"
+    },
+    "AnytimeFeedbackRequestDto": {
+      "@id": "si:AnytimeFeedbackRequestDto"
+    },
+    "AnytimeFeedbackResponseDto": {
+      "@id": "si:AnytimeFeedbackResponseDto"
+    },
+    "AnytimeFeedbackStatsDto": {
+      "@id": "si:AnytimeFeedbackStatsDto"
+    },
+    "ArchiveStatusDto": {
+      "@id": "si:ArchiveStatusDto"
+    },
+    "AssessmentAnswerDto": {
+      "@id": "si:AssessmentAnswerDto"
+    },
+    "AssessmentDto": {
+      "@id": "si:AssessmentDto"
+    },
+    "AttachmentCreateCommand": {
+      "@id": "si:AttachmentCreateCommand"
+    },
+    "AttachmentDto": {
+      "@id": "si:AttachmentDto"
+    },
+    "AuditRecordDto": {
+      "@id": "si:AuditRecordDto"
+    },
+    "AuditRecordMediumDto": {
+      "@id": "si:AuditRecordMediumDto"
+    },
+    "AuditRecordMiniDto": {
+      "@id": "si:AuditRecordMiniDto"
+    },
+    "AuditRecordQuery": {
+      "@id": "si:AuditRecordQuery"
+    },
+    "AutomationDto": {
+      "@id": "si:AutomationDto"
+    },
+    "AutomationsSettings": {
+      "@id": "si:AutomationsSettings"
+    },
+    "AvailableColumn": {
+      "@id": "si:AvailableColumn"
+    },
+    "BadgeDTO": {
+      "@id": "si:BadgeDTO"
+    },
+    "BadgePrototypeDTO": {
+      "@id": "si:BadgePrototypeDTO"
+    },
+    "BadgePrototypeOrder": {
+      "@id": "si:BadgePrototypeOrder"
+    },
+    "BouncedEmail": {
+      "@id": "si:BouncedEmail"
+    },
+    "BouncedEmailAggregate": {
+      "@id": "si:BouncedEmailAggregate"
+    },
+    "BrowserView": {
+      "@id": "si:BrowserView"
+    },
+    "BulkTimelineExtensionDto": {
+      "@id": "si:BulkTimelineExtensionDto"
+    },
+    "CalendarConfigurationDto": {
+      "@id": "si:CalendarConfigurationDto"
+    },
+    "CalendarDTO": {
+      "@id": "si:CalendarDTO"
+    },
+    "CalendarEventDTO": {
+      "@id": "si:CalendarEventDTO"
+    },
+    "CalendarEventDto": {
+      "@id": "si:CalendarEventDto"
+    },
+    "CalendarSettingsDto": {
+      "@id": "si:CalendarSettingsDto"
+    },
+    "CalendarSettingsUpdateRequest": {
+      "@id": "si:CalendarSettingsUpdateRequest"
+    },
+    "CheckboxAnswerDto": {
+      "@id": "si:CheckboxAnswerDto"
+    },
+    "ClippyView": {
+      "@id": "si:ClippyView"
+    },
+    "CommentCountView": {
+      "@id": "si:CommentCountView"
+    },
+    "CommentView": {
+      "@id": "si:CommentView"
+    },
+    "CompanyAnalyticsDto": {
+      "@id": "si:CompanyAnalyticsDto"
+    },
+    "CompanyDateTimeSettingsDto": {
+      "@id": "si:CompanyDateTimeSettingsDto"
+    },
+    "CompanyDesignSettings": {
+      "@id": "si:CompanyDesignSettings"
+    },
+    "CompanyDesignSettingsDTO": {
+      "@id": "si:CompanyDesignSettingsDTO"
+    },
+    "CompanyDetailsDto": {
+      "@id": "si:CompanyDetailsDto"
+    },
+    "CompanyPaymentDto": {
+      "@id": "si:CompanyPaymentDto"
+    },
+    "CompanyUserStatsDto": {
+      "@id": "si:CompanyUserStatsDto"
+    },
+    "CreateAssessmentCommand": {
+      "@id": "si:CreateAssessmentCommand"
+    },
+    "CreateAttachmentCommand": {
+      "@id": "si:CreateAttachmentCommand"
+    },
+    "CreateAutomationRequest": {
+      "@id": "si:CreateAutomationRequest"
+    },
+    "CreateFeedbackRequestsBulkResult": {
+      "@id": "si:CreateFeedbackRequestsBulkResult"
+    },
+    "CreateFileAttachmentDto": {
+      "@id": "si:CreateFileAttachmentDto"
+    },
+    "CreateLinkAttachmentDto": {
+      "@id": "si:CreateLinkAttachmentDto"
+    },
+    "CreateMeetingRequest": {
+      "@id": "si:CreateMeetingRequest"
+    },
+    "CreateNoteCommand": {
+      "@id": "si:CreateNoteCommand"
+    },
+    "CreateOwnAssessmentCommand": {
+      "@id": "si:CreateOwnAssessmentCommand"
+    },
+    "CreateReaction": {
+      "@id": "si:CreateReaction"
+    },
+    "CreateTalkingPointCommand": {
+      "@id": "si:CreateTalkingPointCommand"
+    },
+    "CreateTalkingPointCommandList": {
+      "@id": "si:CreateTalkingPointCommandList"
+    },
+    "CreateUserAttachmentDto": {
+      "@id": "si:CreateUserAttachmentDto"
+    },
+    "CurrentUserDto": {
+      "@id": "si:CurrentUserDto"
+    },
+    "CursorResultList_AuditRecordMediumDto_": {
+      "@id": "si:CursorResultList_AuditRecordMediumDto_"
+    },
+    "CustomizationsDto": {
+      "@id": "si:CustomizationsDto"
+    },
+    "CycleDTO": {
+      "@id": "si:CycleDTO"
+    },
+    "CycleFeedbackResponseDto": {
+      "@id": "si:CycleFeedbackResponseDto"
+    },
+    "Download": {
+      "@id": "si:Download"
+    },
+    "DownloadableFileDto": {
+      "@id": "si:DownloadableFileDto"
+    },
+    "DraftDto": {
+      "@id": "si:DraftDto"
+    },
+    "DropdownAnswerDto": {
+      "@id": "si:DropdownAnswerDto"
+    },
+    "DtoEntity_QuestionnaireDto_ReviewQuestionnaire_": {
+      "@id": "si:DtoEntity_QuestionnaireDto_ReviewQuestionnaire_"
+    },
+    "EditNoteCommand": {
+      "@id": "si:EditNoteCommand"
+    },
+    "EditPositionCommand": {
+      "@id": "si:EditPositionCommand"
+    },
+    "EditTalkingPointCommand": {
+      "@id": "si:EditTalkingPointCommand"
+    },
+    "EmailConfigurationDto": {
+      "@id": "si:EmailConfigurationDto"
+    },
+    "EmailEventResult": {
+      "@id": "si:EmailEventResult"
+    },
+    "EmailTemplateDto": {
+      "@id": "si:EmailTemplateDto"
+    },
+    "EmailTemplateMiniDto": {
+      "@id": "si:EmailTemplateMiniDto"
+    },
+    "EmailTemplateModificationInfo": {
+      "@id": "si:EmailTemplateModificationInfo"
+    },
+    "EmailTemplatePreview": {
+      "@id": "si:EmailTemplatePreview"
+    },
+    "Event": {
+      "@id": "si:Event"
+    },
+    "ExportPdfOptions": {
+      "@id": "si:ExportPdfOptions"
+    },
+    "FeedbackCycleGuidedDto": {
+      "@id": "si:FeedbackCycleGuidedDto"
+    },
+    "FeedbackCycleListDto": {
+      "@id": "si:FeedbackCycleListDto"
+    },
+    "FeedbackCycleStatisticsDto": {
+      "@id": "si:FeedbackCycleStatisticsDto"
+    },
+    "FeedbackDto": {
+      "@id": "si:FeedbackDto"
+    },
+    "FeedbackParticipantListDto": {
+      "@id": "si:FeedbackParticipantListDto"
+    },
+    "FeedbackParticipantMini": {
+      "@id": "si:FeedbackParticipantMini"
+    },
+    "FeedbackParticipantProvideDto": {
+      "@id": "si:FeedbackParticipantProvideDto"
+    },
+    "FeedbackParticipationByUserDto": {
+      "@id": "si:FeedbackParticipationByUserDto"
+    },
+    "FeedbackReasonDto": {
+      "@id": "si:FeedbackReasonDto"
+    },
+    "FeedbackRequestDto": {
+      "@id": "si:FeedbackRequestDto"
+    },
+    "FeedbackRequestRating": {
+      "@id": "si:FeedbackRequestRating"
+    },
+    "FeedbackTemplateDto": {
+      "@id": "si:FeedbackTemplateDto"
+    },
+    "FeedbackTemplateOrderDto": {
+      "@id": "si:FeedbackTemplateOrderDto"
+    },
+    "FreeTextAnswerDto": {
+      "@id": "si:FreeTextAnswerDto"
+    },
+    "GenericObject": {
+      "@id": "si:GenericObject"
+    },
+    "ImageData": {
+      "@id": "si:ImageData"
+    },
+    "ImageInfo": {
+      "@id": "si:ImageInfo"
+    },
+    "InsightsDto": {
+      "@id": "si:InsightsDto"
+    },
+    "InsightsRequest": {
+      "@id": "si:InsightsRequest"
+    },
+    "IsVerified": {
+      "@id": "si:IsVerified"
+    },
+    "Iterable_ActionItemDTO_": {
+      "@id": "si:Iterable_ActionItemDTO_"
+    },
+    "Iterable_AdminLink_": {
+      "@id": "si:Iterable_AdminLink_"
+    },
+    "Iterable_CalendarEventDTO_": {
+      "@id": "si:Iterable_CalendarEventDTO_"
+    },
+    "Iterable_CycleDTO_": {
+      "@id": "si:Iterable_CycleDTO_"
+    },
+    "Iterable_DownloadableFileDto_": {
+      "@id": "si:Iterable_DownloadableFileDto_"
+    },
+    "Iterable_Event_": {
+      "@id": "si:Iterable_Event_"
+    },
+    "Iterable_Map_string_object_": {
+      "@id": "si:Iterable_Map_string_object_"
+    },
+    "Iterable_MediumUser_": {
+      "@id": "si:Iterable_MediumUser_"
+    },
+    "Iterable_MiniBadgePrototype_": {
+      "@id": "si:Iterable_MiniBadgePrototype_"
+    },
+    "Iterable_MiniBadge_": {
+      "@id": "si:Iterable_MiniBadge_"
+    },
+    "Iterable_PraiseDto_": {
+      "@id": "si:Iterable_PraiseDto_"
+    },
+    "Iterable_ReviewCycleListDto_": {
+      "@id": "si:Iterable_ReviewCycleListDto_"
+    },
+    "Iterable_ReviewGraphDto_": {
+      "@id": "si:Iterable_ReviewGraphDto_"
+    },
+    "Iterable_SettingDto_": {
+      "@id": "si:Iterable_SettingDto_"
+    },
+    "Iterable_UserListDto_": {
+      "@id": "si:Iterable_UserListDto_"
+    },
+    "Iterable_UserMessageStatisticsDto_": {
+      "@id": "si:Iterable_UserMessageStatisticsDto_"
+    },
+    "Iterable_UserProfileDto_": {
+      "@id": "si:Iterable_UserProfileDto_"
+    },
+    "Iterable_WicketUser_": {
+      "@id": "si:Iterable_WicketUser_"
+    },
+    "Iterable_string_": {
+      "@id": "si:Iterable_string_"
+    },
+    "Key_User_": {
+      "@id": "si:Key_User_"
+    },
+    "LeaveProbabilityDto": {
+      "@id": "si:LeaveProbabilityDto"
+    },
+    "LikertScaleRatingAnswerDto": {
+      "@id": "si:LikertScaleRatingAnswerDto"
+    },
+    "MainReviewerDto": {
+      "@id": "si:MainReviewerDto"
+    },
+    "ManagerRatingChanges": {
+      "@id": "si:ManagerRatingChanges"
+    },
+    "ManagerRatingCode": {
+      "@id": "si:ManagerRatingCode"
+    },
+    "MeResponse": {
+      "@id": "si:MeResponse"
+    },
+    "MediumUser": {
+      "@id": "si:MediumUser"
+    },
+    "MeetingActionCreate": {
+      "@id": "si:MeetingActionCreate"
+    },
+    "MeetingActionDto": {
+      "@id": "si:MeetingActionDto"
+    },
+    "MeetingActionUpdate": {
+      "@id": "si:MeetingActionUpdate"
+    },
+    "MeetingCalendarConfiguration": {
+      "@id": "si:MeetingCalendarConfiguration"
+    },
+    "MeetingCompanyVisibilitySettingsDto": {
+      "@id": "si:MeetingCompanyVisibilitySettingsDto"
+    },
+    "MeetingDto": {
+      "@id": "si:MeetingDto"
+    },
+    "MeetingFromTemplateRequest": {
+      "@id": "si:MeetingFromTemplateRequest"
+    },
+    "MeetingMetadataDto": {
+      "@id": "si:MeetingMetadataDto"
+    },
+    "MeetingNoteDto": {
+      "@id": "si:MeetingNoteDto"
+    },
+    "MeetingPatchRequest": {
+      "@id": "si:MeetingPatchRequest"
+    },
+    "MeetingRelevantDto": {
+      "@id": "si:MeetingRelevantDto"
+    },
+    "MeetingSpaceDto": {
+      "@id": "si:MeetingSpaceDto"
+    },
+    "MeetingSpaceMiniDto": {
+      "@id": "si:MeetingSpaceMiniDto"
+    },
+    "MeetingSpaceNudgeRequest": {
+      "@id": "si:MeetingSpaceNudgeRequest"
+    },
+    "MeetingSpaceNudgesRecordDto": {
+      "@id": "si:MeetingSpaceNudgesRecordDto"
+    },
+    "MeetingSpacesSharedCount": {
+      "@id": "si:MeetingSpacesSharedCount"
+    },
+    "MeetingTemplateDetails": {
+      "@id": "si:MeetingTemplateDetails"
+    },
+    "MeetingTemplateDto": {
+      "@id": "si:MeetingTemplateDto"
+    },
+    "MeetingTemplateUsageRequest": {
+      "@id": "si:MeetingTemplateUsageRequest"
+    },
+    "MergeCompanyDto": {
+      "@id": "si:MergeCompanyDto"
+    },
+    "MessageDTO": {
+      "@id": "si:MessageDTO"
+    },
+    "MessageDto": {
+      "@id": "si:MessageDto"
+    },
+    "MessagePreviewWithStatus": {
+      "@id": "si:MessagePreviewWithStatus"
+    },
+    "MessageRelevantView": {
+      "@id": "si:MessageRelevantView"
+    },
+    "MessageSettingsDto": {
+      "@id": "si:MessageSettingsDto"
+    },
+    "MiniBadge": {
+      "@id": "si:MiniBadge"
+    },
+    "MiniBadgePrototype": {
+      "@id": "si:MiniBadgePrototype"
+    },
+    "MiniCommentView": {
+      "@id": "si:MiniCommentView"
+    },
+    "MiniFeedbackRequest": {
+      "@id": "si:MiniFeedbackRequest"
+    },
+    "MiniUser": {
+      "@id": "si:MiniUser"
+    },
+    "NewUnsolicitedFeedbackDto": {
+      "@id": "si:NewUnsolicitedFeedbackDto"
+    },
+    "NotificationLogCountDto": {
+      "@id": "si:NotificationLogCountDto"
+    },
+    "NotificationLogDto": {
+      "@id": "si:NotificationLogDto"
+    },
+    "NudgeRequests": {
+      "@id": "si:NudgeRequests"
+    },
+    "ObjectiveCategory": {
+      "@id": "si:ObjectiveCategory"
+    },
+    "ObjectiveCommentEditTextDTO": {
+      "@id": "si:ObjectiveCommentEditTextDTO"
+    },
+    "ObjectiveCycleDto": {
+      "@id": "si:ObjectiveCycleDto"
+    },
+    "ObjectiveCycleGuidedDto": {
+      "@id": "si:ObjectiveCycleGuidedDto"
+    },
+    "ObjectiveDTO": {
+      "@id": "si:ObjectiveDTO"
+    },
+    "ObjectivePreviewDTO": {
+      "@id": "si:ObjectivePreviewDTO"
+    },
+    "ObjectivePreviewWithStatus": {
+      "@id": "si:ObjectivePreviewWithStatus"
+    },
+    "ObjectiveRating": {
+      "@id": "si:ObjectiveRating"
+    },
+    "ObjectiveSummaryDto": {
+      "@id": "si:ObjectiveSummaryDto"
+    },
+    "ObjectiveView": {
+      "@id": "si:ObjectiveView"
+    },
+    "ObserverUserDto": {
+      "@id": "si:ObserverUserDto"
+    },
+    "OptionsDto": {
+      "@id": "si:OptionsDto"
+    },
+    "PersonalAccessTokenDto": {
+      "@id": "si:PersonalAccessTokenDto"
+    },
+    "PersonalAccessTokenRequest": {
+      "@id": "si:PersonalAccessTokenRequest"
+    },
+    "PraiseCreateCommand": {
+      "@id": "si:PraiseCreateCommand"
+    },
+    "PraiseDto": {
+      "@id": "si:PraiseDto"
+    },
+    "PraiseEditCommand": {
+      "@id": "si:PraiseEditCommand"
+    },
+    "PraiseWallConfigDto": {
+      "@id": "si:PraiseWallConfigDto"
+    },
+    "PraiseWallTokenDto": {
+      "@id": "si:PraiseWallTokenDto"
+    },
+    "PromptResponse": {
+      "@id": "si:PromptResponse"
+    },
+    "QuestionnaireDto": {
+      "@id": "si:QuestionnaireDto"
+    },
+    "Reaction": {
+      "@id": "si:Reaction"
+    },
+    "RedirectView": {
+      "@id": "si:RedirectView"
+    },
+    "ReportSubscription": {
+      "@id": "si:ReportSubscription"
+    },
+    "RequestFeedbackSummary": {
+      "@id": "si:RequestFeedbackSummary"
+    },
+    "RetentionAnalyticsSettingsDto": {
+      "@id": "si:RetentionAnalyticsSettingsDto"
+    },
+    "ReviewCycle": {
+      "@id": "si:ReviewCycle"
+    },
+    "ReviewCycleCreateRequest": {
+      "@id": "si:ReviewCycleCreateRequest"
+    },
+    "ReviewCycleDto": {
+      "@id": "si:ReviewCycleDto"
+    },
+    "ReviewCycleGuidedDto": {
+      "@id": "si:ReviewCycleGuidedDto"
+    },
+    "ReviewCycleListDto": {
+      "@id": "si:ReviewCycleListDto"
+    },
+    "ReviewCycleStatsDto": {
+      "@id": "si:ReviewCycleStatsDto"
+    },
+    "ReviewDto": {
+      "@id": "si:ReviewDto"
+    },
+    "ReviewExportPdfOptions": {
+      "@id": "si:ReviewExportPdfOptions"
+    },
+    "ReviewForRevieweeDto": {
+      "@id": "si:ReviewForRevieweeDto"
+    },
+    "ReviewGraphDto": {
+      "@id": "si:ReviewGraphDto"
+    },
+    "ReviewListDto": {
+      "@id": "si:ReviewListDto"
+    },
+    "ReviewMini": {
+      "@id": "si:ReviewMini"
+    },
+    "ReviewQuestionnaire": {
+      "@id": "si:ReviewQuestionnaire"
+    },
+    "ReviewSignDto": {
+      "@id": "si:ReviewSignDto"
+    },
+    "ReviewersBulkUpdateDto": {
+      "@id": "si:ReviewersBulkUpdateDto"
+    },
+    "ReviewersDto": {
+      "@id": "si:ReviewersDto"
+    },
+    "SampleContentManagementDto": {
+      "@id": "si:SampleContentManagementDto"
+    },
+    "SettingDto": {
+      "@id": "si:SettingDto"
+    },
+    "SimulationDto": {
+      "@id": "si:SimulationDto"
+    },
+    "SimulationOverviewDto": {
+      "@id": "si:SimulationOverviewDto"
+    },
+    "SlackChannelDto": {
+      "@id": "si:SlackChannelDto"
+    },
+    "SlackConfigurationState": {
+      "@id": "si:SlackConfigurationState"
+    },
+    "SlackIntegrationStatusDto": {
+      "@id": "si:SlackIntegrationStatusDto"
+    },
+    "SliderAnswerDto": {
+      "@id": "si:SliderAnswerDto"
+    },
+    "StoppedStatusDto": {
+      "@id": "si:StoppedStatusDto"
+    },
+    "Stream_ReviewDto_": {
+      "@id": "si:Stream_ReviewDto_"
+    },
+    "SummaryAssistantRequest": {
+      "@id": "si:SummaryAssistantRequest"
+    },
+    "SummaryResponse": {
+      "@id": "si:SummaryResponse"
+    },
+    "SurveyAnswersDto": {
+      "@id": "si:SurveyAnswersDto"
+    },
+    "SurveyDatesDto": {
+      "@id": "si:SurveyDatesDto"
+    },
+    "SurveyDto": {
+      "@id": "si:SurveyDto"
+    },
+    "SurveyResponseAggregationDto": {
+      "@id": "si:SurveyResponseAggregationDto"
+    },
+    "SurveySubmissionDto": {
+      "@id": "si:SurveySubmissionDto"
+    },
+    "SurveyTemplateDto": {
+      "@id": "si:SurveyTemplateDto"
+    },
+    "SynchronizationIntervalHolder": {
+      "@id": "si:SynchronizationIntervalHolder"
+    },
+    "TalkingPointDto": {
+      "@id": "si:TalkingPointDto"
+    },
+    "TimelineExtensionDto": {
+      "@id": "si:TimelineExtensionDto"
+    },
+    "UnifiedFeedbackDetailsDto": {
+      "@id": "si:UnifiedFeedbackDetailsDto"
+    },
+    "UnifiedFeedbackDto": {
+      "@id": "si:UnifiedFeedbackDto"
+    },
+    "UpdateMeetingCalendarConfigurationRequest": {
+      "@id": "si:UpdateMeetingCalendarConfigurationRequest"
+    },
+    "UserIdHolder": {
+      "@id": "si:UserIdHolder"
+    },
+    "UserImportConfigurationDTO": {
+      "@id": "si:UserImportConfigurationDTO"
+    },
+    "UserImportPreview": {
+      "@id": "si:UserImportPreview"
+    },
+    "UserInvitationDTO": {
+      "@id": "si:UserInvitationDTO"
+    },
+    "UserListDto": {
+      "@id": "si:UserListDto"
+    },
+    "UserMessageStatisticsDto": {
+      "@id": "si:UserMessageStatisticsDto"
+    },
+    "UserOnboardingInvitationDTO": {
+      "@id": "si:UserOnboardingInvitationDTO"
+    },
+    "UserProfileDto": {
+      "@id": "si:UserProfileDto"
+    },
+    "UserRelationship": {
+      "@id": "si:UserRelationship"
+    },
+    "UserRolesDto": {
+      "@id": "si:UserRolesDto"
+    },
+    "UserSessionStatusDTO": {
+      "@id": "si:UserSessionStatusDTO"
+    },
+    "UserSettingsDto": {
+      "@id": "si:UserSettingsDto"
+    },
+    "UserStatsDTO": {
+      "@id": "si:UserStatsDTO"
+    },
+    "UserUpdate": {
+      "@id": "si:UserUpdate"
+    },
+    "VerificationAttempt": {
+      "@id": "si:VerificationAttempt"
+    },
+    "ViewersDto": {
+      "@id": "si:ViewersDto"
+    },
+    "WicketUser": {
+      "@id": "si:WicketUser"
+    },
+    "WritingAssistantRequest": {
+      "@id": "si:WritingAssistantRequest"
+    },
+    "YourCycleAndReviewsDto": {
+      "@id": "si:YourCycleAndReviewsDto"
+    },
+    "YourSurveyDto": {
+      "@id": "si:YourSurveyDto"
+    },
+    "YourSurveysDto": {
+      "@id": "si:YourSurveysDto"
+    },
+    "_metadata": {
+      "title": "Small Improvements API JSON-LD Context",
+      "description": "JSON-LD context for the Small Improvements REST API v2 enabling semantic interoperability",
+      "version": "2.0",
+      "source": "https://app.small-improvements.com/api/v2",
+      "documentation": "https://intercomdocs.small-improvements.com/en/articles/9151054-small-improvements-rest-api"
+    }
+  }
+}

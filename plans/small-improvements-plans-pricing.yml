@@ -1,0 +1,86 @@
+specificationVersion: "0.1"
+id: small-improvements-plans-pricing
+name: Small Improvements Plans & Pricing
+description: >
+  Small Improvements offers three pricing tiers billed annually on a per-user basis,
+  with a minimum user count per plan. All plans include a 30-day free trial and allow
+  users to be added at any time with prorated pricing. API access is available but
+  requires submitting an implementation spec and is reviewed on a case-by-case basis.
+url: https://www.small-improvements.com/pricing/
+plans:
+  - name: Launch
+    description: >
+      Essential performance reviews, praise, company directory, HRIS integrations,
+      and Google Sign-in. Designed for teams getting started with structured feedback.
+    pricing:
+      model: per-user
+      period: monthly
+      billingCycle: annual
+      amount: 3.00
+      currency: USD
+    limits:
+      - name: Minimum Users
+        description: Minimum number of active users required
+        value: 20
+        unit: users
+    features:
+      - Performance Reviews
+      - Praise & Recognition
+      - Company Directory
+      - HRIS Integrations
+      - Google Sign-in / SSO
+  - name: Grow
+    description: >
+      Everything in Launch plus 360-degree and anytime feedback, essential objectives,
+      1:1 meetings, pulse surveys, and Slack integration. The recommended plan for
+      growing teams seeking comprehensive continuous feedback tooling.
+    pricing:
+      model: per-user
+      period: monthly
+      billingCycle: annual
+      amount: 6.00
+      currency: USD
+    limits:
+      - name: Minimum Users
+        description: Minimum number of active users required
+        value: 20
+        unit: users
+      - name: Volume Discount Threshold
+        description: Volume discounts available at this user count
+        value: 1000
+        unit: users
+    features:
+      - Everything in Launch
+      - 360-Degree Feedback
+      - Anytime Feedback
+      - Essential Objectives (OKRs)
+      - 1:1 Meetings
+      - Pulse Surveys
+      - Slack Integration
+  - name: Elevate
+    description: >
+      Everything in Grow plus all features, all integrations, all customizations,
+      and advanced analytics. Suited for larger organizations needing deep reporting,
+      custom workflows, and enterprise-grade integrations.
+    pricing:
+      model: per-user
+      period: monthly
+      billingCycle: annual
+      amount: 9.00
+      currency: USD
+    limits:
+      - name: Minimum Users
+        description: Minimum number of active users required
+        value: 30
+        unit: users
+      - name: Volume Discount Threshold
+        description: Volume discounts available at this user count
+        value: 200
+        unit: users
+    features:
+      - Everything in Grow
+      - All Features
+      - All Integrations
+      - All Customizations
+      - Advanced Analytics
+      - AI-Powered Insights

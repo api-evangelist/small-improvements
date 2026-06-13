@@ -1,0 +1,36 @@
+specificationVersion: "0.1"
+id: small-improvements-rate-limits
+name: Small Improvements API Rate Limits
+description: >
+  Small Improvements does not publish explicit rate limit thresholds in its public API
+  documentation. The REST API (v2) is described as intentionally lightweight and
+  provided on an as-is basis for customers with experienced development teams. The API
+  evolves based on application needs and changes can occur without notice. Customers
+  planning to use the API are asked to submit an implementation spec before access is
+  granted; Small Improvements reviews these requests within 7-10 business days. No
+  specific request-per-minute, daily quota, or burst limit figures are documented.
+url: https://intercomdocs.small-improvements.com/en/articles/9151054-small-improvements-rest-api
+limits:
+  - name: API Access Approval
+    description: >
+      API access is not automatic. Customers must submit an implementation spec form
+      describing their intended use. Small Improvements reviews and approves access
+      within 7-10 business days.
+    scope: account
+    enforcement: manual-approval
+  - name: Token Visibility
+    description: >
+      Personal access tokens are displayed only once at creation time. Tokens should
+      be stored securely immediately; they cannot be retrieved after initial display.
+    scope: token
+    enforcement: platform
+  - name: Stability Guarantee
+    description: >
+      The API evolves based on Small Improvements' application needs. Breaking changes
+      can occur without prior notice. Consumers should monitor for changes independently.
+    scope: api
+    enforcement: best-effort
+notes: >
+  No published numeric rate limits (requests per minute, daily quota, or burst caps)
+  are available in the Small Improvements public documentation as of 2026-06-13.
+  Contact Small Improvements directly for current enforcement details.

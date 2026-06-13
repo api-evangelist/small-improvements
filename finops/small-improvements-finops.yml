@@ -1,0 +1,69 @@
+specificationVersion: "1.0"
+id: small-improvements-finops
+name: Small Improvements FinOps
+description: >
+  FinOps Framework FOCUS-aligned cost and usage model for Small Improvements.
+  Billing is per active user per month, charged annually in advance. Three tiers
+  (Launch, Grow, Elevate) provide predictable per-seat costs. Volume discounts
+  apply at defined user thresholds. There is no consumption-based or API-call-based
+  billing; costs are driven entirely by active seat count.
+url: https://www.small-improvements.com/pricing/
+provider: Small Improvements
+currency: USD
+billingModel: per-seat
+billingCycle: annual
+costDrivers:
+  - name: Active Users
+    description: >
+      Cost is determined by the number of active users on the account each billing
+      period. Users added mid-period are charged on a prorated basis.
+    unit: user/month
+    tiers:
+      - name: Launch
+        unitCost: 3.00
+        minimumUnits: 20
+        notes: Billed annually; prorated additions allowed mid-year
+      - name: Grow
+        unitCost: 6.00
+        minimumUnits: 20
+        volumeDiscountThreshold: 1000
+        notes: Volume discounts apply at 1,000+ active users
+      - name: Elevate
+        unitCost: 9.00
+        minimumUnits: 30
+        volumeDiscountThreshold: 200
+        notes: Volume discounts apply at 200+ active users
+optimization:
+  - name: Right-Size Plan Selection
+    description: >
+      Choose the lowest plan tier that meets current feature requirements.
+      API access and advanced integrations require Elevate; teams needing
+      only performance reviews can start on Launch at $3/user/month.
+  - name: Maintain Minimum User Count
+    description: >
+      Avoid paying for inactive seats. Small Improvements allows plan
+      downgrades with prorated adjustment; regularly audit active vs
+      inactive users to minimize wasted spend.
+  - name: Leverage Volume Discounts
+    description: >
+      At 200+ users on Elevate or 1,000+ users on Grow, negotiate volume
+      discounts directly with Small Improvements to reduce effective per-seat cost.
+  - name: Annual Commitment Planning
+    description: >
+      Pricing is billed annually. Forecast headcount growth before committing
+      to avoid over-purchasing seats or incurring upgrade costs mid-cycle.
+  - name: Free Trial Utilization
+    description: >
+      A 30-day free trial is available. Use the trial period to validate
+      integration requirements and confirm the correct plan tier before committing
+      annual spend.
+allocation:
+  - name: Department / Team
+    description: >
+      Allocate seat costs to departments or teams based on active user counts
+      per organizational unit for internal chargeback or showback reporting.
+  - name: Feature Module Usage
+    description: >
+      Higher tiers unlock additional modules (360 feedback, OKRs, pulse surveys,
+      advanced analytics). Track which modules are actively used to justify plan
+      tier selection in cost reviews.

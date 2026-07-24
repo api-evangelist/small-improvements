@@ -1,0 +1,3059 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource meeting-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: meeting-resource
+  description: Meeting Resource
+paths:
+  /v2/meetings:
+    get:
+      tags:
+      - meeting-resource
+      summary: listMyMeetingsWithParticipant
+      operationId: listMyMeetingsWithParticipantUsingGET
+      parameters:
+      - name: endDate.chronology.calendarType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate.chronology.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: endDate.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.era
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - BCE
+          - CE
+      - name: endDate.leapYear
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: endDate.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: endDate.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: endDateTime.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: endDateTime.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: participants[0].id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.fixedOffset
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].dayOfMonthIndicator
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: rules.transitionRules[0].localTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].midnightEndOfDay
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: rules.transitionRules[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].standardOffset.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].standardOffset.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].timeDefinition
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANDARD
+          - UTC
+          - WALL
+      - name: rules.transitions[0].dateTimeAfter
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].dateTimeBefore
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].duration.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].duration.negative
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.seconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: rules.transitions[0].duration.units[0].dateBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].durationEstimated
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].timeBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.zero
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].gap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].instant
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].overlap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: startDate.chronology.calendarType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate.chronology.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: startDate.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.era
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - BCE
+          - CE
+      - name: startDate.leapYear
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: startDate.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: startDate.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: startDateTime.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: startDateTime.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeetingDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - meeting-resource
+      summary: createMeeting
+      operationId: createMeetingUsingPOST
+      parameters:
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.fixedOffset
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].dayOfMonthIndicator
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: rules.transitionRules[0].localTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].midnightEndOfDay
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: rules.transitionRules[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].standardOffset.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].standardOffset.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].timeDefinition
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANDARD
+          - UTC
+          - WALL
+      - name: rules.transitions[0].dateTimeAfter
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].dateTimeBefore
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].duration.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].duration.negative
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.seconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: rules.transitions[0].duration.units[0].dateBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].durationEstimated
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].timeBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.zero
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].gap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].instant
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].overlap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/CreateMeetingRequest'
+        description: createMeetingRequest
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meetings/export-content-csv:
+    post:
+      tags:
+      - meeting-resource
+      summary: triggerContentDownload
+      operationId: triggerContentDownloadUsingPOST
+      parameters:
+      - name: from
+        in: query
+        description: from
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: until
+        in: query
+        description: until
+        required: false
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/DownloadableFileDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meetings/metadata:
+    get:
+      tags:
+      - meeting-resource
+      summary: listMeetingsMetadata
+      operationId: listMeetingsMetadataUsingGET
+      parameters:
+      - name: endDate.chronology.calendarType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate.chronology.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: endDate.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.era
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - BCE
+          - CE
+      - name: endDate.leapYear
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: endDate.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: endDate.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: endDateTime.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: endDateTime.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: participants[0].id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.fixedOffset
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].dayOfMonthIndicator
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: rules.transitionRules[0].localTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].midnightEndOfDay
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: rules.transitionRules[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].standardOffset.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].standardOffset.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].timeDefinition
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANDARD
+          - UTC
+          - WALL
+      - name: rules.transitions[0].dateTimeAfter
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].dateTimeBefore
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].duration.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].duration.negative
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.seconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: rules.transitions[0].duration.units[0].dateBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].durationEstimated
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].timeBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.zero
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].gap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].instant
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].overlap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: startDate.chronology.calendarType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate.chronology.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: startDate.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.era
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - BCE
+          - CE
+      - name: startDate.leapYear
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: startDate.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: startDate.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: startDateTime.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: startDateTime.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeetingMetadataDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meetings/relevant:
+    get:
+      tags:
+      - meeting-resource
+      summary: listRelevantMeetings
+      operationId: listRelevantMeetingsUsingGET
+      parameters:
+      - name: endDate.chronology.calendarType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate.chronology.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: endDate.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.era
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - BCE
+          - CE
+      - name: endDate.leapYear
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: endDate.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: endDate.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: endDateTime.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: endDateTime.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: participants[0].id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.fixedOffset
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].dayOfMonthIndicator
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: rules.transitionRules[0].localTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].midnightEndOfDay
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: rules.transitionRules[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].standardOffset.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].standardOffset.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].timeDefinition
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANDARD
+          - UTC
+          - WALL
+      - name: rules.transitions[0].dateTimeAfter
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].dateTimeBefore
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].duration.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].duration.negative
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.seconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: rules.transitions[0].duration.units[0].dateBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].durationEstimated
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].timeBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.zero
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].gap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].instant
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].overlap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: startDate.chronology.calendarType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate.chronology.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: startDate.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.era
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - BCE
+          - CE
+      - name: startDate.leapYear
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: startDate.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: startDate.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: startDateTime.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: startDateTime.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeetingRelevantDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meetings/visibility:
+    post:
+      tags:
+      - meeting-resource
+      summary: bulkUpdateVisibility
+      operationId: bulkUpdateVisibilityUsingPOST
+      parameters:
+      - name: endDate.chronology.calendarType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate.chronology.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: endDate.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.era
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - BCE
+          - CE
+      - name: endDate.leapYear
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: endDate.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: endDate.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDate.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: endDateTime.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: endDateTime.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: endDateTime.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: mergeVisibility
+        in: query
+        description: mergeVisibility
+        required: true
+        schema:
+          type: boolean
+      - name: participants[0].id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.fixedOffset
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].dayOfMonthIndicator
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: rules.transitionRules[0].localTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].midnightEndOfDay
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: rules.transitionRules[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].standardOffset.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].standardOffset.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].timeDefinition
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANDARD
+          - UTC
+          - WALL
+      - name: rules.transitions[0].dateTimeAfter
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].dateTimeBefore
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].duration.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].duration.negative
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.seconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: rules.transitions[0].duration.units[0].dateBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].durationEstimated
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].timeBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.zero
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].gap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].instant
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].overlap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: startDate.chronology.calendarType
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate.chronology.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: startDate.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.era
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - BCE
+          - CE
+      - name: startDate.leapYear
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: startDate.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: startDate.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDate.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.dayOfMonth
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: startDateTime.dayOfYear
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: startDateTime.monthValue
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: startDateTime.year
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ViewersDto'
+        description: viewersDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeetingDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meetings/{id}:
+    get:
+      tags:
+      - meeting-resource
+      summary: getMeeting
+      operationId: getMeetingUsingGET
+      parameters:
+      - name: id
+        in: query
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: rules.fixedOffset
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].dayOfMonthIndicator
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: rules.transitionRules[0].localTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].midnightEndOfDay
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: rules.transitionRules[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].standardOffset.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].standardOffset.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].timeDefinition
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANDARD
+          - UTC
+          - WALL
+      - name: rules.transitions[0].dateTimeAfter
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].dateTimeBefore
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].duration.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].duration.negative
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.seconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: rules.transitions[0].duration.units[0].dateBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].durationEstimated
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].timeBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.zero
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].gap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].instant
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].overlap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - meeting-resource
+      summary: deleteMeeting
+      operationId: deleteMeetingUsingDELETE
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    patch:
+      tags:
+      - meeting-resource
+      summary: patchMeeting
+      operationId: patchMeetingUsingPATCH
+      parameters:
+      - name: id
+        in: query
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: rules.fixedOffset
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].dayOfMonthIndicator
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: rules.transitionRules[0].localTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].midnightEndOfDay
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: rules.transitionRules[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].standardOffset.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].standardOffset.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].timeDefinition
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANDARD
+          - UTC
+          - WALL
+      - name: rules.transitions[0].dateTimeAfter
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].dateTimeBefore
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].duration.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].duration.negative
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.seconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: rules.transitions[0].duration.units[0].dateBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].durationEstimated
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].timeBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.zero
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].gap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].instant
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].overlap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeetingPatchRequest'
+        description: meetingPatch
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    MeetingPatchRequest:
+      type: object
+      title: MeetingPatchRequest
+    MeetingDto:
+      type: object
+      title: MeetingDto
+    MeetingRelevantDto:
+      type: object
+      title: MeetingRelevantDto
+    ViewersDto:
+      type: object
+      title: ViewersDto
+    MeetingMetadataDto:
+      type: object
+      title: MeetingMetadataDto
+    CreateMeetingRequest:
+      type: object
+      title: CreateMeetingRequest
+    DownloadableFileDto:
+      type: object
+      title: DownloadableFileDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

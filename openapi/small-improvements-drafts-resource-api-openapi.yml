@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource drafts-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: drafts-resource
+  description: Drafts Resource
+paths:
+  /v2/drafts:
+    get:
+      tags:
+      - drafts-resource
+      summary: query
+      operationId: queryUsingGET
+      parameters:
+      - name: date
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: identifier
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - ALL
+          - ANYTIME_FEEDBACK
+          - BOSS_EVALUATION
+          - COMMENT
+          - FEEDBACK
+          - GOALS
+          - OBJECTIVE
+          - REPLY
+          - SELF_ASSESSMENT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Draft'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - drafts-resource
+      summary: save
+      operationId: saveUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/DraftDto'
+        description: draftDto
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/drafts/{draftId}:
+    get:
+      tags:
+      - drafts-resource
+      summary: get
+      operationId: getUsingGET_5
+      parameters:
+      - name: draftId
+        in: path
+        description: draftId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Draft'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - drafts-resource
+      summary: delete
+      operationId: deleteUsingDELETE_2
+      parameters:
+      - name: draftId
+        in: path
+        description: draftId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    DraftDto:
+      type: object
+      title: DraftDto
+    Draft:
+      type: object
+      title: Draft
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

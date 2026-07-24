@@ -1,0 +1,206 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource unified-feedback-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: unified-feedback-resource
+  description: Unified Feedback Resource
+paths:
+  /v2/unified-feedback/details-you-provided/{id}:
+    get:
+      tags:
+      - unified-feedback-resource
+      summary: getFeedbackDetailsYouProvided
+      operationId: getFeedbackDetailsYouProvidedUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnifiedFeedbackDetailsDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/unified-feedback/details/{id}:
+    get:
+      tags:
+      - unified-feedback-resource
+      summary: getFeedback
+      operationId: getFeedbackUsingGET_1
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UnifiedFeedbackDetailsDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/unified-feedback/details/{id}/view-as/{view-as}:
+    get:
+      tags:
+      - unified-feedback-resource
+      summary: getFeedbackViewedAs
+      operationId: getFeedbackViewedAsUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: view-as
+        in: path
+        description: view-as
+        required: true
+        schema:
+          type: string
+          enum:
+          - DIRECT_MANAGER
+          - HR
+          - INDIRECT_MANAGER
+          - REVIEWEE
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UnifiedFeedbackDetailsDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/unified-feedback/someones/{revieweeId}:
+    get:
+      tags:
+      - unified-feedback-resource
+      summary: getSomeonesFeedback
+      operationId: getSomeonesFeedbackUsingGET
+      parameters:
+      - name: from
+        in: query
+        description: from
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: revieweeId
+        in: path
+        description: revieweeId
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        description: to
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnifiedFeedbackDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/unified-feedback/you-provided:
+    get:
+      tags:
+      - unified-feedback-resource
+      summary: getFeedbackYouProvided
+      operationId: getFeedbackYouProvidedUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnifiedFeedbackDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/unified-feedback/your:
+    get:
+      tags:
+      - unified-feedback-resource
+      summary: getYourFeedback
+      operationId: getYourFeedbackUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnifiedFeedbackDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    UnifiedFeedbackDetailsDto:
+      type: object
+      title: UnifiedFeedbackDetailsDto
+    UnifiedFeedbackDto:
+      type: object
+      title: UnifiedFeedbackDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

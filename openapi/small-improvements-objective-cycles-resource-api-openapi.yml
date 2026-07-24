@@ -1,0 +1,396 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource objective-cycles-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: objective-cycles-resource
+  description: Objective Cycles Resource
+paths:
+  /v2/objective-cycles:
+    get:
+      tags:
+      - objective-cycles-resource
+      summary: list
+      operationId: listUsingGET_3
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObjectiveCycleDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/guided/create:
+    post:
+      tags:
+      - objective-cycles-resource
+      summary: createObjectiveCycleGuided
+      operationId: createObjectiveCycleGuidedUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/ObjectiveCycleGuidedDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveCycleDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/guided/edit:
+    post:
+      tags:
+      - objective-cycles-resource
+      summary: editObjectiveCycleGuided
+      operationId: editObjectiveCycleGuidedUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/ObjectiveCycleGuidedDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveCycleDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/guided/{cycleId}:
+    get:
+      tags:
+      - objective-cycles-resource
+      summary: getObjectiveCycleGuided
+      operationId: getObjectiveCycleGuidedUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveCycleGuidedDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}:
+    get:
+      tags:
+      - objective-cycles-resource
+      summary: get
+      operationId: getUsingGET_9
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveCycleDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - objective-cycles-resource
+      summary: delete
+      operationId: deleteUsingDELETE_9
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/objective-cycles/{cycleId}/archive:
+    put:
+      tags:
+      - objective-cycles-resource
+      summary: archive
+      operationId: archiveUsingPUT_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveCycleDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/bulk-inform:
+    post:
+      tags:
+      - objective-cycles-resource
+      summary: bulkNotify
+      operationId: bulkNotifyUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/editFeedbackCycleAdminsUsingPOSTUserids'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveCycleDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/nudge-user:
+    post:
+      tags:
+      - objective-cycles-resource
+      summary: nudgeUser
+      operationId: nudgeUserUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: query
+        description: userId
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/permissions:
+    post:
+      tags:
+      - objective-cycles-resource
+      summary: addRestriction
+      operationId: addRestrictionUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/editFeedbackCycleAdminsUsingPOSTUserids'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - objective-cycles-resource
+      summary: setRestriction
+      operationId: setRestrictionUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        description: userIds
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/permissions/{userId}:
+    delete:
+      tags:
+      - objective-cycles-resource
+      summary: deleteRestriction
+      operationId: deleteRestrictionUsingDELETE
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/objective-cycles/{cycleId}/unarchive:
+    put:
+      tags:
+      - objective-cycles-resource
+      summary: unarchive
+      operationId: unarchiveUsingPUT_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveCycleDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    ObjectiveCycleDto:
+      type: object
+      title: ObjectiveCycleDto
+    ObjectiveCycleGuidedDto:
+      type: object
+      title: ObjectiveCycleGuidedDto
+  requestBodies:
+    editFeedbackCycleAdminsUsingPOSTUserids:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: userIds
+      required: true
+    ObjectiveCycleGuidedDto:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ObjectiveCycleGuidedDto'
+      description: objectiveCycleGuidedDto
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

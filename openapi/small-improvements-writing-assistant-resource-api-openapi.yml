@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource writing-assistant-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: writing-assistant-resource
+  description: Writing Assistant Resource
+paths:
+  /v2/writing-assistant:
+    post:
+      tags:
+      - writing-assistant-resource
+      summary: prompt
+      operationId: promptUsingPOST_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WritingAssistantRequest'
+        description: request
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptResponse'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/writing-assistant/tokens:
+    get:
+      tags:
+      - writing-assistant-resource
+      summary: getAllowedRequests
+      operationId: getAllowedRequestsUsingGET_1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    WritingAssistantRequest:
+      type: object
+      title: WritingAssistantRequest
+    PromptResponse:
+      type: object
+      title: PromptResponse
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

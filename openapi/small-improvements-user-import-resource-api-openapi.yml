@@ -1,0 +1,444 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource user-import-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: user-import-resource
+  description: User Import Resource
+paths:
+  /v2/user-import/CSV:
+    post:
+      tags:
+      - user-import-resource
+      summary: importUsersCsv
+      operationId: importUsersCsvUsingPOST
+      parameters:
+      - name: company
+        in: query
+        description: company
+        required: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/importUsersCsvUsingPOSTData'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/GOOGLE_APPS:
+    post:
+      tags:
+      - user-import-resource
+      summary: importGoogleAppsUsers
+      operationId: importGoogleAppsUsersUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/importUsersCsvUsingPOSTData'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/GOOGLE_APPS/preview:
+    post:
+      tags:
+      - user-import-resource
+      summary: createGoogleAppsPreview
+      operationId: createGoogleAppsPreviewUsingPOST
+      parameters:
+      - name: company
+        in: query
+        description: company
+        required: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/importUsersCsvUsingPOSTData'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/GOOGLE_APPS/preview/{id}:
+    get:
+      tags:
+      - user-import-resource
+      summary: getGoogleAppsPreview
+      operationId: getGoogleAppsPreviewUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserImportPreview'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/GOOGLE_APPS/simulate:
+    post:
+      tags:
+      - user-import-resource
+      summary: simulateGoogleAppsImportUser
+      operationId: simulateGoogleAppsImportUserUsingPOST
+      parameters:
+      - name: company
+        in: query
+        description: company
+        required: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/importUsersCsvUsingPOSTData'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SimulationDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/GOOGLE_APPS/simulation/{id}:
+    get:
+      tags:
+      - user-import-resource
+      summary: getSimulationGoogleApps
+      operationId: getSimulationGoogleAppsUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SimulationDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/GOOGLE_APPS/simulations:
+    get:
+      tags:
+      - user-import-resource
+      summary: getSimulationOverviewListGoogleApps
+      operationId: getSimulationOverviewListGoogleAppsUsingGET
+      parameters:
+      - name: company
+        in: query
+        description: company
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimulationOverviewDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/{type}:
+    post:
+      tags:
+      - user-import-resource
+      summary: importUsers
+      operationId: importUsersUsingPOST
+      parameters:
+      - name: type
+        in: path
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - BAMBOO
+          - CSV
+          - GOOGLE_APPS
+          - NAMELY
+          - PERSONIO
+          - SAPLING
+      requestBody:
+        $ref: '#/components/requestBodies/importUsersCsvUsingPOSTData'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/{type}/preview:
+    post:
+      tags:
+      - user-import-resource
+      summary: createPreview
+      operationId: createPreviewUsingPOST
+      parameters:
+      - name: company
+        in: query
+        description: company
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: path
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - BAMBOO
+          - CSV
+          - GOOGLE_APPS
+          - NAMELY
+          - PERSONIO
+          - SAPLING
+      requestBody:
+        $ref: '#/components/requestBodies/importUsersCsvUsingPOSTData'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/{type}/preview/{id}:
+    get:
+      tags:
+      - user-import-resource
+      summary: getPreview
+      operationId: getPreviewUsingGET_5
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserImportPreview'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/{type}/simulate:
+    post:
+      tags:
+      - user-import-resource
+      summary: simulateImportUser
+      operationId: simulateImportUserUsingPOST
+      parameters:
+      - name: company
+        in: query
+        description: company
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: path
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - BAMBOO
+          - CSV
+          - GOOGLE_APPS
+          - NAMELY
+          - PERSONIO
+          - SAPLING
+      requestBody:
+        $ref: '#/components/requestBodies/importUsersCsvUsingPOSTData'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SimulationDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/{type}/simulation/{id}:
+    get:
+      tags:
+      - user-import-resource
+      summary: getSimulation
+      operationId: getSimulationUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SimulationDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import/{type}/simulations:
+    get:
+      tags:
+      - user-import-resource
+      summary: getSimulationOverviewList
+      operationId: getSimulationOverviewListUsingGET
+      parameters:
+      - name: company
+        in: query
+        description: company
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: path
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - BAMBOO
+          - CSV
+          - GOOGLE_APPS
+          - NAMELY
+          - PERSONIO
+          - SAPLING
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SimulationOverviewDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    SimulationOverviewDto:
+      type: object
+      title: SimulationOverviewDto
+    SimulationDto:
+      type: object
+      title: SimulationDto
+    UserImportPreview:
+      type: object
+      title: UserImportPreview
+  requestBodies:
+    importUsersCsvUsingPOSTData:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: data
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

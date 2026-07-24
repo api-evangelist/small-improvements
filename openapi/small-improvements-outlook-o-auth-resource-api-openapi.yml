@@ -1,0 +1,91 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource outlook-o-auth-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: outlook-o-auth-resource
+  description: Outlook O Auth Resource
+paths:
+  /v2/outlook/oauth/authorize:
+    get:
+      tags:
+      - outlook-o-auth-resource
+      summary: authorizeAdmin
+      operationId: authorizeAdminUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RedirectView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/outlook/oauth/callback:
+    get:
+      tags:
+      - outlook-o-auth-resource
+      summary: adminConsentCallback
+      operationId: adminConsentCallbackUsingGET
+      parameters:
+      - name: error
+        in: query
+        description: error
+        required: false
+        schema:
+          type: string
+      - name: error_description
+        in: query
+        description: error_description
+        required: false
+        schema:
+          type: string
+      - name: state
+        in: query
+        description: state
+        required: false
+        schema:
+          type: string
+      - name: tenant
+        in: query
+        description: tenant
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RedirectView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    RedirectView:
+      type: object
+      title: RedirectView
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

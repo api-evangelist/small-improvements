@@ -1,0 +1,82 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource review-cycle-import-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: review-cycle-import-resource
+  description: Review Cycle Import Resource
+paths:
+  /v2/review-cycle/import:
+    post:
+      tags:
+      - review-cycle-import-resource
+      summary: importCycle
+      operationId: importCycleUsingPOST
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                targetCompany.id:
+                  type: string
+                dateFormat:
+                  type: string
+                hrUserTargetCompany.id:
+                  type: string
+                csv:
+                  type: string
+                  format: binary
+                cycleName:
+                  type: string
+                columnMapping:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - COMPLETED
+                    - REVIEWEE_ANSWER
+                    - REVIEWEE_ANSWER_COMMENT
+                    - REVIEWEE_EMAIL
+                    - REVIEWEE_FIRST_NAME
+                    - REVIEWEE_LAST_EDITED
+                    - REVIEWEE_LAST_NAME
+                    - REVIEWEE_QUESTION
+                    - REVIEWEE_SHARED
+                    - REVIEWEE_SIGNED
+                    - REVIEWER_ANSWER
+                    - REVIEWER_ANSWER_COMMENT
+                    - REVIEWER_CONFIDENTIAL_QUESTION
+                    - REVIEWER_EMAIL
+                    - REVIEWER_LAST_EDITED
+                    - REVIEWER_QUESTION
+                    - REVIEWER_SHARED
+                    - REVIEWER_SIGNED
+                    - SKIP
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

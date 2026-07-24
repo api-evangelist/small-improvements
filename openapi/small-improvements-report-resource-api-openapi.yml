@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource report-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: report-resource
+  description: Report Resource
+paths:
+  /v2/reports/{reportType}:
+    get:
+      tags:
+      - report-resource
+      summary: getReportSubscription
+      operationId: getReportSubscriptionUsingGET
+      parameters:
+      - name: reportType
+        in: path
+        description: reportType
+        required: true
+        schema:
+          type: string
+          enum:
+          - ADMIN_REPORT
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReportSubscription'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - report-resource
+      summary: createReportSubscription
+      operationId: createReportSubscriptionUsingPUT
+      parameters:
+      - name: reportType
+        in: path
+        description: reportType
+        required: true
+        schema:
+          type: string
+          enum:
+          - ADMIN_REPORT
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              type: object
+        description: configurationMap
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReportSubscription'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - report-resource
+      summary: deleteReportSubscription
+      operationId: deleteReportSubscriptionUsingDELETE
+      parameters:
+      - name: reportType
+        in: path
+        description: reportType
+        required: true
+        schema:
+          type: string
+          enum:
+          - ADMIN_REPORT
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    ReportSubscription:
+      type: object
+      title: ReportSubscription
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

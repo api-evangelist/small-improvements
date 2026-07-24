@@ -1,0 +1,1017 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource objectives-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: objectives-resource
+  description: Objectives Resource
+paths:
+  /v2/objective-cycles/all/objectives/browse-view:
+    get:
+      tags:
+      - objectives-resource
+      summary: browseView
+      operationId: browseViewUsingGET
+      parameters:
+      - name: allUsers
+        in: query
+        description: allUsers
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: cycleIds
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: ownerIds
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: sortKey
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BrowserView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/all/objectives/relevant:
+    get:
+      tags:
+      - objectives-resource
+      summary: listAllRelevant
+      operationId: listAllRelevantUsingGET
+      parameters:
+      - name: endDate
+        in: query
+        description: endDate
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: startDate
+        in: query
+        description: startDate
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: userId
+        in: query
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClippyView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/objectives:
+    get:
+      tags:
+      - objectives-resource
+      summary: list
+      operationId: listUsingGET_4
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: query
+        description: userId
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BrowserView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - objectives-resource
+      summary: createObjective
+      operationId: createObjectiveUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ObjectiveDTO'
+        description: dto
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/objectives/changeWeightings:
+    post:
+      tags:
+      - objectives-resource
+      summary: bulkChangeWeighting
+      operationId: bulkChangeWeightingUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              type: object
+              additionalProperties:
+                type: integer
+                format: int32
+        description: weightingByObjectiveId
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObjectiveView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/objectives/view:
+    get:
+      tags:
+      - objectives-resource
+      summary: listView
+      operationId: listViewUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: query
+        description: userId
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObjectiveView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/objectives/{id}:
+    get:
+      tags:
+      - objectives-resource
+      summary: get
+      operationId: getUsingGET_12
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - objectives-resource
+      summary: editObjective
+      operationId: editObjectiveUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectiveDTO'
+        description: dto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - objectives-resource
+      summary: delete
+      operationId: deleteUsingDELETE_10
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/objective-cycles/{cycleId}/objectives/{id}/changeCompletionPercentage:
+    post:
+      tags:
+      - objectives-resource
+      summary: changeCompletionPercentage
+      operationId: changeCompletionPercentageUsingPOST
+      parameters:
+      - name: completionPercentage
+        in: query
+        description: completionPercentage
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/objectives/{id}/changeCycle:
+    post:
+      tags:
+      - objectives-resource
+      summary: changeCycle
+      operationId: changeCycleUsingPOST
+      parameters:
+      - name: copy
+        in: query
+        description: copy
+        required: false
+        schema:
+          type: boolean
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: newCycleId
+        in: query
+        description: newCycleId
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/objectives/{id}/changeRating:
+    post:
+      tags:
+      - objectives-resource
+      summary: changeRating
+      operationId: changeRatingUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: rating
+        in: query
+        description: rating
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/objectives/{id}/changeStatus:
+    post:
+      tags:
+      - objectives-resource
+      summary: changeStatus
+      operationId: changeStatusUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: status
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/objectives/{id}/messages:
+    post:
+      tags:
+      - objectives-resource
+      summary: createMessage
+      operationId: createMessageUsingPOST_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/MiniCommentView'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CommentView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/objectives/{id}/nudge:
+    post:
+      tags:
+      - objectives-resource
+      summary: nudge
+      operationId: nudgeUsingPOST_2
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-preview/{id}:
+    get:
+      tags:
+      - objectives-resource
+      summary: get
+      operationId: getUsingGET_11
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectivePreviewDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective/{id}:
+    get:
+      tags:
+      - objectives-resource
+      summary: getFromId
+      operationId: getFromIdUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objectives/comment-counts:
+    post:
+      tags:
+      - objectives-resource
+      summary: getCommentCounts
+      operationId: getCommentCountsUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              type: array
+              items:
+                type: string
+        description: objectiveIds
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommentCountView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objectives/preview/{id}:
+    get:
+      tags:
+      - objectives-resource
+      summary: getPreview
+      operationId: getPreviewUsingGET_3
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectivePreviewWithStatus'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objectives/{id}/activities:
+    get:
+      tags:
+      - objectives-resource
+      summary: activities
+      operationId: activitiesUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AuditRecordMiniDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objectives/{id}/messages:
+    get:
+      tags:
+      - objectives-resource
+      summary: getComments
+      operationId: getCommentsUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommentView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - objectives-resource
+      summary: createMessageWithoutCycleId
+      operationId: createMessageWithoutCycleIdUsingPOST
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/MiniCommentView'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CommentView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objectives/{id}/messages/{messageId}:
+    put:
+      tags:
+      - objectives-resource
+      summary: editComment
+      operationId: editCommentUsingPUT
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectiveCommentEditTextDTO'
+        description: dto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CommentView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - objectives-resource
+      summary: updateVisibleToPermissions
+      operationId: updateVisibleToPermissionsUsingDELETE
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/objectives/{id}/messages/{messageId}/downvote:
+    post:
+      tags:
+      - objectives-resource
+      summary: downvote
+      operationId: downvoteUsingPOST_1
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CommentView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objectives/{id}/messages/{messageId}/upvote:
+    post:
+      tags:
+      - objectives-resource
+      summary: upvote
+      operationId: upvoteUsingPOST_1
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CommentView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objectives/{id}/messages/{messageId}/visibleTo:
+    put:
+      tags:
+      - objectives-resource
+      summary: updateVisibleToPermissions
+      operationId: updateVisibleToPermissionsUsingPUT_1
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/UserIdHolderArray'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CommentView'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  requestBodies:
+    UserIdHolderArray:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserIdHolder'
+      description: users
+      required: true
+    MiniCommentView:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/MiniCommentView'
+      description: dto
+      required: true
+  schemas:
+    ObjectiveDTO:
+      type: object
+      title: ObjectiveDTO
+    ObjectiveView:
+      type: object
+      title: ObjectiveView
+    ClippyView:
+      type: object
+      title: ClippyView
+    CommentCountView:
+      type: object
+      title: CommentCountView
+    CommentView:
+      type: object
+      title: CommentView
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+    ObjectivePreviewDTO:
+      type: object
+      title: ObjectivePreviewDTO
+    ObjectiveCommentEditTextDTO:
+      type: object
+      title: ObjectiveCommentEditTextDTO
+    ObjectivePreviewWithStatus:
+      type: object
+      title: ObjectivePreviewWithStatus
+    BrowserView:
+      type: object
+      title: BrowserView
+    AuditRecordMiniDto:
+      type: object
+      title: AuditRecordMiniDto
+    MiniCommentView:
+      type: object
+      title: MiniCommentView
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

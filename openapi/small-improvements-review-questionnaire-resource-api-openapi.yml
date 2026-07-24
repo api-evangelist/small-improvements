@@ -1,0 +1,168 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource review-questionnaire-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: review-questionnaire-resource
+  description: Review Questionnaire Resource
+paths:
+  /v2/review-questionnaire:
+    get:
+      tags:
+      - review-questionnaire-resource
+      summary: list
+      operationId: listUsingGET_7
+      parameters:
+      - name: includeArchived
+        in: query
+        description: includeArchived
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DtoEntity_QuestionnaireDto_ReviewQuestionnaire_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - review-questionnaire-resource
+      summary: create
+      operationId: createUsingPOST_5
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/QuestionnaireDto'
+        description: questionnaireDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DtoEntity_QuestionnaireDto_ReviewQuestionnaire_'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-questionnaire/{id}:
+    get:
+      tags:
+      - review-questionnaire-resource
+      summary: get
+      operationId: getUsingGET_17
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DtoEntity_QuestionnaireDto_ReviewQuestionnaire_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - review-questionnaire-resource
+      summary: update
+      operationId: updateUsingPUT_1
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuestionnaireDto'
+        description: questionnaireDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DtoEntity_QuestionnaireDto_ReviewQuestionnaire_'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - review-questionnaire-resource
+      summary: delete
+      operationId: deleteUsingDELETE_15
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    DtoEntity_QuestionnaireDto_ReviewQuestionnaire_:
+      type: object
+      title: DtoEntity«QuestionnaireDto,ReviewQuestionnaire»
+    QuestionnaireDto:
+      type: object
+      title: QuestionnaireDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

@@ -1,0 +1,582 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource email-templates-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: email-templates-resource
+  description: Email Templates Resource
+paths:
+  /v2/email-templates:
+    get:
+      tags:
+      - email-templates-resource
+      summary: getByIds
+      operationId: getByIdsUsingGET_1
+      parameters:
+      - name: feedbackCycleId
+        in: query
+        description: feedbackCycleId
+        required: false
+        schema:
+          type: string
+      - name: moduleType
+        in: query
+        description: moduleType
+        required: false
+        schema:
+          type: string
+          enum:
+          - ANYTIME_FEEDBACK
+          - APP
+          - FEEDBACK
+          - MEETING
+          - MESSAGE
+          - OBJECTIVE
+          - PRAISE
+          - PULSE_SURVEY
+          - REVIEW
+          - USER
+      - name: reviewCycleId
+        in: query
+        description: reviewCycleId
+        required: false
+        schema:
+          type: string
+      - name: types
+        in: query
+        description: types
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWEES
+            - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWERS
+            - ANYTIME_FEEDBACK_INVITATION_ABOUT_OTHERS
+            - ANYTIME_FEEDBACK_INVITATION_ABOUT_SELF
+            - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS
+            - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_SELF
+            - ANYTIME_FEEDBACK_REQUESTED_ABOUT_YOU
+            - ANYTIME_FEEDBACK_SELF_REFLECTION
+            - ANYTIME_FEEDBACK_SHARED_WITH_REPORT
+            - ANYTIME_FEEDBACK_SHARED_WITH_YOU
+            - CONFIRM_EMAIL
+            - FEEDBACK_RELEASED_DAILY_NOTIFICATION
+            - FEEDBACK_RELEASED_DAILY_NOTIFICATION_TO_MANAGERS
+            - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NOTIFICATION
+            - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NUDGE
+            - FEEDBACK_REQUEST_INFORM_MANAGER_TO_NOMINATE
+            - FEEDBACK_REQUEST_INSTRUCTION_REVIEWEE
+            - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEEDBACK_MANAGER
+            - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEED_BACK
+            - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASING_FEED_BACK_SOON
+            - FEEDBACK_REQUEST_NOTIFY_MANAGER_ABOUT_NOMINATIONS
+            - FEEDBACK_REQUEST_NUDGE_MANAGER
+            - FEEDBACK_REQUEST_NUDGE_REVIEWEE
+            - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NOTIFICATION
+            - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NUDGE
+            - FEEDBACK_REQUEST_PARTICIPANT_DECLINED
+            - FEEDBACK_REQUEST_PARTICIPANT_DECLINED__REVIEWEE
+            - GUEST_INVITED
+            - INFORM_MANAGER_ABOUT_NEW_REPORTS
+            - MEETING_NUDGE
+            - MESSAGE_CHANGED_BY_NON_AUTHOR
+            - MESSAGE_NOTIFICATION
+            - NOTIFY_ADMIN_TO_REVIEW_FEEDBACK_CYCLE_AFTER_REVIEWER_SELECTION_DEADLINE_PASSED
+            - NUDGE_EMPLOYEE_TO_PROVIDE_SELF_ASSESSMENT
+            - NUDGE_EMPLOYEE_TO_PROVIDE_SINGLE_FEEDBACK
+            - OBJECTIVES_DUE
+            - OBJECTIVES_NUDGE_EMPLOYEE
+            - OBJECTIVES_NUDGE_EMPLOYEE_ABOUT_OBJECTIVE
+            - OBJECTIVES_NUDGE_INITIAL
+            - OBJECTIVES_NUDGE_MANAGER
+            - OBJECTIVES_NUDGE_MANAGER_INITIAL
+            - OBJECTIVE_UPDATE_FOR_MANAGER
+            - OBJECTIVE_UPDATE_FOR_USER
+            - PASSWORD_CHANGED
+            - PASSWORD_CHANGE_INSTRUCTIONS
+            - PASSWORD_RESET
+            - PASSWORD_WELCOME_INSTRUCTIONS
+            - PRAISE_CHANGED_BY_NON_AUTHOR
+            - PRAISE_NOTIFICATION
+            - PRAISE_NOTIFY_MANAGER
+            - REVIEW_CHANGED_BY_MANAGER
+            - REVIEW_CHANGED_BY_REVIEWEE
+            - REVIEW_HID_BY_EMPLOYEE
+            - REVIEW_HID_BY_MANAGER
+            - REVIEW_INDICATED_BY_MANAGER
+            - REVIEW_INFORM_CUSTOM_REVIEWER_UNSPECIFIC
+            - REVIEW_INFORM_MANAGER_UNSPECIFIC
+            - REVIEW_INFORM_SECONDARY_REVIEWER_NUDGE_MANAGER
+            - REVIEW_INFORM_SECONDARY_REVIEWER_UNSPECIFIC
+            - REVIEW_INFORM_TEAM_MEMBER
+            - REVIEW_NUDGE_MANAGER
+            - REVIEW_NUDGE_MANAGER_UNSPECIFIC
+            - REVIEW_NUDGE_REPORT
+            - REVIEW_NUDGE_SECONDARY_REVIEWER_UNSPECIFIC
+            - REVIEW_SHARE_WITH_EMPLOYEE
+            - REVIEW_SHARE_WITH_MANAGER
+            - REVIEW_SIGNED_BY_MANAGER
+            - REVIEW_SIGNED_BY_REPORT
+            - SURVEY_NOTIFICATION
+            - USER_DIGEST
+            - USER_INVITED
+            - USER_PROFILE_NUDGE
+          enum:
+          - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWEES
+          - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWERS
+          - ANYTIME_FEEDBACK_INVITATION_ABOUT_OTHERS
+          - ANYTIME_FEEDBACK_INVITATION_ABOUT_SELF
+          - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS
+          - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_SELF
+          - ANYTIME_FEEDBACK_REQUESTED_ABOUT_YOU
+          - ANYTIME_FEEDBACK_SELF_REFLECTION
+          - ANYTIME_FEEDBACK_SHARED_WITH_REPORT
+          - ANYTIME_FEEDBACK_SHARED_WITH_YOU
+          - CONFIRM_EMAIL
+          - FEEDBACK_RELEASED_DAILY_NOTIFICATION
+          - FEEDBACK_RELEASED_DAILY_NOTIFICATION_TO_MANAGERS
+          - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NOTIFICATION
+          - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NUDGE
+          - FEEDBACK_REQUEST_INFORM_MANAGER_TO_NOMINATE
+          - FEEDBACK_REQUEST_INSTRUCTION_REVIEWEE
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEEDBACK_MANAGER
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEED_BACK
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASING_FEED_BACK_SOON
+          - FEEDBACK_REQUEST_NOTIFY_MANAGER_ABOUT_NOMINATIONS
+          - FEEDBACK_REQUEST_NUDGE_MANAGER
+          - FEEDBACK_REQUEST_NUDGE_REVIEWEE
+          - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NOTIFICATION
+          - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NUDGE
+          - FEEDBACK_REQUEST_PARTICIPANT_DECLINED
+          - FEEDBACK_REQUEST_PARTICIPANT_DECLINED__REVIEWEE
+          - GUEST_INVITED
+          - INFORM_MANAGER_ABOUT_NEW_REPORTS
+          - MEETING_NUDGE
+          - MESSAGE_CHANGED_BY_NON_AUTHOR
+          - MESSAGE_NOTIFICATION
+          - NOTIFY_ADMIN_TO_REVIEW_FEEDBACK_CYCLE_AFTER_REVIEWER_SELECTION_DEADLINE_PASSED
+          - NUDGE_EMPLOYEE_TO_PROVIDE_SELF_ASSESSMENT
+          - NUDGE_EMPLOYEE_TO_PROVIDE_SINGLE_FEEDBACK
+          - OBJECTIVES_DUE
+          - OBJECTIVES_NUDGE_EMPLOYEE
+          - OBJECTIVES_NUDGE_EMPLOYEE_ABOUT_OBJECTIVE
+          - OBJECTIVES_NUDGE_INITIAL
+          - OBJECTIVES_NUDGE_MANAGER
+          - OBJECTIVES_NUDGE_MANAGER_INITIAL
+          - OBJECTIVE_UPDATE_FOR_MANAGER
+          - OBJECTIVE_UPDATE_FOR_USER
+          - PASSWORD_CHANGED
+          - PASSWORD_CHANGE_INSTRUCTIONS
+          - PASSWORD_RESET
+          - PASSWORD_WELCOME_INSTRUCTIONS
+          - PRAISE_CHANGED_BY_NON_AUTHOR
+          - PRAISE_NOTIFICATION
+          - PRAISE_NOTIFY_MANAGER
+          - REVIEW_CHANGED_BY_MANAGER
+          - REVIEW_CHANGED_BY_REVIEWEE
+          - REVIEW_HID_BY_EMPLOYEE
+          - REVIEW_HID_BY_MANAGER
+          - REVIEW_INDICATED_BY_MANAGER
+          - REVIEW_INFORM_CUSTOM_REVIEWER_UNSPECIFIC
+          - REVIEW_INFORM_MANAGER_UNSPECIFIC
+          - REVIEW_INFORM_SECONDARY_REVIEWER_NUDGE_MANAGER
+          - REVIEW_INFORM_SECONDARY_REVIEWER_UNSPECIFIC
+          - REVIEW_INFORM_TEAM_MEMBER
+          - REVIEW_NUDGE_MANAGER
+          - REVIEW_NUDGE_MANAGER_UNSPECIFIC
+          - REVIEW_NUDGE_REPORT
+          - REVIEW_NUDGE_SECONDARY_REVIEWER_UNSPECIFIC
+          - REVIEW_SHARE_WITH_EMPLOYEE
+          - REVIEW_SHARE_WITH_MANAGER
+          - REVIEW_SIGNED_BY_MANAGER
+          - REVIEW_SIGNED_BY_REPORT
+          - SURVEY_NOTIFICATION
+          - USER_DIGEST
+          - USER_INVITED
+          - USER_PROFILE_NUDGE
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EmailTemplateDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/email-templates/preview:
+    post:
+      tags:
+      - email-templates-resource
+      summary: renderPreview
+      operationId: renderPreviewUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateDto'
+        description: emailTemplateDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/EmailTemplatePreview'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/email-templates/preview/{type}:
+    get:
+      tags:
+      - email-templates-resource
+      summary: getPreview
+      operationId: getPreviewUsingGET_1
+      parameters:
+      - name: feedbackCycleId
+        in: query
+        description: feedbackCycleId
+        required: false
+        schema:
+          type: string
+      - name: reviewCycleId
+        in: query
+        description: reviewCycleId
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: path
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWEES
+          - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWERS
+          - ANYTIME_FEEDBACK_INVITATION_ABOUT_OTHERS
+          - ANYTIME_FEEDBACK_INVITATION_ABOUT_SELF
+          - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS
+          - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_SELF
+          - ANYTIME_FEEDBACK_REQUESTED_ABOUT_YOU
+          - ANYTIME_FEEDBACK_SELF_REFLECTION
+          - ANYTIME_FEEDBACK_SHARED_WITH_REPORT
+          - ANYTIME_FEEDBACK_SHARED_WITH_YOU
+          - CONFIRM_EMAIL
+          - FEEDBACK_RELEASED_DAILY_NOTIFICATION
+          - FEEDBACK_RELEASED_DAILY_NOTIFICATION_TO_MANAGERS
+          - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NOTIFICATION
+          - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NUDGE
+          - FEEDBACK_REQUEST_INFORM_MANAGER_TO_NOMINATE
+          - FEEDBACK_REQUEST_INSTRUCTION_REVIEWEE
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEEDBACK_MANAGER
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEED_BACK
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASING_FEED_BACK_SOON
+          - FEEDBACK_REQUEST_NOTIFY_MANAGER_ABOUT_NOMINATIONS
+          - FEEDBACK_REQUEST_NUDGE_MANAGER
+          - FEEDBACK_REQUEST_NUDGE_REVIEWEE
+          - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NOTIFICATION
+          - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NUDGE
+          - FEEDBACK_REQUEST_PARTICIPANT_DECLINED
+          - FEEDBACK_REQUEST_PARTICIPANT_DECLINED__REVIEWEE
+          - GUEST_INVITED
+          - INFORM_MANAGER_ABOUT_NEW_REPORTS
+          - MEETING_NUDGE
+          - MESSAGE_CHANGED_BY_NON_AUTHOR
+          - MESSAGE_NOTIFICATION
+          - NOTIFY_ADMIN_TO_REVIEW_FEEDBACK_CYCLE_AFTER_REVIEWER_SELECTION_DEADLINE_PASSED
+          - NUDGE_EMPLOYEE_TO_PROVIDE_SELF_ASSESSMENT
+          - NUDGE_EMPLOYEE_TO_PROVIDE_SINGLE_FEEDBACK
+          - OBJECTIVES_DUE
+          - OBJECTIVES_NUDGE_EMPLOYEE
+          - OBJECTIVES_NUDGE_EMPLOYEE_ABOUT_OBJECTIVE
+          - OBJECTIVES_NUDGE_INITIAL
+          - OBJECTIVES_NUDGE_MANAGER
+          - OBJECTIVES_NUDGE_MANAGER_INITIAL
+          - OBJECTIVE_UPDATE_FOR_MANAGER
+          - OBJECTIVE_UPDATE_FOR_USER
+          - PASSWORD_CHANGED
+          - PASSWORD_CHANGE_INSTRUCTIONS
+          - PASSWORD_RESET
+          - PASSWORD_WELCOME_INSTRUCTIONS
+          - PRAISE_CHANGED_BY_NON_AUTHOR
+          - PRAISE_NOTIFICATION
+          - PRAISE_NOTIFY_MANAGER
+          - REVIEW_CHANGED_BY_MANAGER
+          - REVIEW_CHANGED_BY_REVIEWEE
+          - REVIEW_HID_BY_EMPLOYEE
+          - REVIEW_HID_BY_MANAGER
+          - REVIEW_INDICATED_BY_MANAGER
+          - REVIEW_INFORM_CUSTOM_REVIEWER_UNSPECIFIC
+          - REVIEW_INFORM_MANAGER_UNSPECIFIC
+          - REVIEW_INFORM_SECONDARY_REVIEWER_NUDGE_MANAGER
+          - REVIEW_INFORM_SECONDARY_REVIEWER_UNSPECIFIC
+          - REVIEW_INFORM_TEAM_MEMBER
+          - REVIEW_NUDGE_MANAGER
+          - REVIEW_NUDGE_MANAGER_UNSPECIFIC
+          - REVIEW_NUDGE_REPORT
+          - REVIEW_NUDGE_SECONDARY_REVIEWER_UNSPECIFIC
+          - REVIEW_SHARE_WITH_EMPLOYEE
+          - REVIEW_SHARE_WITH_MANAGER
+          - REVIEW_SIGNED_BY_MANAGER
+          - REVIEW_SIGNED_BY_REPORT
+          - SURVEY_NOTIFICATION
+          - USER_DIGEST
+          - USER_INVITED
+          - USER_PROFILE_NUDGE
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/EmailTemplatePreview'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/email-templates/{type}:
+    put:
+      tags:
+      - email-templates-resource
+      summary: saveTemplate
+      operationId: saveTemplateUsingPUT
+      parameters:
+      - name: type
+        in: path
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWEES
+          - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWERS
+          - ANYTIME_FEEDBACK_INVITATION_ABOUT_OTHERS
+          - ANYTIME_FEEDBACK_INVITATION_ABOUT_SELF
+          - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS
+          - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_SELF
+          - ANYTIME_FEEDBACK_REQUESTED_ABOUT_YOU
+          - ANYTIME_FEEDBACK_SELF_REFLECTION
+          - ANYTIME_FEEDBACK_SHARED_WITH_REPORT
+          - ANYTIME_FEEDBACK_SHARED_WITH_YOU
+          - CONFIRM_EMAIL
+          - FEEDBACK_RELEASED_DAILY_NOTIFICATION
+          - FEEDBACK_RELEASED_DAILY_NOTIFICATION_TO_MANAGERS
+          - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NOTIFICATION
+          - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NUDGE
+          - FEEDBACK_REQUEST_INFORM_MANAGER_TO_NOMINATE
+          - FEEDBACK_REQUEST_INSTRUCTION_REVIEWEE
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEEDBACK_MANAGER
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEED_BACK
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASING_FEED_BACK_SOON
+          - FEEDBACK_REQUEST_NOTIFY_MANAGER_ABOUT_NOMINATIONS
+          - FEEDBACK_REQUEST_NUDGE_MANAGER
+          - FEEDBACK_REQUEST_NUDGE_REVIEWEE
+          - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NOTIFICATION
+          - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NUDGE
+          - FEEDBACK_REQUEST_PARTICIPANT_DECLINED
+          - FEEDBACK_REQUEST_PARTICIPANT_DECLINED__REVIEWEE
+          - GUEST_INVITED
+          - INFORM_MANAGER_ABOUT_NEW_REPORTS
+          - MEETING_NUDGE
+          - MESSAGE_CHANGED_BY_NON_AUTHOR
+          - MESSAGE_NOTIFICATION
+          - NOTIFY_ADMIN_TO_REVIEW_FEEDBACK_CYCLE_AFTER_REVIEWER_SELECTION_DEADLINE_PASSED
+          - NUDGE_EMPLOYEE_TO_PROVIDE_SELF_ASSESSMENT
+          - NUDGE_EMPLOYEE_TO_PROVIDE_SINGLE_FEEDBACK
+          - OBJECTIVES_DUE
+          - OBJECTIVES_NUDGE_EMPLOYEE
+          - OBJECTIVES_NUDGE_EMPLOYEE_ABOUT_OBJECTIVE
+          - OBJECTIVES_NUDGE_INITIAL
+          - OBJECTIVES_NUDGE_MANAGER
+          - OBJECTIVES_NUDGE_MANAGER_INITIAL
+          - OBJECTIVE_UPDATE_FOR_MANAGER
+          - OBJECTIVE_UPDATE_FOR_USER
+          - PASSWORD_CHANGED
+          - PASSWORD_CHANGE_INSTRUCTIONS
+          - PASSWORD_RESET
+          - PASSWORD_WELCOME_INSTRUCTIONS
+          - PRAISE_CHANGED_BY_NON_AUTHOR
+          - PRAISE_NOTIFICATION
+          - PRAISE_NOTIFY_MANAGER
+          - REVIEW_CHANGED_BY_MANAGER
+          - REVIEW_CHANGED_BY_REVIEWEE
+          - REVIEW_HID_BY_EMPLOYEE
+          - REVIEW_HID_BY_MANAGER
+          - REVIEW_INDICATED_BY_MANAGER
+          - REVIEW_INFORM_CUSTOM_REVIEWER_UNSPECIFIC
+          - REVIEW_INFORM_MANAGER_UNSPECIFIC
+          - REVIEW_INFORM_SECONDARY_REVIEWER_NUDGE_MANAGER
+          - REVIEW_INFORM_SECONDARY_REVIEWER_UNSPECIFIC
+          - REVIEW_INFORM_TEAM_MEMBER
+          - REVIEW_NUDGE_MANAGER
+          - REVIEW_NUDGE_MANAGER_UNSPECIFIC
+          - REVIEW_NUDGE_REPORT
+          - REVIEW_NUDGE_SECONDARY_REVIEWER_UNSPECIFIC
+          - REVIEW_SHARE_WITH_EMPLOYEE
+          - REVIEW_SHARE_WITH_MANAGER
+          - REVIEW_SIGNED_BY_MANAGER
+          - REVIEW_SIGNED_BY_REPORT
+          - SURVEY_NOTIFICATION
+          - USER_DIGEST
+          - USER_INVITED
+          - USER_PROFILE_NUDGE
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmailTemplateDto'
+        description: emailTemplateDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - email-templates-resource
+      summary: resetTemplate
+      operationId: resetTemplateUsingDELETE
+      parameters:
+      - name: type
+        in: path
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWEES
+          - ANYTIME_FEEDBACK_DEADLINE_CHANGED_FOR_REVIEWERS
+          - ANYTIME_FEEDBACK_INVITATION_ABOUT_OTHERS
+          - ANYTIME_FEEDBACK_INVITATION_ABOUT_SELF
+          - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS
+          - ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_SELF
+          - ANYTIME_FEEDBACK_REQUESTED_ABOUT_YOU
+          - ANYTIME_FEEDBACK_SELF_REFLECTION
+          - ANYTIME_FEEDBACK_SHARED_WITH_REPORT
+          - ANYTIME_FEEDBACK_SHARED_WITH_YOU
+          - CONFIRM_EMAIL
+          - FEEDBACK_RELEASED_DAILY_NOTIFICATION
+          - FEEDBACK_RELEASED_DAILY_NOTIFICATION_TO_MANAGERS
+          - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NOTIFICATION
+          - FEEDBACK_REQUEST_APPROVEABLE_REVIEWS_NUDGE
+          - FEEDBACK_REQUEST_INFORM_MANAGER_TO_NOMINATE
+          - FEEDBACK_REQUEST_INSTRUCTION_REVIEWEE
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEEDBACK_MANAGER
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASED_FEED_BACK
+          - FEEDBACK_REQUEST_NOTIFICATION_ABOUT_RELEASING_FEED_BACK_SOON
+          - FEEDBACK_REQUEST_NOTIFY_MANAGER_ABOUT_NOMINATIONS
+          - FEEDBACK_REQUEST_NUDGE_MANAGER
+          - FEEDBACK_REQUEST_NUDGE_REVIEWEE
+          - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NOTIFICATION
+          - FEEDBACK_REQUEST_OUTSTANDING_REVIEWS_NUDGE
+          - FEEDBACK_REQUEST_PARTICIPANT_DECLINED
+          - FEEDBACK_REQUEST_PARTICIPANT_DECLINED__REVIEWEE
+          - GUEST_INVITED
+          - INFORM_MANAGER_ABOUT_NEW_REPORTS
+          - MEETING_NUDGE
+          - MESSAGE_CHANGED_BY_NON_AUTHOR
+          - MESSAGE_NOTIFICATION
+          - NOTIFY_ADMIN_TO_REVIEW_FEEDBACK_CYCLE_AFTER_REVIEWER_SELECTION_DEADLINE_PASSED
+          - NUDGE_EMPLOYEE_TO_PROVIDE_SELF_ASSESSMENT
+          - NUDGE_EMPLOYEE_TO_PROVIDE_SINGLE_FEEDBACK
+          - OBJECTIVES_DUE
+          - OBJECTIVES_NUDGE_EMPLOYEE
+          - OBJECTIVES_NUDGE_EMPLOYEE_ABOUT_OBJECTIVE
+          - OBJECTIVES_NUDGE_INITIAL
+          - OBJECTIVES_NUDGE_MANAGER
+          - OBJECTIVES_NUDGE_MANAGER_INITIAL
+          - OBJECTIVE_UPDATE_FOR_MANAGER
+          - OBJECTIVE_UPDATE_FOR_USER
+          - PASSWORD_CHANGED
+          - PASSWORD_CHANGE_INSTRUCTIONS
+          - PASSWORD_RESET
+          - PASSWORD_WELCOME_INSTRUCTIONS
+          - PRAISE_CHANGED_BY_NON_AUTHOR
+          - PRAISE_NOTIFICATION
+          - PRAISE_NOTIFY_MANAGER
+          - REVIEW_CHANGED_BY_MANAGER
+          - REVIEW_CHANGED_BY_REVIEWEE
+          - REVIEW_HID_BY_EMPLOYEE
+          - REVIEW_HID_BY_MANAGER
+          - REVIEW_INDICATED_BY_MANAGER
+          - REVIEW_INFORM_CUSTOM_REVIEWER_UNSPECIFIC
+          - REVIEW_INFORM_MANAGER_UNSPECIFIC
+          - REVIEW_INFORM_SECONDARY_REVIEWER_NUDGE_MANAGER
+          - REVIEW_INFORM_SECONDARY_REVIEWER_UNSPECIFIC
+          - REVIEW_INFORM_TEAM_MEMBER
+          - REVIEW_NUDGE_MANAGER
+          - REVIEW_NUDGE_MANAGER_UNSPECIFIC
+          - REVIEW_NUDGE_REPORT
+          - REVIEW_NUDGE_SECONDARY_REVIEWER_UNSPECIFIC
+          - REVIEW_SHARE_WITH_EMPLOYEE
+          - REVIEW_SHARE_WITH_MANAGER
+          - REVIEW_SIGNED_BY_MANAGER
+          - REVIEW_SIGNED_BY_REPORT
+          - SURVEY_NOTIFICATION
+          - USER_DIGEST
+          - USER_INVITED
+          - USER_PROFILE_NUDGE
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/EmailTemplateDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    EmailTemplateDto:
+      type: object
+      title: EmailTemplateDto
+    EmailTemplatePreview:
+      type: object
+      title: EmailTemplatePreview
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

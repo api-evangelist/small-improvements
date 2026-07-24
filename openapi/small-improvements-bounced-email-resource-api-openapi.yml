@@ -1,0 +1,141 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource bounced-email-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: bounced-email-resource
+  description: Bounced Email Resource
+paths:
+  /v2/bounced-email/company/{companyId}/aggregate:
+    get:
+      tags:
+      - bounced-email-resource
+      summary: getBouncedAggregatesByCompanyId
+      operationId: getBouncedAggregatesByCompanyIdUsingGET
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BouncedEmailAggregate'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/bounced-email/company/{companyId}/aggregate/{encodedEmail}:
+    delete:
+      tags:
+      - bounced-email-resource
+      summary: removeFromBounced
+      operationId: removeFromBouncedUsingDELETE
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      - name: encodedEmail
+        in: path
+        description: encodedEmail
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/bounced-email/email:
+    get:
+      tags:
+      - bounced-email-resource
+      summary: getBouncedByEmail
+      operationId: getBouncedByEmailUsingGET
+      parameters:
+      - name: companyId
+        in: query
+        description: companyId
+        required: false
+        schema:
+          type: string
+      - name: email
+        in: query
+        description: email
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/BouncedEmail'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/bounced-email/{id}:
+    delete:
+      tags:
+      - bounced-email-resource
+      summary: removeFromBounced
+      operationId: removeFromBouncedUsingDELETE_1
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    BouncedEmail:
+      type: object
+      title: BouncedEmail
+    BouncedEmailAggregate:
+      type: object
+      title: BouncedEmailAggregate
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

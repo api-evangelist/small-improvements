@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource meeting-calendar-configuration-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: meeting-calendar-configuration-resource
+  description: Meeting Calendar Configuration Resource
+paths:
+  /v2/meeting-calendar-integration/configuration:
+    get:
+      tags:
+      - meeting-calendar-configuration-resource
+      summary: getConfiguration
+      operationId: getConfigurationUsingGET_2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingCalendarConfiguration'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - meeting-calendar-configuration-resource
+      summary: saveConfiguration
+      operationId: saveConfigurationUsingPUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMeetingCalendarConfigurationRequest'
+        description: request
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingCalendarConfiguration'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meeting-calendar-integration/configuration/{companyId}:
+    get:
+      tags:
+      - meeting-calendar-configuration-resource
+      summary: getConfigurationForCompany
+      operationId: getConfigurationForCompanyUsingGET
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingCalendarConfiguration'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meeting-calendar-integration/provider:
+    get:
+      tags:
+      - meeting-calendar-configuration-resource
+      summary: getProvider
+      operationId: getProviderUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: string
+                enum:
+                - GOOGLE
+                - OUTLOOK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    UpdateMeetingCalendarConfigurationRequest:
+      type: object
+      title: UpdateMeetingCalendarConfigurationRequest
+    MeetingCalendarConfiguration:
+      type: object
+      title: MeetingCalendarConfiguration
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

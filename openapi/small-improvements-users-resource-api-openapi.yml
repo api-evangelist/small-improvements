@@ -1,0 +1,1052 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource users-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: users-resource
+  description: Users Resource
+paths:
+  /v2/users:
+    get:
+      tags:
+      - users-resource
+      summary: listUsers
+      operationId: listUsersUsingGET
+      parameters:
+      - name: includeGuests
+        in: query
+        description: includeGuests
+        required: false
+        schema:
+          type: boolean
+      - name: managerId
+        in: query
+        description: managerId
+        required: false
+        schema:
+          type: string
+      - name: showLocked
+        in: query
+        description: showLocked
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_UserListDto_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users-for-company/{companyId}:
+    get:
+      tags:
+      - users-resource
+      summary: listUsers
+      operationId: listUsersUsingGET_1
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObserverUserDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users-for-company/{companyId}/medium:
+    get:
+      tags:
+      - users-resource
+      summary: listUsersMedium
+      operationId: listUsersMediumUsingGET
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      - name: includeGuests
+        in: query
+        description: includeGuests
+        required: false
+        schema:
+          type: boolean
+      - name: showLocked
+        in: query
+        description: showLocked
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MediumUser'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users-for-company/{companyId}/medium/super-users:
+    get:
+      tags:
+      - users-resource
+      summary: listSuperUsersMedium
+      operationId: listSuperUsersMediumUsingGET_1
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MediumUser'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/by-ids:
+    get:
+      tags:
+      - users-resource
+      summary: getUsersById
+      operationId: getUsersByIdUsingGET
+      parameters:
+      - name: ids
+        in: query
+        description: ids
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_UserProfileDto_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/export_csv:
+    get:
+      tags:
+      - users-resource
+      summary: generateCsvExport
+      operationId: generateCsvExportUsingGET
+      parameters:
+      - name: isFullExport
+        in: query
+        description: isFullExport
+        required: false
+        schema:
+          type: boolean
+          default: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Download'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/export_excel:
+    get:
+      tags:
+      - users-resource
+      summary: generateExcelExport
+      operationId: generateExcelExportUsingGET
+      parameters:
+      - name: isFullExport
+        in: query
+        description: isFullExport
+        required: false
+        schema:
+          type: boolean
+          default: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Download'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/hrs:
+    get:
+      tags:
+      - users-resource
+      summary: getHrs
+      operationId: getHrsUsingGET
+      parameters:
+      - name: include-assistants
+        in: query
+        description: include-assistants
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_UserListDto_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/invite:
+    post:
+      tags:
+      - users-resource
+      summary: inviteUsers
+      operationId: inviteUsersUsingPOST
+      parameters:
+      - name: User-Agent
+        in: header
+        description: User-Agent
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/UserInvitationDTOArray'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_UserListDto_'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/invite-onboarding/:
+    post:
+      tags:
+      - users-resource
+      summary: inviteUsersInOnboarding
+      operationId: inviteUsersInOnboardingUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserOnboardingInvitationDTO'
+        description: invitations
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_UserListDto_'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/mail/new-reports:
+    post:
+      tags:
+      - users-resource
+      summary: batchSendManagerNewReportsMails
+      operationId: batchSendManagerNewReportsMailsUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/bulkNudgeUsingPOSTIds'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/mail/password-reset:
+    post:
+      tags:
+      - users-resource
+      summary: batchSendPasswordResetMails
+      operationId: batchSendPasswordResetMailsUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/bulkNudgeUsingPOSTIds'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/mail/profile-nudge:
+    post:
+      tags:
+      - users-resource
+      summary: batchSendProfileNudgeMails
+      operationId: batchSendProfileNudgeMailsUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/bulkNudgeUsingPOSTIds'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/mail/welcome:
+    post:
+      tags:
+      - users-resource
+      summary: batchSendWelcomeMails
+      operationId: batchSendWelcomeMailsUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/bulkNudgeUsingPOSTIds'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/mail/welcome-all:
+    post:
+      tags:
+      - users-resource
+      summary: sendWelcomeMailToAll
+      operationId: sendWelcomeMailToAllUsingPOST
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/me:
+    get:
+      tags:
+      - users-resource
+      summary: getCurrentUser
+      operationId: getCurrentUserUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CurrentUserDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/medium:
+    get:
+      tags:
+      - users-resource
+      summary: listUsersMedium
+      operationId: listUsersMediumUsingGET_1
+      parameters:
+      - name: includeGuests
+        in: query
+        description: includeGuests
+        required: false
+        schema:
+          type: boolean
+      - name: managerId
+        in: query
+        description: managerId
+        required: false
+        schema:
+          type: string
+      - name: showLocked
+        in: query
+        description: showLocked
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MediumUser'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/medium/by-external-system-id/{externalSystemId}:
+    get:
+      tags:
+      - users-resource
+      summary: getMediumUserByExternalSystemId
+      operationId: getMediumUserByExternalSystemIdUsingGET
+      parameters:
+      - name: externalSystemId
+        in: path
+        description: externalSystemId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MediumUser'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/medium/by-id:
+    get:
+      tags:
+      - users-resource
+      summary: getMediumUserById
+      operationId: getMediumUserByIdUsingGET
+      parameters:
+      - name: id
+        in: query
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MediumUser'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/medium/by-ids:
+    get:
+      tags:
+      - users-resource
+      summary: getMediumUsersById
+      operationId: getMediumUsersByIdUsingGET
+      parameters:
+      - name: ids
+        in: query
+        description: ids
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_MediumUser_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/medium/by-login:
+    get:
+      tags:
+      - users-resource
+      summary: getMediumUserByLoginname
+      operationId: getMediumUserByLoginnameUsingGET
+      parameters:
+      - name: loginname
+        in: query
+        description: loginname
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MediumUser'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/medium/by-logins:
+    post:
+      tags:
+      - users-resource
+      summary: getMediumUsersByLoginname
+      operationId: getMediumUsersByLoginnameUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              type: array
+              items:
+                type: string
+        description: loginnames
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MediumUser'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/medium/invite:
+    post:
+      tags:
+      - users-resource
+      summary: inviteUsersMedium
+      operationId: inviteUsersMediumUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/UserInvitationDTOArray'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MediumUser'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/medium/super-users:
+    get:
+      tags:
+      - users-resource
+      summary: listSuperUsersMedium
+      operationId: listSuperUsersMediumUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MediumUser'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/relationship/{a}/{b}:
+    get:
+      tags:
+      - users-resource
+      summary: getRelationship
+      operationId: getRelationshipUsingGET
+      parameters:
+      - name: a
+        in: path
+        description: a
+        required: true
+        schema:
+          type: string
+      - name: b
+        in: path
+        description: b
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserRelationship'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/search:
+    get:
+      tags:
+      - users-resource
+      summary: search
+      operationId: searchUsingGET
+      parameters:
+      - name: email
+        in: query
+        description: email
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObserverUserDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/search-wicket:
+    get:
+      tags:
+      - users-resource
+      summary: searchForWicket
+      operationId: searchForWicketUsingGET
+      parameters:
+      - name: companyId
+        in: query
+        description: companyId
+        required: false
+        schema:
+          type: string
+      - name: includeGuests
+        in: query
+        description: includeGuests
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: showDeactivated
+        in: query
+        description: showDeactivated
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: term
+        in: query
+        description: term
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_WicketUser_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}:
+    get:
+      tags:
+      - users-resource
+      summary: getUserById
+      operationId: getUserByIdUsingGET
+      parameters:
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserProfileDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - users-resource
+      summary: delete
+      operationId: deleteUsingDELETE_19
+      parameters:
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/users/{userId}/badges:
+    get:
+      tags:
+      - users-resource
+      summary: badges
+      operationId: badgesUsingGET
+      parameters:
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BadgeDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}/calendars:
+    get:
+      tags:
+      - users-resource
+      summary: getByUserId
+      operationId: getByUserIdUsingGET
+      parameters:
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CalendarDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}/isLoggedIn:
+    get:
+      tags:
+      - users-resource
+      summary: isLoggedIn
+      operationId: isLoggedInUsingGET
+      parameters:
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserSessionStatusDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}/mail/password-reset:
+    post:
+      tags:
+      - users-resource
+      summary: sendPasswordResetMail
+      operationId: sendPasswordResetMailUsingPOST
+      parameters:
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}/mail/profile-nudge:
+    post:
+      tags:
+      - users-resource
+      summary: sendProfileNudgeMail
+      operationId: sendProfileNudgeMailUsingPOST
+      parameters:
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}/mail/welcome:
+    post:
+      tags:
+      - users-resource
+      summary: sendWelcomeMail
+      operationId: sendWelcomeMailUsingPOST
+      parameters:
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}/password:
+    delete:
+      tags:
+      - users-resource
+      summary: clearPassword
+      operationId: clearPasswordUsingDELETE
+      parameters:
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    Iterable_MediumUser_:
+      type: object
+      title: Iterable«MediumUser»
+    Download:
+      type: object
+      title: Download
+    Iterable_UserListDto_:
+      type: object
+      title: Iterable«UserListDto»
+    MediumUser:
+      type: object
+      title: MediumUser
+    BadgeDTO:
+      type: object
+      title: BadgeDTO
+    CalendarDTO:
+      type: object
+      title: CalendarDTO
+    Iterable_WicketUser_:
+      type: object
+      title: Iterable«WicketUser»
+    UserSessionStatusDTO:
+      type: object
+      title: UserSessionStatusDTO
+    UserRelationship:
+      type: object
+      title: UserRelationship
+    UserProfileDto:
+      type: object
+      title: UserProfileDto
+    Iterable_UserProfileDto_:
+      type: object
+      title: Iterable«UserProfileDto»
+    UserInvitationDTO:
+      type: object
+      title: UserInvitationDTO
+    UserOnboardingInvitationDTO:
+      type: object
+      title: UserOnboardingInvitationDTO
+    ObserverUserDto:
+      type: object
+      title: ObserverUserDto
+    CurrentUserDto:
+      type: object
+      title: CurrentUserDto
+  requestBodies:
+    bulkNudgeUsingPOSTIds:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: ids
+      required: true
+    UserInvitationDTOArray:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserInvitationDTO'
+      description: invitations
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

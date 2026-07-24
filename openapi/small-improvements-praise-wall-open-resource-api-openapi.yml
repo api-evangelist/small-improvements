@@ -1,0 +1,83 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource praise-wall-open-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: praise-wall-open-resource
+  description: Praise Wall Open Resource
+paths:
+  /praise/wall:
+    get:
+      tags:
+      - praise-wall-open-resource
+      summary: getPraiseForWall
+      operationId: getPraiseForWallUsingGET
+      parameters:
+      - name: token
+        in: query
+        description: token
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_PraiseDto_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /praise/wall/config:
+    get:
+      tags:
+      - praise-wall-open-resource
+      summary: getConfig
+      operationId: getConfigUsingGET
+      parameters:
+      - name: token
+        in: query
+        description: token
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/PraiseWallConfigDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    PraiseWallConfigDto:
+      type: object
+      title: PraiseWallConfigDto
+    Iterable_PraiseDto_:
+      type: object
+      title: Iterable«PraiseDto»
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

@@ -1,0 +1,622 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource review-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: review-resource
+  description: Review Resource
+paths:
+  /v2/review-cycle/{cycleKey}/reviewers:
+    post:
+      tags:
+      - review-resource
+      summary: bulkUpdateReviewers
+      operationId: bulkUpdateReviewersUsingPOST
+      parameters:
+      - name: cycleKey
+        in: path
+        description: cycleKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ReviewersBulkUpdateDto'
+        description: reviewersBulkUpdate
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycle/{cycleKey}/timeline-extension:
+    post:
+      tags:
+      - review-resource
+      summary: bulkExtendTimeline
+      operationId: bulkExtendTimelineUsingPOST
+      parameters:
+      - name: cycleKey
+        in: path
+        description: cycleKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/BulkTimelineExtensionDto'
+        description: bulkTimelineExtensionDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/about/{id}:
+    get:
+      tags:
+      - review-resource
+      summary: getForReviewee
+      operationId: getForRevieweeUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Stream_ReviewDto_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/forReviewee/{reviewee}:
+    get:
+      tags:
+      - review-resource
+      summary: getActiveReviewsForReviewee
+      operationId: getActiveReviewsForRevieweeUsingGET
+      parameters:
+      - name: reviewee
+        in: path
+        description: reviewee
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewForRevieweeDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/preview/questionnaire:
+    post:
+      tags:
+      - review-resource
+      summary: getFakeReviewForPreviewQuestionnaire
+      operationId: getFakeReviewForPreviewQuestionnaireUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/ReviewCycleCreateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/preview/questionnaire/{cycleId}:
+    get:
+      tags:
+      - review-resource
+      summary: getFakeReviewForPreviewQuestionnaire
+      operationId: getFakeReviewForPreviewQuestionnaireUsingGET
+      parameters:
+      - name: asReviewee
+        in: query
+        description: asReviewee
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/yourReviews:
+    get:
+      tags:
+      - review-resource
+      summary: getYourReviews
+      operationId: getYourReviewsUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/YourCycleAndReviewsDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/{id}:
+    get:
+      tags:
+      - review-resource
+      summary: get
+      operationId: getUsingGET_18
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/{id}/answerAssessment/{assessmentId}:
+    post:
+      tags:
+      - review-resource
+      summary: answerAssessment
+      operationId: answerAssessmentUsingPOST
+      parameters:
+      - name: assessmentId
+        in: path
+        description: assessmentId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/AssessmentAnswerDto'
+        description: answer
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/{id}/hide/{assessmentId}:
+    post:
+      tags:
+      - review-resource
+      summary: hideAssessment
+      operationId: hideAssessmentUsingPOST
+      parameters:
+      - name: assessmentId
+        in: path
+        description: assessmentId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/{id}/share/{assessmentId}:
+    post:
+      tags:
+      - review-resource
+      summary: shareAssessment
+      operationId: shareAssessmentUsingPOST
+      parameters:
+      - name: assessmentId
+        in: path
+        description: assessmentId
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/{id}/sign:
+    post:
+      tags:
+      - review-resource
+      summary: sign
+      operationId: signUsingPOST
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ReviewSignDto'
+        description: reviewSignDto
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/{id}/timeline-extension:
+    post:
+      tags:
+      - review-resource
+      summary: extendTimeline
+      operationId: extendTimelineUsingPOST
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/TimelineExtensionDto'
+        description: timelineExtensionDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/{reviewId}/contributing-reviewers:
+    put:
+      tags:
+      - review-resource
+      summary: updateContributingReviewers
+      operationId: updateContributingReviewersUsingPUT
+      parameters:
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/updateContributingReviewersUsingPUTUpdatedcontributingreviewers'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/{reviewId}/updateContributingReviewers:
+    put:
+      tags:
+      - review-resource
+      summary: updateContributingReviewersLegacy
+      operationId: updateContributingReviewersLegacyUsingPUT
+      parameters:
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/updateContributingReviewersUsingPUTUpdatedcontributingreviewers'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: true
+  /v2/review/{reviewKey}/main-reviewer:
+    put:
+      tags:
+      - review-resource
+      summary: updateMainReviewer
+      operationId: updateMainReviewerUsingPUT
+      parameters:
+      - name: reviewKey
+        in: path
+        description: reviewKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MainReviewerDto'
+        description: mainReviewerDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review/{reviewKey}/reviewers:
+    put:
+      tags:
+      - review-resource
+      summary: updateReviewers
+      operationId: updateReviewersUsingPUT
+      parameters:
+      - name: reviewKey
+        in: path
+        description: reviewKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReviewersDto'
+        description: reviewers
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: true
+components:
+  schemas:
+    ReviewListDto:
+      type: object
+      title: ReviewListDto
+    ReviewersDto:
+      type: object
+      title: ReviewersDto
+    ReviewersBulkUpdateDto:
+      type: object
+      title: ReviewersBulkUpdateDto
+    ReviewDto:
+      type: object
+      title: ReviewDto
+    MainReviewerDto:
+      type: object
+      title: MainReviewerDto
+    TimelineExtensionDto:
+      type: object
+      title: TimelineExtensionDto
+    ReviewForRevieweeDto:
+      type: object
+      title: ReviewForRevieweeDto
+    AssessmentAnswerDto:
+      type: object
+      title: AssessmentAnswerDto
+    ReviewCycleCreateRequest:
+      type: object
+      title: ReviewCycleCreateRequest
+    Stream_ReviewDto_:
+      type: object
+      title: Stream«ReviewDto»
+    BulkTimelineExtensionDto:
+      type: object
+      title: BulkTimelineExtensionDto
+    YourCycleAndReviewsDto:
+      type: object
+      title: YourCycleAndReviewsDto
+    ReviewSignDto:
+      type: object
+      title: ReviewSignDto
+  requestBodies:
+    updateContributingReviewersUsingPUTUpdatedcontributingreviewers:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: string
+      description: updatedContributingReviewers
+      required: true
+    ReviewCycleCreateRequest:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ReviewCycleCreateRequest'
+      description: reviewCycleCreateRequest
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

@@ -1,0 +1,637 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource messages-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: messages-resource
+  description: Messages Resource
+paths:
+  /v2/messages:
+    get:
+      tags:
+      - messages-resource
+      summary: getMessages
+      operationId: getMessagesUsingGET
+      parameters:
+      - name: author
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: includeAnonymous
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: projectId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: recipient
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - messages-resource
+      summary: createMessage
+      operationId: createMessageUsingPOST
+      parameters:
+      - name: source
+        in: query
+        description: source
+        required: false
+        schema:
+          type: string
+          enum:
+          - GMAIL
+          - HIPCHAT
+          - SLACK
+          - WEBAPP
+          default: WEBAPP
+      requestBody:
+        $ref: '#/components/requestBodies/MessageDTO'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/preview/{id}:
+    get:
+      tags:
+      - messages-resource
+      summary: getPreview
+      operationId: getPreviewUsingGET_2
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MessagePreviewWithStatus'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/relevant:
+    get:
+      tags:
+      - messages-resource
+      summary: getRelevantMessages
+      operationId: getRelevantMessagesUsingGET
+      parameters:
+      - name: author
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: includeAnonymous
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: projectId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: recipient
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageRelevantView'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/{companyId}/usage-statistics:
+    get:
+      tags:
+      - messages-resource
+      summary: getUserUsageStatistics
+      operationId: getUserUsageStatisticsUsingGET
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      - name: endDate
+        in: query
+        description: endDate
+        required: true
+        schema:
+          type: string
+      - name: includeDeactivated
+        in: query
+        description: includeDeactivated
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: startDate
+        in: query
+        description: startDate
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_UserMessageStatisticsDto_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/{companyId}/usage-statistics/export:
+    post:
+      tags:
+      - messages-resource
+      summary: triggerCsvDownload
+      operationId: triggerCsvDownloadUsingPOST_1
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      - name: endDate
+        in: query
+        description: endDate
+        required: true
+        schema:
+          type: string
+      - name: includeDeactivated
+        in: query
+        description: includeDeactivated
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: startDate
+        in: query
+        description: startDate
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/DownloadableFileDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/{id}:
+    get:
+      tags:
+      - messages-resource
+      summary: get
+      operationId: getUsingGET_7
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - messages-resource
+      summary: delete
+      operationId: deleteUsingDELETE_8
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/messages/{messageId}:
+    put:
+      tags:
+      - messages-resource
+      summary: editMessage
+      operationId: editMessageUsingPUT
+      parameters:
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageDTO'
+        description: dto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/{messageId}/downvote:
+    post:
+      tags:
+      - messages-resource
+      summary: downvote
+      operationId: downvoteUsingPOST
+      parameters:
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/{messageId}/replies:
+    get:
+      tags:
+      - messages-resource
+      summary: getReplies
+      operationId: getRepliesUsingGET
+      parameters:
+      - name: author
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: endDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: includeAnonymous
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: projectId
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: recipient
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: startDate
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MessageDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - messages-resource
+      summary: createReply
+      operationId: createReplyUsingPOST
+      parameters:
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/MessageDTO'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/{messageId}/unveil:
+    post:
+      tags:
+      - messages-resource
+      summary: unveil
+      operationId: unveilUsingPOST
+      parameters:
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/{messageId}/upvote:
+    post:
+      tags:
+      - messages-resource
+      summary: upvote
+      operationId: upvoteUsingPOST
+      parameters:
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/messages/{messageId}/visibleTo:
+    put:
+      tags:
+      - messages-resource
+      summary: updateVisibleToPermissions
+      operationId: updateVisibleToPermissionsUsingPUT
+      parameters:
+      - name: messageId
+        in: path
+        description: messageId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/UserIdHolderArray'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MessageDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  requestBodies:
+    UserIdHolderArray:
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserIdHolder'
+      description: users
+      required: true
+    MessageDTO:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/MessageDTO'
+      description: dto
+      required: true
+  schemas:
+    MessageRelevantView:
+      type: object
+      title: MessageRelevantView
+    MessagePreviewWithStatus:
+      type: object
+      title: MessagePreviewWithStatus
+    MessageDTO:
+      type: object
+      title: MessageDTO
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+    Iterable_UserMessageStatisticsDto_:
+      type: object
+      title: Iterable«UserMessageStatisticsDto»
+    MessageDto:
+      type: object
+      title: MessageDto
+    DownloadableFileDto:
+      type: object
+      title: DownloadableFileDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

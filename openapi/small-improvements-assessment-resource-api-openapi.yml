@@ -1,0 +1,321 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource assessment-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: assessment-resource
+  description: Assessment Resource
+paths:
+  /v2/assessment:
+    get:
+      tags:
+      - assessment-resource
+      summary: loadAssessments
+      operationId: loadAssessmentsUsingGET
+      parameters:
+      - name: reviewId
+        in: query
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssessmentDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/assessment/preview/questionnaire:
+    post:
+      tags:
+      - assessment-resource
+      summary: loadFakeAssessmentsForPreviewQuestionnaire
+      operationId: loadFakeAssessmentsForPreviewQuestionnaireUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/ReviewCycleCreateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssessmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/assessment/preview/questionnaire/{cycleId}:
+    get:
+      tags:
+      - assessment-resource
+      summary: loadFakeAssessmentsForPreviewQuestionnaire
+      operationId: loadFakeAssessmentsForPreviewQuestionnaireUsingGET
+      parameters:
+      - name: asReviewee
+        in: query
+        description: asReviewee
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssessmentDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/assessment/{assessmentKey}:
+    get:
+      tags:
+      - assessment-resource
+      summary: loadAssessment
+      operationId: loadAssessmentUsingGET
+      parameters:
+      - name: assessmentKey
+        in: path
+        description: assessmentKey
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AssessmentDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/assessment/{assessmentKey}/answers:
+    post:
+      tags:
+      - assessment-resource
+      summary: addAnswer
+      operationId: addAnswerUsingPOST
+      parameters:
+      - name: assessmentKey
+        in: path
+        description: assessmentKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/AnswerDtoArray'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AssessmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/assessment/{assessmentKey}/indicatedDone:
+    post:
+      tags:
+      - assessment-resource
+      summary: indicateDone
+      operationId: indicateDoneUsingPOST
+      parameters:
+      - name: assessmentKey
+        in: path
+        description: assessmentKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              type: boolean
+        description: indicated
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AssessmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/assessment/{assessmentKey}/share:
+    post:
+      tags:
+      - assessment-resource
+      summary: share
+      operationId: shareUsingPOST
+      parameters:
+      - name: assessmentKey
+        in: path
+        description: assessmentKey
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssessmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/assessment/{assessmentKey}/unshare:
+    post:
+      tags:
+      - assessment-resource
+      summary: unshare
+      operationId: unshareUsingPOST
+      parameters:
+      - name: assessmentKey
+        in: path
+        description: assessmentKey
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssessmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/assessments:
+    post:
+      tags:
+      - assessment-resource
+      summary: createAssessment
+      operationId: createAssessmentUsingPOST_1
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/CreateOwnAssessmentCommand'
+        description: createAssessmentCommand
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AssessmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    CreateOwnAssessmentCommand:
+      type: object
+      title: CreateOwnAssessmentCommand
+    ReviewCycleCreateRequest:
+      type: object
+      title: ReviewCycleCreateRequest
+    AnswerDto:
+      type: object
+      title: AnswerDto
+    AssessmentDto:
+      type: object
+      title: AssessmentDto
+  requestBodies:
+    AnswerDtoArray:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AnswerDto'
+      description: answerDto
+      required: true
+    ReviewCycleCreateRequest:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ReviewCycleCreateRequest'
+      description: reviewCycleCreateRequest
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

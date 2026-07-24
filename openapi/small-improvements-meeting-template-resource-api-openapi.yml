@@ -1,0 +1,452 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource meeting-template-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: meeting-template-resource
+  description: Meeting Template Resource
+paths:
+  /v2/meeting-templates:
+    get:
+      tags:
+      - meeting-template-resource
+      summary: getMeetingTemplates
+      operationId: getMeetingTemplatesUsingGET
+      parameters:
+      - name: required-permission
+        in: query
+        description: required-permission
+        required: false
+        schema:
+          type: string
+          enum:
+          - EDIT
+          - SEE
+          - USE
+          default: SEE
+      - name: type
+        in: query
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - COMPANY
+          - USER
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MeetingTemplateDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - meeting-template-resource
+      summary: createMeetingTemplate
+      operationId: createMeetingTemplateUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/MeetingTemplateDetails'
+        description: meetingTemplateDetails
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingTemplateDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meeting-templates-usage:
+    post:
+      tags:
+      - meeting-template-resource
+      summary: recordTemplateUsage
+      operationId: recordTemplateUsageUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/MeetingTemplateUsageRequest'
+        description: meetingTemplateUsageRequest
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meeting-templates/create-meeting:
+    post:
+      tags:
+      - meeting-template-resource
+      summary: createMeetingFromTemplate
+      operationId: createMeetingFromTemplateUsingPOST
+      parameters:
+      - name: id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.fixedOffset
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].dayOfMonthIndicator
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].dayOfWeek
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - FRIDAY
+          - MONDAY
+          - SATURDAY
+          - SUNDAY
+          - THURSDAY
+          - TUESDAY
+          - WEDNESDAY
+      - name: rules.transitionRules[0].localTime.hour
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.minute
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].localTime.second
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].midnightEndOfDay
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitionRules[0].month
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - APRIL
+          - AUGUST
+          - DECEMBER
+          - FEBRUARY
+          - JANUARY
+          - JULY
+          - JUNE
+          - MARCH
+          - MAY
+          - NOVEMBER
+          - OCTOBER
+          - SEPTEMBER
+      - name: rules.transitionRules[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].standardOffset.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitionRules[0].standardOffset.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitionRules[0].timeDefinition
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - STANDARD
+          - UTC
+          - WALL
+      - name: rules.transitions[0].dateTimeAfter
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].dateTimeBefore
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].duration.nano
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].duration.negative
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.seconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int64
+      - name: rules.transitions[0].duration.units[0].dateBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].durationEstimated
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.units[0].timeBased
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].duration.zero
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].gap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: rules.transitions[0].instant
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: rules.transitions[0].offsetAfter.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetAfter.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].offsetBefore.id
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: rules.transitions[0].offsetBefore.totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: rules.transitions[0].overlap
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: totalSeconds
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/MeetingFromTemplateRequest'
+        description: request
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/meeting-templates/{id}:
+    get:
+      tags:
+      - meeting-template-resource
+      summary: getMeetingTemplate
+      operationId: getMeetingTemplateUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingTemplateDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - meeting-template-resource
+      summary: updateMeetingTemplate
+      operationId: updateMeetingTemplateUsingPUT
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MeetingTemplateDetails'
+        description: meetingTemplateDetails
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/MeetingTemplateDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - meeting-template-resource
+      summary: deleteMeetingTemplate
+      operationId: deleteMeetingTemplateUsingDELETE
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    MeetingTemplateDto:
+      type: object
+      title: MeetingTemplateDto
+    MeetingDto:
+      type: object
+      title: MeetingDto
+    MeetingTemplateUsageRequest:
+      type: object
+      title: MeetingTemplateUsageRequest
+    MeetingFromTemplateRequest:
+      type: object
+      title: MeetingFromTemplateRequest
+    MeetingTemplateDetails:
+      type: object
+      title: MeetingTemplateDetails
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

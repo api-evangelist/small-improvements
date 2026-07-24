@@ -1,0 +1,365 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource review-export-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: review-export-resource
+  description: Review Export Resource
+paths:
+  /v2/review-cycles/{cycleId}/export/lazy/{exportType}/{outputType}:
+    get:
+      tags:
+      - review-export-resource
+      summary: lazyExportReview
+      operationId: lazyExportReviewUsingGET
+      parameters:
+      - name: columns
+        in: query
+        description: columns
+        required: true
+        schema:
+          type: string
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: exportType
+        in: path
+        description: exportType
+        required: true
+        schema:
+          type: string
+      - name: filters
+        in: query
+        description: filters
+        required: true
+        schema:
+          type: string
+          items:
+            type: object
+            additionalProperties:
+              type: string
+      - name: outputType
+        in: path
+        description: outputType
+        required: true
+        schema:
+          type: string
+          enum:
+          - CSV
+          - EXCEL
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - review-export-resource
+      summary: lazyExportReview
+      operationId: lazyExportReviewUsingPOST
+      parameters:
+      - name: columns
+        in: query
+        description: columns
+        required: true
+        schema:
+          type: string
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: exportType
+        in: path
+        description: exportType
+        required: true
+        schema:
+          type: string
+      - name: filters
+        in: query
+        description: filters
+        required: true
+        schema:
+          type: string
+          items:
+            type: object
+            additionalProperties:
+              type: string
+      - name: outputType
+        in: path
+        description: outputType
+        required: true
+        schema:
+          type: string
+          enum:
+          - CSV
+          - EXCEL
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/export/{exportType}/columns:
+    get:
+      tags:
+      - review-export-resource
+      summary: getAvailableColumns
+      operationId: getAvailableColumnsUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: exportType
+        in: path
+        description: exportType
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvailableColumn'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/export/{exportType}/{outputType}:
+    get:
+      tags:
+      - review-export-resource
+      summary: exportReview
+      operationId: exportReviewUsingGET
+      parameters:
+      - name: columns
+        in: query
+        description: columns
+        required: true
+        schema:
+          type: string
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: exportType
+        in: path
+        description: exportType
+        required: true
+        schema:
+          type: string
+      - name: outputType
+        in: path
+        description: outputType
+        required: true
+        schema:
+          type: string
+          enum:
+          - CSV
+          - EXCEL
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Download'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      deprecated: true
+  /v2/review-cycles/{cycleId}/export_pdf:
+    get:
+      tags:
+      - review-export-resource
+      summary: exportPDF
+      operationId: exportPDFUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ReviewExportPdfOptions'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: string
+                enum:
+                - NOTHING_TO_EXPORT
+                - SUCCESS
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - review-export-resource
+      summary: exportPDF
+      operationId: exportPDFUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ReviewExportPdfOptions'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: string
+                enum:
+                - NOTHING_TO_EXPORT
+                - SUCCESS
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/export_xml:
+    get:
+      tags:
+      - review-export-resource
+      summary: generateXML
+      operationId: generateXMLUsingGET_2
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Download'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/export_xml/lazy:
+    get:
+      tags:
+      - review-export-resource
+      summary: lazyGenerateXML
+      operationId: lazyGenerateXMLUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - review-export-resource
+      summary: lazyGenerateXML
+      operationId: lazyGenerateXMLUsingPOST_2
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    ReviewExportPdfOptions:
+      type: object
+      title: ReviewExportPdfOptions
+    Download:
+      type: object
+      title: Download
+    AvailableColumn:
+      type: object
+      title: AvailableColumn
+  requestBodies:
+    ReviewExportPdfOptions:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ReviewExportPdfOptions'
+      description: exportPdfOptions
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

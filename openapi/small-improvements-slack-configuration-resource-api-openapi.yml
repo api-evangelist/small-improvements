@@ -1,0 +1,194 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource slack-configuration-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: slack-configuration-resource
+  description: Slack Configuration Resource
+paths:
+  /v2/slack-configurations:
+    get:
+      tags:
+      - slack-configuration-resource
+      summary: get
+      operationId: getUsingGET_19
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SlackConfigurationState'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - slack-configuration-resource
+      summary: save
+      operationId: saveUsingPOST_1
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SlackConfigurationState'
+        description: slackConfigurationState
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - slack-configuration-resource
+      summary: delete
+      operationId: deleteUsingDELETE_17
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/slack-configurations/access-slack:
+    get:
+      tags:
+      - slack-configuration-resource
+      summary: access
+      operationId: accessUsingGET
+      parameters:
+      - name: code
+        in: query
+        description: code
+        required: false
+        schema:
+          type: string
+      - name: error
+        in: query
+        description: error
+        required: false
+        schema:
+          type: string
+      - name: state
+        in: query
+        description: state
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/slack-configurations/authorize-si:
+    get:
+      tags:
+      - slack-configuration-resource
+      summary: authorize
+      operationId: authorizeUsingGET
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/slack-configurations/channels:
+    get:
+      tags:
+      - slack-configuration-resource
+      summary: getChannels
+      operationId: getChannelsUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SlackChannelDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/slack-configurations/errors:
+    delete:
+      tags:
+      - slack-configuration-resource
+      summary: deleteLastApiError
+      operationId: deleteLastApiErrorUsingDELETE
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/slack-configurations/status:
+    get:
+      tags:
+      - slack-configuration-resource
+      summary: checkIntegrationStatus
+      operationId: checkIntegrationStatusUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SlackIntegrationStatusDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    SlackChannelDto:
+      type: object
+      title: SlackChannelDto
+    SlackIntegrationStatusDto:
+      type: object
+      title: SlackIntegrationStatusDto
+    SlackConfigurationState:
+      type: object
+      title: SlackConfigurationState
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

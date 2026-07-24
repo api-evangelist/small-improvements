@@ -1,0 +1,248 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource helpful-resources-attachments-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: helpful-resources-attachments-resource
+  description: Helpful Resources Attachments Resource
+paths:
+  /v2/helpful-resources/attachments/admin:
+    get:
+      tags:
+      - helpful-resources-attachments-resource
+      summary: getAllForAdmin
+      operationId: getAllForAdminUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/helpful-resources/attachments/file:
+    post:
+      tags:
+      - helpful-resources-attachments-resource
+      summary: createFile
+      operationId: createFileUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/CreateFileAttachmentDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/helpful-resources/attachments/file/{attachmentKey}:
+    put:
+      tags:
+      - helpful-resources-attachments-resource
+      summary: updateFile
+      operationId: updateFileUsingPUT
+      parameters:
+      - name: attachmentKey
+        in: path
+        description: attachmentKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/CreateFileAttachmentDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/helpful-resources/attachments/link:
+    post:
+      tags:
+      - helpful-resources-attachments-resource
+      summary: createLink
+      operationId: createLinkUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/CreateLinkAttachmentDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/helpful-resources/attachments/link/{attachmentKey}:
+    put:
+      tags:
+      - helpful-resources-attachments-resource
+      summary: updateLink
+      operationId: updateLinkUsingPUT
+      parameters:
+      - name: attachmentKey
+        in: path
+        description: attachmentKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/CreateLinkAttachmentDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AttachmentDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/helpful-resources/attachments/sidebar:
+    get:
+      tags:
+      - helpful-resources-attachments-resource
+      summary: getAllForSidebar
+      operationId: getAllForSidebarUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttachmentDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/helpful-resources/attachments/{attachmentKey}:
+    delete:
+      tags:
+      - helpful-resources-attachments-resource
+      summary: delete
+      operationId: deleteUsingDELETE_5
+      parameters:
+      - name: attachmentKey
+        in: path
+        description: attachmentKey
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/helpful-resources/attachments/{attachmentKey}/download:
+    get:
+      tags:
+      - helpful-resources-attachments-resource
+      summary: download
+      operationId: downloadUsingGET
+      parameters:
+      - name: attachmentKey
+        in: path
+        description: attachmentKey
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Download'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    CreateLinkAttachmentDto:
+      type: object
+      title: CreateLinkAttachmentDto
+    Download:
+      type: object
+      title: Download
+    AttachmentDto:
+      type: object
+      title: AttachmentDto
+    CreateFileAttachmentDto:
+      type: object
+      title: CreateFileAttachmentDto
+  requestBodies:
+    CreateFileAttachmentDto:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/CreateFileAttachmentDto'
+      description: attachmentDto
+      required: true
+    CreateLinkAttachmentDto:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/CreateLinkAttachmentDto'
+      description: attachmentDto
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

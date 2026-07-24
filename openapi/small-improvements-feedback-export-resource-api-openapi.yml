@@ -1,0 +1,241 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource feedback-export-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: feedback-export-resource
+  description: Feedback Export Resource
+paths:
+  /v2/feedback-cycles/{cycleId}/export/lazy/{exportType}/{outputType}:
+    post:
+      tags:
+      - feedback-export-resource
+      summary: lazyExportFeedback
+      operationId: lazyExportFeedbackUsingPOST
+      parameters:
+      - name: columns
+        in: query
+        description: columns
+        required: true
+        schema:
+          type: string
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: exportType
+        in: path
+        description: exportType
+        required: true
+        schema:
+          type: string
+      - name: outputType
+        in: path
+        description: outputType
+        required: true
+        schema:
+          type: string
+          enum:
+          - CSV
+          - EXCEL
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/export/pdf/{perspective}:
+    post:
+      tags:
+      - feedback-export-resource
+      summary: exportPdf
+      operationId: exportPdfUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ExportPdfOptions'
+        description: exportPdfOptions
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/export/{exportType}/columns:
+    get:
+      tags:
+      - feedback-export-resource
+      summary: availableColumns
+      operationId: availableColumnsUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: exportType
+        in: path
+        description: exportType
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AvailableColumn'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/export/{exportType}/{outputType}:
+    get:
+      tags:
+      - feedback-export-resource
+      summary: exportFeedback
+      operationId: exportFeedbackUsingGET
+      parameters:
+      - name: columns
+        in: query
+        description: columns
+        required: true
+        schema:
+          type: string
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: exportType
+        in: path
+        description: exportType
+        required: true
+        schema:
+          type: string
+      - name: outputType
+        in: path
+        description: outputType
+        required: true
+        schema:
+          type: string
+          enum:
+          - CSV
+          - EXCEL
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Download'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/export_xml:
+    get:
+      tags:
+      - feedback-export-resource
+      summary: generateXML
+      operationId: generateXMLUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Download'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/export_xml/lazy:
+    post:
+      tags:
+      - feedback-export-resource
+      summary: lazyGenerateXML
+      operationId: lazyGenerateXMLUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    ExportPdfOptions:
+      type: object
+      title: ExportPdfOptions
+    Download:
+      type: object
+      title: Download
+    AvailableColumn:
+      type: object
+      title: AvailableColumn
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

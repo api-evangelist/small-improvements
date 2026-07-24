@@ -1,0 +1,98 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource review-cycle-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: review-cycle-resource
+  description: Review Cycle Resource
+paths:
+  /v2/review-cycle:
+    get:
+      tags:
+      - review-cycle-resource
+      summary: list
+      operationId: listUsingGET_5
+      parameters:
+      - name: contributingReviewerId
+        in: query
+        description: contributingReviewerId
+        required: true
+        schema:
+          type: string
+      - name: mainReviewerId
+        in: query
+        description: mainReviewerId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewCycleListDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - review-cycle-resource
+      summary: create
+      operationId: createUsingPOST_4
+      requestBody:
+        $ref: '#/components/requestBodies/ReviewCycleCreateRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycle'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  requestBodies:
+    ReviewCycleCreateRequest:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ReviewCycleCreateRequest'
+      description: reviewCycleCreateRequest
+      required: true
+  schemas:
+    ReviewCycleCreateRequest:
+      type: object
+      title: ReviewCycleCreateRequest
+    ReviewCycle:
+      type: object
+      title: ReviewCycle
+    ReviewCycleListDto:
+      type: object
+      title: ReviewCycleListDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

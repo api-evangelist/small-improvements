@@ -1,0 +1,84 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource activity-stream-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: activity-stream-resource
+  description: Activity Stream Resource
+paths:
+  /v2/activities:
+    get:
+      tags:
+      - activity-stream-resource
+      summary: getActivityStream
+      operationId: getActivityStreamUsingGET
+      parameters:
+      - name: modules
+        in: query
+        description: modules
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - FEEDBACK
+            - MESSAGE
+            - OBJECTIVE
+            - PRAISE
+            - REVIEW
+            - USER
+          enum:
+          - FEEDBACK
+          - MESSAGE
+          - OBJECTIVE
+          - PRAISE
+          - REVIEW
+          - USER
+      - name: size
+        in: query
+        description: size
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      - name: userIds
+        in: query
+        description: userIds
+        required: false
+        explode: true
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

@@ -1,0 +1,271 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource users-change-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: users-change-resource
+  description: Users Change Resource
+paths:
+  /v2/users/roles/lock:
+    post:
+      tags:
+      - users-change-resource
+      summary: lockUsers
+      operationId: lockUsersUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/bulkNudgeUsingPOSTIds'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_string_'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/roles/unlock:
+    post:
+      tags:
+      - users-change-resource
+      summary: unlockUsers
+      operationId: unlockUsersUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/bulkNudgeUsingPOSTIds'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_string_'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}:
+    put:
+      tags:
+      - users-change-resource
+      summary: updateUser
+      operationId: updateUserUsingPUT
+      parameters:
+      - name: Si-User-Password
+        in: header
+        description: Si-User-Password
+        required: false
+        schema:
+          type: string
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+        description: dto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserProfileDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}/2fa:
+    put:
+      tags:
+      - users-change-resource
+      summary: setTwoFactorRequirement
+      operationId: setTwoFactorRequirementUsingPUT
+      parameters:
+      - name: required
+        in: query
+        description: required
+        required: false
+        schema:
+          type: boolean
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserProfileDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}/manager:
+    put:
+      tags:
+      - users-change-resource
+      summary: setManager
+      operationId: setManagerUsingPUT
+      parameters:
+      - name: managerId
+        in: query
+        description: managerId
+        required: false
+        schema:
+          type: string
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserProfileDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userId}/secondary-reviewer:
+    put:
+      tags:
+      - users-change-resource
+      summary: setSecondaryReviewer
+      operationId: setSecondaryReviewerUsingPUT
+      parameters:
+      - name: secondaryReviewerId
+        in: query
+        description: secondaryReviewerId
+        required: false
+        schema:
+          type: string
+      - name: userId
+        in: path
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserProfileDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/users/{userKey}/roles:
+    put:
+      tags:
+      - users-change-resource
+      summary: updateRoles
+      operationId: updateRolesUsingPUT
+      parameters:
+      - name: userKey
+        in: path
+        description: userKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/UserRolesDto'
+        description: userRoles
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserProfileDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    UserRolesDto:
+      type: object
+      title: UserRolesDto
+    UserUpdate:
+      type: object
+      title: UserUpdate
+    Iterable_string_:
+      type: object
+      title: Iterable«string»
+    UserProfileDto:
+      type: object
+      title: UserProfileDto
+  requestBodies:
+    bulkNudgeUsingPOSTIds:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: ids
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

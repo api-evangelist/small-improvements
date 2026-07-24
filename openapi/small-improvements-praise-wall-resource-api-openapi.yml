@@ -1,0 +1,178 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource praise-wall-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: praise-wall-resource
+  description: Praise Wall Resource
+paths:
+  /v2/praise/wall/config:
+    get:
+      tags:
+      - praise-wall-resource
+      summary: getConfig
+      operationId: getConfigUsingGET_1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/PraiseWallConfigDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - praise-wall-resource
+      summary: saveConfig
+      operationId: saveConfigUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/PraiseWallConfigDto'
+        description: dto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/PraiseWallConfigDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/praise/wall/custom-logo:
+    post:
+      tags:
+      - praise-wall-resource
+      summary: uploadCustomLogo
+      operationId: uploadCustomLogoUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ImageData'
+        description: customLogo
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ImageInfo'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/praise/wall/token:
+    get:
+      tags:
+      - praise-wall-resource
+      summary: getWallToken
+      operationId: getWallTokenUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/PraiseWallTokenDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/praise/wall/token/activate:
+    patch:
+      tags:
+      - praise-wall-resource
+      summary: activate
+      operationId: activateUsingPATCH
+      parameters:
+      - name: active
+        in: query
+        description: active
+        required: false
+        schema:
+          type: boolean
+          default: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/PraiseWallTokenDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/praise/wall/token/refresh:
+    post:
+      tags:
+      - praise-wall-resource
+      summary: refreshWallToken
+      operationId: refreshWallTokenUsingPOST
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/PraiseWallTokenDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    ImageData:
+      type: object
+      title: ImageData
+    ImageInfo:
+      type: object
+      title: ImageInfo
+    PraiseWallConfigDto:
+      type: object
+      title: PraiseWallConfigDto
+    PraiseWallTokenDto:
+      type: object
+      title: PraiseWallTokenDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

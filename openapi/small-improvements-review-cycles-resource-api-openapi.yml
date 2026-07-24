@@ -1,0 +1,494 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource review-cycles-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: review-cycles-resource
+  description: Review Cycles Resource
+paths:
+  /v2/review-cycles:
+    get:
+      tags:
+      - review-cycles-resource
+      summary: list
+      operationId: listUsingGET_6
+      parameters:
+      - name: onlyManageable
+        in: query
+        description: onlyManageable
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewCycleListDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles-all:
+    get:
+      tags:
+      - review-cycles-resource
+      summary: getAllCycles
+      operationId: getAllCyclesUsingGET_1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_ReviewCycleListDto_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/guided/edit:
+    post:
+      tags:
+      - review-cycles-resource
+      summary: editCycle
+      operationId: editCycleUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/ReviewCycleGuidedDto'
+        description: reviewCycleGuidedDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/guided/{cycleId}:
+    get:
+      tags:
+      - review-cycles-resource
+      summary: getCycle
+      operationId: getCycleUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleGuidedDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/guided/{cycleId}/copy:
+    get:
+      tags:
+      - review-cycles-resource
+      summary: getCycleForCopy
+      operationId: getCycleForCopyUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleGuidedDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}:
+    get:
+      tags:
+      - review-cycles-resource
+      summary: get
+      operationId: getUsingGET_16
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleListDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - review-cycles-resource
+      summary: delete
+      operationId: deleteUsingDELETE_14
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/review-cycles/{cycleId}/archive:
+    put:
+      tags:
+      - review-cycles-resource
+      summary: archiveCycle
+      operationId: archiveCycleUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/bulk_inform:
+    post:
+      tags:
+      - review-cycles-resource
+      summary: bulkNotify
+      operationId: bulkNotifyUsingPOST_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/editFeedbackCycleAdminsUsingPOSTUserids'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/complete_all:
+    post:
+      tags:
+      - review-cycles-resource
+      summary: completeOpenReviews
+      operationId: completeOpenReviewsUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/inform_all:
+    post:
+      tags:
+      - review-cycles-resource
+      summary: notifyAll
+      operationId: notifyAllUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/nudge_all:
+    post:
+      tags:
+      - review-cycles-resource
+      summary: nudgeAll
+      operationId: nudgeAllUsingPOST_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: filter
+        in: query
+        description: filter
+        required: false
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/share_all:
+    post:
+      tags:
+      - review-cycles-resource
+      summary: bulkShareAllReviews
+      operationId: bulkShareAllReviewsUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/share_all_managers:
+    post:
+      tags:
+      - review-cycles-resource
+      summary: bulkShareAllManagerReviews
+      operationId: bulkShareAllManagerReviewsUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/trends:
+    get:
+      tags:
+      - review-cycles-resource
+      summary: getTrends
+      operationId: getTrendsUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: days
+        in: query
+        description: days
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: -1
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/unarchive:
+    put:
+      tags:
+      - review-cycles-resource
+      summary: unarchiveCycle
+      operationId: unarchiveCycleUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewCycleListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    ReviewCycleGuidedDto:
+      type: object
+      title: ReviewCycleGuidedDto
+    Iterable_ReviewCycleListDto_:
+      type: object
+      title: Iterable«ReviewCycleListDto»
+    ReviewCycleListDto:
+      type: object
+      title: ReviewCycleListDto
+  requestBodies:
+    editFeedbackCycleAdminsUsingPOSTUserids:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: userIds
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

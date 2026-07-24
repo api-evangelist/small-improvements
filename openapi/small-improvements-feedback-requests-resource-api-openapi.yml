@@ -1,0 +1,682 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource feedback-requests-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: feedback-requests-resource
+  description: Feedback Requests Resource
+paths:
+  /v2/feedback-cycles/{cycleId}/bulk_add_team_members:
+    post:
+      tags:
+      - feedback-requests-resource
+      summary: bulkAddTeamMembers
+      operationId: bulkAddTeamMembersUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedbackRequestDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests:
+    get:
+      tags:
+      - feedback-requests-resource
+      summary: list
+      operationId: listUsingGET_2
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: managerId
+        in: query
+        description: managerId
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedbackRequestDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - feedback-requests-resource
+      summary: createBulkReviews
+      operationId: createBulkReviewsUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/UserIdHolderArray2'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CreateFeedbackRequestsBulkResult'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests/add-all-managers-as-reviewers:
+    post:
+      tags:
+      - feedback-requests-resource
+      summary: bulkAddManagers
+      operationId: bulkAddManagersUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedbackRequestDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests/add-self-assessments:
+    post:
+      tags:
+      - feedback-requests-resource
+      summary: bulkAddSelfAssessments
+      operationId: bulkAddSelfAssessmentsUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedbackRequestDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests/count:
+    get:
+      tags:
+      - feedback-requests-resource
+      summary: count
+      operationId: countUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: integer
+                format: int64
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests/nudge:
+    post:
+      tags:
+      - feedback-requests-resource
+      summary: bulkNudge
+      operationId: bulkNudgeUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: true
+        schema:
+          type: string
+          enum:
+          - MANAGER
+          - REVIEWEE
+      requestBody:
+        $ref: '#/components/requestBodies/bulkNudgeUsingPOSTIds'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}:
+    get:
+      tags:
+      - feedback-requests-resource
+      summary: getFeedbackRequest
+      operationId: getFeedbackRequestUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackRequestDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - feedback-requests-resource
+      summary: delete
+      operationId: deleteUsingDELETE_4
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/approved:
+    put:
+      tags:
+      - feedback-requests-resource
+      summary: approveFeedbackRequest
+      operationId: approveFeedbackRequestUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackRequestDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - feedback-requests-resource
+      summary: unapproveFeedbackRequest
+      operationId: unapproveFeedbackRequestUsingDELETE
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackRequestDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/completed:
+    put:
+      tags:
+      - feedback-requests-resource
+      summary: completeFeedbackRequest
+      operationId: completeFeedbackRequestUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackRequestDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - feedback-requests-resource
+      summary: reopenFeedbackRequest
+      operationId: reopenFeedbackRequestUsingDELETE
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackRequestDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/markAsDone:
+    put:
+      tags:
+      - feedback-requests-resource
+      summary: markAsDone
+      operationId: markAsDoneUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - feedback-requests-resource
+      summary: markAsNotDone
+      operationId: markAsNotDoneUsingDELETE
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/nudge:
+    post:
+      tags:
+      - feedback-requests-resource
+      summary: nudge
+      operationId: nudgeUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackRequestDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/release-feedback:
+    put:
+      tags:
+      - feedback-requests-resource
+      summary: releaseFeedback
+      operationId: releaseFeedbackUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackRequestDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/updateNoteToReviewers:
+    put:
+      tags:
+      - feedback-requests-resource
+      summary: addNoteToReviewers
+      operationId: addNoteToReviewersUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+        description: body
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-requests/{requestId}/feedback-reviewee-rating:
+    put:
+      tags:
+      - feedback-requests-resource
+      summary: getFeedbackRequest
+      operationId: getFeedbackRequestUsingPUT
+      parameters:
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequestRating'
+        description: ratingDTO
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - feedback-requests-resource
+      summary: getFeedbackRequest
+      operationId: getFeedbackRequestUsingDELETE
+      parameters:
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    FeedbackRequestDto:
+      type: object
+      title: FeedbackRequestDto
+    FeedbackRequestRating:
+      type: object
+      title: FeedbackRequestRating
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+    CreateFeedbackRequestsBulkResult:
+      type: object
+      title: CreateFeedbackRequestsBulkResult
+  requestBodies:
+    bulkNudgeUsingPOSTIds:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: ids
+      required: true
+    UserIdHolderArray2:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserIdHolder'
+      description: userIds
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

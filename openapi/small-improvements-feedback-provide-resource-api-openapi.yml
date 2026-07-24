@@ -1,0 +1,153 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource feedback-provide-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: feedback-provide-resource
+  description: Feedback Provide Resource
+paths:
+  /v2/cycle-feedback-response/{responseId}:
+    get:
+      tags:
+      - feedback-provide-resource
+      summary: getResponse
+      operationId: getResponseUsingGET_1
+      parameters:
+      - name: responseId
+        in: path
+        description: responseId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CycleFeedbackResponseDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/cycle-feedback-response/{responseId}/answer:
+    post:
+      tags:
+      - feedback-provide-resource
+      summary: answer
+      operationId: answerUsingPOST_1
+      parameters:
+      - name: responseId
+        in: path
+        description: responseId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/AnswerDtoArray2'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CycleFeedbackResponseDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/cycle-feedback-response/{responseId}/reopen:
+    post:
+      tags:
+      - feedback-provide-resource
+      summary: reopenResponse
+      operationId: reopenResponseUsingPOST_1
+      parameters:
+      - name: responseId
+        in: path
+        description: responseId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CycleFeedbackResponseDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/cycle-feedback-response/{responseId}/share:
+    post:
+      tags:
+      - feedback-provide-resource
+      summary: shareResponse
+      operationId: shareResponseUsingPOST_1
+      parameters:
+      - name: responseId
+        in: path
+        description: responseId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CycleFeedbackResponseDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    CycleFeedbackResponseDto:
+      type: object
+      title: CycleFeedbackResponseDto
+    AnswerDto:
+      type: object
+      title: AnswerDto
+  requestBodies:
+    AnswerDtoArray2:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AnswerDto'
+      description: answers
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

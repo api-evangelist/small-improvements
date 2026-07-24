@@ -1,0 +1,420 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource companies-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: companies-resource
+  description: Companies Resource
+paths:
+  /v2/all-companies:
+    get:
+      tags:
+      - companies-resource
+      summary: listAll
+      operationId: listAllUsingGET
+      parameters:
+      - name: jumpTo
+        in: query
+        description: jumpTo
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: prefixQuery
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: sortBy
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - creation
+          - expiry
+          - name
+          - size
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies:
+    get:
+      tags:
+      - companies-resource
+      summary: listCurrentCompany
+      operationId: listCurrentCompanyUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  type: object
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies/generate_excel:
+    get:
+      tags:
+      - companies-resource
+      summary: generateExcelDownload
+      operationId: generateExcelDownloadUsingGET
+      parameters:
+      - name: onlyPaying
+        in: query
+        description: onlyPaying
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies/merge:
+    post:
+      tags:
+      - companies-resource
+      summary: mergeCompanies
+      operationId: mergeCompaniesUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/MergeCompanyDto'
+        description: payload
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies/wicket-compatible:
+    get:
+      tags:
+      - companies-resource
+      summary: listForUserpicker
+      operationId: listForUserpickerUsingGET
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: prefixQuery
+        in: query
+        required: false
+        schema:
+          type: boolean
+      - name: query
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: sortBy
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - creation
+          - expiry
+          - name
+          - size
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_Map_string_object_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies/{companyId}:
+    get:
+      tags:
+      - companies-resource
+      summary: get
+      operationId: getUsingGET_4
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CompanyDetailsDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies/{companyId}/billing:
+    post:
+      tags:
+      - companies-resource
+      summary: editBilling
+      operationId: editBillingUsingPOST
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/CompanyPaymentDto'
+        description: request
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CompanyDetailsDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies/{companyId}/mini-users:
+    get:
+      tags:
+      - companies-resource
+      summary: getCompanyMiniUsers
+      operationId: getCompanyMiniUsersUsingGET
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      - name: includeGuests
+        in: query
+        description: includeGuests
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: showLocked
+        in: query
+        description: showLocked
+        required: false
+        schema:
+          type: boolean
+          default: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MiniUser'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies/{companyId}/replacements:
+    get:
+      tags:
+      - companies-resource
+      summary: getReplacements
+      operationId: getReplacementsUsingGET
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies/{companyId}/users:
+    get:
+      tags:
+      - companies-resource
+      summary: getCompanyUsers
+      operationId: getCompanyUsersUsingGET
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      - name: includeGuests
+        in: query
+        description: includeGuests
+        required: false
+        schema:
+          type: boolean
+          default: true
+      - name: showLocked
+        in: query
+        description: showLocked
+        required: false
+        schema:
+          type: boolean
+          default: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObserverUserDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/companies/{companyId}/users/denormalise-reports:
+    post:
+      tags:
+      - companies-resource
+      summary: denormaliseReports
+      operationId: denormaliseReportsUsingPOST
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    CompanyPaymentDto:
+      type: object
+      title: CompanyPaymentDto
+    CompanyDetailsDto:
+      type: object
+      title: CompanyDetailsDto
+    Iterable_Map_string_object_:
+      type: object
+      title: Iterable«Map«string,object»»
+    MiniUser:
+      type: object
+      title: MiniUser
+    ObserverUserDto:
+      type: object
+      title: ObserverUserDto
+    MergeCompanyDto:
+      type: object
+      title: MergeCompanyDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

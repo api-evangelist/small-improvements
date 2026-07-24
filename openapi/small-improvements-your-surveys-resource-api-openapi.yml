@@ -1,0 +1,151 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource your-surveys-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: your-surveys-resource
+  description: Your Surveys Resource
+paths:
+  /v2/your-surveys:
+    get:
+      tags:
+      - your-surveys-resource
+      summary: getYourSurveys
+      operationId: getYourSurveysUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/YourSurveysDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/your-surveys/{surveyInstanceKey}:
+    get:
+      tags:
+      - your-surveys-resource
+      summary: getYourSurvey
+      operationId: getYourSurveyUsingGET
+      parameters:
+      - name: surveyInstanceKey
+        in: path
+        description: surveyInstanceKey
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/YourSurveyDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - your-surveys-resource
+      summary: answerSurveyInstance
+      operationId: answerSurveyInstanceUsingPOST
+      parameters:
+      - name: surveyInstanceKey
+        in: path
+        description: surveyInstanceKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SurveyAnswersDto'
+        description: surveyAnswerDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/YourSurveyDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/your-surveys/{surveyInstanceKey}/submission:
+    put:
+      tags:
+      - your-surveys-resource
+      summary: updateSurveySubmission
+      operationId: updateSurveySubmissionUsingPUT
+      parameters:
+      - name: surveyInstanceKey
+        in: path
+        description: surveyInstanceKey
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/SurveySubmissionDto'
+        description: surveySubmissionDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/YourSurveyDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    YourSurveyDto:
+      type: object
+      title: YourSurveyDto
+    SurveySubmissionDto:
+      type: object
+      title: SurveySubmissionDto
+    SurveyAnswersDto:
+      type: object
+      title: SurveyAnswersDto
+    YourSurveysDto:
+      type: object
+      title: YourSurveysDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

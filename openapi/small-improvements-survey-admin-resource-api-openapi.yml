@@ -1,0 +1,276 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource survey-admin-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: survey-admin-resource
+  description: Survey Admin Resource
+paths:
+  /v2/surveys:
+    post:
+      tags:
+      - survey-admin-resource
+      summary: createSurvey
+      operationId: createSurveyUsingPOST
+      requestBody:
+        $ref: '#/components/requestBodies/SurveyDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SurveyDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/surveys/{surveyId}:
+    put:
+      tags:
+      - survey-admin-resource
+      summary: updateSurvey
+      operationId: updateSurveyUsingPUT
+      parameters:
+      - name: surveyId
+        in: path
+        description: surveyId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/SurveyDto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SurveyDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - survey-admin-resource
+      summary: deleteSurvey
+      operationId: deleteSurveyUsingDELETE
+      parameters:
+      - name: surveyId
+        in: path
+        description: surveyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/surveys/{surveyId}/archive-status:
+    put:
+      tags:
+      - survey-admin-resource
+      summary: updateArchiveStatus
+      operationId: updateArchiveStatusUsingPUT
+      parameters:
+      - name: surveyId
+        in: path
+        description: surveyId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ArchiveStatusDto'
+        description: archiveStatusDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SurveyDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/surveys/{surveyId}/export:
+    get:
+      tags:
+      - survey-admin-resource
+      summary: getSurveyExport
+      operationId: getSurveyExportUsingGET
+      parameters:
+      - name: format
+        in: query
+        description: format
+        required: true
+        schema:
+          type: string
+          enum:
+          - CSV
+          - EXCEL
+      - name: from
+        in: query
+        description: from
+        required: true
+        schema:
+          type: string
+      - name: surveyId
+        in: path
+        description: surveyId
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        description: to
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/DownloadableFileDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/surveys/{surveyId}/stopped-status:
+    put:
+      tags:
+      - survey-admin-resource
+      summary: updateStoppedStatus
+      operationId: updateStoppedStatusUsingPUT
+      parameters:
+      - name: surveyId
+        in: path
+        description: surveyId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StoppedStatusDto'
+        description: stoppedStatusDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SurveyDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/surveys/{surveyId}/viewers:
+    put:
+      tags:
+      - survey-admin-resource
+      summary: updateViewers
+      operationId: updateViewersUsingPUT
+      parameters:
+      - name: surveyId
+        in: path
+        description: surveyId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Key_User_'
+        description: viewers
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SurveyDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  requestBodies:
+    SurveyDto:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/SurveyDto'
+      description: surveyCreationDto
+      required: true
+  schemas:
+    SurveyDto:
+      type: object
+      title: SurveyDto
+    StoppedStatusDto:
+      type: object
+      title: StoppedStatusDto
+    ArchiveStatusDto:
+      type: object
+      title: ArchiveStatusDto
+    Key_User_:
+      type: object
+      title: Key«User»
+    DownloadableFileDto:
+      type: object
+      title: DownloadableFileDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

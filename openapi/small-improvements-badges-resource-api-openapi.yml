@@ -1,0 +1,223 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource badges-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: badges-resource
+  description: Badges Resource
+paths:
+  /v2/badges:
+    get:
+      tags:
+      - badges-resource
+      summary: getBadges
+      operationId: getBadgesUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_MiniBadge_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - badges-resource
+      summary: createBadgePrototype
+      operationId: createBadgePrototypeUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/BadgePrototypeDTO'
+        description: badge
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MiniBadgePrototype'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/badges/icons:
+    get:
+      tags:
+      - badges-resource
+      summary: getAllIcons
+      operationId: getAllIconsUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                uniqueItems: true
+                items:
+                  type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/badges/order:
+    post:
+      tags:
+      - badges-resource
+      summary: reorderBadgePrototypes
+      operationId: reorderBadgePrototypesUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/BadgePrototypeOrder'
+        description: newOrder
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MiniBadgePrototype'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/badges/prototypes:
+    get:
+      tags:
+      - badges-resource
+      summary: getBadgePrototypes
+      operationId: getBadgePrototypesUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/Iterable_MiniBadgePrototype_'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/badges/{id}:
+    put:
+      tags:
+      - badges-resource
+      summary: editBadgePrototype
+      operationId: editBadgePrototypeUsingPUT
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BadgePrototypeDTO'
+        description: badge
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MiniBadgePrototype'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - badges-resource
+      summary: deleteBadgePrototype
+      operationId: deleteBadgePrototypeUsingDELETE
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MiniBadgePrototype'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+components:
+  schemas:
+    Iterable_MiniBadge_:
+      type: object
+      title: Iterable«MiniBadge»
+    Iterable_MiniBadgePrototype_:
+      type: object
+      title: Iterable«MiniBadgePrototype»
+    BadgePrototypeOrder:
+      type: object
+      title: BadgePrototypeOrder
+    MiniBadgePrototype:
+      type: object
+      title: MiniBadgePrototype
+    BadgePrototypeDTO:
+      type: object
+      title: BadgePrototypeDTO
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

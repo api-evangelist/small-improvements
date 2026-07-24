@@ -1,0 +1,73 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource meeting-calendar-settings-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: meeting-calendar-settings-resource
+  description: Meeting Calendar Settings Resource
+paths:
+  /v2/meeting-calendar-integration/settings:
+    get:
+      tags:
+      - meeting-calendar-settings-resource
+      summary: getSettings
+      operationId: getSettingsUsingGET_3
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CalendarSettingsDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - meeting-calendar-settings-resource
+      summary: updateCalendarSettings
+      operationId: updateCalendarSettingsUsingPUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CalendarSettingsUpdateRequest'
+        description: updateRequest
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    CalendarSettingsUpdateRequest:
+      type: object
+      title: CalendarSettingsUpdateRequest
+    CalendarSettingsDto:
+      type: object
+      title: CalendarSettingsDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

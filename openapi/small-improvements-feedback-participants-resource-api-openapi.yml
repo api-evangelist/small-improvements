@@ -1,0 +1,520 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource feedback-participants-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: feedback-participants-resource
+  description: Feedback Participants Resource
+paths:
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/participants:
+    get:
+      tags:
+      - feedback-participants-resource
+      summary: list
+      operationId: listUsingGET_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - feedback-participants-resource
+      summary: addParticipants
+      operationId: addParticipantsUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/UserIdHolderArray2'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/participants/{participantId}:
+    get:
+      tags:
+      - feedback-participants-resource
+      summary: getItemById
+      operationId: getItemByIdUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: participantId
+        in: path
+        description: participantId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - feedback-participants-resource
+      summary: deleteItem
+      operationId: deleteItemUsingDELETE
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: participantId
+        in: path
+        description: participantId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/participants/{participantId}/completed:
+    put:
+      tags:
+      - feedback-participants-resource
+      summary: complete
+      operationId: completeUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: participantId
+        in: path
+        description: participantId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - feedback-participants-resource
+      summary: reopen
+      operationId: reopenUsingDELETE
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: participantId
+        in: path
+        description: participantId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/participants/{participantId}/declined:
+    put:
+      tags:
+      - feedback-participants-resource
+      summary: decline
+      operationId: declineUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: participantId
+        in: path
+        description: participantId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackReasonDto'
+        description: feedbackReasonDto
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback-cycles/{cycleId}/feedback-requests/{requestId}/participants/{participantId}/nudge:
+    post:
+      tags:
+      - feedback-participants-resource
+      summary: nudgeReviewer
+      operationId: nudgeReviewerUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: participantId
+        in: path
+        description: participantId
+        required: true
+        schema:
+          type: string
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback/new-unsolicited:
+    post:
+      tags:
+      - feedback-participants-resource
+      summary: newUnsolicitedFeedback
+      operationId: newUnsolicitedFeedbackUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/NewUnsolicitedFeedbackDto'
+        description: newUnsolicitedFeedbackDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback/participant/mini/{participantId}:
+    get:
+      tags:
+      - feedback-participants-resource
+      summary: getMiniById
+      operationId: getMiniByIdUsingGET
+      parameters:
+      - name: participantId
+        in: path
+        description: participantId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackParticipantMini'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback/provide-feedback:
+    post:
+      tags:
+      - feedback-participants-resource
+      summary: provideFeedback
+      operationId: provideFeedbackUsingPOST
+      parameters:
+      - name: saveDraft
+        in: query
+        description: saveDraft
+        required: false
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/FeedbackDto'
+        description: feedbackDto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackParticipantListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback/unsolicited/reviewees:
+    get:
+      tags:
+      - feedback-participants-resource
+      summary: getPossibleRevieweesInCycle
+      operationId: getPossibleRevieweesInCycleUsingGET
+      parameters:
+      - name: cycleId
+        in: query
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewerId
+        in: query
+        description: reviewerId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MiniFeedbackRequest'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/feedback/{feedbackId}:
+    get:
+      tags:
+      - feedback-participants-resource
+      summary: getFeedback
+      operationId: getFeedbackUsingGET
+      parameters:
+      - name: feedbackId
+        in: path
+        description: feedbackId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/FeedbackParticipantProvideDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+    MiniFeedbackRequest:
+      type: object
+      title: MiniFeedbackRequest
+    FeedbackDto:
+      type: object
+      title: FeedbackDto
+    FeedbackParticipantMini:
+      type: object
+      title: FeedbackParticipantMini
+    NewUnsolicitedFeedbackDto:
+      type: object
+      title: NewUnsolicitedFeedbackDto
+    FeedbackReasonDto:
+      type: object
+      title: FeedbackReasonDto
+    FeedbackParticipantListDto:
+      type: object
+      title: FeedbackParticipantListDto
+    FeedbackParticipantProvideDto:
+      type: object
+      title: FeedbackParticipantProvideDto
+  requestBodies:
+    UserIdHolderArray2:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserIdHolder'
+      description: userIds
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

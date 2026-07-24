@@ -1,0 +1,688 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource reviews-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: reviews-resource
+  description: Reviews Resource
+paths:
+  /v2/review-cycles/{cycleId}/changeManagerRatings:
+    put:
+      tags:
+      - reviews-resource
+      summary: changeManagerRatings
+      operationId: changeManagerRatingsUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: isSecondaryRating
+        in: query
+        description: isSecondaryRating
+        required: false
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManagerRatingChanges'
+        description: managerRatingChanges
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/reviews:
+    get:
+      tags:
+      - reviews-resource
+      summary: listAllReviews
+      operationId: listAllReviewsUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: ignoreCache
+        in: query
+        description: ignoreCache
+        required: false
+        schema:
+          type: boolean
+      - name: managerId
+        in: query
+        description: managerId
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewListDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    post:
+      tags:
+      - reviews-resource
+      summary: createReviews
+      operationId: createReviewsUsingPOST
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserIdHolder'
+        description: reviewees
+        required: true
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/reviews/{reviewId}:
+    get:
+      tags:
+      - reviews-resource
+      summary: getReview
+      operationId: getReviewUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - reviews-resource
+      summary: delete
+      operationId: deleteUsingDELETE_16
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/review-cycles/{cycleId}/reviews/{reviewId}/changeManagerRating:
+    put:
+      tags:
+      - reviews-resource
+      summary: changeManagerRating
+      operationId: changeManagerRatingUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ManagerRatingCode'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/reviews/{reviewId}/changeSecondaryManagerRating:
+    put:
+      tags:
+      - reviews-resource
+      summary: changeSecondaryManagerRating
+      operationId: changeSecondaryManagerRatingUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/ManagerRatingCode'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/reviews/{reviewId}/completed:
+    put:
+      tags:
+      - reviews-resource
+      summary: complete
+      operationId: completeUsingPUT_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - reviews-resource
+      summary: reopen
+      operationId: reopenUsingDELETE_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/review-cycles/{cycleId}/reviews/{reviewId}/cycle:
+    put:
+      tags:
+      - reviews-resource
+      summary: moveReviewToCycle
+      operationId: moveReviewToCycleUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: newCycleId
+        in: query
+        description: newCycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/reviews/{reviewId}/indicateManagerDone:
+    put:
+      tags:
+      - reviews-resource
+      summary: indicateManagerDone
+      operationId: indicateManagerDoneUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/reviews/{reviewId}/nudge:
+    post:
+      tags:
+      - reviews-resource
+      summary: nudge
+      operationId: nudgeUsingPOST_3
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/review-cycles/{cycleId}/reviews/{reviewId}/shared:
+    put:
+      tags:
+      - reviews-resource
+      summary: share
+      operationId: shareUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - reviews-resource
+      summary: hide
+      operationId: hideUsingDELETE
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/review-cycles/{cycleId}/reviews/{reviewId}/signed:
+    put:
+      tags:
+      - reviews-resource
+      summary: sign
+      operationId: signUsingPUT
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - reviews-resource
+      summary: revokeSignature
+      operationId: revokeSignatureUsingDELETE
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewListDto'
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/reviews/mini/relevant-for-user:
+    get:
+      tags:
+      - reviews-resource
+      summary: getRelevantForUserMini
+      operationId: getRelevantForUserMiniUsingGET
+      parameters:
+      - name: endDate
+        in: query
+        description: endDate
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: startDate
+        in: query
+        description: startDate
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: userId
+        in: query
+        description: userId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReviewMini'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/reviews/mini/{reviewId}:
+    get:
+      tags:
+      - reviews-resource
+      summary: getReviewMini
+      operationId: getReviewMiniUsingGET
+      parameters:
+      - name: reviewId
+        in: path
+        description: reviewId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ReviewMini'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    ReviewListDto:
+      type: object
+      title: ReviewListDto
+    ReviewMini:
+      type: object
+      title: ReviewMini
+    ManagerRatingCode:
+      type: object
+      title: ManagerRatingCode
+    ManagerRatingChanges:
+      type: object
+      title: ManagerRatingChanges
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+  requestBodies:
+    ManagerRatingCode:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ManagerRatingCode'
+      description: managerRatingCode
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

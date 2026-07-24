@@ -1,0 +1,114 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource survey-analytics-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: survey-analytics-resource
+  description: Survey Analytics Resource
+paths:
+  /v2/surveys/{surveyId}/dates:
+    get:
+      tags:
+      - survey-analytics-resource
+      summary: viewSurveyDates
+      operationId: viewSurveyDatesUsingGET
+      parameters:
+      - name: surveyId
+        in: path
+        description: surveyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SurveyDatesDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/surveys/{surveyId}/responses:
+    get:
+      tags:
+      - survey-analytics-resource
+      summary: viewSurveyResponses
+      operationId: viewSurveyResponsesUsingGET
+      parameters:
+      - name: from
+        in: query
+        description: from
+        required: true
+        schema:
+          type: string
+      - name: grouping
+        in: query
+        description: grouping
+        required: true
+        schema:
+          type: string
+          enum:
+          - DEPARTMENT
+          - EMPLOYMENT_TYPE
+          - GENDER
+          - LOCATION
+          - MANAGER
+          - MANAGER_OR_IC
+          - NONE
+          - ROLE
+          - TEAM
+          - TENURE
+      - name: surveyId
+        in: path
+        description: surveyId
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        description: to
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/SurveyResponseAggregationDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    SurveyResponseAggregationDto:
+      type: object
+      title: SurveyResponseAggregationDto
+    SurveyDatesDto:
+      type: object
+      title: SurveyDatesDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

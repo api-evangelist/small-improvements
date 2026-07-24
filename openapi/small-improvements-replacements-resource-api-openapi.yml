@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource replacements-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: replacements-resource
+  description: Replacements Resource
+paths:
+  /v2/replacements/customizations:
+    get:
+      tags:
+      - replacements-resource
+      summary: getCustomReplacements
+      operationId: getCustomReplacementsUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CustomizationsDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - replacements-resource
+      summary: putCustomReplacements
+      operationId: putCustomReplacementsUsingPUT
+      requestBody:
+        $ref: '#/components/requestBodies/putCustomReplacementsUsingPUTReplacements'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/replacements/defaults:
+    get:
+      tags:
+      - replacements-resource
+      summary: getDefaultReplacements
+      operationId: getDefaultReplacementsUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/replacements/{companyId}/customizations:
+    get:
+      tags:
+      - replacements-resource
+      summary: getCustomReplacementsForCompany
+      operationId: getCustomReplacementsForCompanyUsingGET
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/CustomizationsDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - replacements-resource
+      summary: putCustomReplacementsForCompany
+      operationId: putCustomReplacementsForCompanyUsingPUT
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/putCustomReplacementsUsingPUTReplacements'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  requestBodies:
+    putCustomReplacementsUsingPUTReplacements:
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties:
+              type: string
+      description: replacements
+      required: true
+  schemas:
+    CustomizationsDto:
+      type: object
+      title: CustomizationsDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

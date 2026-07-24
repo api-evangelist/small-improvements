@@ -1,0 +1,145 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource objective-summaries-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: objective-summaries-resource
+  description: Objective Summaries Resource
+paths:
+  /v2/objective-cycles/{cycleId}/summaries:
+    get:
+      tags:
+      - objective-summaries-resource
+      summary: getDto
+      operationId: getDtoUsingGET
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: filterMode
+        in: query
+        description: filterMode
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: managerId
+        in: query
+        description: managerId
+        required: false
+        schema:
+          type: string
+      - name: onlyDirectReports
+        in: query
+        description: onlyDirectReports
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ObjectiveSummaryDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/summaries/{summaryId}:
+    get:
+      tags:
+      - objective-summaries-resource
+      summary: getDto
+      operationId: getDtoUsingGET_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: summaryId
+        in: path
+        description: summaryId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/ObjectiveSummaryDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/objective-cycles/{cycleId}/summaries/{summaryId}/nudge:
+    post:
+      tags:
+      - objective-summaries-resource
+      summary: nudge
+      operationId: nudgeUsingPOST_1
+      parameters:
+      - name: cycleId
+        in: path
+        description: cycleId
+        required: true
+        schema:
+          type: string
+      - name: summaryId
+        in: path
+        description: summaryId
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: target
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    ObjectiveSummaryDto:
+      type: object
+      title: ObjectiveSummaryDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

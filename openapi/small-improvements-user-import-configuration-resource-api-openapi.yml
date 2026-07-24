@@ -1,0 +1,221 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource user-import-configuration-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: user-import-configuration-resource
+  description: User Import Configuration Resource
+paths:
+  /v2/user-import-configurations/CSV:
+    put:
+      tags:
+      - user-import-configuration-resource
+      summary: updateCsv
+      operationId: updateCsvUsingPUT
+      requestBody:
+        $ref: '#/components/requestBodies/UserImportConfigurationDTO'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import-configurations/GOOGLE_APPS:
+    get:
+      tags:
+      - user-import-configuration-resource
+      summary: getGoogleApps
+      operationId: getGoogleAppsUsingGET
+      parameters:
+      - name: company
+        in: query
+        description: company
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserImportConfigurationDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - user-import-configuration-resource
+      summary: updateGoogleApps
+      operationId: updateGoogleAppsUsingPUT
+      requestBody:
+        $ref: '#/components/requestBodies/UserImportConfigurationDTO'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import-configurations/synchronization-intervals:
+    get:
+      tags:
+      - user-import-configuration-resource
+      summary: getSynchronizationIntervals
+      operationId: getSynchronizationIntervalsUsingGET
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SynchronizationIntervalHolder'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import-configurations/{companyId}/{type}:
+    put:
+      tags:
+      - user-import-configuration-resource
+      summary: reset
+      operationId: resetUsingPUT
+      parameters:
+      - name: companyId
+        in: path
+        description: companyId
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: path
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - BAMBOO
+          - CSV
+          - GOOGLE_APPS
+          - NAMELY
+          - PERSONIO
+          - SAPLING
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserImportConfigurationDTO'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/user-import-configurations/{type}:
+    get:
+      tags:
+      - user-import-configuration-resource
+      summary: get
+      operationId: getUsingGET_21
+      parameters:
+      - name: company
+        in: query
+        description: company
+        required: false
+        schema:
+          type: string
+      - name: type
+        in: path
+        description: type
+        required: true
+        schema:
+          type: string
+          enum:
+          - BAMBOO
+          - CSV
+          - GOOGLE_APPS
+          - NAMELY
+          - PERSONIO
+          - SAPLING
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UserImportConfigurationDTO'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - user-import-configuration-resource
+      summary: update
+      operationId: updateUsingPUT_2
+      requestBody:
+        $ref: '#/components/requestBodies/UserImportConfigurationDTO'
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    SynchronizationIntervalHolder:
+      type: object
+      title: SynchronizationIntervalHolder
+    UserImportConfigurationDTO:
+      type: object
+      title: UserImportConfigurationDTO
+  requestBodies:
+    UserImportConfigurationDTO:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserImportConfigurationDTO'
+      description: userImportConfigurationDTO
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

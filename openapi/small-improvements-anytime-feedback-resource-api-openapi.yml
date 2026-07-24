@@ -1,0 +1,469 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource anytime-feedback-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: anytime-feedback-resource
+  description: Anytime Feedback Resource
+paths:
+  /v2/anytime-feedback:
+    post:
+      tags:
+      - anytime-feedback-resource
+      summary: request
+      operationId: requestUsingPOST
+      requestBody:
+        content:
+          application/json;charset=UTF-8:
+            schema:
+              $ref: '#/components/schemas/AnytimeFeedbackRequestDto'
+        description: dto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AnytimeFeedbackRequestDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/anytime-feedback-overview/company:
+    get:
+      tags:
+      - anytime-feedback-resource
+      summary: getCompanyOverview
+      operationId: getCompanyOverviewUsingGET
+      parameters:
+      - name: from
+        in: query
+        description: from
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        description: to
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnifiedFeedbackDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/anytime-feedback-overview/team:
+    get:
+      tags:
+      - anytime-feedback-resource
+      summary: getTeamOverview
+      operationId: getTeamOverviewUsingGET
+      parameters:
+      - name: from
+        in: query
+        description: from
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        description: to
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UnifiedFeedbackDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/anytime-feedback-response/{requestId}/{reviewerId}:
+    get:
+      tags:
+      - anytime-feedback-resource
+      summary: getResponse
+      operationId: getResponseUsingGET
+      parameters:
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      - name: reviewerId
+        in: path
+        description: reviewerId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AnytimeFeedbackResponseDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/anytime-feedback-response/{requestId}/{reviewerId}/answer:
+    post:
+      tags:
+      - anytime-feedback-resource
+      summary: answer
+      operationId: answerUsingPOST
+      parameters:
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      - name: reviewerId
+        in: path
+        description: reviewerId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/AnswerDtoArray2'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AnytimeFeedbackResponseDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/anytime-feedback-response/{requestId}/{reviewerId}/decline:
+    post:
+      tags:
+      - anytime-feedback-resource
+      summary: declineResponse
+      operationId: declineResponseUsingPOST
+      parameters:
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      - name: reviewerId
+        in: path
+        description: reviewerId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AnytimeFeedbackResponseDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/anytime-feedback-response/{requestId}/{reviewerId}/reopen:
+    post:
+      tags:
+      - anytime-feedback-resource
+      summary: reopenResponse
+      operationId: reopenResponseUsingPOST
+      parameters:
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      - name: reviewerId
+        in: path
+        description: reviewerId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AnytimeFeedbackResponseDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/anytime-feedback-response/{requestId}/{reviewerId}/share:
+    post:
+      tags:
+      - anytime-feedback-resource
+      summary: shareResponse
+      operationId: shareResponseUsingPOST
+      parameters:
+      - name: requestId
+        in: path
+        description: requestId
+        required: true
+        schema:
+          type: string
+      - name: reviewerId
+        in: path
+        description: reviewerId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AnytimeFeedbackResponseDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/anytime-feedback-stats:
+    get:
+      tags:
+      - anytime-feedback-resource
+      summary: getAnytimeFeedbackStats
+      operationId: getAnytimeFeedbackStatsUsingGET
+      parameters:
+      - name: from
+        in: query
+        description: from
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: to
+        in: query
+        description: to
+        required: true
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AnytimeFeedbackStatsDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+  /v2/anytime-feedback/{id}:
+    get:
+      tags:
+      - anytime-feedback-resource
+      summary: showRequest
+      operationId: showRequestUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AnytimeFeedbackRequestDto'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    put:
+      tags:
+      - anytime-feedback-resource
+      summary: updateRequest
+      operationId: updateRequestUsingPUT
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AnytimeFeedbackRequestDto'
+        description: dto
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/AnytimeFeedbackRequestDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+    delete:
+      tags:
+      - anytime-feedback-resource
+      summary: deleteRequest
+      operationId: deleteRequestUsingDELETE
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v2/anytime-feedback/{id}/nudge/{reviewerId}:
+    put:
+      tags:
+      - anytime-feedback-resource
+      summary: nudgeReviewer
+      operationId: nudgeReviewerUsingPUT
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+      - name: reviewerId
+        in: path
+        description: reviewerId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json;charset=UTF-8:
+              schema:
+                $ref: '#/components/schemas/UnifiedFeedbackDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    AnytimeFeedbackStatsDto:
+      type: object
+      title: AnytimeFeedbackStatsDto
+    AnytimeFeedbackResponseDto:
+      type: object
+      title: AnytimeFeedbackResponseDto
+    AnytimeFeedbackRequestDto:
+      type: object
+      title: AnytimeFeedbackRequestDto
+    UnifiedFeedbackDto:
+      type: object
+      title: UnifiedFeedbackDto
+    AnswerDto:
+      type: object
+      title: AnswerDto
+  requestBodies:
+    AnswerDtoArray2:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AnswerDto'
+      description: answers
+      required: true
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

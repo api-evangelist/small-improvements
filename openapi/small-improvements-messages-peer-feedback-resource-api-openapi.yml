@@ -1,0 +1,73 @@
+openapi: 3.0.0
+info:
+  description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
+  version: '2.0'
+  title: Small Improvements action-item-resource messages-peer-feedback-resource API
+  contact:
+    url: https://www.small-improvements.com
+    name: Small Improvements
+  x-api-id: small-improvements-rest-api
+servers:
+- url: https://app.small-improvements.com/api
+  description: Small Improvements API
+security:
+- BearerAuth: []
+tags:
+- name: messages-peer-feedback-resource
+  description: Messages Peer Feedback Resource
+paths:
+  /v2/messages/peer-feedback-export:
+    post:
+      tags:
+      - messages-peer-feedback-resource
+      summary: triggerPeerFeedbackExport
+      operationId: triggerPeerFeedbackExportUsingPOST
+      parameters:
+      - name: format
+        in: query
+        description: format
+        required: true
+        schema:
+          type: string
+          enum:
+          - CSV
+          - EXCEL
+      - name: from
+        in: query
+        description: from
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: to
+        in: query
+        description: to
+        required: true
+        schema:
+          type: string
+          format: date
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/DownloadableFileDto'
+        '201':
+          description: Created
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+components:
+  schemas:
+    DownloadableFileDto:
+      type: object
+      title: DownloadableFileDto
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Personal access token generated from user profile settings

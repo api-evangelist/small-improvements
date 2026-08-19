@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource company-visibility-settings-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "company-visibility-settings-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "updateCompanyVisibilitySettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/company-settings/meeting-visibility",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateCompanyVisibilitySettings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

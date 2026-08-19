@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource companies-email-templates-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "companies-email-templates-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getModifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/emails/modifications",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "getModifications"
+        },
+        {
+          "info": {
+            "name": "getPreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/emails/preview/:type",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "type"
+              }
+            ]
+          },
+          "docs": "getPreview"
+        },
+        {
+          "info": {
+            "name": "renderDummyPreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/emails/:templateId/dummyPreview",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "path",
+                "description": "templateId"
+              }
+            ]
+          },
+          "docs": "renderDummyPreview"
+        },
+        {
+          "info": {
+            "name": "renderPreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/emails/:templateId/preview",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "feedbackCycleId",
+                "value": "",
+                "type": "query",
+                "description": "feedbackCycleId"
+              },
+              {
+                "name": "reviewCycleId",
+                "value": "",
+                "type": "query",
+                "description": "reviewCycleId"
+              },
+              {
+                "name": "templateId",
+                "value": "",
+                "type": "path",
+                "description": "templateId"
+              }
+            ]
+          },
+          "docs": "renderPreview"
+        },
+        {
+          "info": {
+            "name": "getModificationForType",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/emails/:type",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "type"
+              }
+            ]
+          },
+          "docs": "getModificationForType"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

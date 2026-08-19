@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource anytime-feedback-default-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "anytime-feedback-default-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getAnytimeFeedbackDefault",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-default"
+          },
+          "docs": "getAnytimeFeedbackDefault"
+        },
+        {
+          "info": {
+            "name": "updateAnytimeFeedbackDefault",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-default",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateAnytimeFeedbackDefault"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource meeting-calendar-company-observer-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "meeting-calendar-company-observer-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getCalendarEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/meeting-calendar-integration/companies/:companyId/users/:userId/events",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "getCalendarEvents"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

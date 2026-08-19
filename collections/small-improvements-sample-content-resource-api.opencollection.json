@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource sample-content-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "sample-content-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/sample-content/config"
+          },
+          "docs": "getConfig"
+        },
+        {
+          "info": {
+            "name": "deleteAllContentIncludingCycles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/sample-content/delete-all",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "deleteAllContentIncludingCycles"
+        },
+        {
+          "info": {
+            "name": "deleteSampleUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/sample-content/delete-sample-users"
+          },
+          "docs": "deleteSampleUsers"
+        },
+        {
+          "info": {
+            "name": "resetSampleContentAndUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/sample-content/reset-trial",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "resetSampleContentAndUsers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

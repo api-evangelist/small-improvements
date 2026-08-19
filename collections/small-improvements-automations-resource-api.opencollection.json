@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource automations-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "automations-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getList",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/automations",
+            "params": [
+              {
+                "name": "employeeCreated",
+                "value": "",
+                "type": "query",
+                "description": "employeeCreated"
+              }
+            ]
+          },
+          "docs": "getList"
+        },
+        {
+          "info": {
+            "name": "create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/automations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "create"
+        },
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/automations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "edit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/automations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "edit"
+        },
+        {
+          "info": {
+            "name": "delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/automations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "delete"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

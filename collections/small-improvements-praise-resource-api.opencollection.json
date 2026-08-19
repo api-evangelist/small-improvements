@@ -1,0 +1,335 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource praise-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "praise-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getPraiseList",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/praise",
+            "params": [
+              {
+                "name": "authorId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "recipientId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "getPraiseList"
+        },
+        {
+          "info": {
+            "name": "createPraise",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/praise",
+            "params": [
+              {
+                "name": "source",
+                "value": "",
+                "type": "query",
+                "description": "source"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createPraise"
+        },
+        {
+          "info": {
+            "name": "triggerExport",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/praise-export",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "format"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query",
+                "description": "until"
+              }
+            ]
+          },
+          "docs": "triggerExport"
+        },
+        {
+          "info": {
+            "name": "getPreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/praise/preview/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "getPreview"
+        },
+        {
+          "info": {
+            "name": "getPraiseItem",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/praise/:praiseId",
+            "params": [
+              {
+                "name": "praiseId",
+                "value": "",
+                "type": "path",
+                "description": "praiseId"
+              }
+            ]
+          },
+          "docs": "getPraiseItem"
+        },
+        {
+          "info": {
+            "name": "editMessage",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/praise/:praiseId",
+            "params": [
+              {
+                "name": "praiseId",
+                "value": "",
+                "type": "path",
+                "description": "praiseId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "editMessage"
+        },
+        {
+          "info": {
+            "name": "delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/praise/:praiseId",
+            "params": [
+              {
+                "name": "praiseId",
+                "value": "",
+                "type": "path",
+                "description": "praiseId"
+              }
+            ]
+          },
+          "docs": "delete"
+        },
+        {
+          "info": {
+            "name": "getComments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/praise/:praiseId/comments",
+            "params": [
+              {
+                "name": "praiseId",
+                "value": "",
+                "type": "path",
+                "description": "praiseId"
+              }
+            ]
+          },
+          "docs": "getComments"
+        },
+        {
+          "info": {
+            "name": "createComment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/praise/:praiseId/comments",
+            "params": [
+              {
+                "name": "praiseId",
+                "value": "",
+                "type": "path",
+                "description": "praiseId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createComment"
+        },
+        {
+          "info": {
+            "name": "updateComment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/praise/:praiseId/comments/:commentId",
+            "params": [
+              {
+                "name": "commentId",
+                "value": "",
+                "type": "path",
+                "description": "commentId"
+              },
+              {
+                "name": "praiseId",
+                "value": "",
+                "type": "path",
+                "description": "praiseId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateComment"
+        },
+        {
+          "info": {
+            "name": "deleteComment",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/praise/:praiseId/comments/:commentId",
+            "params": [
+              {
+                "name": "commentId",
+                "value": "",
+                "type": "path",
+                "description": "commentId"
+              },
+              {
+                "name": "praiseId",
+                "value": "",
+                "type": "path",
+                "description": "praiseId"
+              }
+            ]
+          },
+          "docs": "deleteComment"
+        },
+        {
+          "info": {
+            "name": "downvote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/praise/:praiseId/downvote",
+            "params": [
+              {
+                "name": "praiseId",
+                "value": "",
+                "type": "path",
+                "description": "praiseId"
+              }
+            ]
+          },
+          "docs": "downvote"
+        },
+        {
+          "info": {
+            "name": "upvote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/praise/:praiseId/upvote",
+            "params": [
+              {
+                "name": "praiseId",
+                "value": "",
+                "type": "path",
+                "description": "praiseId"
+              }
+            ]
+          },
+          "docs": "upvote"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

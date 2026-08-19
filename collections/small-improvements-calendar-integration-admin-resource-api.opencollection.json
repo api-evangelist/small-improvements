@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource calendar-integration-admin-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "calendar-integration-admin-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/admin-calendar-integration",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "query",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "getConfiguration"
+        },
+        {
+          "info": {
+            "name": "removeProvider",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/admin-calendar-integration/remove-provider"
+          },
+          "docs": "removeProvider"
+        },
+        {
+          "info": {
+            "name": "verifyGoogleConnection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/admin-calendar-integration/verify-google"
+          },
+          "docs": "verifyGoogleConnection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

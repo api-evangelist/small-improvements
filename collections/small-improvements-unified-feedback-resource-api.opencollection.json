@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource unified-feedback-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "unified-feedback-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getFeedbackDetailsYouProvided",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/unified-feedback/details-you-provided/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "getFeedbackDetailsYouProvided"
+        },
+        {
+          "info": {
+            "name": "getFeedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/unified-feedback/details/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "getFeedback"
+        },
+        {
+          "info": {
+            "name": "getFeedbackViewedAs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/unified-feedback/details/:id/view-as/:view-as",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "view-as",
+                "value": "",
+                "type": "path",
+                "description": "view-as"
+              }
+            ]
+          },
+          "docs": "getFeedbackViewedAs"
+        },
+        {
+          "info": {
+            "name": "getSomeonesFeedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/unified-feedback/someones/:revieweeId",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from"
+              },
+              {
+                "name": "revieweeId",
+                "value": "",
+                "type": "path",
+                "description": "revieweeId"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "to"
+              }
+            ]
+          },
+          "docs": "getSomeonesFeedback"
+        },
+        {
+          "info": {
+            "name": "getFeedbackYouProvided",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/unified-feedback/you-provided"
+          },
+          "docs": "getFeedbackYouProvided"
+        },
+        {
+          "info": {
+            "name": "getYourFeedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/unified-feedback/your"
+          },
+          "docs": "getYourFeedback"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

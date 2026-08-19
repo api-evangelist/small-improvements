@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource user-import-configuration-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user-import-configuration-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "updateCsv",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/user-import-configurations/CSV",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateCsv"
+        },
+        {
+          "info": {
+            "name": "getGoogleApps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/user-import-configurations/GOOGLE_APPS",
+            "params": [
+              {
+                "name": "company",
+                "value": "",
+                "type": "query",
+                "description": "company"
+              }
+            ]
+          },
+          "docs": "getGoogleApps"
+        },
+        {
+          "info": {
+            "name": "updateGoogleApps",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/user-import-configurations/GOOGLE_APPS",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateGoogleApps"
+        },
+        {
+          "info": {
+            "name": "getSynchronizationIntervals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/user-import-configurations/synchronization-intervals"
+          },
+          "docs": "getSynchronizationIntervals"
+        },
+        {
+          "info": {
+            "name": "reset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/user-import-configurations/:companyId/:type",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "type"
+              }
+            ]
+          },
+          "docs": "reset"
+        },
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/user-import-configurations/:type",
+            "params": [
+              {
+                "name": "company",
+                "value": "",
+                "type": "query",
+                "description": "company"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "type"
+              }
+            ]
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/user-import-configurations/:type",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

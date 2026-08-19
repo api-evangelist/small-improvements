@@ -1,0 +1,181 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource users-change-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "users-change-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "lockUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/roles/lock",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "lockUsers"
+        },
+        {
+          "info": {
+            "name": "unlockUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/roles/unlock",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "unlockUsers"
+        },
+        {
+          "info": {
+            "name": "updateUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId",
+            "headers": [
+              {
+                "name": "Si-User-Password",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateUser"
+        },
+        {
+          "info": {
+            "name": "setTwoFactorRequirement",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/2fa",
+            "params": [
+              {
+                "name": "required",
+                "value": "",
+                "type": "query",
+                "description": "required"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "setTwoFactorRequirement"
+        },
+        {
+          "info": {
+            "name": "setManager",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/manager",
+            "params": [
+              {
+                "name": "managerId",
+                "value": "",
+                "type": "query",
+                "description": "managerId"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "setManager"
+        },
+        {
+          "info": {
+            "name": "setSecondaryReviewer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/secondary-reviewer",
+            "params": [
+              {
+                "name": "secondaryReviewerId",
+                "value": "",
+                "type": "query",
+                "description": "secondaryReviewerId"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "setSecondaryReviewer"
+        },
+        {
+          "info": {
+            "name": "updateRoles",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/users/:userKey/roles",
+            "params": [
+              {
+                "name": "userKey",
+                "value": "",
+                "type": "path",
+                "description": "userKey"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateRoles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

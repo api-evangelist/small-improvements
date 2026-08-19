@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource release-notes-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "release-notes-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getLastUpdatedReleaseNotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/release-notes"
+          },
+          "docs": "getLastUpdatedReleaseNotes"
+        },
+        {
+          "info": {
+            "name": "setLastUpdatedReleaseNotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/release-notes"
+          },
+          "docs": "setLastUpdatedReleaseNotes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

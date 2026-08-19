@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource public-images-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "public-images-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/imageservice",
+            "params": [
+              {
+                "name": "crop",
+                "value": "",
+                "type": "query",
+                "description": "crop"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "format"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "id"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "size"
+              }
+            ]
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://app.small-improvements.com/api/imageservice",
+            "params": [
+              {
+                "name": "crop",
+                "value": "",
+                "type": "query",
+                "description": "crop"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "format"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "id"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "size"
+              }
+            ]
+          },
+          "docs": "get"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

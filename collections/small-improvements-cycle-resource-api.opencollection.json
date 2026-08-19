@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource cycle-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "cycle-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getAllCycles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/cycles/all"
+          },
+          "docs": "getAllCycles"
+        },
+        {
+          "info": {
+            "name": "getRecentCycles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/cycles/recent",
+            "params": [
+              {
+                "name": "amount",
+                "value": "",
+                "type": "query",
+                "description": "amount"
+              }
+            ]
+          },
+          "docs": "getRecentCycles"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

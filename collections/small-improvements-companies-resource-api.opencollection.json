@@ -1,0 +1,293 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource companies-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "companies-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/all-companies",
+            "params": [
+              {
+                "name": "jumpTo",
+                "value": "",
+                "type": "query",
+                "description": "jumpTo"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prefixQuery",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "listAll"
+        },
+        {
+          "info": {
+            "name": "listCurrentCompany",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies"
+          },
+          "docs": "listCurrentCompany"
+        },
+        {
+          "info": {
+            "name": "generateExcelDownload",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/generate_excel",
+            "params": [
+              {
+                "name": "onlyPaying",
+                "value": "",
+                "type": "query",
+                "description": "onlyPaying"
+              }
+            ]
+          },
+          "docs": "generateExcelDownload"
+        },
+        {
+          "info": {
+            "name": "mergeCompanies",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/companies/merge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "mergeCompanies"
+        },
+        {
+          "info": {
+            "name": "listForUserpicker",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/wicket-compatible",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prefixQuery",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "listForUserpicker"
+        },
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "editBilling",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/billing",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "editBilling"
+        },
+        {
+          "info": {
+            "name": "getCompanyMiniUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/mini-users",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "includeGuests",
+                "value": "",
+                "type": "query",
+                "description": "includeGuests"
+              },
+              {
+                "name": "showLocked",
+                "value": "",
+                "type": "query",
+                "description": "showLocked"
+              }
+            ]
+          },
+          "docs": "getCompanyMiniUsers"
+        },
+        {
+          "info": {
+            "name": "getReplacements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/replacements",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "getReplacements"
+        },
+        {
+          "info": {
+            "name": "getCompanyUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/users",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "includeGuests",
+                "value": "",
+                "type": "query",
+                "description": "includeGuests"
+              },
+              {
+                "name": "showLocked",
+                "value": "",
+                "type": "query",
+                "description": "showLocked"
+              }
+            ]
+          },
+          "docs": "getCompanyUsers"
+        },
+        {
+          "info": {
+            "name": "denormaliseReports",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/companies/:companyId/users/denormalise-reports",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "denormaliseReports"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

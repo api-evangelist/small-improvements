@@ -1,0 +1,120 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource notification-log-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notification-log-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getNewCount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/notificationLogs/count/new"
+          },
+          "docs": "getNewCount"
+        },
+        {
+          "info": {
+            "name": "resetNewCount",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/notificationLogs/count/reset"
+          },
+          "docs": "resetNewCount"
+        },
+        {
+          "info": {
+            "name": "getLatest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/notificationLogs/latest",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "limit"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "offset"
+              }
+            ]
+          },
+          "docs": "getLatest"
+        },
+        {
+          "info": {
+            "name": "markAllAsRead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/notificationLogs/markAllAsRead"
+          },
+          "docs": "markAllAsRead"
+        },
+        {
+          "info": {
+            "name": "markAsRead",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/notificationLogs/markAsRead/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "markAsRead"
+        },
+        {
+          "info": {
+            "name": "markAsUnread",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/notificationLogs/markAsUnread/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "markAsUnread"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

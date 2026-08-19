@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource admin-overview-link-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "admin-overview-link-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getIntegrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/admin-links/integrations"
+          },
+          "docs": "getIntegrations"
+        },
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/admin-links/settings"
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "getForOldFrontend",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/admin/links"
+          },
+          "docs": "getForOldFrontend"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

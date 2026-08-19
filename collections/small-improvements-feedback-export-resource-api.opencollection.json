@@ -1,0 +1,184 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource feedback-export-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "feedback-export-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "lazyExportFeedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/export/lazy/:exportType/:outputType",
+            "params": [
+              {
+                "name": "columns",
+                "value": "",
+                "type": "query",
+                "description": "columns"
+              },
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "exportType",
+                "value": "",
+                "type": "path",
+                "description": "exportType"
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "path",
+                "description": "outputType"
+              }
+            ]
+          },
+          "docs": "lazyExportFeedback"
+        },
+        {
+          "info": {
+            "name": "exportPdf",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/export/pdf/:perspective",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "exportPdf"
+        },
+        {
+          "info": {
+            "name": "availableColumns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/export/:exportType/columns",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "exportType",
+                "value": "",
+                "type": "path",
+                "description": "exportType"
+              }
+            ]
+          },
+          "docs": "availableColumns"
+        },
+        {
+          "info": {
+            "name": "exportFeedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/export/:exportType/:outputType",
+            "params": [
+              {
+                "name": "columns",
+                "value": "",
+                "type": "query",
+                "description": "columns"
+              },
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "exportType",
+                "value": "",
+                "type": "path",
+                "description": "exportType"
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "path",
+                "description": "outputType"
+              }
+            ]
+          },
+          "docs": "exportFeedback"
+        },
+        {
+          "info": {
+            "name": "generateXML",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/export_xml",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "generateXML"
+        },
+        {
+          "info": {
+            "name": "lazyGenerateXML",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/export_xml/lazy",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "lazyGenerateXML"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

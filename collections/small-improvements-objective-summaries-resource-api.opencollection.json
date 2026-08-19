@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource objective-summaries-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "objective-summaries-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getDto",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/summaries",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "filterMode",
+                "value": "",
+                "type": "query",
+                "description": "filterMode"
+              },
+              {
+                "name": "managerId",
+                "value": "",
+                "type": "query",
+                "description": "managerId"
+              },
+              {
+                "name": "onlyDirectReports",
+                "value": "",
+                "type": "query",
+                "description": "onlyDirectReports"
+              }
+            ]
+          },
+          "docs": "getDto"
+        },
+        {
+          "info": {
+            "name": "getDto",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/summaries/:summaryId",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "summaryId",
+                "value": "",
+                "type": "path",
+                "description": "summaryId"
+              }
+            ]
+          },
+          "docs": "getDto"
+        },
+        {
+          "info": {
+            "name": "nudge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/summaries/:summaryId/nudge",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "summaryId",
+                "value": "",
+                "type": "path",
+                "description": "summaryId"
+              },
+              {
+                "name": "target",
+                "value": "",
+                "type": "query",
+                "description": "target"
+              }
+            ]
+          },
+          "docs": "nudge"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

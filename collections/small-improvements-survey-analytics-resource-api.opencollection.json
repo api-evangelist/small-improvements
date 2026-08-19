@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource survey-analytics-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "survey-analytics-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "viewSurveyDates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/surveys/:surveyId/dates",
+            "params": [
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              }
+            ]
+          },
+          "docs": "viewSurveyDates"
+        },
+        {
+          "info": {
+            "name": "viewSurveyResponses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/surveys/:surveyId/responses",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from"
+              },
+              {
+                "name": "grouping",
+                "value": "",
+                "type": "query",
+                "description": "grouping"
+              },
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "to"
+              }
+            ]
+          },
+          "docs": "viewSurveyResponses"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

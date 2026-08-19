@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource objective-cycles-export-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "objective-cycles-export-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "lazyExportFeedback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/export/lazy/:exportType/:outputType",
+            "params": [
+              {
+                "name": "columns",
+                "value": "",
+                "type": "query",
+                "description": "columns"
+              },
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "exportType",
+                "value": "",
+                "type": "path",
+                "description": "exportType"
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "path",
+                "description": "outputType"
+              }
+            ]
+          },
+          "docs": "lazyExportFeedback"
+        },
+        {
+          "info": {
+            "name": "generateXML",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/export/xml",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "generateXML"
+        },
+        {
+          "info": {
+            "name": "availableColumns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/export/:exportType/columns",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "exportType",
+                "value": "",
+                "type": "path",
+                "description": "exportType"
+              }
+            ]
+          },
+          "docs": "availableColumns"
+        },
+        {
+          "info": {
+            "name": "exportObjectives",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/export/:exportType/:outputType",
+            "params": [
+              {
+                "name": "columns",
+                "value": "",
+                "type": "query",
+                "description": "columns"
+              },
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "exportType",
+                "value": "",
+                "type": "path",
+                "description": "exportType"
+              },
+              {
+                "name": "outputType",
+                "value": "",
+                "type": "path",
+                "description": "outputType"
+              }
+            ]
+          },
+          "docs": "exportObjectives"
+        },
+        {
+          "info": {
+            "name": "lazyGenerateXML",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/export_xml/lazy",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "lazyGenerateXML"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource praise-wall-open-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "praise-wall-open-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getPraiseForWall",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/praise/wall",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "token"
+              }
+            ]
+          },
+          "docs": "getPraiseForWall"
+        },
+        {
+          "info": {
+            "name": "getConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/praise/wall/config",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "token"
+              }
+            ]
+          },
+          "docs": "getConfig"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

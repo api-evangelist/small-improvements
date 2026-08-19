@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource downloadable-file-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "downloadable-file-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getUsersDownloadableFiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/downloadable-file",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "limit"
+              }
+            ]
+          },
+          "docs": "getUsersDownloadableFiles"
+        },
+        {
+          "info": {
+            "name": "getFileInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/downloadable-file/:fileId",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "fileId"
+              }
+            ]
+          },
+          "docs": "getFileInfo"
+        },
+        {
+          "info": {
+            "name": "deleteFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/downloadable-file/:fileId",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "fileId"
+              }
+            ]
+          },
+          "docs": "deleteFile"
+        },
+        {
+          "info": {
+            "name": "downloadFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/downloadable-file/:fileId/download",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "fileId"
+              }
+            ]
+          },
+          "docs": "downloadFile"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

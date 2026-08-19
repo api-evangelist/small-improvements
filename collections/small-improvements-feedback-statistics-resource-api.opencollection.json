@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource feedback-statistics-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "feedback-statistics-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getCycleStatistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/statistics",
+            "params": [
+              {
+                "name": "cycleIds",
+                "value": "",
+                "type": "query",
+                "description": "cycleIds"
+              }
+            ]
+          },
+          "docs": "getCycleStatistics"
+        },
+        {
+          "info": {
+            "name": "getCycleStatistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/statistics",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "getCycleStatistics"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

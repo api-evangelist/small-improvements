@@ -1,0 +1,187 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource survey-admin-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "survey-admin-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createSurvey",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/surveys",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createSurvey"
+        },
+        {
+          "info": {
+            "name": "updateSurvey",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/surveys/:surveyId",
+            "params": [
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateSurvey"
+        },
+        {
+          "info": {
+            "name": "deleteSurvey",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/surveys/:surveyId",
+            "params": [
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              }
+            ]
+          },
+          "docs": "deleteSurvey"
+        },
+        {
+          "info": {
+            "name": "updateArchiveStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/surveys/:surveyId/archive-status",
+            "params": [
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateArchiveStatus"
+        },
+        {
+          "info": {
+            "name": "getSurveyExport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/surveys/:surveyId/export",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "format"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from"
+              },
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "to"
+              }
+            ]
+          },
+          "docs": "getSurveyExport"
+        },
+        {
+          "info": {
+            "name": "updateStoppedStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/surveys/:surveyId/stopped-status",
+            "params": [
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateStoppedStatus"
+        },
+        {
+          "info": {
+            "name": "updateViewers",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/surveys/:surveyId/viewers",
+            "params": [
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateViewers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

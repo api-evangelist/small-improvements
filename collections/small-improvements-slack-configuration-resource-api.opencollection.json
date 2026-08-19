@@ -1,0 +1,136 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource slack-configuration-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "slack-configuration-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/slack-configurations"
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "save",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/slack-configurations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "save"
+        },
+        {
+          "info": {
+            "name": "delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/slack-configurations"
+          },
+          "docs": "delete"
+        },
+        {
+          "info": {
+            "name": "access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/slack-configurations/access-slack",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query",
+                "description": "code"
+              },
+              {
+                "name": "error",
+                "value": "",
+                "type": "query",
+                "description": "error"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "state"
+              }
+            ]
+          },
+          "docs": "access"
+        },
+        {
+          "info": {
+            "name": "authorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/slack-configurations/authorize-si"
+          },
+          "docs": "authorize"
+        },
+        {
+          "info": {
+            "name": "getChannels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/slack-configurations/channels"
+          },
+          "docs": "getChannels"
+        },
+        {
+          "info": {
+            "name": "deleteLastApiError",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/slack-configurations/errors"
+          },
+          "docs": "deleteLastApiError"
+        },
+        {
+          "info": {
+            "name": "checkIntegrationStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/slack-configurations/status"
+          },
+          "docs": "checkIntegrationStatus"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

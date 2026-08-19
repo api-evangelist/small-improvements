@@ -1,0 +1,432 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource meeting-attachment-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "meeting-attachment-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:id/attachments",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "id"
+              },
+              {
+                "name": "rules.fixedOffset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].dayOfMonthIndicator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].dayOfWeek",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].localTime.hour",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].localTime.minute",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].localTime.nano",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].localTime.second",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].midnightEndOfDay",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].month",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].offsetAfter.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].offsetBefore.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].standardOffset.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].standardOffset.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].timeDefinition",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].dateTimeAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].dateTimeBefore",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.nano",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.negative",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.seconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.units[0].dateBased",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.units[0].durationEstimated",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.units[0].timeBased",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.zero",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].gap",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].instant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].offsetAfter.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].offsetAfter.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].offsetBefore.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].offsetBefore.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].overlap",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "totalSeconds",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "create"
+        },
+        {
+          "info": {
+            "name": "download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/attachments/:attachmentId",
+            "params": [
+              {
+                "name": "attachmentId",
+                "value": "",
+                "type": "path",
+                "description": "attachmentId"
+              },
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              }
+            ]
+          },
+          "docs": "download"
+        },
+        {
+          "info": {
+            "name": "delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/attachments/:attachmentId",
+            "params": [
+              {
+                "name": "attachmentId",
+                "value": "",
+                "type": "path",
+                "description": "attachmentId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              },
+              {
+                "name": "rules.fixedOffset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].dayOfMonthIndicator",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].dayOfWeek",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].localTime.hour",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].localTime.minute",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].localTime.nano",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].localTime.second",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].midnightEndOfDay",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].month",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].offsetAfter.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].offsetBefore.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].standardOffset.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].standardOffset.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitionRules[0].timeDefinition",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].dateTimeAfter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].dateTimeBefore",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.nano",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.negative",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.seconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.units[0].dateBased",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.units[0].durationEstimated",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.units[0].timeBased",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].duration.zero",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].gap",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].instant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].offsetAfter.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].offsetAfter.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].offsetBefore.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].offsetBefore.totalSeconds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rules.transitions[0].overlap",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "totalSeconds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "delete"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

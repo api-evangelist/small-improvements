@@ -1,0 +1,2780 @@
+{
+  "item": [
+    {
+      "id": "0230cc13-6088-4182-a7b7-2606fee52042",
+      "name": "meeting-template-resource",
+      "description": {
+        "content": "Meeting Template Resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "215c4f3f-a8b4-43f4-9118-0e71e596f36e",
+          "name": "getMeetingTemplates",
+          "request": {
+            "name": "getMeetingTemplates",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "required-permission",
+                  "value": "SEE",
+                  "description": "required-permission"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) type"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c9c9c1f-62ff-4ccb-9799-dc86aff93817",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "required-permission",
+                      "value": "SEE"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2fbce1a-51cb-4ee6-9e3f-499e1e40642e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "required-permission",
+                      "value": "SEE"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b9e01b31-098c-4d37-a6fe-c0f9534a7dc7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "required-permission",
+                      "value": "SEE"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4573b394-2593-4996-b5d7-b9998ac4267e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "required-permission",
+                      "value": "SEE"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2159dbd1-bc50-4135-b060-7f6d9bb2f7aa",
+          "name": "createMeetingTemplate",
+          "request": {
+            "name": "createMeetingTemplate",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json;charset=UTF-8"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "adcadeac-ef50-4a80-9cb5-b3d4e1d45fea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d171cbcd-9506-4d47-87c5-d7e568ff9315",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "37be0ad4-b5fb-4329-8aa4-5b5f8ce6030b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "22d64ab7-e89d-46b7-bf98-708f4da8d9f8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f00b7d38-ec21-4f7a-9cf5-032380e46dbc",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0eea34e-6adf-429b-988f-206f7d1d3757",
+          "name": "recordTemplateUsage",
+          "request": {
+            "name": "recordTemplateUsage",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-templates-usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba656745-d764-4cea-a8cc-70f02e8060a9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates-usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c2e5095e-8204-4432-9959-76ca8387cf90",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates-usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c1164b86-55f9-450d-8452-d584abc79659",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates-usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7f82313d-1013-47c4-8bc8-266bb026d295",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates-usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d18768bf-ff6e-4f5f-803c-dd3ba5181609",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates-usage"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f8f6882d-18c7-4280-bee0-81bcb9ea539a",
+          "name": "createMeetingFromTemplate",
+          "request": {
+            "name": "createMeetingFromTemplate",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-templates",
+                "create-meeting"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.fixedOffset",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].dayOfWeek",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.hour",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.minute",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.nano",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.second",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].midnightEndOfDay",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].month",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetAfter.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetBefore.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].standardOffset.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].timeDefinition",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].dateTimeAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].dateTimeBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.nano",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.negative",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.seconds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.units[0].dateBased",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.units[0].timeBased",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.zero",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].gap",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].instant",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetAfter.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetBefore.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].overlap",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "totalSeconds",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json;charset=UTF-8"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3241e541-0b6d-4315-89ad-bcc521b946f9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    "create-meeting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "192daa88-62ad-4f40-bcec-ea59bf7b4b48",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    "create-meeting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3608cc04-40a0-4e29-bc8c-6bed858ea565",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    "create-meeting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "082b8c16-e62b-49bd-b3cc-9aef82715c56",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    "create-meeting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fd665206-6e0d-40bf-9cd4-662a11a63c7c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    "create-meeting"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51dead01-5e6c-46de-8a2f-29444fec81e9",
+          "name": "getMeetingTemplate",
+          "request": {
+            "name": "getMeetingTemplate",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8e1fd7ea-48c6-4b9c-af91-95ed1a700693",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b5032f9-e0c9-4595-b38c-6e4566d2b7f9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d3c5184-5595-4d06-9d26-62d002a8a0b5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9bd65b6-14d3-4af1-99cd-92e329e0644e",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bdc21c6-00e3-4761-b8e4-b8404b30b1da",
+          "name": "updateMeetingTemplate",
+          "request": {
+            "name": "updateMeetingTemplate",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cd29f3b3-6d72-4e2b-9315-e34ac44de037",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b02ea6d-f2aa-41da-bb66-1c9dff3c9815",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c14634a5-4bad-4b87-9764-2f9aa500641d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bd807108-9851-459c-a975-39eda15fa903",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "89a041ac-23f6-4f80-9edd-02c71630b63c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa5b0791-6f47-4341-a42d-3220a9a08115",
+          "name": "deleteMeetingTemplate",
+          "request": {
+            "name": "deleteMeetingTemplate",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) id"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f8f2b39-e218-4977-884f-52a48834bf4c",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "33b37a3c-ee90-455f-9e83-dc1ef7c77b62",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4cdc23bf-8e3e-4eff-bb83-d072c7cc9f28",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) id"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.small-improvements.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cc84b387-8584-41cf-986b-06e558f663d5",
+    "name": "Small Improvements action-item-resource meeting-template-resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+      "type": "text/plain"
+    }
+  }
+}

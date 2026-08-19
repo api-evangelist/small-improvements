@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource helpful-resources-attachments-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "helpful-resources-attachments-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getAllForAdmin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/helpful-resources/attachments/admin"
+          },
+          "docs": "getAllForAdmin"
+        },
+        {
+          "info": {
+            "name": "createFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/helpful-resources/attachments/file",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createFile"
+        },
+        {
+          "info": {
+            "name": "updateFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/helpful-resources/attachments/file/:attachmentKey",
+            "params": [
+              {
+                "name": "attachmentKey",
+                "value": "",
+                "type": "path",
+                "description": "attachmentKey"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateFile"
+        },
+        {
+          "info": {
+            "name": "createLink",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/helpful-resources/attachments/link",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createLink"
+        },
+        {
+          "info": {
+            "name": "updateLink",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/helpful-resources/attachments/link/:attachmentKey",
+            "params": [
+              {
+                "name": "attachmentKey",
+                "value": "",
+                "type": "path",
+                "description": "attachmentKey"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateLink"
+        },
+        {
+          "info": {
+            "name": "getAllForSidebar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/helpful-resources/attachments/sidebar"
+          },
+          "docs": "getAllForSidebar"
+        },
+        {
+          "info": {
+            "name": "delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/helpful-resources/attachments/:attachmentKey",
+            "params": [
+              {
+                "name": "attachmentKey",
+                "value": "",
+                "type": "path",
+                "description": "attachmentKey"
+              }
+            ]
+          },
+          "docs": "delete"
+        },
+        {
+          "info": {
+            "name": "download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/helpful-resources/attachments/:attachmentKey/download",
+            "params": [
+              {
+                "name": "attachmentKey",
+                "value": "",
+                "type": "path",
+                "description": "attachmentKey"
+              }
+            ]
+          },
+          "docs": "download"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

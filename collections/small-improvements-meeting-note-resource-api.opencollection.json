@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource meeting-note-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "meeting-note-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createNote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/notes",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createNote"
+        },
+        {
+          "info": {
+            "name": "editNote",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/notes/:noteId",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              },
+              {
+                "name": "noteId",
+                "value": "",
+                "type": "path",
+                "description": "noteId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "editNote"
+        },
+        {
+          "info": {
+            "name": "deleteNote",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/notes/:noteId",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              },
+              {
+                "name": "noteId",
+                "value": "",
+                "type": "path",
+                "description": "noteId"
+              }
+            ]
+          },
+          "docs": "deleteNote"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

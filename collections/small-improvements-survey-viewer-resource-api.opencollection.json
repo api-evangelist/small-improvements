@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource survey-viewer-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "survey-viewer-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSurveys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/surveys"
+          },
+          "docs": "getSurveys"
+        },
+        {
+          "info": {
+            "name": "getSurvey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/surveys/:surveyId",
+            "params": [
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              }
+            ]
+          },
+          "docs": "getSurvey"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

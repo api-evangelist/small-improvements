@@ -1,0 +1,201 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource assessment-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "assessment-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "loadAssessments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/assessment",
+            "params": [
+              {
+                "name": "reviewId",
+                "value": "",
+                "type": "query",
+                "description": "reviewId"
+              }
+            ]
+          },
+          "docs": "loadAssessments"
+        },
+        {
+          "info": {
+            "name": "loadFakeAssessmentsForPreviewQuestionnaire",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/assessment/preview/questionnaire",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "loadFakeAssessmentsForPreviewQuestionnaire"
+        },
+        {
+          "info": {
+            "name": "loadFakeAssessmentsForPreviewQuestionnaire",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/assessment/preview/questionnaire/:cycleId",
+            "params": [
+              {
+                "name": "asReviewee",
+                "value": "",
+                "type": "query",
+                "description": "asReviewee"
+              },
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "loadFakeAssessmentsForPreviewQuestionnaire"
+        },
+        {
+          "info": {
+            "name": "loadAssessment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/assessment/:assessmentKey",
+            "params": [
+              {
+                "name": "assessmentKey",
+                "value": "",
+                "type": "path",
+                "description": "assessmentKey"
+              }
+            ]
+          },
+          "docs": "loadAssessment"
+        },
+        {
+          "info": {
+            "name": "addAnswer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/assessment/:assessmentKey/answers",
+            "params": [
+              {
+                "name": "assessmentKey",
+                "value": "",
+                "type": "path",
+                "description": "assessmentKey"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "addAnswer"
+        },
+        {
+          "info": {
+            "name": "indicateDone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/assessment/:assessmentKey/indicatedDone",
+            "params": [
+              {
+                "name": "assessmentKey",
+                "value": "",
+                "type": "path",
+                "description": "assessmentKey"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "indicateDone"
+        },
+        {
+          "info": {
+            "name": "share",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/assessment/:assessmentKey/share",
+            "params": [
+              {
+                "name": "assessmentKey",
+                "value": "",
+                "type": "path",
+                "description": "assessmentKey"
+              }
+            ]
+          },
+          "docs": "share"
+        },
+        {
+          "info": {
+            "name": "unshare",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/assessment/:assessmentKey/unshare",
+            "params": [
+              {
+                "name": "assessmentKey",
+                "value": "",
+                "type": "path",
+                "description": "assessmentKey"
+              }
+            ]
+          },
+          "docs": "unshare"
+        },
+        {
+          "info": {
+            "name": "createAssessment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/assessments",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createAssessment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

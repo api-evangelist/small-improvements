@@ -1,0 +1,340 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource feedback-cycles-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "feedback-cycles-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getFeedbackCycles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles"
+          },
+          "docs": "getFeedbackCycles"
+        },
+        {
+          "info": {
+            "name": "createFeedbackCycleGuided",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/guided/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createFeedbackCycleGuided"
+        },
+        {
+          "info": {
+            "name": "editFeedbackCycleGuided",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/guided/edit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "editFeedbackCycleGuided"
+        },
+        {
+          "info": {
+            "name": "getFeedbackCycleGuided",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/guided/:cycleId",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "getFeedbackCycleGuided"
+        },
+        {
+          "info": {
+            "name": "getFeedbackCyclesWithHiddenFeedbackFor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/hidden-feedback-for-user/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "getFeedbackCyclesWithHiddenFeedbackFor"
+        },
+        {
+          "info": {
+            "name": "getFeedbackCyclePreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/preview/:cycleId",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "getFeedbackCyclePreview"
+        },
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "delete"
+        },
+        {
+          "info": {
+            "name": "approveAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/approve_all",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "approveAll"
+        },
+        {
+          "info": {
+            "name": "archive",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/archive",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "archive"
+        },
+        {
+          "info": {
+            "name": "bulkApprove",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/bulk_approve",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "bulkApprove"
+        },
+        {
+          "info": {
+            "name": "completeAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/complete_all",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "completeAll"
+        },
+        {
+          "info": {
+            "name": "informAllManagersToApproveReviewers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/inform_all",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "onlyWithNominees",
+                "value": "",
+                "type": "query",
+                "description": "onlyWithNominees"
+              },
+              {
+                "name": "target",
+                "value": "",
+                "type": "query",
+                "description": "target"
+              }
+            ]
+          },
+          "docs": "informAllManagersToApproveReviewers"
+        },
+        {
+          "info": {
+            "name": "informAllManagersToNominateReviewers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/inform_managers_to_nominate",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "informAllManagersToNominateReviewers"
+        },
+        {
+          "info": {
+            "name": "nudgeAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/nudge_all",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "onlyWithNominees",
+                "value": "",
+                "type": "query",
+                "description": "onlyWithNominees"
+              },
+              {
+                "name": "target",
+                "value": "",
+                "type": "query",
+                "description": "target"
+              }
+            ]
+          },
+          "docs": "nudgeAll"
+        },
+        {
+          "info": {
+            "name": "unarchive",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/feedback-cycles/:cycleId/unarchive",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ]
+          },
+          "docs": "unarchive"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource email-templates-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "email-templates-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getByIds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/email-templates",
+            "params": [
+              {
+                "name": "feedbackCycleId",
+                "value": "",
+                "type": "query",
+                "description": "feedbackCycleId"
+              },
+              {
+                "name": "moduleType",
+                "value": "",
+                "type": "query",
+                "description": "moduleType"
+              },
+              {
+                "name": "reviewCycleId",
+                "value": "",
+                "type": "query",
+                "description": "reviewCycleId"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "types"
+              }
+            ]
+          },
+          "docs": "getByIds"
+        },
+        {
+          "info": {
+            "name": "renderPreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/email-templates/preview",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "renderPreview"
+        },
+        {
+          "info": {
+            "name": "getPreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/email-templates/preview/:type",
+            "params": [
+              {
+                "name": "feedbackCycleId",
+                "value": "",
+                "type": "query",
+                "description": "feedbackCycleId"
+              },
+              {
+                "name": "reviewCycleId",
+                "value": "",
+                "type": "query",
+                "description": "reviewCycleId"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "type"
+              }
+            ]
+          },
+          "docs": "getPreview"
+        },
+        {
+          "info": {
+            "name": "saveTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/email-templates/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "type"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "saveTemplate"
+        },
+        {
+          "info": {
+            "name": "resetTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/email-templates/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "type"
+              }
+            ]
+          },
+          "docs": "resetTemplate"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

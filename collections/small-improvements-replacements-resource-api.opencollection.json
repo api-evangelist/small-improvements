@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource replacements-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "replacements-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getCustomReplacements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/replacements/customizations"
+          },
+          "docs": "getCustomReplacements"
+        },
+        {
+          "info": {
+            "name": "putCustomReplacements",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/replacements/customizations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "putCustomReplacements"
+        },
+        {
+          "info": {
+            "name": "getDefaultReplacements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/replacements/defaults"
+          },
+          "docs": "getDefaultReplacements"
+        },
+        {
+          "info": {
+            "name": "getCustomReplacementsForCompany",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/replacements/:companyId/customizations",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "getCustomReplacementsForCompany"
+        },
+        {
+          "info": {
+            "name": "putCustomReplacementsForCompany",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/replacements/:companyId/customizations",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "putCustomReplacementsForCompany"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

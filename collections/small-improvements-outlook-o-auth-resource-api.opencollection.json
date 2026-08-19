@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource outlook-o-auth-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "outlook-o-auth-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "authorizeAdmin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/outlook/oauth/authorize"
+          },
+          "docs": "authorizeAdmin"
+        },
+        {
+          "info": {
+            "name": "adminConsentCallback",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/outlook/oauth/callback",
+            "params": [
+              {
+                "name": "error",
+                "value": "",
+                "type": "query",
+                "description": "error"
+              },
+              {
+                "name": "error_description",
+                "value": "",
+                "type": "query",
+                "description": "error_description"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "state"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query",
+                "description": "tenant"
+              }
+            ]
+          },
+          "docs": "adminConsentCallback"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

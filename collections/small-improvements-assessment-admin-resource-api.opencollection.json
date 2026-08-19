@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource assessment-admin-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "assessment-admin-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createAssessment",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/assessment",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createAssessment"
+        },
+        {
+          "info": {
+            "name": "moderateAnswers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/assessment/:assessmentKey/answers/:authorKey",
+            "params": [
+              {
+                "name": "assessmentKey",
+                "value": "",
+                "type": "path",
+                "description": "assessmentKey"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "moderateAnswers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

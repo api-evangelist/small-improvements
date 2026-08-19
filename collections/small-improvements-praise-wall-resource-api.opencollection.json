@@ -1,0 +1,106 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource praise-wall-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "praise-wall-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/praise/wall/config"
+          },
+          "docs": "getConfig"
+        },
+        {
+          "info": {
+            "name": "saveConfig",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/praise/wall/config",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "saveConfig"
+        },
+        {
+          "info": {
+            "name": "uploadCustomLogo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/praise/wall/custom-logo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "uploadCustomLogo"
+        },
+        {
+          "info": {
+            "name": "getWallToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/praise/wall/token"
+          },
+          "docs": "getWallToken"
+        },
+        {
+          "info": {
+            "name": "activate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.small-improvements.com/api/v2/praise/wall/token/activate",
+            "params": [
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "active"
+              }
+            ]
+          },
+          "docs": "activate"
+        },
+        {
+          "info": {
+            "name": "refreshWallToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/praise/wall/token/refresh"
+          },
+          "docs": "refreshWallToken"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

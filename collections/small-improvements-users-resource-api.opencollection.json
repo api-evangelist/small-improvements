@@ -1,0 +1,718 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource users-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "users-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users",
+            "params": [
+              {
+                "name": "includeGuests",
+                "value": "",
+                "type": "query",
+                "description": "includeGuests"
+              },
+              {
+                "name": "managerId",
+                "value": "",
+                "type": "query",
+                "description": "managerId"
+              },
+              {
+                "name": "showLocked",
+                "value": "",
+                "type": "query",
+                "description": "showLocked"
+              }
+            ]
+          },
+          "docs": "listUsers"
+        },
+        {
+          "info": {
+            "name": "listUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users-for-company/:companyId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "listUsers"
+        },
+        {
+          "info": {
+            "name": "listUsersMedium",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users-for-company/:companyId/medium",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "includeGuests",
+                "value": "",
+                "type": "query",
+                "description": "includeGuests"
+              },
+              {
+                "name": "showLocked",
+                "value": "",
+                "type": "query",
+                "description": "showLocked"
+              }
+            ]
+          },
+          "docs": "listUsersMedium"
+        },
+        {
+          "info": {
+            "name": "listSuperUsersMedium",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users-for-company/:companyId/medium/super-users",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "listSuperUsersMedium"
+        },
+        {
+          "info": {
+            "name": "getUsersById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/by-ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "ids"
+              }
+            ]
+          },
+          "docs": "getUsersById"
+        },
+        {
+          "info": {
+            "name": "generateCsvExport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/export_csv",
+            "params": [
+              {
+                "name": "isFullExport",
+                "value": "",
+                "type": "query",
+                "description": "isFullExport"
+              }
+            ]
+          },
+          "docs": "generateCsvExport"
+        },
+        {
+          "info": {
+            "name": "generateExcelExport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/export_excel",
+            "params": [
+              {
+                "name": "isFullExport",
+                "value": "",
+                "type": "query",
+                "description": "isFullExport"
+              }
+            ]
+          },
+          "docs": "generateExcelExport"
+        },
+        {
+          "info": {
+            "name": "getHrs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/hrs",
+            "params": [
+              {
+                "name": "include-assistants",
+                "value": "",
+                "type": "query",
+                "description": "include-assistants"
+              }
+            ]
+          },
+          "docs": "getHrs"
+        },
+        {
+          "info": {
+            "name": "inviteUsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/invite",
+            "headers": [
+              {
+                "name": "User-Agent",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "inviteUsers"
+        },
+        {
+          "info": {
+            "name": "inviteUsersInOnboarding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/invite-onboarding/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "inviteUsersInOnboarding"
+        },
+        {
+          "info": {
+            "name": "batchSendManagerNewReportsMails",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/mail/new-reports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "batchSendManagerNewReportsMails"
+        },
+        {
+          "info": {
+            "name": "batchSendPasswordResetMails",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/mail/password-reset",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "batchSendPasswordResetMails"
+        },
+        {
+          "info": {
+            "name": "batchSendProfileNudgeMails",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/mail/profile-nudge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "batchSendProfileNudgeMails"
+        },
+        {
+          "info": {
+            "name": "batchSendWelcomeMails",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/mail/welcome",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "batchSendWelcomeMails"
+        },
+        {
+          "info": {
+            "name": "sendWelcomeMailToAll",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/mail/welcome-all"
+          },
+          "docs": "sendWelcomeMailToAll"
+        },
+        {
+          "info": {
+            "name": "getCurrentUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/me"
+          },
+          "docs": "getCurrentUser"
+        },
+        {
+          "info": {
+            "name": "listUsersMedium",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/medium",
+            "params": [
+              {
+                "name": "includeGuests",
+                "value": "",
+                "type": "query",
+                "description": "includeGuests"
+              },
+              {
+                "name": "managerId",
+                "value": "",
+                "type": "query",
+                "description": "managerId"
+              },
+              {
+                "name": "showLocked",
+                "value": "",
+                "type": "query",
+                "description": "showLocked"
+              }
+            ]
+          },
+          "docs": "listUsersMedium"
+        },
+        {
+          "info": {
+            "name": "getMediumUserByExternalSystemId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/medium/by-external-system-id/:externalSystemId",
+            "params": [
+              {
+                "name": "externalSystemId",
+                "value": "",
+                "type": "path",
+                "description": "externalSystemId"
+              }
+            ]
+          },
+          "docs": "getMediumUserByExternalSystemId"
+        },
+        {
+          "info": {
+            "name": "getMediumUserById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/medium/by-id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "getMediumUserById"
+        },
+        {
+          "info": {
+            "name": "getMediumUsersById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/medium/by-ids",
+            "params": [
+              {
+                "name": "ids",
+                "value": "",
+                "type": "query",
+                "description": "ids"
+              }
+            ]
+          },
+          "docs": "getMediumUsersById"
+        },
+        {
+          "info": {
+            "name": "getMediumUserByLoginname",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/medium/by-login",
+            "params": [
+              {
+                "name": "loginname",
+                "value": "",
+                "type": "query",
+                "description": "loginname"
+              }
+            ]
+          },
+          "docs": "getMediumUserByLoginname"
+        },
+        {
+          "info": {
+            "name": "getMediumUsersByLoginname",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/medium/by-logins",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "getMediumUsersByLoginname"
+        },
+        {
+          "info": {
+            "name": "inviteUsersMedium",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/medium/invite",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "inviteUsersMedium"
+        },
+        {
+          "info": {
+            "name": "listSuperUsersMedium",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/medium/super-users"
+          },
+          "docs": "listSuperUsersMedium"
+        },
+        {
+          "info": {
+            "name": "getRelationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/relationship/:a/:b",
+            "params": [
+              {
+                "name": "a",
+                "value": "",
+                "type": "path",
+                "description": "a"
+              },
+              {
+                "name": "b",
+                "value": "",
+                "type": "path",
+                "description": "b"
+              }
+            ]
+          },
+          "docs": "getRelationship"
+        },
+        {
+          "info": {
+            "name": "search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/search",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "email"
+              }
+            ]
+          },
+          "docs": "search"
+        },
+        {
+          "info": {
+            "name": "searchForWicket",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/search-wicket",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "query",
+                "description": "companyId"
+              },
+              {
+                "name": "includeGuests",
+                "value": "",
+                "type": "query",
+                "description": "includeGuests"
+              },
+              {
+                "name": "showDeactivated",
+                "value": "",
+                "type": "query",
+                "description": "showDeactivated"
+              },
+              {
+                "name": "term",
+                "value": "",
+                "type": "query",
+                "description": "term"
+              }
+            ]
+          },
+          "docs": "searchForWicket"
+        },
+        {
+          "info": {
+            "name": "getUserById",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "getUserById"
+        },
+        {
+          "info": {
+            "name": "delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "delete"
+        },
+        {
+          "info": {
+            "name": "badges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/badges",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "badges"
+        },
+        {
+          "info": {
+            "name": "getByUserId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/calendars",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "getByUserId"
+        },
+        {
+          "info": {
+            "name": "isLoggedIn",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/isLoggedIn",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "isLoggedIn"
+        },
+        {
+          "info": {
+            "name": "sendPasswordResetMail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/mail/password-reset",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "sendPasswordResetMail"
+        },
+        {
+          "info": {
+            "name": "sendProfileNudgeMail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/mail/profile-nudge",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "sendProfileNudgeMail"
+        },
+        {
+          "info": {
+            "name": "sendWelcomeMail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/mail/welcome",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "sendWelcomeMail"
+        },
+        {
+          "info": {
+            "name": "clearPassword",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/users/:userId/password",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "clearPassword"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

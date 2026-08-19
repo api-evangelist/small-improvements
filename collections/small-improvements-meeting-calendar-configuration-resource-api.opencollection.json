@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource meeting-calendar-configuration-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "meeting-calendar-configuration-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/meeting-calendar-integration/configuration"
+          },
+          "docs": "getConfiguration"
+        },
+        {
+          "info": {
+            "name": "saveConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/meeting-calendar-integration/configuration",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "saveConfiguration"
+        },
+        {
+          "info": {
+            "name": "getConfigurationForCompany",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/meeting-calendar-integration/configuration/:companyId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "getConfigurationForCompany"
+        },
+        {
+          "info": {
+            "name": "getProvider",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/meeting-calendar-integration/provider"
+          },
+          "docs": "getProvider"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

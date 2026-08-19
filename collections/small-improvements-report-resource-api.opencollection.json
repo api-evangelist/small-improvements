@@ -1,0 +1,85 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource report-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "report-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getReportSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/reports/:reportType",
+            "params": [
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "path",
+                "description": "reportType"
+              }
+            ]
+          },
+          "docs": "getReportSubscription"
+        },
+        {
+          "info": {
+            "name": "createReportSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/reports/:reportType",
+            "params": [
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "path",
+                "description": "reportType"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createReportSubscription"
+        },
+        {
+          "info": {
+            "name": "deleteReportSubscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/reports/:reportType",
+            "params": [
+              {
+                "name": "reportType",
+                "value": "",
+                "type": "path",
+                "description": "reportType"
+              }
+            ]
+          },
+          "docs": "deleteReportSubscription"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

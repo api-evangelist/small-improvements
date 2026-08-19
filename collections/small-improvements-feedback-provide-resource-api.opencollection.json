@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource feedback-provide-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "feedback-provide-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getResponse",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/cycle-feedback-response/:responseId",
+            "params": [
+              {
+                "name": "responseId",
+                "value": "",
+                "type": "path",
+                "description": "responseId"
+              }
+            ]
+          },
+          "docs": "getResponse"
+        },
+        {
+          "info": {
+            "name": "answer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/cycle-feedback-response/:responseId/answer",
+            "params": [
+              {
+                "name": "responseId",
+                "value": "",
+                "type": "path",
+                "description": "responseId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "answer"
+        },
+        {
+          "info": {
+            "name": "reopenResponse",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/cycle-feedback-response/:responseId/reopen",
+            "params": [
+              {
+                "name": "responseId",
+                "value": "",
+                "type": "path",
+                "description": "responseId"
+              }
+            ]
+          },
+          "docs": "reopenResponse"
+        },
+        {
+          "info": {
+            "name": "shareResponse",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/cycle-feedback-response/:responseId/share",
+            "params": [
+              {
+                "name": "responseId",
+                "value": "",
+                "type": "path",
+                "description": "responseId"
+              }
+            ]
+          },
+          "docs": "shareResponse"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

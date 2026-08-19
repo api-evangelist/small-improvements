@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource writing-assistant-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "writing-assistant-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/writing-assistant",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "prompt"
+        },
+        {
+          "info": {
+            "name": "getAllowedRequests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/writing-assistant/tokens"
+          },
+          "docs": "getAllowedRequests"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

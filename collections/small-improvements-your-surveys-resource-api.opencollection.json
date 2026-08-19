@@ -1,0 +1,100 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource your-surveys-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "your-surveys-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getYourSurveys",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/your-surveys"
+          },
+          "docs": "getYourSurveys"
+        },
+        {
+          "info": {
+            "name": "getYourSurvey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/your-surveys/:surveyInstanceKey",
+            "params": [
+              {
+                "name": "surveyInstanceKey",
+                "value": "",
+                "type": "path",
+                "description": "surveyInstanceKey"
+              }
+            ]
+          },
+          "docs": "getYourSurvey"
+        },
+        {
+          "info": {
+            "name": "answerSurveyInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/your-surveys/:surveyInstanceKey",
+            "params": [
+              {
+                "name": "surveyInstanceKey",
+                "value": "",
+                "type": "path",
+                "description": "surveyInstanceKey"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "answerSurveyInstance"
+        },
+        {
+          "info": {
+            "name": "updateSurveySubmission",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/your-surveys/:surveyInstanceKey/submission",
+            "params": [
+              {
+                "name": "surveyInstanceKey",
+                "value": "",
+                "type": "path",
+                "description": "surveyInstanceKey"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateSurveySubmission"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource email-verifications-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "email-verifications-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/email-verifications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "verify"
+        },
+        {
+          "info": {
+            "name": "resend",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/email-verifications/:address/resend",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "address"
+              }
+            ]
+          },
+          "docs": "resend"
+        },
+        {
+          "info": {
+            "name": "verified",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/email-verifications/:address/verified",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "address"
+              },
+              {
+                "name": "company",
+                "value": "",
+                "type": "query",
+                "description": "company"
+              }
+            ]
+          },
+          "docs": "verified"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

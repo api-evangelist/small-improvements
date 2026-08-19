@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource bounced-email-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "bounced-email-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getBouncedAggregatesByCompanyId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/bounced-email/company/:companyId/aggregate",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              }
+            ]
+          },
+          "docs": "getBouncedAggregatesByCompanyId"
+        },
+        {
+          "info": {
+            "name": "removeFromBounced",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/bounced-email/company/:companyId/aggregate/:encodedEmail",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path",
+                "description": "companyId"
+              },
+              {
+                "name": "encodedEmail",
+                "value": "",
+                "type": "path",
+                "description": "encodedEmail"
+              }
+            ]
+          },
+          "docs": "removeFromBounced"
+        },
+        {
+          "info": {
+            "name": "getBouncedByEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/bounced-email/email",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "query",
+                "description": "companyId"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "email"
+              }
+            ]
+          },
+          "docs": "getBouncedByEmail"
+        },
+        {
+          "info": {
+            "name": "removeFromBounced",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/bounced-email/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "removeFromBounced"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

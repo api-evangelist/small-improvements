@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource logout-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "logout-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "logoutUser",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/logout"
+          },
+          "docs": "logoutUser"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

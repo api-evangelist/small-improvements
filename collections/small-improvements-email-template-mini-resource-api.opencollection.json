@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource email-template-mini-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "email-template-mini-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getByIds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/email-templates-mini",
+            "params": [
+              {
+                "name": "feedbackCycleId",
+                "value": "",
+                "type": "query",
+                "description": "feedbackCycleId"
+              },
+              {
+                "name": "reviewCycleId",
+                "value": "",
+                "type": "query",
+                "description": "reviewCycleId"
+              },
+              {
+                "name": "types",
+                "value": "",
+                "type": "query",
+                "description": "types"
+              }
+            ]
+          },
+          "docs": "getByIds"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

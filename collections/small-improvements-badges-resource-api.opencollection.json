@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource badges-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "badges-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getBadges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/badges"
+          },
+          "docs": "getBadges"
+        },
+        {
+          "info": {
+            "name": "createBadgePrototype",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/badges",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createBadgePrototype"
+        },
+        {
+          "info": {
+            "name": "getAllIcons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/badges/icons"
+          },
+          "docs": "getAllIcons"
+        },
+        {
+          "info": {
+            "name": "reorderBadgePrototypes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/badges/order",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "reorderBadgePrototypes"
+        },
+        {
+          "info": {
+            "name": "getBadgePrototypes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/badges/prototypes"
+          },
+          "docs": "getBadgePrototypes"
+        },
+        {
+          "info": {
+            "name": "editBadgePrototype",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/badges/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "editBadgePrototype"
+        },
+        {
+          "info": {
+            "name": "deleteBadgePrototype",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/badges/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "deleteBadgePrototype"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

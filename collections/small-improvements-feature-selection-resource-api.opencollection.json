@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource feature-selection-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "feature-selection-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/admin/feature-selection/settings"
+          },
+          "docs": "getSettings"
+        },
+        {
+          "info": {
+            "name": "saveSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/admin/feature-selection/settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "saveSettings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,329 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource anytime-feedback-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "anytime-feedback-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "request"
+        },
+        {
+          "info": {
+            "name": "getCompanyOverview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-overview/company",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "to"
+              }
+            ]
+          },
+          "docs": "getCompanyOverview"
+        },
+        {
+          "info": {
+            "name": "getTeamOverview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-overview/team",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "to"
+              }
+            ]
+          },
+          "docs": "getTeamOverview"
+        },
+        {
+          "info": {
+            "name": "getResponse",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-response/:requestId/:reviewerId",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path",
+                "description": "requestId"
+              },
+              {
+                "name": "reviewerId",
+                "value": "",
+                "type": "path",
+                "description": "reviewerId"
+              }
+            ]
+          },
+          "docs": "getResponse"
+        },
+        {
+          "info": {
+            "name": "answer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-response/:requestId/:reviewerId/answer",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path",
+                "description": "requestId"
+              },
+              {
+                "name": "reviewerId",
+                "value": "",
+                "type": "path",
+                "description": "reviewerId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "answer"
+        },
+        {
+          "info": {
+            "name": "declineResponse",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-response/:requestId/:reviewerId/decline",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path",
+                "description": "requestId"
+              },
+              {
+                "name": "reviewerId",
+                "value": "",
+                "type": "path",
+                "description": "reviewerId"
+              }
+            ]
+          },
+          "docs": "declineResponse"
+        },
+        {
+          "info": {
+            "name": "reopenResponse",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-response/:requestId/:reviewerId/reopen",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path",
+                "description": "requestId"
+              },
+              {
+                "name": "reviewerId",
+                "value": "",
+                "type": "path",
+                "description": "reviewerId"
+              }
+            ]
+          },
+          "docs": "reopenResponse"
+        },
+        {
+          "info": {
+            "name": "shareResponse",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-response/:requestId/:reviewerId/share",
+            "params": [
+              {
+                "name": "requestId",
+                "value": "",
+                "type": "path",
+                "description": "requestId"
+              },
+              {
+                "name": "reviewerId",
+                "value": "",
+                "type": "path",
+                "description": "reviewerId"
+              }
+            ]
+          },
+          "docs": "shareResponse"
+        },
+        {
+          "info": {
+            "name": "getAnytimeFeedbackStats",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback-stats",
+            "params": [
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "from"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "to"
+              }
+            ]
+          },
+          "docs": "getAnytimeFeedbackStats"
+        },
+        {
+          "info": {
+            "name": "showRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "showRequest"
+        },
+        {
+          "info": {
+            "name": "updateRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateRequest"
+        },
+        {
+          "info": {
+            "name": "deleteRequest",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "deleteRequest"
+        },
+        {
+          "info": {
+            "name": "nudgeReviewer",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/anytime-feedback/:id/nudge/:reviewerId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "reviewerId",
+                "value": "",
+                "type": "path",
+                "description": "reviewerId"
+              }
+            ]
+          },
+          "docs": "nudgeReviewer"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

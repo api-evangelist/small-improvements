@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource objective-ratings-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "objective-ratings-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-ratings"
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "put",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/objective-ratings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "put"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

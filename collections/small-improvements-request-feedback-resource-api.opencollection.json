@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource request-feedback-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "request-feedback-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSummariesCompany",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback/request/overview/company"
+          },
+          "docs": "getSummariesCompany"
+        },
+        {
+          "info": {
+            "name": "getSummariesTeam",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/feedback/request/overview/team"
+          },
+          "docs": "getSummariesTeam"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource talking-point-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "talking-point-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "createTalkingPoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/talkingpoints",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createTalkingPoints"
+        },
+        {
+          "info": {
+            "name": "reorderTalkingPoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/talkingpoints",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "reorderTalkingPoint"
+        },
+        {
+          "info": {
+            "name": "editTalkingPoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/talkingpoints/:pointId",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              },
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "pointId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "editTalkingPoint"
+        },
+        {
+          "info": {
+            "name": "deletePoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/talkingpoints/:pointId",
+            "params": [
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              },
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "pointId"
+              }
+            ]
+          },
+          "docs": "deletePoint"
+        },
+        {
+          "info": {
+            "name": "toggleTalkingPoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/meetings/:meetingId/talkingpoints/:pointId/check",
+            "params": [
+              {
+                "name": "checked",
+                "value": "",
+                "type": "query",
+                "description": "checked"
+              },
+              {
+                "name": "meetingId",
+                "value": "",
+                "type": "path",
+                "description": "meetingId"
+              },
+              {
+                "name": "pointId",
+                "value": "",
+                "type": "path",
+                "description": "pointId"
+              }
+            ]
+          },
+          "docs": "toggleTalkingPoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

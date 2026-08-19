@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource personal-access-token-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "personal-access-token-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getTokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/personal-access-token"
+          },
+          "docs": "getTokens"
+        },
+        {
+          "info": {
+            "name": "createToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/personal-access-token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createToken"
+        },
+        {
+          "info": {
+            "name": "revokeAllTokens",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/personal-access-token"
+          },
+          "docs": "revokeAllTokens"
+        },
+        {
+          "info": {
+            "name": "revokeToken",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/personal-access-token/:tokenId",
+            "params": [
+              {
+                "name": "tokenId",
+                "value": "",
+                "type": "path",
+                "description": "tokenId"
+              }
+            ]
+          },
+          "docs": "revokeToken"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

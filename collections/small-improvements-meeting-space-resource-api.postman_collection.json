@@ -1,0 +1,2341 @@
+{
+  "item": [
+    {
+      "id": "bfcf7b80-26e8-4615-9aba-875aaf342b17",
+      "name": "meeting-space-resource",
+      "description": {
+        "content": "Meeting Space Resource",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "31e300d4-444a-4808-a9b7-0194bc44d446",
+          "name": "getMyMeetingSpaces",
+          "request": {
+            "name": "getMyMeetingSpaces",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-spaces",
+                "me"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.fixedOffset",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].dayOfWeek",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.hour",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.minute",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.nano",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.second",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].midnightEndOfDay",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].month",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetAfter.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetBefore.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].standardOffset.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].timeDefinition",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].dateTimeAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].dateTimeBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.nano",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.negative",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.seconds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.units[0].dateBased",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.units[0].timeBased",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.zero",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].gap",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].instant",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetAfter.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetBefore.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].overlap",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "totalSeconds",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00cebf2e-a077-42a1-9501-09e85912a5ca",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c39e1cbf-935f-4482-bc78-6a88a30ed90c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7cae9abb-e81f-477f-8af9-e51e2c4da7a1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b4504dc-1693-4e61-aeff-1b2d4b38b6b5",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "me"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92305bc1-5287-4472-a758-ba808afc13a9",
+          "name": "getSharedMeetingSpacesMini",
+          "request": {
+            "name": "getSharedMeetingSpacesMini",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-spaces",
+                "mini",
+                "shared"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6f4355f-ff4b-45fa-8916-0ab883634a08",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "mini",
+                    "shared"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f3b0872d-5a95-4f89-9f31-b0361c7557d2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "mini",
+                    "shared"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a2684705-b17b-445f-bd95-95be9a0926c3",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "mini",
+                    "shared"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fca1a0b-5a6d-4356-ba47-d2ce6ec76a4a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "mini",
+                    "shared"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c834891b-a8a1-4457-8f47-684a6d2b95c6",
+          "name": "getSharedMeetingSpaces",
+          "request": {
+            "name": "getSharedMeetingSpaces",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-spaces",
+                "shared"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "minUpdatedDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) minUpdatedDate"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.fixedOffset",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].dayOfWeek",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.hour",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.minute",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.nano",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].localTime.second",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].midnightEndOfDay",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].month",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetAfter.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetBefore.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].standardOffset.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitionRules[0].timeDefinition",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].dateTimeAfter",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].dateTimeBefore",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.nano",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.negative",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.seconds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.units[0].dateBased",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.units[0].timeBased",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].duration.zero",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].gap",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].instant",
+                  "value": "<dateTime>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetAfter.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetBefore.id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "rules.transitions[0].overlap",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "totalSeconds",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5111460d-49cb-4848-a94d-c283d68c6c69",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "shared"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minUpdatedDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46dc685f-26c0-4759-a673-b4b2d8221494",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "shared"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minUpdatedDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "397176e9-1d8d-4f81-85b1-2482e76a3eab",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "shared"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minUpdatedDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d9273b21-1031-4b1a-b3da-2ec9ea37a89f",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "shared"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minUpdatedDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.fixedOffset",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfMonthIndicator",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].dayOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.hour",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.minute",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].localTime.second",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].midnightEndOfDay",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].month",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].standardOffset.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitionRules[0].timeDefinition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].dateTimeBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.nano",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.negative",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.seconds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].dateBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].durationEstimated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.units[0].timeBased",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].duration.zero",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].gap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "rules.transitions[0].instant",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetAfter.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "rules.transitions[0].offsetBefore.totalSeconds",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rules.transitions[0].overlap",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "totalSeconds",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "21b4aaee-5b8a-494f-8c63-21b9cccbd1f8",
+          "name": "getSharedMeetingSpacesCount",
+          "request": {
+            "name": "getSharedMeetingSpacesCount",
+            "description": {},
+            "url": {
+              "path": [
+                "v2",
+                "meeting-spaces",
+                "shared-count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "minUpdatedDate",
+                  "value": "<dateTime>",
+                  "description": "(Required) minUpdatedDate"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json;charset=UTF-8"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4f759fe3-6cac-4069-8fc5-659ac0820dfd",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "shared-count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "minUpdatedDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json;charset=UTF-8"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9dc8913d-744d-46ad-b7a7-66331efe0080",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "shared-count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "minUpdatedDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "683fb317-9c93-4690-a3e7-2989e6cc7857",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "shared-count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "minUpdatedDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "441d0f72-42fa-46b4-91c0-042b7e818013",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v2",
+                    "meeting-spaces",
+                    "shared-count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "minUpdatedDate",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.small-improvements.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8ac1a058-ff3c-4df6-9877-a86480fdad82",
+    "name": "Small Improvements action-item-resource meeting-space-resource API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource user-settings-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "user-settings-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getUserSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/user-settings"
+          },
+          "docs": "getUserSettings"
+        },
+        {
+          "info": {
+            "name": "updateUserSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/user-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateUserSettings"
+        },
+        {
+          "info": {
+            "name": "setLastCheckedReleaseNotesDate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/user-settings/checked-release-notes"
+          },
+          "docs": "setLastCheckedReleaseNotesDate"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

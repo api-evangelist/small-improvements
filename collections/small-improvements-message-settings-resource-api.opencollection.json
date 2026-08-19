@@ -1,0 +1,50 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource message-settings-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "message-settings-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getMessageSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/message-settings"
+          },
+          "docs": "getMessageSettings"
+        },
+        {
+          "info": {
+            "name": "editMessageSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/message-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "editMessageSettings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

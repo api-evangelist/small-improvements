@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource activity-stream-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "activity-stream-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getActivityStream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/activities",
+            "params": [
+              {
+                "name": "modules",
+                "value": "",
+                "type": "query",
+                "description": "modules"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "size"
+              },
+              {
+                "name": "userIds",
+                "value": "",
+                "type": "query",
+                "description": "userIds"
+              }
+            ]
+          },
+          "docs": "getActivityStream"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

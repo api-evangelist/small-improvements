@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource summary-assistant-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "summary-assistant-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "prompt",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/summary-assistant",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "prompt"
+        },
+        {
+          "info": {
+            "name": "getAllowedRequests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/summary-assistant/tokens"
+          },
+          "docs": "getAllowedRequests"
+        },
+        {
+          "info": {
+            "name": "getKeyTakeaways",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/summary-assistant/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "getKeyTakeaways"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

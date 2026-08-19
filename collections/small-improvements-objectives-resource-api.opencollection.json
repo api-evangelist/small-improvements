@@ -1,0 +1,724 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource objectives-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "objectives-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "browseView",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/all/objectives/browse-view",
+            "params": [
+              {
+                "name": "allUsers",
+                "value": "",
+                "type": "query",
+                "description": "allUsers"
+              },
+              {
+                "name": "cycleIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ownerIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sortKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "browseView"
+        },
+        {
+          "info": {
+            "name": "listAllRelevant",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/all/objectives/relevant",
+            "params": [
+              {
+                "name": "endDate",
+                "value": "",
+                "type": "query",
+                "description": "endDate"
+              },
+              {
+                "name": "startDate",
+                "value": "",
+                "type": "query",
+                "description": "startDate"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "listAllRelevant"
+        },
+        {
+          "info": {
+            "name": "list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "list"
+        },
+        {
+          "info": {
+            "name": "createObjective",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createObjective"
+        },
+        {
+          "info": {
+            "name": "bulkChangeWeighting",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/changeWeightings",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "bulkChangeWeighting"
+        },
+        {
+          "info": {
+            "name": "listView",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/view",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query",
+                "description": "userId"
+              }
+            ]
+          },
+          "docs": "listView"
+        },
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/:id",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "editObjective",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/:id",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "editObjective"
+        },
+        {
+          "info": {
+            "name": "delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/:id",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "delete"
+        },
+        {
+          "info": {
+            "name": "changeCompletionPercentage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/:id/changeCompletionPercentage",
+            "params": [
+              {
+                "name": "completionPercentage",
+                "value": "",
+                "type": "query",
+                "description": "completionPercentage"
+              },
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "changeCompletionPercentage"
+        },
+        {
+          "info": {
+            "name": "changeCycle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/:id/changeCycle",
+            "params": [
+              {
+                "name": "copy",
+                "value": "",
+                "type": "query",
+                "description": "copy"
+              },
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "newCycleId",
+                "value": "",
+                "type": "query",
+                "description": "newCycleId"
+              }
+            ]
+          },
+          "docs": "changeCycle"
+        },
+        {
+          "info": {
+            "name": "changeRating",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/:id/changeRating",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "rating",
+                "value": "",
+                "type": "query",
+                "description": "rating"
+              }
+            ]
+          },
+          "docs": "changeRating"
+        },
+        {
+          "info": {
+            "name": "changeStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/:id/changeStatus",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "status"
+              }
+            ]
+          },
+          "docs": "changeStatus"
+        },
+        {
+          "info": {
+            "name": "createMessage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/:id/messages",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createMessage"
+        },
+        {
+          "info": {
+            "name": "nudge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objective-cycles/:cycleId/objectives/:id/nudge",
+            "params": [
+              {
+                "name": "cycleId",
+                "value": "",
+                "type": "path",
+                "description": "cycleId"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "nudge"
+        },
+        {
+          "info": {
+            "name": "get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective-preview/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "get"
+        },
+        {
+          "info": {
+            "name": "getFromId",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objective/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "getFromId"
+        },
+        {
+          "info": {
+            "name": "getCommentCounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objectives/comment-counts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "getCommentCounts"
+        },
+        {
+          "info": {
+            "name": "getPreview",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objectives/preview/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "getPreview"
+        },
+        {
+          "info": {
+            "name": "activities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objectives/:id/activities",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "activities"
+        },
+        {
+          "info": {
+            "name": "getComments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/objectives/:id/messages",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ]
+          },
+          "docs": "getComments"
+        },
+        {
+          "info": {
+            "name": "createMessageWithoutCycleId",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objectives/:id/messages",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "createMessageWithoutCycleId"
+        },
+        {
+          "info": {
+            "name": "editComment",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/objectives/:id/messages/:messageId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "messageId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "editComment"
+        },
+        {
+          "info": {
+            "name": "updateVisibleToPermissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.small-improvements.com/api/v2/objectives/:id/messages/:messageId",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "messageId"
+              }
+            ]
+          },
+          "docs": "updateVisibleToPermissions"
+        },
+        {
+          "info": {
+            "name": "downvote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objectives/:id/messages/:messageId/downvote",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "messageId"
+              }
+            ]
+          },
+          "docs": "downvote"
+        },
+        {
+          "info": {
+            "name": "upvote",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/objectives/:id/messages/:messageId/upvote",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "messageId"
+              }
+            ]
+          },
+          "docs": "upvote"
+        },
+        {
+          "info": {
+            "name": "updateVisibleToPermissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://app.small-improvements.com/api/v2/objectives/:id/messages/:messageId/visibleTo",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "id"
+              },
+              {
+                "name": "messageId",
+                "value": "",
+                "type": "path",
+                "description": "messageId"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "updateVisibleToPermissions"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

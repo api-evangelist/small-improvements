@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Small Improvements action-item-resource survey-observer-resource API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "survey-observer-resource",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSurvey",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.small-improvements.com/api/v2/company-observer/surveys/:surveyId",
+            "params": [
+              {
+                "name": "surveyId",
+                "value": "",
+                "type": "path",
+                "description": "surveyId"
+              }
+            ]
+          },
+          "docs": "getSurvey"
+        },
+        {
+          "info": {
+            "name": "calculateSurveySchedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.small-improvements.com/api/v2/survey-schedule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "calculateSurveySchedule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,340 @@
+slug: small-improvements
+provider: Small Improvements
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 34
+edges:
+- tag: feedback-cycles-resource
+  spec_file: small-improvements-feedback-cycles-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.92
+  evidence: POST /v2/feedback-cycles/guided/create createFeedbackCycleGuided; POST /v2/feedback-cycles/{cycleId}/approve_all;
+    schema FeedbackCycleGuidedDto
+  reason: Creation, editing, approval, completion and archiving of performance feedback/review cycles
+    — core performance management, i.e. Talent Management within HCM.
+- tag: reviews-resource
+  spec_file: small-improvements-reviews-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.92
+  evidence: PUT /v2/review-cycles/{cycleId}/reviews/{reviewId}/changeManagerRating; createReviews; indicateManagerDone;
+    ManagerRatingCode
+  reason: Full lifecycle of employee performance reviews including manager ratings, completion and reopening
+    — plainly performance management within Human Capital Management.
+- tag: feedback-participants-resource
+  spec_file: small-improvements-feedback-participants-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.9
+  evidence: POST /v2/feedback/provide-feedback provideFeedback; POST .../participants/{participantId}/nudge
+    nudgeReviewer; schema FeedbackParticipantProvideDto
+  reason: Manages reviewers/participants of performance review requests and the submission of feedback
+    — performance review execution under Talent Management.
+- tag: feedback-requests-resource
+  spec_file: small-improvements-feedback-requests-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.9
+  evidence: POST /v2/feedback-cycles/{cycleId}/feedback-requests/add-self-assessments bulkAddSelfAssessments;
+    PUT .../{requestId}/approved approveFeedbackRequest
+  reason: Creation and approval of review requests, self-assessments and manager reviewers within performance
+    cycles — performance/appraisal management.
+- tag: review-cycle-resource
+  spec_file: small-improvements-review-cycle-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.9
+  evidence: POST /v2/review-cycle  create; schemas ReviewCycle, ReviewCycleCreateRequest
+  reason: Creation and listing of performance review cycles — core performance review capability within
+    Human Capital Management / Talent Management.
+- tag: review-cycles-resource
+  spec_file: small-improvements-review-cycles-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.9
+  evidence: POST /v2/review-cycles/{cycleId}/complete_all  completeOpenReviews; PUT /v2/review-cycles/{cycleId}/archive  archiveCycle
+  reason: Full lifecycle of performance review cycles including notifications, nudges and completion —
+    performance management under Talent Management.
+- tag: review-resource
+  spec_file: small-improvements-review-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.9
+  evidence: GET /v2/review/forReviewee/{reviewee}  getActiveReviewsForReviewee; POST /v2/review/{id}/sign  sign;
+    schema ReviewDto
+  reason: 'Core performance review execution: reviewers, reviewee assessments, sharing and signing reviews
+    — Talent Management (performance) under HCM.'
+- tag: anytime-feedback-resource
+  spec_file: small-improvements-anytime-feedback-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.85
+  evidence: POST /v2/anytime-feedback-response/{requestId}/{reviewerId}/answer; .../decline; .../share;
+    GET /v2/anytime-feedback-overview/company; schemas AnytimeFeedbackRequestDto, UnifiedFeedbackDto
+  reason: Requesting, answering, declining and sharing peer/manager feedback with company and team overviews
+    is core continuous performance feedback — Talent Management (performance, development).
+- tag: feedback-provide-resource
+  spec_file: small-improvements-feedback-provide-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.85
+  evidence: POST /v2/cycle-feedback-response/{responseId}/answer answer; schema CycleFeedbackResponseDto
+  reason: Answering, reopening and sharing feedback responses within a review cycle — employee performance
+    feedback process.
+- tag: feedback-reviewers-resource
+  spec_file: small-improvements-feedback-reviewers-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.85
+  evidence: GET /v2/feedback-cycles/{cycleId}/reviewers listUserParticipations; nudgeReviewerForAllHisParticipations
+  reason: Reviewer participation tracking and nudging within performance feedback cycles — performance
+    review administration.
+- tag: objectives-resource
+  spec_file: small-improvements-objectives-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.85
+  evidence: POST /v2/objective-cycles/{cycleId}/objectives createObjective; changeCompletionPercentage;
+    changeRating; bulkChangeWeighting
+  reason: Goal/objective setting within performance cycles, with ratings and completion tracking, on a
+    performance management platform — squarely employee performance/talent management.
+- tag: review-questionnaire-resource
+  spec_file: small-improvements-review-questionnaire-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.85
+  evidence: POST /v2/review-questionnaire  create; schema QuestionnaireDto
+  reason: CRUD over performance review questionnaires used in review cycles — performance appraisal design
+    within Talent Management.
+- tag: assessment-resource
+  spec_file: small-improvements-assessment-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.82
+  evidence: POST /v2/assessment/{assessmentKey}/answers addAnswer; schemas AssessmentDto, ReviewCycleCreateRequest,
+    CreateOwnAssessmentCommand — performance review questionnaires within a 'performance management platform'
+  reason: Operations create and complete review-cycle assessments (self/peer review questionnaires), which
+    is performance review administration — Talent Management within HCM. Not a generic survey or a technical
+    resource.
+- tag: feedback-template-resource
+  spec_file: small-improvements-feedback-template-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.8
+  evidence: POST /v2/feedback/template/{type} createTemplate; schema FeedbackTemplateDto
+  reason: Lifecycle of review/feedback questionnaire templates used in performance cycles — configuration
+    of the performance appraisal instrument.
+- tag: objective-cycles-resource
+  spec_file: small-improvements-objective-cycles-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.78
+  evidence: 'POST /v2/objective-cycles/guided/create  createObjectiveCycleGuided; schemas: ObjectiveCycleDto'
+  reason: Creation, editing, archiving and permissioning of employee objective (goal-setting) cycles in
+    a performance management platform — core performance/goal management under Talent Management.
+- tag: review-statistics-resource
+  spec_file: small-improvements-review-statistics-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.78
+  evidence: GET /v2/review-cycles/statistics getCycleStatistics; schema ReviewCycleStatsDto
+  reason: Statistics over performance review cycles on a performance management platform — completion/progress
+    reporting for the review process, which sits under Talent Management (performance). Slight ambiguity
+    vs HR reporting keeps confidence below 0.8.
+- tag: reviewees-resource
+  spec_file: small-improvements-reviewees-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.78
+  evidence: GET /v2/reviews/reviewees/me getCycleSpecificRevieweesInOngoingCyclesAsWicketUsers
+  reason: Lists the employees being reviewed in ongoing performance review cycles — part of the performance
+    review process (Talent Management), not generic user administration.
+- tag: unified-feedback-resource
+  spec_file: small-improvements-unified-feedback-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.78
+  evidence: GET /v2/unified-feedback/someones/{revieweeId}  getSomeonesFeedback; schema UnifiedFeedbackDetailsDto
+  reason: Operations retrieve employee performance feedback given to and by users, with a 'reviewee' concept
+    — continuous feedback within performance management, mapping to Talent Management under HCM.
+- tag: praise-resource
+  spec_file: small-improvements-praise-resource-api-openapi.yml
+  capability_id: BC-300.60
+  capability_id_l1: BC-300
+  capability_name: Employee Experience Management
+  confidence: 0.75
+  evidence: POST /v2/praise createPraise; PUT /v2/praise/{praiseId}/downvote; GET /v2/praise/{praiseId}/comments
+  reason: Peer recognition/praise feed with comments and votes inside an HR performance platform — employee
+    engagement and experience rather than a specific pay or performance-review process.
+- tag: request-feedback-resource
+  spec_file: small-improvements-request-feedback-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.75
+  evidence: GET /v2/feedback/request/overview/company  getSummariesCompany; schema RequestFeedbackSummary
+  reason: Summaries of employee feedback requests across company and team within a performance-management
+    platform; maps to talent/performance management under HCM.
+- tag: assessment-admin-resource
+  spec_file: small-improvements-assessment-admin-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.72
+  evidence: POST /v2/assessment createAssessment; POST /v2/assessment/{assessmentKey}/answers/{authorKey}
+    moderateAnswers; schemas AssessmentDto, CreateAssessmentCommand
+  reason: Creation and moderation of employee assessments (review questionnaires) on a performance management
+    platform maps to performance/talent management; some ambiguity as 'assessment' could also serve learning
+    or survey use cases.
+- tag: objective-ratings-resource
+  spec_file: small-improvements-objective-ratings-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.72
+  evidence: 'GET /v2/objective-ratings; schemas: ObjectiveRating'
+  reason: Rating scheme applied to employee objectives in a performance management platform — part of
+    performance evaluation under Talent Management.
+- tag: survey-admin-resource
+  spec_file: small-improvements-survey-admin-resource-api-openapi.yml
+  capability_id: BC-300.60
+  capability_id_l1: BC-300
+  capability_name: Employee Experience Management
+  confidence: 0.72
+  evidence: POST /v2/surveys createSurvey; PUT /v2/surveys/{surveyId}/stopped-status; SurveyDto
+  reason: 'Administration of employee pulse surveys (vendor description: ''pulse surveys'') on an employee
+    performance/engagement platform — maps to Employee Experience Management (engagement). Some ambiguity
+    as survey tooling is generic.'
+- tag: your-surveys-resource
+  spec_file: small-improvements-your-surveys-resource-api-openapi.yml
+  capability_id: BC-300.60
+  capability_id_l1: BC-300
+  capability_name: Employee Experience Management
+  confidence: 0.72
+  evidence: POST /v2/your-surveys/{surveyInstanceKey}  answerSurveyInstance; vendor description covers
+    "pulse surveys"
+  reason: Endpoints let an employee view and answer their assigned pulse survey instances, which realises
+    employee engagement measurement under Employee Experience Management. Slight ambiguity versus general
+    feedback capability keeps confidence below 0.8.
+- tag: feedback-statistics-resource
+  spec_file: small-improvements-feedback-statistics-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.7
+  evidence: GET /v2/feedback-cycles/{cycleId}/statistics getCycleStatistics; schema FeedbackCycleStatisticsDto
+  reason: Reporting on performance review cycle progress/completion; analytics over the appraisal process,
+    so mapped to Talent Management with moderate confidence.
+- tag: meeting-resource
+  spec_file: small-improvements-meeting-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.7
+  evidence: POST /v2/meetings createMeeting; GET /v2/meetings/relevant listRelevantMeetings; vendor covers
+    '1:1 meetings'
+  reason: Core lifecycle of manager–employee 1:1 meetings in a performance management product; this is
+    performance/development management (Talent Management), not facilities or calendar scheduling.
+- tag: objective-categories-resource
+  spec_file: small-improvements-objective-categories-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.7
+  evidence: 'GET /v2/objective-categories; schemas: ObjectiveCategory'
+  reason: Configuration of categories for employee objectives (goals) in a performance-management platform,
+    part of performance/goal management under Talent Management.
+- tag: objective-summaries-resource
+  spec_file: small-improvements-objective-summaries-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.7
+  evidence: 'GET /v2/objective-cycles/{cycleId}/summaries  getDto; schemas: ObjectiveSummaryDto'
+  reason: Summaries of employee objective cycles (goal attainment write-ups) within a performance management
+    platform, part of performance/talent management.
+- tag: review-attachment-resource
+  spec_file: small-improvements-review-attachment-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.7
+  evidence: POST /v2/review/{id}/attachment  addAttachment; schema ReviewDto
+  reason: Attachments attached to performance reviews (ReviewDto) — supporting artefacts of the performance
+    review process, part of Talent Management under HCM. Somewhat plumbing-like (file upload) so moderate
+    confidence.
+- tag: review-cycle-admin-resource
+  spec_file: small-improvements-review-cycle-admin-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.7
+  evidence: POST /v2/review-cycles/{cycleId}/cycle-admins  editReviewCycleAdmins; schema ReviewCycleListDto
+  reason: Administers who runs a performance review cycle; administrative but squarely within performance
+    review cycle management (Talent Management).
+- tag: review-export-resource
+  spec_file: small-improvements-review-export-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.7
+  evidence: GET /v2/review-cycles/{cycleId}/export/{exportType}/{outputType}  exportReview; GET /v2/review-cycles/{cycleId}/export_pdf  exportPDF
+  reason: Export of performance review cycle data/PDFs; export is technical but the subject matter is
+    performance review records under Talent Management.
+- tag: review-graph-resource
+  spec_file: small-improvements-review-graph-resource-api-openapi.yml
+  capability_id: BC-300.20
+  capability_id_l1: BC-300
+  capability_name: Talent Management
+  confidence: 0.7
+  evidence: GET /v2/review-cycle/{cycleId}/reviews-graph  getReviewsGraph; Iterable_ReviewGraphDto_
+  reason: Reporting view over reviews in a performance review cycle — analytics supporting performance/talent
+    management.
+- tag: survey-analytics-resource
+  spec_file: small-improvements-survey-analytics-resource-api-openapi.yml
+  capability_id: BC-300.60
+  capability_id_l1: BC-300
+  capability_name: Employee Experience Management
+  confidence: 0.7
+  evidence: GET /v2/surveys/{surveyId}/responses viewSurveyResponses; SurveyResponseAggregationDto
+  reason: Aggregated analysis of employee pulse-survey responses — engagement measurement under Employee
+    Experience Management. Confidence tempered by thin, generic survey semantics.
+- tag: users-resource
+  spec_file: small-improvements-users-resource-api-openapi.yml
+  capability_id: BC-300.70
+  capability_id_l1: BC-300
+  capability_name: HR Operations Management
+  confidence: 0.7
+  evidence: GET /v2/users/hrs  getHrs; POST /v2/users/invite-onboarding/  inviteUsersInOnboarding; GET
+    /v2/users/export_csv
+  reason: Employee directory listing, invitation/onboarding of users and roster exports in an HR performance
+    platform correspond to employee record administration and HR service delivery. Some operations (password
+    reset mails) are pure account plumbing, so confidence is moderate.

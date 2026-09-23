@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
   version: '2.0'
-  title: Small Improvements action-item-resource objectives-resource API
+  title: Small Improvements Objectives Resource API
   contact:
     url: https://www.small-improvements.com
     name: Small Improvements
@@ -956,7 +956,51 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    AuditRecordMiniDto:
+      type: object
+      title: AuditRecordMiniDto
+    ObjectiveView:
+      type: object
+      title: ObjectiveView
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+    ClippyView:
+      type: object
+      title: ClippyView
+    BrowserView:
+      type: object
+      title: BrowserView
+    ObjectiveCommentEditTextDTO:
+      type: object
+      title: ObjectiveCommentEditTextDTO
+    CommentCountView:
+      type: object
+      title: CommentCountView
+    ObjectivePreviewWithStatus:
+      type: object
+      title: ObjectivePreviewWithStatus
+    ObjectiveDTO:
+      type: object
+      title: ObjectiveDTO
+    MiniCommentView:
+      type: object
+      title: MiniCommentView
+    ObjectivePreviewDTO:
+      type: object
+      title: ObjectivePreviewDTO
+    CommentView:
+      type: object
+      title: CommentView
   requestBodies:
+    MiniCommentView:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/MiniCommentView'
+      description: dto
+      required: true
     UserIdHolderArray:
       content:
         application/json:
@@ -966,50 +1010,6 @@ components:
               $ref: '#/components/schemas/UserIdHolder'
       description: users
       required: true
-    MiniCommentView:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/MiniCommentView'
-      description: dto
-      required: true
-  schemas:
-    ObjectiveDTO:
-      type: object
-      title: ObjectiveDTO
-    ObjectiveView:
-      type: object
-      title: ObjectiveView
-    ClippyView:
-      type: object
-      title: ClippyView
-    CommentCountView:
-      type: object
-      title: CommentCountView
-    CommentView:
-      type: object
-      title: CommentView
-    UserIdHolder:
-      type: object
-      title: UserIdHolder
-    ObjectivePreviewDTO:
-      type: object
-      title: ObjectivePreviewDTO
-    ObjectiveCommentEditTextDTO:
-      type: object
-      title: ObjectiveCommentEditTextDTO
-    ObjectivePreviewWithStatus:
-      type: object
-      title: ObjectivePreviewWithStatus
-    BrowserView:
-      type: object
-      title: BrowserView
-    AuditRecordMiniDto:
-      type: object
-      title: AuditRecordMiniDto
-    MiniCommentView:
-      type: object
-      title: MiniCommentView
   securitySchemes:
     BearerAuth:
       type: http

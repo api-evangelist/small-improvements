@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
   version: '2.0'
-  title: Small Improvements action-item-resource meeting-resource API
+  title: Small Improvements Meeting Resource API
   contact:
     url: https://www.small-improvements.com
     name: Small Improvements
@@ -3031,27 +3031,27 @@ paths:
           description: Forbidden
 components:
   schemas:
-    MeetingPatchRequest:
-      type: object
-      title: MeetingPatchRequest
-    MeetingDto:
-      type: object
-      title: MeetingDto
-    MeetingRelevantDto:
-      type: object
-      title: MeetingRelevantDto
-    ViewersDto:
-      type: object
-      title: ViewersDto
-    MeetingMetadataDto:
-      type: object
-      title: MeetingMetadataDto
     CreateMeetingRequest:
       type: object
       title: CreateMeetingRequest
+    MeetingPatchRequest:
+      type: object
+      title: MeetingPatchRequest
+    ViewersDto:
+      type: object
+      title: ViewersDto
     DownloadableFileDto:
       type: object
       title: DownloadableFileDto
+    MeetingMetadataDto:
+      type: object
+      title: MeetingMetadataDto
+    MeetingRelevantDto:
+      type: object
+      title: MeetingRelevantDto
+    MeetingDto:
+      type: object
+      title: MeetingDto
   securitySchemes:
     BearerAuth:
       type: http

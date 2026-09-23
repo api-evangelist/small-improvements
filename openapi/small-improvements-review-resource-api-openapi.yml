@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
   version: '2.0'
-  title: Small Improvements action-item-resource review-resource API
+  title: Small Improvements Review Resource API
   contact:
     url: https://www.small-improvements.com
     name: Small Improvements
@@ -559,45 +559,45 @@ paths:
       deprecated: true
 components:
   schemas:
-    ReviewListDto:
-      type: object
-      title: ReviewListDto
-    ReviewersDto:
-      type: object
-      title: ReviewersDto
-    ReviewersBulkUpdateDto:
-      type: object
-      title: ReviewersBulkUpdateDto
-    ReviewDto:
-      type: object
-      title: ReviewDto
-    MainReviewerDto:
-      type: object
-      title: MainReviewerDto
-    TimelineExtensionDto:
-      type: object
-      title: TimelineExtensionDto
-    ReviewForRevieweeDto:
-      type: object
-      title: ReviewForRevieweeDto
-    AssessmentAnswerDto:
-      type: object
-      title: AssessmentAnswerDto
-    ReviewCycleCreateRequest:
-      type: object
-      title: ReviewCycleCreateRequest
-    Stream_ReviewDto_:
-      type: object
-      title: Stream«ReviewDto»
     BulkTimelineExtensionDto:
       type: object
       title: BulkTimelineExtensionDto
+    Stream_ReviewDto_:
+      type: object
+      title: Stream«ReviewDto»
+    ReviewersBulkUpdateDto:
+      type: object
+      title: ReviewersBulkUpdateDto
+    TimelineExtensionDto:
+      type: object
+      title: TimelineExtensionDto
     YourCycleAndReviewsDto:
       type: object
       title: YourCycleAndReviewsDto
+    ReviewListDto:
+      type: object
+      title: ReviewListDto
+    ReviewCycleCreateRequest:
+      type: object
+      title: ReviewCycleCreateRequest
+    ReviewDto:
+      type: object
+      title: ReviewDto
+    AssessmentAnswerDto:
+      type: object
+      title: AssessmentAnswerDto
     ReviewSignDto:
       type: object
       title: ReviewSignDto
+    ReviewersDto:
+      type: object
+      title: ReviewersDto
+    ReviewForRevieweeDto:
+      type: object
+      title: ReviewForRevieweeDto
+    MainReviewerDto:
+      type: object
+      title: MainReviewerDto
   requestBodies:
     updateContributingReviewersUsingPUTUpdatedcontributingreviewers:
       content:

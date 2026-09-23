@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
   version: '2.0'
-  title: Small Improvements action-item-resource anytime-feedback-resource API
+  title: Small Improvements Anytime Feedback Resource API
   contact:
     url: https://www.small-improvements.com
     name: Small Improvements
@@ -436,22 +436,6 @@ paths:
         '404':
           description: Not Found
 components:
-  schemas:
-    AnytimeFeedbackStatsDto:
-      type: object
-      title: AnytimeFeedbackStatsDto
-    AnytimeFeedbackResponseDto:
-      type: object
-      title: AnytimeFeedbackResponseDto
-    AnytimeFeedbackRequestDto:
-      type: object
-      title: AnytimeFeedbackRequestDto
-    UnifiedFeedbackDto:
-      type: object
-      title: UnifiedFeedbackDto
-    AnswerDto:
-      type: object
-      title: AnswerDto
   requestBodies:
     AnswerDtoArray2:
       content:
@@ -462,6 +446,22 @@ components:
               $ref: '#/components/schemas/AnswerDto'
       description: answers
       required: true
+  schemas:
+    AnswerDto:
+      type: object
+      title: AnswerDto
+    UnifiedFeedbackDto:
+      type: object
+      title: UnifiedFeedbackDto
+    AnytimeFeedbackResponseDto:
+      type: object
+      title: AnytimeFeedbackResponseDto
+    AnytimeFeedbackRequestDto:
+      type: object
+      title: AnytimeFeedbackRequestDto
+    AnytimeFeedbackStatsDto:
+      type: object
+      title: AnytimeFeedbackStatsDto
   securitySchemes:
     BearerAuth:
       type: http

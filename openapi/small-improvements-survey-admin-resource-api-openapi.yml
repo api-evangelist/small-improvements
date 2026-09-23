@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
   version: '2.0'
-  title: Small Improvements action-item-resource survey-admin-resource API
+  title: Small Improvements Survey Admin Resource API
   contact:
     url: https://www.small-improvements.com
     name: Small Improvements
@@ -245,6 +245,22 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    Key_User_:
+      type: object
+      title: Key«User»
+    ArchiveStatusDto:
+      type: object
+      title: ArchiveStatusDto
+    DownloadableFileDto:
+      type: object
+      title: DownloadableFileDto
+    StoppedStatusDto:
+      type: object
+      title: StoppedStatusDto
+    SurveyDto:
+      type: object
+      title: SurveyDto
   requestBodies:
     SurveyDto:
       content:
@@ -253,22 +269,6 @@ components:
             $ref: '#/components/schemas/SurveyDto'
       description: surveyCreationDto
       required: true
-  schemas:
-    SurveyDto:
-      type: object
-      title: SurveyDto
-    StoppedStatusDto:
-      type: object
-      title: StoppedStatusDto
-    ArchiveStatusDto:
-      type: object
-      title: ArchiveStatusDto
-    Key_User_:
-      type: object
-      title: Key«User»
-    DownloadableFileDto:
-      type: object
-      title: DownloadableFileDto
   securitySchemes:
     BearerAuth:
       type: http

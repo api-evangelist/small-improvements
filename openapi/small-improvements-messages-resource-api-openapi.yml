@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
   version: '2.0'
-  title: Small Improvements action-item-resource messages-resource API
+  title: Small Improvements Messages Resource API
   contact:
     url: https://www.small-improvements.com
     name: Small Improvements
@@ -591,6 +591,28 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    Iterable_UserMessageStatisticsDto_:
+      type: object
+      title: Iterable«UserMessageStatisticsDto»
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+    MessageRelevantView:
+      type: object
+      title: MessageRelevantView
+    MessageDTO:
+      type: object
+      title: MessageDTO
+    DownloadableFileDto:
+      type: object
+      title: DownloadableFileDto
+    MessageDto:
+      type: object
+      title: MessageDto
+    MessagePreviewWithStatus:
+      type: object
+      title: MessagePreviewWithStatus
   requestBodies:
     UserIdHolderArray:
       content:
@@ -608,28 +630,6 @@ components:
             $ref: '#/components/schemas/MessageDTO'
       description: dto
       required: true
-  schemas:
-    MessageRelevantView:
-      type: object
-      title: MessageRelevantView
-    MessagePreviewWithStatus:
-      type: object
-      title: MessagePreviewWithStatus
-    MessageDTO:
-      type: object
-      title: MessageDTO
-    UserIdHolder:
-      type: object
-      title: UserIdHolder
-    Iterable_UserMessageStatisticsDto_:
-      type: object
-      title: Iterable«UserMessageStatisticsDto»
-    MessageDto:
-      type: object
-      title: MessageDto
-    DownloadableFileDto:
-      type: object
-      title: DownloadableFileDto
   securitySchemes:
     BearerAuth:
       type: http

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
   version: '2.0'
-  title: Small Improvements action-item-resource users-resource API
+  title: Small Improvements Users Resource API
   contact:
     url: https://www.small-improvements.com
     name: Small Improvements
@@ -981,61 +981,52 @@ paths:
           description: Forbidden
 components:
   schemas:
-    Iterable_MediumUser_:
-      type: object
-      title: Iterable«MediumUser»
-    Download:
-      type: object
-      title: Download
-    Iterable_UserListDto_:
-      type: object
-      title: Iterable«UserListDto»
     MediumUser:
       type: object
       title: MediumUser
-    BadgeDTO:
-      type: object
-      title: BadgeDTO
-    CalendarDTO:
-      type: object
-      title: CalendarDTO
-    Iterable_WicketUser_:
-      type: object
-      title: Iterable«WicketUser»
-    UserSessionStatusDTO:
-      type: object
-      title: UserSessionStatusDTO
-    UserRelationship:
-      type: object
-      title: UserRelationship
     UserProfileDto:
       type: object
       title: UserProfileDto
+    Download:
+      type: object
+      title: Download
+    BadgeDTO:
+      type: object
+      title: BadgeDTO
+    Iterable_UserListDto_:
+      type: object
+      title: Iterable«UserListDto»
+    CalendarDTO:
+      type: object
+      title: CalendarDTO
+    UserOnboardingInvitationDTO:
+      type: object
+      title: UserOnboardingInvitationDTO
+    UserRelationship:
+      type: object
+      title: UserRelationship
+    UserSessionStatusDTO:
+      type: object
+      title: UserSessionStatusDTO
+    CurrentUserDto:
+      type: object
+      title: CurrentUserDto
+    Iterable_MediumUser_:
+      type: object
+      title: Iterable«MediumUser»
+    Iterable_WicketUser_:
+      type: object
+      title: Iterable«WicketUser»
     Iterable_UserProfileDto_:
       type: object
       title: Iterable«UserProfileDto»
     UserInvitationDTO:
       type: object
       title: UserInvitationDTO
-    UserOnboardingInvitationDTO:
-      type: object
-      title: UserOnboardingInvitationDTO
     ObserverUserDto:
       type: object
       title: ObserverUserDto
-    CurrentUserDto:
-      type: object
-      title: CurrentUserDto
   requestBodies:
-    bulkNudgeUsingPOSTIds:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            type: array
-            items:
-              type: string
-      description: ids
-      required: true
     UserInvitationDTOArray:
       content:
         application/json;charset=UTF-8:
@@ -1044,6 +1035,15 @@ components:
             items:
               $ref: '#/components/schemas/UserInvitationDTO'
       description: invitations
+      required: true
+    bulkNudgeUsingPOSTIds:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: ids
       required: true
   securitySchemes:
     BearerAuth:

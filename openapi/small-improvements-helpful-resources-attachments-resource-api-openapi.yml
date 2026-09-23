@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
   version: '2.0'
-  title: Small Improvements action-item-resource helpful-resources-attachments-resource API
+  title: Small Improvements Helpful Resources Attachments Resource…
   contact:
     url: https://www.small-improvements.com
     name: Small Improvements
@@ -213,19 +213,6 @@ paths:
         '404':
           description: Not Found
 components:
-  schemas:
-    CreateLinkAttachmentDto:
-      type: object
-      title: CreateLinkAttachmentDto
-    Download:
-      type: object
-      title: Download
-    AttachmentDto:
-      type: object
-      title: AttachmentDto
-    CreateFileAttachmentDto:
-      type: object
-      title: CreateFileAttachmentDto
   requestBodies:
     CreateFileAttachmentDto:
       content:
@@ -241,6 +228,19 @@ components:
             $ref: '#/components/schemas/CreateLinkAttachmentDto'
       description: attachmentDto
       required: true
+  schemas:
+    Download:
+      type: object
+      title: Download
+    CreateFileAttachmentDto:
+      type: object
+      title: CreateFileAttachmentDto
+    CreateLinkAttachmentDto:
+      type: object
+      title: CreateLinkAttachmentDto
+    AttachmentDto:
+      type: object
+      title: AttachmentDto
   securitySchemes:
     BearerAuth:
       type: http

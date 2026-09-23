@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   description: The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.
   version: '2.0'
-  title: Small Improvements action-item-resource feedback-requests-resource API
+  title: Small Improvements Feedback Requests Resource API
   contact:
     url: https://www.small-improvements.com
     name: Small Improvements
@@ -644,28 +644,19 @@ paths:
           description: Forbidden
 components:
   schemas:
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
     FeedbackRequestDto:
       type: object
       title: FeedbackRequestDto
     FeedbackRequestRating:
       type: object
       title: FeedbackRequestRating
-    UserIdHolder:
-      type: object
-      title: UserIdHolder
     CreateFeedbackRequestsBulkResult:
       type: object
       title: CreateFeedbackRequestsBulkResult
   requestBodies:
-    bulkNudgeUsingPOSTIds:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            type: array
-            items:
-              type: string
-      description: ids
-      required: true
     UserIdHolderArray2:
       content:
         application/json;charset=UTF-8:
@@ -674,6 +665,15 @@ components:
             items:
               $ref: '#/components/schemas/UserIdHolder'
       description: userIds
+      required: true
+    bulkNudgeUsingPOSTIds:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: ids
       required: true
   securitySchemes:
     BearerAuth:

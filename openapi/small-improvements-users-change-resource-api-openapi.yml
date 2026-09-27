@@ -241,19 +241,6 @@ paths:
         '404':
           description: Not Found
 components:
-  schemas:
-    UserRolesDto:
-      type: object
-      title: UserRolesDto
-    UserProfileDto:
-      type: object
-      title: UserProfileDto
-    Iterable_string_:
-      type: object
-      title: Iterable«string»
-    UserUpdate:
-      type: object
-      title: UserUpdate
   requestBodies:
     bulkNudgeUsingPOSTIds:
       content:
@@ -264,6 +251,19 @@ components:
               type: string
       description: ids
       required: true
+  schemas:
+    UserProfileDto:
+      type: object
+      title: UserProfileDto
+    Iterable_string_:
+      type: object
+      title: Iterable«string»
+    UserUpdate:
+      type: object
+      title: UserUpdate
+    UserRolesDto:
+      type: object
+      title: UserRolesDto
   securitySchemes:
     BearerAuth:
       type: http

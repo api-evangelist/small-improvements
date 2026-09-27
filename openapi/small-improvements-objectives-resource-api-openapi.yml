@@ -957,50 +957,43 @@ paths:
           description: Not Found
 components:
   schemas:
-    AuditRecordMiniDto:
-      type: object
-      title: AuditRecordMiniDto
-    ObjectiveView:
-      type: object
-      title: ObjectiveView
-    UserIdHolder:
-      type: object
-      title: UserIdHolder
-    ClippyView:
-      type: object
-      title: ClippyView
-    BrowserView:
-      type: object
-      title: BrowserView
-    ObjectiveCommentEditTextDTO:
-      type: object
-      title: ObjectiveCommentEditTextDTO
-    CommentCountView:
-      type: object
-      title: CommentCountView
-    ObjectivePreviewWithStatus:
-      type: object
-      title: ObjectivePreviewWithStatus
-    ObjectiveDTO:
-      type: object
-      title: ObjectiveDTO
-    MiniCommentView:
-      type: object
-      title: MiniCommentView
-    ObjectivePreviewDTO:
-      type: object
-      title: ObjectivePreviewDTO
     CommentView:
       type: object
       title: CommentView
-  requestBodies:
+    CommentCountView:
+      type: object
+      title: CommentCountView
+    ObjectiveView:
+      type: object
+      title: ObjectiveView
+    ClippyView:
+      type: object
+      title: ClippyView
+    ObjectivePreviewWithStatus:
+      type: object
+      title: ObjectivePreviewWithStatus
+    ObjectivePreviewDTO:
+      type: object
+      title: ObjectivePreviewDTO
+    ObjectiveDTO:
+      type: object
+      title: ObjectiveDTO
+    ObjectiveCommentEditTextDTO:
+      type: object
+      title: ObjectiveCommentEditTextDTO
+    BrowserView:
+      type: object
+      title: BrowserView
+    AuditRecordMiniDto:
+      type: object
+      title: AuditRecordMiniDto
     MiniCommentView:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/MiniCommentView'
-      description: dto
-      required: true
+      type: object
+      title: MiniCommentView
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+  requestBodies:
     UserIdHolderArray:
       content:
         application/json:
@@ -1009,6 +1002,13 @@ components:
             items:
               $ref: '#/components/schemas/UserIdHolder'
       description: users
+      required: true
+    MiniCommentView:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/MiniCommentView'
+      description: dto
       required: true
   securitySchemes:
     BearerAuth:

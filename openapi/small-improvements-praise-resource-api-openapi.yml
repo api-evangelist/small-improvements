@@ -440,6 +440,25 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    PraiseEditCommand:
+      type: object
+      title: PraiseEditCommand
+    MessageDTO:
+      type: object
+      title: MessageDTO
+    PraiseCreateCommand:
+      type: object
+      title: PraiseCreateCommand
+    MessageDto:
+      type: object
+      title: MessageDto
+    MessagePreviewWithStatus:
+      type: object
+      title: MessagePreviewWithStatus
+    DownloadableFileDto:
+      type: object
+      title: DownloadableFileDto
   requestBodies:
     MessageDTO:
       content:
@@ -448,25 +467,6 @@ components:
             $ref: '#/components/schemas/MessageDTO'
       description: dto
       required: true
-  schemas:
-    MessageDTO:
-      type: object
-      title: MessageDTO
-    PraiseEditCommand:
-      type: object
-      title: PraiseEditCommand
-    PraiseCreateCommand:
-      type: object
-      title: PraiseCreateCommand
-    DownloadableFileDto:
-      type: object
-      title: DownloadableFileDto
-    MessageDto:
-      type: object
-      title: MessageDto
-    MessagePreviewWithStatus:
-      type: object
-      title: MessagePreviewWithStatus
   securitySchemes:
     BearerAuth:
       type: http

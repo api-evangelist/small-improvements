@@ -285,19 +285,26 @@ paths:
           description: Not Found
 components:
   schemas:
-    AssessmentDto:
-      type: object
-      title: AssessmentDto
-    CreateOwnAssessmentCommand:
-      type: object
-      title: CreateOwnAssessmentCommand
     AnswerDto:
       type: object
       title: AnswerDto
+    AssessmentDto:
+      type: object
+      title: AssessmentDto
     ReviewCycleCreateRequest:
       type: object
       title: ReviewCycleCreateRequest
+    CreateOwnAssessmentCommand:
+      type: object
+      title: CreateOwnAssessmentCommand
   requestBodies:
+    ReviewCycleCreateRequest:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ReviewCycleCreateRequest'
+      description: reviewCycleCreateRequest
+      required: true
     AnswerDtoArray:
       content:
         application/json;charset=UTF-8:
@@ -306,13 +313,6 @@ components:
             items:
               $ref: '#/components/schemas/AnswerDto'
       description: answerDto
-      required: true
-    ReviewCycleCreateRequest:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/ReviewCycleCreateRequest'
-      description: reviewCycleCreateRequest
       required: true
   securitySchemes:
     BearerAuth:

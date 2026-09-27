@@ -213,6 +213,19 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    CreateLinkAttachmentDto:
+      type: object
+      title: CreateLinkAttachmentDto
+    AttachmentDto:
+      type: object
+      title: AttachmentDto
+    Download:
+      type: object
+      title: Download
+    CreateFileAttachmentDto:
+      type: object
+      title: CreateFileAttachmentDto
   requestBodies:
     CreateFileAttachmentDto:
       content:
@@ -228,19 +241,6 @@ components:
             $ref: '#/components/schemas/CreateLinkAttachmentDto'
       description: attachmentDto
       required: true
-  schemas:
-    Download:
-      type: object
-      title: Download
-    CreateFileAttachmentDto:
-      type: object
-      title: CreateFileAttachmentDto
-    CreateLinkAttachmentDto:
-      type: object
-      title: CreateLinkAttachmentDto
-    AttachmentDto:
-      type: object
-      title: AttachmentDto
   securitySchemes:
     BearerAuth:
       type: http

@@ -981,61 +981,52 @@ paths:
           description: Forbidden
 components:
   schemas:
-    MediumUser:
+    Iterable_WicketUser_:
       type: object
-      title: MediumUser
+      title: Iterable«WicketUser»
+    CalendarDTO:
+      type: object
+      title: CalendarDTO
+    UserSessionStatusDTO:
+      type: object
+      title: UserSessionStatusDTO
+    BadgeDTO:
+      type: object
+      title: BadgeDTO
     UserProfileDto:
       type: object
       title: UserProfileDto
     Download:
       type: object
       title: Download
-    BadgeDTO:
-      type: object
-      title: BadgeDTO
-    Iterable_UserListDto_:
-      type: object
-      title: Iterable«UserListDto»
-    CalendarDTO:
-      type: object
-      title: CalendarDTO
-    UserOnboardingInvitationDTO:
-      type: object
-      title: UserOnboardingInvitationDTO
     UserRelationship:
       type: object
       title: UserRelationship
-    UserSessionStatusDTO:
+    Iterable_UserListDto_:
       type: object
-      title: UserSessionStatusDTO
-    CurrentUserDto:
-      type: object
-      title: CurrentUserDto
-    Iterable_MediumUser_:
-      type: object
-      title: Iterable«MediumUser»
-    Iterable_WicketUser_:
-      type: object
-      title: Iterable«WicketUser»
-    Iterable_UserProfileDto_:
-      type: object
-      title: Iterable«UserProfileDto»
-    UserInvitationDTO:
-      type: object
-      title: UserInvitationDTO
+      title: Iterable«UserListDto»
     ObserverUserDto:
       type: object
       title: ObserverUserDto
+    Iterable_MediumUser_:
+      type: object
+      title: Iterable«MediumUser»
+    UserInvitationDTO:
+      type: object
+      title: UserInvitationDTO
+    UserOnboardingInvitationDTO:
+      type: object
+      title: UserOnboardingInvitationDTO
+    MediumUser:
+      type: object
+      title: MediumUser
+    Iterable_UserProfileDto_:
+      type: object
+      title: Iterable«UserProfileDto»
+    CurrentUserDto:
+      type: object
+      title: CurrentUserDto
   requestBodies:
-    UserInvitationDTOArray:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/UserInvitationDTO'
-      description: invitations
-      required: true
     bulkNudgeUsingPOSTIds:
       content:
         application/json;charset=UTF-8:
@@ -1044,6 +1035,15 @@ components:
             items:
               type: string
       description: ids
+      required: true
+    UserInvitationDTOArray:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserInvitationDTO'
+      description: invitations
       required: true
   securitySchemes:
     BearerAuth:

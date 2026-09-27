@@ -365,13 +365,6 @@ paths:
         '404':
           description: Not Found
 components:
-  schemas:
-    ObjectiveCycleGuidedDto:
-      type: object
-      title: ObjectiveCycleGuidedDto
-    ObjectiveCycleDto:
-      type: object
-      title: ObjectiveCycleDto
   requestBodies:
     editFeedbackCycleAdminsUsingPOSTUserids:
       content:
@@ -389,6 +382,13 @@ components:
             $ref: '#/components/schemas/ObjectiveCycleGuidedDto'
       description: objectiveCycleGuidedDto
       required: true
+  schemas:
+    ObjectiveCycleDto:
+      type: object
+      title: ObjectiveCycleDto
+    ObjectiveCycleGuidedDto:
+      type: object
+      title: ObjectiveCycleGuidedDto
   securitySchemes:
     BearerAuth:
       type: http

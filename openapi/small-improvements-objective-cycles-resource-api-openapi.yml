@@ -366,6 +366,13 @@ paths:
           description: Not Found
 components:
   requestBodies:
+    ObjectiveCycleGuidedDto:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ObjectiveCycleGuidedDto'
+      description: objectiveCycleGuidedDto
+      required: true
     editFeedbackCycleAdminsUsingPOSTUserids:
       content:
         application/json;charset=UTF-8:
@@ -375,20 +382,13 @@ components:
               type: string
       description: userIds
       required: true
-    ObjectiveCycleGuidedDto:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/ObjectiveCycleGuidedDto'
-      description: objectiveCycleGuidedDto
-      required: true
   schemas:
-    ObjectiveCycleDto:
-      type: object
-      title: ObjectiveCycleDto
     ObjectiveCycleGuidedDto:
       type: object
       title: ObjectiveCycleGuidedDto
+    ObjectiveCycleDto:
+      type: object
+      title: ObjectiveCycleDto
   securitySchemes:
     BearerAuth:
       type: http

@@ -73,6 +73,16 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    ReviewCycleListDto:
+      type: object
+      title: ReviewCycleListDto
+    ReviewCycle:
+      type: object
+      title: ReviewCycle
+    ReviewCycleCreateRequest:
+      type: object
+      title: ReviewCycleCreateRequest
   requestBodies:
     ReviewCycleCreateRequest:
       content:
@@ -81,16 +91,6 @@ components:
             $ref: '#/components/schemas/ReviewCycleCreateRequest'
       description: reviewCycleCreateRequest
       required: true
-  schemas:
-    ReviewCycleListDto:
-      type: object
-      title: ReviewCycleListDto
-    ReviewCycleCreateRequest:
-      type: object
-      title: ReviewCycleCreateRequest
-    ReviewCycle:
-      type: object
-      title: ReviewCycle
   securitySchemes:
     BearerAuth:
       type: http

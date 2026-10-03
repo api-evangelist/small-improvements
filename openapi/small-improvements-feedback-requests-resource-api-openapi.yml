@@ -643,16 +643,20 @@ paths:
         '403':
           description: Forbidden
 components:
+  schemas:
+    CreateFeedbackRequestsBulkResult:
+      type: object
+      title: CreateFeedbackRequestsBulkResult
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+    FeedbackRequestRating:
+      type: object
+      title: FeedbackRequestRating
+    FeedbackRequestDto:
+      type: object
+      title: FeedbackRequestDto
   requestBodies:
-    bulkNudgeUsingPOSTIds:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            type: array
-            items:
-              type: string
-      description: ids
-      required: true
     UserIdHolderArray2:
       content:
         application/json;charset=UTF-8:
@@ -662,19 +666,15 @@ components:
               $ref: '#/components/schemas/UserIdHolder'
       description: userIds
       required: true
-  schemas:
-    CreateFeedbackRequestsBulkResult:
-      type: object
-      title: CreateFeedbackRequestsBulkResult
-    FeedbackRequestRating:
-      type: object
-      title: FeedbackRequestRating
-    FeedbackRequestDto:
-      type: object
-      title: FeedbackRequestDto
-    UserIdHolder:
-      type: object
-      title: UserIdHolder
+    bulkNudgeUsingPOSTIds:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: ids
+      required: true
   securitySchemes:
     BearerAuth:
       type: http

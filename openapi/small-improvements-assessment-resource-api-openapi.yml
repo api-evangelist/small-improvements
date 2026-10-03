@@ -284,6 +284,23 @@ paths:
         '404':
           description: Not Found
 components:
+  requestBodies:
+    AnswerDtoArray:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/AnswerDto'
+      description: answerDto
+      required: true
+    ReviewCycleCreateRequest:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ReviewCycleCreateRequest'
+      description: reviewCycleCreateRequest
+      required: true
   schemas:
     AnswerDto:
       type: object
@@ -297,23 +314,6 @@ components:
     CreateOwnAssessmentCommand:
       type: object
       title: CreateOwnAssessmentCommand
-  requestBodies:
-    ReviewCycleCreateRequest:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/ReviewCycleCreateRequest'
-      description: reviewCycleCreateRequest
-      required: true
-    AnswerDtoArray:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/AnswerDto'
-      description: answerDto
-      required: true
   securitySchemes:
     BearerAuth:
       type: http

@@ -126,6 +126,10 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    CustomizationsDto:
+      type: object
+      title: CustomizationsDto
   requestBodies:
     putCustomReplacementsUsingPUTReplacements:
       content:
@@ -136,10 +140,6 @@ components:
               type: string
       description: replacements
       required: true
-  schemas:
-    CustomizationsDto:
-      type: object
-      title: CustomizationsDto
   securitySchemes:
     BearerAuth:
       type: http

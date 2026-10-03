@@ -592,35 +592,28 @@ paths:
           description: Not Found
 components:
   schemas:
-    MessageDTO:
-      type: object
-      title: MessageDTO
-    MessageRelevantView:
-      type: object
-      title: MessageRelevantView
-    MessageDto:
-      type: object
-      title: MessageDto
-    Iterable_UserMessageStatisticsDto_:
-      type: object
-      title: Iterable«UserMessageStatisticsDto»
-    MessagePreviewWithStatus:
-      type: object
-      title: MessagePreviewWithStatus
     DownloadableFileDto:
       type: object
       title: DownloadableFileDto
     UserIdHolder:
       type: object
       title: UserIdHolder
-  requestBodies:
     MessageDTO:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/MessageDTO'
-      description: dto
-      required: true
+      type: object
+      title: MessageDTO
+    Iterable_UserMessageStatisticsDto_:
+      type: object
+      title: Iterable«UserMessageStatisticsDto»
+    MessageRelevantView:
+      type: object
+      title: MessageRelevantView
+    MessageDto:
+      type: object
+      title: MessageDto
+    MessagePreviewWithStatus:
+      type: object
+      title: MessagePreviewWithStatus
+  requestBodies:
     UserIdHolderArray:
       content:
         application/json:
@@ -629,6 +622,13 @@ components:
             items:
               $ref: '#/components/schemas/UserIdHolder'
       description: users
+      required: true
+    MessageDTO:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/MessageDTO'
+      description: dto
       required: true
   securitySchemes:
     BearerAuth:

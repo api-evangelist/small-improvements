@@ -91,6 +91,10 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    SampleContentManagementDto:
+      type: object
+      title: SampleContentManagementDto
   requestBodies:
     SampleContentManagementDto:
       content:
@@ -99,10 +103,6 @@ components:
             $ref: '#/components/schemas/SampleContentManagementDto'
       description: sampleContentManagementDto
       required: true
-  schemas:
-    SampleContentManagementDto:
-      type: object
-      title: SampleContentManagementDto
   securitySchemes:
     BearerAuth:
       type: http

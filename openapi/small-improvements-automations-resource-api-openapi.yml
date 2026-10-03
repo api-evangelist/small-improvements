@@ -143,13 +143,6 @@ paths:
         '403':
           description: Forbidden
 components:
-  schemas:
-    AutomationDto:
-      type: object
-      title: AutomationDto
-    CreateAutomationRequest:
-      type: object
-      title: CreateAutomationRequest
   requestBodies:
     CreateAutomationRequest:
       content:
@@ -158,6 +151,13 @@ components:
             $ref: '#/components/schemas/CreateAutomationRequest'
       description: request
       required: true
+  schemas:
+    AutomationDto:
+      type: object
+      title: AutomationDto
+    CreateAutomationRequest:
+      type: object
+      title: CreateAutomationRequest
   securitySchemes:
     BearerAuth:
       type: http

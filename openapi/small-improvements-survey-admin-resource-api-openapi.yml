@@ -245,22 +245,6 @@ paths:
         '404':
           description: Not Found
 components:
-  schemas:
-    StoppedStatusDto:
-      type: object
-      title: StoppedStatusDto
-    DownloadableFileDto:
-      type: object
-      title: DownloadableFileDto
-    SurveyDto:
-      type: object
-      title: SurveyDto
-    Key_User_:
-      type: object
-      title: Key«User»
-    ArchiveStatusDto:
-      type: object
-      title: ArchiveStatusDto
   requestBodies:
     SurveyDto:
       content:
@@ -269,6 +253,22 @@ components:
             $ref: '#/components/schemas/SurveyDto'
       description: surveyCreationDto
       required: true
+  schemas:
+    Key_User_:
+      type: object
+      title: Key«User»
+    ArchiveStatusDto:
+      type: object
+      title: ArchiveStatusDto
+    SurveyDto:
+      type: object
+      title: SurveyDto
+    StoppedStatusDto:
+      type: object
+      title: StoppedStatusDto
+    DownloadableFileDto:
+      type: object
+      title: DownloadableFileDto
   securitySchemes:
     BearerAuth:
       type: http

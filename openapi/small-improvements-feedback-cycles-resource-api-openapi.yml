@@ -468,13 +468,6 @@ paths:
         '404':
           description: Not Found
 components:
-  schemas:
-    FeedbackCycleGuidedDto:
-      type: object
-      title: FeedbackCycleGuidedDto
-    FeedbackCycleListDto:
-      type: object
-      title: FeedbackCycleListDto
   requestBodies:
     FeedbackCycleGuidedDto:
       content:
@@ -483,6 +476,13 @@ components:
             $ref: '#/components/schemas/FeedbackCycleGuidedDto'
       description: feedbackCycleGuided
       required: true
+  schemas:
+    FeedbackCycleGuidedDto:
+      type: object
+      title: FeedbackCycleGuidedDto
+    FeedbackCycleListDto:
+      type: object
+      title: FeedbackCycleListDto
   securitySchemes:
     BearerAuth:
       type: http

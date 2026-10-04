@@ -129,13 +129,6 @@ paths:
         '404':
           description: Not Found
 components:
-  schemas:
-    AnswerDto:
-      type: object
-      title: AnswerDto
-    CycleFeedbackResponseDto:
-      type: object
-      title: CycleFeedbackResponseDto
   requestBodies:
     AnswerDtoArray2:
       content:
@@ -146,6 +139,13 @@ components:
               $ref: '#/components/schemas/AnswerDto'
       description: answers
       required: true
+  schemas:
+    CycleFeedbackResponseDto:
+      type: object
+      title: CycleFeedbackResponseDto
+    AnswerDto:
+      type: object
+      title: AnswerDto
   securitySchemes:
     BearerAuth:
       type: http

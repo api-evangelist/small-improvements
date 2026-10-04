@@ -214,13 +214,6 @@ paths:
           description: Not Found
 components:
   requestBodies:
-    CreateFileAttachmentDto:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/CreateFileAttachmentDto'
-      description: attachmentDto
-      required: true
     CreateLinkAttachmentDto:
       content:
         application/json;charset=UTF-8:
@@ -228,19 +221,26 @@ components:
             $ref: '#/components/schemas/CreateLinkAttachmentDto'
       description: attachmentDto
       required: true
-  schemas:
-    AttachmentDto:
-      type: object
-      title: AttachmentDto
     CreateFileAttachmentDto:
-      type: object
-      title: CreateFileAttachmentDto
-    Download:
-      type: object
-      title: Download
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/CreateFileAttachmentDto'
+      description: attachmentDto
+      required: true
+  schemas:
     CreateLinkAttachmentDto:
       type: object
       title: CreateLinkAttachmentDto
+    AttachmentDto:
+      type: object
+      title: AttachmentDto
+    Download:
+      type: object
+      title: Download
+    CreateFileAttachmentDto:
+      type: object
+      title: CreateFileAttachmentDto
   securitySchemes:
     BearerAuth:
       type: http

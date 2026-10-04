@@ -104,6 +104,10 @@ paths:
         '403':
           description: Forbidden
 components:
+  schemas:
+    FeedbackCycleListDto:
+      type: object
+      title: FeedbackCycleListDto
   requestBodies:
     editFeedbackCycleAdminsUsingPOSTUserids:
       content:
@@ -114,10 +118,6 @@ components:
               type: string
       description: userIds
       required: true
-  schemas:
-    FeedbackCycleListDto:
-      type: object
-      title: FeedbackCycleListDto
   securitySchemes:
     BearerAuth:
       type: http

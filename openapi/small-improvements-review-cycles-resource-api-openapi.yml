@@ -467,16 +467,6 @@ paths:
         '404':
           description: Not Found
 components:
-  requestBodies:
-    editFeedbackCycleAdminsUsingPOSTUserids:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            type: array
-            items:
-              type: string
-      description: userIds
-      required: true
   schemas:
     ReviewCycleListDto:
       type: object
@@ -487,6 +477,16 @@ components:
     ReviewCycleGuidedDto:
       type: object
       title: ReviewCycleGuidedDto
+  requestBodies:
+    editFeedbackCycleAdminsUsingPOSTUserids:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: userIds
+      required: true
   securitySchemes:
     BearerAuth:
       type: http

@@ -559,53 +559,46 @@ paths:
       deprecated: true
 components:
   schemas:
-    Stream_ReviewDto_:
-      type: object
-      title: Stream«ReviewDto»
-    BulkTimelineExtensionDto:
-      type: object
-      title: BulkTimelineExtensionDto
-    ReviewersBulkUpdateDto:
-      type: object
-      title: ReviewersBulkUpdateDto
-    ReviewListDto:
-      type: object
-      title: ReviewListDto
-    MainReviewerDto:
-      type: object
-      title: MainReviewerDto
-    TimelineExtensionDto:
-      type: object
-      title: TimelineExtensionDto
-    ReviewForRevieweeDto:
-      type: object
-      title: ReviewForRevieweeDto
-    ReviewCycleCreateRequest:
-      type: object
-      title: ReviewCycleCreateRequest
-    AssessmentAnswerDto:
-      type: object
-      title: AssessmentAnswerDto
-    YourCycleAndReviewsDto:
-      type: object
-      title: YourCycleAndReviewsDto
     ReviewDto:
       type: object
       title: ReviewDto
     ReviewSignDto:
       type: object
       title: ReviewSignDto
+    ReviewCycleCreateRequest:
+      type: object
+      title: ReviewCycleCreateRequest
+    MainReviewerDto:
+      type: object
+      title: MainReviewerDto
+    YourCycleAndReviewsDto:
+      type: object
+      title: YourCycleAndReviewsDto
+    ReviewListDto:
+      type: object
+      title: ReviewListDto
+    Stream_ReviewDto_:
+      type: object
+      title: Stream«ReviewDto»
+    AssessmentAnswerDto:
+      type: object
+      title: AssessmentAnswerDto
+    ReviewersBulkUpdateDto:
+      type: object
+      title: ReviewersBulkUpdateDto
     ReviewersDto:
       type: object
       title: ReviewersDto
+    TimelineExtensionDto:
+      type: object
+      title: TimelineExtensionDto
+    BulkTimelineExtensionDto:
+      type: object
+      title: BulkTimelineExtensionDto
+    ReviewForRevieweeDto:
+      type: object
+      title: ReviewForRevieweeDto
   requestBodies:
-    ReviewCycleCreateRequest:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/ReviewCycleCreateRequest'
-      description: reviewCycleCreateRequest
-      required: true
     updateContributingReviewersUsingPUTUpdatedcontributingreviewers:
       content:
         application/json:
@@ -614,6 +607,13 @@ components:
             items:
               type: string
       description: updatedContributingReviewers
+      required: true
+    ReviewCycleCreateRequest:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ReviewCycleCreateRequest'
+      description: reviewCycleCreateRequest
       required: true
   securitySchemes:
     BearerAuth:

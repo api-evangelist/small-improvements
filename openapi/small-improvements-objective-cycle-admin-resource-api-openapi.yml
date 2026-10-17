@@ -104,6 +104,10 @@ paths:
         '403':
           description: Forbidden
 components:
+  schemas:
+    ObjectiveCycleDto:
+      type: object
+      title: ObjectiveCycleDto
   requestBodies:
     editFeedbackCycleAdminsUsingPOSTUserids:
       content:
@@ -114,10 +118,6 @@ components:
               type: string
       description: userIds
       required: true
-  schemas:
-    ObjectiveCycleDto:
-      type: object
-      title: ObjectiveCycleDto
   securitySchemes:
     BearerAuth:
       type: http

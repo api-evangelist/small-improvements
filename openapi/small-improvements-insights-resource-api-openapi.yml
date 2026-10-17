@@ -90,14 +90,6 @@ paths:
         '404':
           description: Not Found
 components:
-  requestBodies:
-    InsightsRequest:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/InsightsRequest'
-      description: insightsRequest
-      required: true
   schemas:
     InsightsDto:
       type: object
@@ -108,6 +100,14 @@ components:
     DownloadableFileDto:
       type: object
       title: DownloadableFileDto
+  requestBodies:
+    InsightsRequest:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/InsightsRequest'
+      description: insightsRequest
+      required: true
   securitySchemes:
     BearerAuth:
       type: http

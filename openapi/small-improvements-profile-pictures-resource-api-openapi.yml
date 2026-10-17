@@ -75,6 +75,10 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    UserProfileDto:
+      type: object
+      title: UserProfileDto
   requestBodies:
     addImageUsingPOSTBody:
       content:
@@ -85,10 +89,6 @@ components:
               type: string
       description: body
       required: true
-  schemas:
-    UserProfileDto:
-      type: object
-      title: UserProfileDto
   securitySchemes:
     BearerAuth:
       type: http

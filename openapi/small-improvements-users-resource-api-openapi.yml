@@ -980,32 +980,7 @@ paths:
         '403':
           description: Forbidden
 components:
-  requestBodies:
-    UserInvitationDTOArray:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/UserInvitationDTO'
-      description: invitations
-      required: true
-    bulkNudgeUsingPOSTIds:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            type: array
-            items:
-              type: string
-      description: ids
-      required: true
   schemas:
-    CurrentUserDto:
-      type: object
-      title: CurrentUserDto
-    ObserverUserDto:
-      type: object
-      title: ObserverUserDto
     UserRelationship:
       type: object
       title: UserRelationship
@@ -1015,36 +990,61 @@ components:
     CalendarDTO:
       type: object
       title: CalendarDTO
-    Iterable_MediumUser_:
+    Iterable_WicketUser_:
       type: object
-      title: Iterable«MediumUser»
-    UserProfileDto:
+      title: Iterable«WicketUser»
+    UserInvitationDTO:
       type: object
-      title: UserProfileDto
-    UserOnboardingInvitationDTO:
-      type: object
-      title: UserOnboardingInvitationDTO
+      title: UserInvitationDTO
     MediumUser:
       type: object
       title: MediumUser
-    UserSessionStatusDTO:
+    UserOnboardingInvitationDTO:
       type: object
-      title: UserSessionStatusDTO
+      title: UserOnboardingInvitationDTO
+    CurrentUserDto:
+      type: object
+      title: CurrentUserDto
     BadgeDTO:
       type: object
       title: BadgeDTO
     Download:
       type: object
       title: Download
+    UserProfileDto:
+      type: object
+      title: UserProfileDto
+    ObserverUserDto:
+      type: object
+      title: ObserverUserDto
     Iterable_UserListDto_:
       type: object
       title: Iterable«UserListDto»
-    UserInvitationDTO:
+    UserSessionStatusDTO:
       type: object
-      title: UserInvitationDTO
-    Iterable_WicketUser_:
+      title: UserSessionStatusDTO
+    Iterable_MediumUser_:
       type: object
-      title: Iterable«WicketUser»
+      title: Iterable«MediumUser»
+  requestBodies:
+    bulkNudgeUsingPOSTIds:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              type: string
+      description: ids
+      required: true
+    UserInvitationDTOArray:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/UserInvitationDTO'
+      description: invitations
+      required: true
   securitySchemes:
     BearerAuth:
       type: http

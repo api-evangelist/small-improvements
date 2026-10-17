@@ -75,6 +75,19 @@ paths:
         '404':
           description: Not Found
 components:
+  schemas:
+    Assessment:
+      type: object
+      title: Assessment
+    CreateAssessmentCommand:
+      type: object
+      title: CreateAssessmentCommand
+    AnswerDto:
+      type: object
+      title: AnswerDto
+    AssessmentDto:
+      type: object
+      title: AssessmentDto
   requestBodies:
     AnswerDtoArray:
       content:
@@ -85,19 +98,6 @@ components:
               $ref: '#/components/schemas/AnswerDto'
       description: answerDto
       required: true
-  schemas:
-    AssessmentDto:
-      type: object
-      title: AssessmentDto
-    CreateAssessmentCommand:
-      type: object
-      title: CreateAssessmentCommand
-    Assessment:
-      type: object
-      title: Assessment
-    AnswerDto:
-      type: object
-      title: AnswerDto
   securitySchemes:
     BearerAuth:
       type: http

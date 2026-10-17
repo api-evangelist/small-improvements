@@ -285,6 +285,13 @@ paths:
           description: Not Found
 components:
   requestBodies:
+    ReviewCycleCreateRequest:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/ReviewCycleCreateRequest'
+      description: reviewCycleCreateRequest
+      required: true
     AnswerDtoArray:
       content:
         application/json;charset=UTF-8:
@@ -294,26 +301,19 @@ components:
               $ref: '#/components/schemas/AnswerDto'
       description: answerDto
       required: true
-    ReviewCycleCreateRequest:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/ReviewCycleCreateRequest'
-      description: reviewCycleCreateRequest
-      required: true
   schemas:
-    AssessmentDto:
-      type: object
-      title: AssessmentDto
     CreateOwnAssessmentCommand:
       type: object
       title: CreateOwnAssessmentCommand
-    AnswerDto:
-      type: object
-      title: AnswerDto
     ReviewCycleCreateRequest:
       type: object
       title: ReviewCycleCreateRequest
+    AnswerDto:
+      type: object
+      title: AnswerDto
+    AssessmentDto:
+      type: object
+      title: AssessmentDto
   securitySchemes:
     BearerAuth:
       type: http

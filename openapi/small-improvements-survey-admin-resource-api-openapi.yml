@@ -245,18 +245,13 @@ paths:
         '404':
           description: Not Found
 components:
-  requestBodies:
-    SurveyDto:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/SurveyDto'
-      description: surveyCreationDto
-      required: true
   schemas:
     Key_User_:
       type: object
       title: Key«User»
+    DownloadableFileDto:
+      type: object
+      title: DownloadableFileDto
     ArchiveStatusDto:
       type: object
       title: ArchiveStatusDto
@@ -266,9 +261,14 @@ components:
     StoppedStatusDto:
       type: object
       title: StoppedStatusDto
-    DownloadableFileDto:
-      type: object
-      title: DownloadableFileDto
+  requestBodies:
+    SurveyDto:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/SurveyDto'
+      description: surveyCreationDto
+      required: true
   securitySchemes:
     BearerAuth:
       type: http

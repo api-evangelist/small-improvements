@@ -595,25 +595,32 @@ components:
     MessageDto:
       type: object
       title: MessageDto
-    MessageRelevantView:
-      type: object
-      title: MessageRelevantView
-    Iterable_UserMessageStatisticsDto_:
-      type: object
-      title: Iterable«UserMessageStatisticsDto»
-    MessagePreviewWithStatus:
-      type: object
-      title: MessagePreviewWithStatus
-    MessageDTO:
-      type: object
-      title: MessageDTO
-    UserIdHolder:
-      type: object
-      title: UserIdHolder
     DownloadableFileDto:
       type: object
       title: DownloadableFileDto
+    UserIdHolder:
+      type: object
+      title: UserIdHolder
+    MessagePreviewWithStatus:
+      type: object
+      title: MessagePreviewWithStatus
+    MessageRelevantView:
+      type: object
+      title: MessageRelevantView
+    MessageDTO:
+      type: object
+      title: MessageDTO
+    Iterable_UserMessageStatisticsDto_:
+      type: object
+      title: Iterable«UserMessageStatisticsDto»
   requestBodies:
+    MessageDTO:
+      content:
+        application/json;charset=UTF-8:
+          schema:
+            $ref: '#/components/schemas/MessageDTO'
+      description: dto
+      required: true
     UserIdHolderArray:
       content:
         application/json:
@@ -622,13 +629,6 @@ components:
             items:
               $ref: '#/components/schemas/UserIdHolder'
       description: users
-      required: true
-    MessageDTO:
-      content:
-        application/json;charset=UTF-8:
-          schema:
-            $ref: '#/components/schemas/MessageDTO'
-      description: dto
       required: true
   securitySchemes:
     BearerAuth:

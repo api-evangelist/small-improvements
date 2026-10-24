@@ -1,0 +1,905 @@
+{
+  "info": {
+    "_postman_id": "44bcb88b-55c8-4648-93c4-3ac60ab9595e",
+    "name": "Small Improvements Review Cycle Admin Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:46:58.000Z",
+    "updatedAt": "2026-10-22T01:46:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-44bcb88b-55c8-4648-93c4-3ac60ab9595e"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "review-cycles",
+          "item": [
+            {
+              "name": "{cycleId}",
+              "item": [
+                {
+                  "name": "cycle-admins",
+                  "item": [
+                    {
+                      "name": "{userId}",
+                      "item": [
+                        {
+                          "name": "addCycleAdmin",
+                          "id": "87a1e84d-a32e-4f35-a1cc-971f1042db4a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PUT",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "cycle-admins",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "37b2ec11-2cbf-45a4-8f3d-f42aae502552",
+                                  "key": "cycleId",
+                                  "value": "<string>",
+                                  "description": "(Required) cycleId"
+                                },
+                                {
+                                  "id": "491e70c7-45db-4cb1-ae4c-9557d390a26e",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) userId"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "26e6084d-e5ab-4384-974a-8db593d2e8bf",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "cycle-admins",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:59.000Z",
+                              "updatedAt": "2026-10-22T01:46:59.000Z",
+                              "uid": "35240-26e6084d-e5ab-4384-974a-8db593d2e8bf"
+                            },
+                            {
+                              "id": "bc542be5-75f6-47cd-a310-703623303cc8",
+                              "name": "Created",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "cycle-admins",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:59.000Z",
+                              "updatedAt": "2026-10-22T01:46:59.000Z",
+                              "uid": "35240-bc542be5-75f6-47cd-a310-703623303cc8"
+                            },
+                            {
+                              "id": "2663f5af-6193-4a2c-9282-2ad75d67620d",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "cycle-admins",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:59.000Z",
+                              "updatedAt": "2026-10-22T01:46:59.000Z",
+                              "uid": "35240-2663f5af-6193-4a2c-9282-2ad75d67620d"
+                            },
+                            {
+                              "id": "26e31831-12e6-4b3a-aa49-6fb0925638ea",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "cycle-admins",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:59.000Z",
+                              "updatedAt": "2026-10-22T01:46:59.000Z",
+                              "uid": "35240-26e31831-12e6-4b3a-aa49-6fb0925638ea"
+                            },
+                            {
+                              "id": "3703b950-dca0-491d-adba-2b4077f5cf73",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "cycle-admins",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:59.000Z",
+                              "updatedAt": "2026-10-22T01:46:59.000Z",
+                              "uid": "35240-3703b950-dca0-491d-adba-2b4077f5cf73"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:46:59.000Z",
+                          "updatedAt": "2026-10-22T01:46:59.000Z",
+                          "uid": "35240-87a1e84d-a32e-4f35-a1cc-971f1042db4a"
+                        },
+                        {
+                          "name": "removeCycleAdmin",
+                          "id": "95d90803-c3a3-4e0d-9665-b3ffe99d8fb6",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "cycle-admins",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1a4c8237-d44a-40f5-8658-4e4de0e16940",
+                                  "key": "cycleId",
+                                  "value": "<string>",
+                                  "description": "(Required) cycleId"
+                                },
+                                {
+                                  "id": "bc2f38a5-1cae-4e61-8f68-b241bc9ca8b4",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) userId"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "4227799d-6165-40c1-ae22-5b3371302e90",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "cycle-admins",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:59.000Z",
+                              "updatedAt": "2026-10-22T01:46:59.000Z",
+                              "uid": "35240-4227799d-6165-40c1-ae22-5b3371302e90"
+                            },
+                            {
+                              "id": "555259a3-695f-4c89-8a98-87a834d70250",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "cycle-admins",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:59.000Z",
+                              "updatedAt": "2026-10-22T01:46:59.000Z",
+                              "uid": "35240-555259a3-695f-4c89-8a98-87a834d70250"
+                            },
+                            {
+                              "id": "d4311021-80f0-4330-b2e6-48a5d84a75a3",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "cycle-admins",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:59.000Z",
+                              "updatedAt": "2026-10-22T01:46:59.000Z",
+                              "uid": "35240-d4311021-80f0-4330-b2e6-48a5d84a75a3"
+                            },
+                            {
+                              "id": "54331868-fc72-41b3-a2c4-eebd22bfd996",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "cycle-admins",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:59.000Z",
+                              "updatedAt": "2026-10-22T01:46:59.000Z",
+                              "uid": "35240-54331868-fc72-41b3-a2c4-eebd22bfd996"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:46:59.000Z",
+                          "updatedAt": "2026-10-22T01:46:59.000Z",
+                          "uid": "35240-95d90803-c3a3-4e0d-9665-b3ffe99d8fb6"
+                        }
+                      ],
+                      "id": "3da5437a-1379-4450-b6ed-49f893e41c87",
+                      "createdAt": "2026-10-22T01:46:58.000Z",
+                      "updatedAt": "2026-10-22T01:46:58.000Z",
+                      "uid": "35240-3da5437a-1379-4450-b6ed-49f893e41c87"
+                    },
+                    {
+                      "name": "editReviewCycleAdmins",
+                      "id": "773f75b9-2fae-4c32-b76b-f933e35125f6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycles",
+                            ":cycleId",
+                            "cycle-admins"
+                          ],
+                          "variable": [
+                            {
+                              "id": "85ff70fd-2f54-40e3-8bfb-271e4dd0a445",
+                              "key": "cycleId",
+                              "value": "<string>",
+                              "description": "(Required) cycleId"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "4519abd7-32a8-4752-bc42-e2d6d9c3e478",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "cycle-admins"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json;charset=UTF-8"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:46:59.000Z",
+                          "updatedAt": "2026-10-22T01:46:59.000Z",
+                          "uid": "35240-4519abd7-32a8-4752-bc42-e2d6d9c3e478"
+                        },
+                        {
+                          "id": "5f5b07f3-7b72-413e-91da-830cde43bcfb",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "cycle-admins"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:46:59.000Z",
+                          "updatedAt": "2026-10-22T01:46:59.000Z",
+                          "uid": "35240-5f5b07f3-7b72-413e-91da-830cde43bcfb"
+                        },
+                        {
+                          "id": "d7c7e325-eac0-4114-94b3-363d8edd388c",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "cycle-admins"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:46:59.000Z",
+                          "updatedAt": "2026-10-22T01:46:59.000Z",
+                          "uid": "35240-d7c7e325-eac0-4114-94b3-363d8edd388c"
+                        },
+                        {
+                          "id": "14a786fa-15bc-4fcd-a975-3dffd5b65b29",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "cycle-admins"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:46:59.000Z",
+                          "updatedAt": "2026-10-22T01:46:59.000Z",
+                          "uid": "35240-14a786fa-15bc-4fcd-a975-3dffd5b65b29"
+                        },
+                        {
+                          "id": "fd8f49d7-2a1f-486c-82bd-1b2f638770f6",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/cycle-admins",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "cycle-admins"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:46:59.000Z",
+                          "updatedAt": "2026-10-22T01:46:59.000Z",
+                          "uid": "35240-fd8f49d7-2a1f-486c-82bd-1b2f638770f6"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:46:59.000Z",
+                      "updatedAt": "2026-10-22T01:46:59.000Z",
+                      "uid": "35240-773f75b9-2fae-4c32-b76b-f933e35125f6"
+                    }
+                  ],
+                  "id": "66fcd285-f820-4e85-b0b3-5df4606abc56",
+                  "createdAt": "2026-10-22T01:46:58.000Z",
+                  "updatedAt": "2026-10-22T01:46:58.000Z",
+                  "uid": "35240-66fcd285-f820-4e85-b0b3-5df4606abc56"
+                }
+              ],
+              "id": "e2c572ca-a1a2-4493-94c0-d622e88ffeba",
+              "createdAt": "2026-10-22T01:46:58.000Z",
+              "updatedAt": "2026-10-22T01:46:58.000Z",
+              "uid": "35240-e2c572ca-a1a2-4493-94c0-d622e88ffeba"
+            }
+          ],
+          "id": "27d90b13-90fd-4ee7-a6bb-d10b48c56b95",
+          "createdAt": "2026-10-22T01:46:58.000Z",
+          "updatedAt": "2026-10-22T01:46:58.000Z",
+          "uid": "35240-27d90b13-90fd-4ee7-a6bb-d10b48c56b95"
+        }
+      ],
+      "id": "3e0951e0-f0b1-4af2-a7db-940712341b7e",
+      "createdAt": "2026-10-22T01:46:58.000Z",
+      "updatedAt": "2026-10-22T01:46:58.000Z",
+      "uid": "35240-3e0951e0-f0b1-4af2-a7db-940712341b7e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
+    }
+  ]
+}

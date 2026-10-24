@@ -1,161 +1,396 @@
 {
+  "info": {
+    "_postman_id": "2f4cee19-4dac-41ed-be0c-12595202d76f",
+    "name": "Small Improvements Email Event Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:41:06.000Z",
+    "updatedAt": "2026-10-22T01:41:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2f4cee19-4dac-41ed-be0c-12595202d76f"
+  },
   "item": [
     {
-      "id": "d560f19a-468f-45f7-8ba4-033c7268ed1e",
-      "name": "email-event-resource",
-      "description": {
-        "content": "Email Event Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "481f2453-4f60-44ac-a493-6639cdb4985a",
-          "name": "getMailEvents",
-          "request": {
-            "name": "getMailEvents",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "email-events"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "cursor",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "events",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "events",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "fromDate",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "recipientEmail",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "toDate",
-                  "value": "<dateTime>"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "email-events",
+          "item": [
             {
-              "id": "644b51e4-538b-435b-b1bf-aa82513033df",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "{companyId}",
+              "item": [
+                {
+                  "name": "getMailEventsForCompany",
+                  "id": "aadda9a1-0a67-4cd2-8967-f4d1b963284e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/email-events/:companyId?cursor=<string>&events=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "email-events",
+                        ":companyId"
+                      ],
+                      "query": [
+                        {
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "events",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "events",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "recipientEmail",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ebd92be2-3e06-4558-a65f-1a01cda9630a",
+                          "key": "companyId",
+                          "value": "<string>",
+                          "description": "(Required) companyId"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "cursor",
-                      "value": "<string>"
+                      "id": "11bb41cf-d6f8-483e-b10c-1511a4f5ba94",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/email-events/:companyId?cursor=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "email-events",
+                            ":companyId"
+                          ],
+                          "query": [
+                            {
+                              "key": "cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "events",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "fromDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "recipientEmail",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "toDate",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "companyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json;charset=UTF-8"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-22T01:41:06.000Z",
+                      "updatedAt": "2026-10-22T01:41:06.000Z",
+                      "uid": "35240-11bb41cf-d6f8-483e-b10c-1511a4f5ba94"
                     },
                     {
-                      "key": "events",
-                      "value": "<string>"
+                      "id": "66a68920-3b7d-4806-a93d-5bc30a783280",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/email-events/:companyId?cursor=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "email-events",
+                            ":companyId"
+                          ],
+                          "query": [
+                            {
+                              "key": "cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "events",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "fromDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "recipientEmail",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "toDate",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "companyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:41:06.000Z",
+                      "updatedAt": "2026-10-22T01:41:06.000Z",
+                      "uid": "35240-66a68920-3b7d-4806-a93d-5bc30a783280"
                     },
                     {
-                      "key": "events",
-                      "value": "<string>"
+                      "id": "6682c416-7274-4f1e-bd0f-40940d09ca13",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/email-events/:companyId?cursor=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "email-events",
+                            ":companyId"
+                          ],
+                          "query": [
+                            {
+                              "key": "cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "events",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "fromDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "recipientEmail",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "toDate",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "companyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:41:06.000Z",
+                      "updatedAt": "2026-10-22T01:41:06.000Z",
+                      "uid": "35240-6682c416-7274-4f1e-bd0f-40940d09ca13"
                     },
                     {
-                      "key": "fromDate",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "recipientEmail",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "<dateTime>"
+                      "id": "0eaac094-7bc1-4eea-91bd-35d57d59c752",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/email-events/:companyId?cursor=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "email-events",
+                            ":companyId"
+                          ],
+                          "query": [
+                            {
+                              "key": "cursor",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "events",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "fromDate",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "<integer>"
+                            },
+                            {
+                              "key": "recipientEmail",
+                              "value": "<string>"
+                            },
+                            {
+                              "key": "toDate",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "companyId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:41:06.000Z",
+                      "updatedAt": "2026-10-22T01:41:06.000Z",
+                      "uid": "35240-0eaac094-7bc1-4eea-91bd-35d57d59c752"
                     }
                   ],
-                  "variable": []
-                },
+                  "createdAt": "2026-10-22T01:41:06.000Z",
+                  "updatedAt": "2026-10-22T01:41:06.000Z",
+                  "uid": "35240-aadda9a1-0a67-4cd2-8967-f4d1b963284e"
+                }
+              ],
+              "id": "a253cc8d-6359-4492-9984-25740ef657cd",
+              "createdAt": "2026-10-22T01:41:06.000Z",
+              "updatedAt": "2026-10-22T01:41:06.000Z",
+              "uid": "35240-a253cc8d-6359-4492-9984-25740ef657cd"
+            },
+            {
+              "name": "getMailEvents",
+              "id": "0e004ee4-41ae-46bd-a99f-48c21c746ad6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json;charset=UTF-8"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ea16a0ea-6f76-482d-9e44-a6563623d078",
-              "name": "Unauthorized",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/v2/email-events?cursor=<string>&events=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "v2",
                     "email-events"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
                       "key": "cursor",
@@ -184,583 +419,276 @@
                     {
                       "key": "toDate",
                       "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0b306ffd-b3bf-4d91-984c-730a7fb61aa1",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "cursor",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "recipientEmail",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5ff3b4ad-9ecb-4c0a-998d-a25a3d0b60a7",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "cursor",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "recipientEmail",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3c95879e-96db-4f86-913b-a97aa27f489d",
-          "name": "getMailEventsForCompany",
-          "request": {
-            "name": "getMailEventsForCompany",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "email-events",
-                ":companyId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "cursor",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "events",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "events",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "fromDate",
-                  "value": "<dateTime>"
-                },
-                {
-                  "disabled": false,
-                  "key": "pageSize",
-                  "value": "<integer>"
-                },
-                {
-                  "disabled": false,
-                  "key": "recipientEmail",
-                  "value": "<string>"
-                },
-                {
-                  "disabled": false,
-                  "key": "toDate",
-                  "value": "<dateTime>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) companyId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "23e25dd6-0646-4809-be87-5232ade327cc",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-events",
-                    ":companyId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "cursor",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "recipientEmail",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
                     }
                   ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                }
+              },
+              "response": [
+                {
+                  "id": "14813071-f6e6-4c18-a026-e82af967977f",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/email-events?cursor=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "email-events"
+                      ],
+                      "query": [
+                        {
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "events",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "recipientEmail",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ddc53197-657b-491e-a503-4071a4d6e3de",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-events",
-                    ":companyId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "cursor",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "recipientEmail",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "<dateTime>"
+                      "key": "Content-Type",
+                      "value": "application/json;charset=UTF-8"
                     }
                   ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    }
-                  ]
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-10-22T01:41:06.000Z",
+                  "updatedAt": "2026-10-22T01:41:06.000Z",
+                  "uid": "35240-14813071-f6e6-4c18-a026-e82af967977f"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "7c80653b-69bd-47dc-9901-d38ae21a8bec",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-events",
-                    ":companyId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "cursor",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "recipientEmail",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "<dateTime>"
+                  "id": "bcbc018a-9096-4f23-8d58-f5366c4ac562",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/email-events?cursor=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "email-events"
+                      ],
+                      "query": [
+                        {
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "events",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "recipientEmail",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    }
-                  ]
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:41:06.000Z",
+                  "updatedAt": "2026-10-22T01:41:06.000Z",
+                  "uid": "35240-bcbc018a-9096-4f23-8d58-f5366c4ac562"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ee606b44-437b-4ac9-9401-ba3571744819",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-events",
-                    ":companyId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "cursor",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "events",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "pageSize",
-                      "value": "<integer>"
-                    },
-                    {
-                      "key": "recipientEmail",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "<dateTime>"
+                  "id": "edef6d95-6670-4125-a664-727c981c5866",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/email-events?cursor=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "email-events"
+                      ],
+                      "query": [
+                        {
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "events",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "recipientEmail",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    }
-                  ]
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:41:06.000Z",
+                  "updatedAt": "2026-10-22T01:41:06.000Z",
+                  "uid": "35240-edef6d95-6670-4125-a664-727c981c5866"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "40fb5286-d72b-43c1-b0da-00832e9a694a",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/email-events?cursor=<string>&events=<string>&fromDate=<dateTime>&pageSize=<integer>&recipientEmail=<string>&toDate=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "email-events"
+                      ],
+                      "query": [
+                        {
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "events",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "fromDate",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "recipientEmail",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "toDate",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:41:06.000Z",
+                  "updatedAt": "2026-10-22T01:41:06.000Z",
+                  "uid": "35240-40fb5286-d72b-43c1-b0da-00832e9a694a"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T01:41:06.000Z",
+              "updatedAt": "2026-10-22T01:41:06.000Z",
+              "uid": "35240-0e004ee4-41ae-46bd-a99f-48c21c746ad6"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "d6e2c133-3a90-4838-9299-5dddb89cde56",
+          "createdAt": "2026-10-22T01:41:06.000Z",
+          "updatedAt": "2026-10-22T01:41:06.000Z",
+          "uid": "35240-d6e2c133-3a90-4838-9299-5dddb89cde56"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "e13a81bd-bd49-4df8-9d53-cc3ece728016",
+      "createdAt": "2026-10-22T01:41:06.000Z",
+      "updatedAt": "2026-10-22T01:41:06.000Z",
+      "uid": "35240-e13a81bd-bd49-4df8-9d53-cc3ece728016"
     }
   ],
   "auth": {
@@ -768,17 +696,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "21586080-05cd-49ee-b9a6-b856f3374156",
-    "name": "Small Improvements action-item-resource email-event-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

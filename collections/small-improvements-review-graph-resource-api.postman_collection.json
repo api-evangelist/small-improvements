@@ -1,0 +1,315 @@
+{
+  "info": {
+    "_postman_id": "2bc0e75e-b5cc-4e83-8bef-36dde2b47f33",
+    "name": "Small Improvements Review Graph Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:31.000Z",
+    "updatedAt": "2026-10-22T01:47:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2bc0e75e-b5cc-4e83-8bef-36dde2b47f33"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "review-cycle",
+          "item": [
+            {
+              "name": "{cycleId}",
+              "item": [
+                {
+                  "name": "reviews-graph",
+                  "item": [
+                    {
+                      "name": "getReviewsGraph",
+                      "id": "1b9b6073-c1da-4e62-86e8-ee36dd29d24f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycle/:cycleId/reviews-graph?mainReviewerId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycle",
+                            ":cycleId",
+                            "reviews-graph"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) mainReviewerId",
+                              "key": "mainReviewerId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "edfb271b-2f0a-4cca-85c6-dbdfb8bbf3cf",
+                              "key": "cycleId",
+                              "value": "<string>",
+                              "description": "(Required) cycleId"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "edf96080-2aae-45f2-81dd-0dcb14e8c37e",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycle/:cycleId/reviews-graph?mainReviewerId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycle",
+                                ":cycleId",
+                                "reviews-graph"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) mainReviewerId",
+                                  "key": "mainReviewerId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json;charset=UTF-8"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:47:32.000Z",
+                          "updatedAt": "2026-10-22T01:47:32.000Z",
+                          "uid": "35240-edf96080-2aae-45f2-81dd-0dcb14e8c37e"
+                        },
+                        {
+                          "id": "6c661400-bc75-4658-9ccf-bc6dc003bba9",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycle/:cycleId/reviews-graph?mainReviewerId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycle",
+                                ":cycleId",
+                                "reviews-graph"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) mainReviewerId",
+                                  "key": "mainReviewerId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:32.000Z",
+                          "updatedAt": "2026-10-22T01:47:32.000Z",
+                          "uid": "35240-6c661400-bc75-4658-9ccf-bc6dc003bba9"
+                        },
+                        {
+                          "id": "db83ca31-4564-4f5d-9de7-8f7e9f907f0b",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycle/:cycleId/reviews-graph?mainReviewerId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycle",
+                                ":cycleId",
+                                "reviews-graph"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) mainReviewerId",
+                                  "key": "mainReviewerId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:32.000Z",
+                          "updatedAt": "2026-10-22T01:47:32.000Z",
+                          "uid": "35240-db83ca31-4564-4f5d-9de7-8f7e9f907f0b"
+                        },
+                        {
+                          "id": "60c783c6-ac6b-488a-9a2c-f77f15466758",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycle/:cycleId/reviews-graph?mainReviewerId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycle",
+                                ":cycleId",
+                                "reviews-graph"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) mainReviewerId",
+                                  "key": "mainReviewerId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:32.000Z",
+                          "updatedAt": "2026-10-22T01:47:32.000Z",
+                          "uid": "35240-60c783c6-ac6b-488a-9a2c-f77f15466758"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:47:32.000Z",
+                      "updatedAt": "2026-10-22T01:47:32.000Z",
+                      "uid": "35240-1b9b6073-c1da-4e62-86e8-ee36dd29d24f"
+                    }
+                  ],
+                  "id": "d6513033-6f49-4f80-af22-b51082646a2e",
+                  "createdAt": "2026-10-22T01:47:32.000Z",
+                  "updatedAt": "2026-10-22T01:47:32.000Z",
+                  "uid": "35240-d6513033-6f49-4f80-af22-b51082646a2e"
+                }
+              ],
+              "id": "5cc4a649-4942-4ba1-bdbc-ee67910e6b52",
+              "createdAt": "2026-10-22T01:47:32.000Z",
+              "updatedAt": "2026-10-22T01:47:32.000Z",
+              "uid": "35240-5cc4a649-4942-4ba1-bdbc-ee67910e6b52"
+            }
+          ],
+          "id": "1268f114-d735-43b0-bb16-c03f8810fd8c",
+          "createdAt": "2026-10-22T01:47:32.000Z",
+          "updatedAt": "2026-10-22T01:47:32.000Z",
+          "uid": "35240-1268f114-d735-43b0-bb16-c03f8810fd8c"
+        }
+      ],
+      "id": "44d8d44d-6878-4cbe-8771-7117adc305a8",
+      "createdAt": "2026-10-22T01:47:32.000Z",
+      "updatedAt": "2026-10-22T01:47:32.000Z",
+      "uid": "35240-44d8d44d-6878-4cbe-8771-7117adc305a8"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
+    }
+  ]
+}

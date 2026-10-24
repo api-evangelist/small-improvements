@@ -1,476 +1,468 @@
 {
+  "info": {
+    "_postman_id": "c95e5a04-3a06-4b00-935d-548645fc0338",
+    "name": "Small Improvements Praise Wall Open Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:45:49.000Z",
+    "updatedAt": "2026-10-22T01:45:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c95e5a04-3a06-4b00-935d-548645fc0338"
+  },
   "item": [
     {
-      "id": "87c9d522-70ea-4c67-96dd-4a63d6b14128",
-      "name": "praise-wall-open-resource",
-      "description": {
-        "content": "Praise Wall Open Resource",
-        "type": "text/plain"
-      },
+      "name": "praise",
       "item": [
         {
-          "id": "88865341-3149-42ed-9a65-1d3746fa43cc",
-          "name": "getPraiseForWall",
-          "request": {
-            "name": "getPraiseForWall",
-            "description": {},
-            "url": {
-              "path": [
-                "praise",
-                "wall"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "token",
-                  "value": "<string>",
-                  "description": "(Required) token"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "wall",
+          "item": [
             {
-              "id": "2e68a850-8ea9-4af9-9a58-b469ec5e211c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "praise",
-                    "wall"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "config",
+              "item": [
+                {
+                  "name": "getConfig",
+                  "id": "fb235d48-762a-4f0d-b34a-be907697e654",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/praise/wall/config?token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "praise",
+                        "wall",
+                        "config"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) token",
+                          "key": "token",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "token",
-                      "value": "<string>"
+                      "id": "9aed65ba-9d8a-4dad-8dcb-63af337fc159",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/praise/wall/config?token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "praise",
+                            "wall",
+                            "config"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) token",
+                              "key": "token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json;charset=UTF-8"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-22T01:45:50.000Z",
+                      "updatedAt": "2026-10-22T01:45:50.000Z",
+                      "uid": "35240-9aed65ba-9d8a-4dad-8dcb-63af337fc159"
+                    },
+                    {
+                      "id": "19acc660-5847-45b1-8cc1-32464c1e53b7",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/praise/wall/config?token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "praise",
+                            "wall",
+                            "config"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) token",
+                              "key": "token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:45:50.000Z",
+                      "updatedAt": "2026-10-22T01:45:50.000Z",
+                      "uid": "35240-19acc660-5847-45b1-8cc1-32464c1e53b7"
+                    },
+                    {
+                      "id": "300e7b91-7c5a-4320-a0a4-3d26e08b70b4",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/praise/wall/config?token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "praise",
+                            "wall",
+                            "config"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) token",
+                              "key": "token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:45:50.000Z",
+                      "updatedAt": "2026-10-22T01:45:50.000Z",
+                      "uid": "35240-300e7b91-7c5a-4320-a0a4-3d26e08b70b4"
+                    },
+                    {
+                      "id": "b43ff6bf-b276-40e3-ad0e-41a205c4fa22",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/praise/wall/config?token=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "praise",
+                            "wall",
+                            "config"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) token",
+                              "key": "token",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:45:50.000Z",
+                      "updatedAt": "2026-10-22T01:45:50.000Z",
+                      "uid": "35240-b43ff6bf-b276-40e3-ad0e-41a205c4fa22"
                     }
                   ],
-                  "variable": []
-                },
+                  "createdAt": "2026-10-22T01:45:50.000Z",
+                  "updatedAt": "2026-10-22T01:45:50.000Z",
+                  "uid": "35240-fb235d48-762a-4f0d-b34a-be907697e654"
+                }
+              ],
+              "id": "5cc0d0d4-ded4-412d-8252-d34a00d58bed",
+              "createdAt": "2026-10-22T01:45:49.000Z",
+              "updatedAt": "2026-10-22T01:45:49.000Z",
+              "uid": "35240-5cc0d0d4-ded4-412d-8252-d34a00d58bed"
+            },
+            {
+              "name": "getPraiseForWall",
+              "id": "acc7c0cb-1abe-4d26-ad1d-4bbdc95d450e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json;charset=UTF-8"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "e8ec267d-6056-404d-9858-f80831d7db7c",
-              "name": "Unauthorized",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/praise/wall?token=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "praise",
                     "wall"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) token",
                       "key": "token",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "666ffee5-4f9d-4bd2-9efb-4ad30aa77eaa",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "praise",
-                    "wall"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "token",
-                      "value": "<string>"
+                  "id": "a9615045-e58f-4af9-b88d-3258fd75e5b4",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/praise/wall?token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "praise",
+                        "wall"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) token",
+                          "key": "token",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e130a969-bce2-42ba-a288-638c2b0f3c62",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "praise",
-                    "wall"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a26664ab-8ed8-4fe7-b5d0-b8244af507a1",
-          "name": "getConfig",
-          "request": {
-            "name": "getConfig",
-            "description": {},
-            "url": {
-              "path": [
-                "praise",
-                "wall",
-                "config"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "token",
-                  "value": "<string>",
-                  "description": "(Required) token"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1352667d-34ed-44f4-8bc9-8d6f759f9b0d",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "praise",
-                    "wall",
-                    "config"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "token",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "58823f1d-a1da-4bf3-9ac1-9e26f3815e03",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "praise",
-                    "wall",
-                    "config"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "token",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json;charset=UTF-8"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-10-22T01:45:50.000Z",
+                  "updatedAt": "2026-10-22T01:45:50.000Z",
+                  "uid": "35240-a9615045-e58f-4af9-b88d-3258fd75e5b4"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e6e2b489-8205-4b21-9677-2fa07b11c589",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "praise",
-                    "wall",
-                    "config"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "token",
-                      "value": "<string>"
+                  "id": "df78a640-6908-4b44-8b12-6924aaf36c89",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/praise/wall?token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "praise",
+                        "wall"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) token",
+                          "key": "token",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:45:50.000Z",
+                  "updatedAt": "2026-10-22T01:45:50.000Z",
+                  "uid": "35240-df78a640-6908-4b44-8b12-6924aaf36c89"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "95f8c474-93cd-4fdb-aba7-8f89f5612bc0",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "praise",
-                    "wall",
-                    "config"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "token",
-                      "value": "<string>"
+                  "id": "cf68a244-2394-48f5-84c3-93efdd0030f1",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/praise/wall?token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "praise",
+                        "wall"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) token",
+                          "key": "token",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:45:50.000Z",
+                  "updatedAt": "2026-10-22T01:45:50.000Z",
+                  "uid": "35240-cf68a244-2394-48f5-84c3-93efdd0030f1"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "647c89d4-17c5-4c4a-841b-e53baa7a4780",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/praise/wall?token=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "praise",
+                        "wall"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) token",
+                          "key": "token",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:45:50.000Z",
+                  "updatedAt": "2026-10-22T01:45:50.000Z",
+                  "uid": "35240-647c89d4-17c5-4c4a-841b-e53baa7a4780"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T01:45:50.000Z",
+              "updatedAt": "2026-10-22T01:45:50.000Z",
+              "uid": "35240-acc7c0cb-1abe-4d26-ad1d-4bbdc95d450e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "f0c39a4b-447a-44c3-a85f-a3ebffd14908",
+          "createdAt": "2026-10-22T01:45:49.000Z",
+          "updatedAt": "2026-10-22T01:45:49.000Z",
+          "uid": "35240-f0c39a4b-447a-44c3-a85f-a3ebffd14908"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "f045ca54-bbf2-4003-a65d-a703e4a07417",
+      "createdAt": "2026-10-22T01:45:49.000Z",
+      "updatedAt": "2026-10-22T01:45:49.000Z",
+      "uid": "35240-f045ca54-bbf2-4003-a65d-a703e4a07417"
     }
   ],
   "auth": {
@@ -478,17 +470,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "9056d83d-231c-4820-b19e-ed0de128ad84",
-    "name": "Small Improvements action-item-resource praise-wall-open-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

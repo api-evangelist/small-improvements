@@ -1,1487 +1,1355 @@
 {
+  "info": {
+    "_postman_id": "468c56b9-8f1c-4d2c-bd99-afd13d37ba3a",
+    "name": "Small Improvements Companies Email Templates Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:40:05.000Z",
+    "updatedAt": "2026-10-22T01:40:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-468c56b9-8f1c-4d2c-bd99-afd13d37ba3a"
+  },
   "item": [
     {
-      "id": "d9b859e9-649c-40b3-8989-a9ea5842eb16",
-      "name": "companies-email-templates-resource",
-      "description": {
-        "content": "Companies Email Templates Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "8fbf0c7a-3202-4e8e-8373-a35f4e231759",
-          "name": "getModifications",
-          "request": {
-            "name": "getModifications",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "companies",
-                ":companyId",
-                "emails",
-                "modifications"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) companyId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "companies",
+          "item": [
             {
-              "id": "72d0093b-fae3-4f6f-8fa2-2fdf4053105e",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    "modifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{companyId}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
+                  "name": "emails",
+                  "item": [
+                    {
+                      "name": "modifications",
+                      "item": [
+                        {
+                          "name": "getModifications",
+                          "id": "dbfc16a1-bcf6-4f9e-89bc-c74a01026e48",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/companies/:companyId/emails/modifications",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "companies",
+                                ":companyId",
+                                "emails",
+                                "modifications"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ce5e9f8b-a68c-44ae-a458-d333bd9af96f",
+                                  "key": "companyId",
+                                  "value": "<string>",
+                                  "description": "(Required) companyId"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "726d4bc3-15ae-47ea-85da-8c3c3fe4a7dc",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/modifications",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    "modifications"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json;charset=UTF-8"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[]",
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-726d4bc3-15ae-47ea-85da-8c3c3fe4a7dc"
+                            },
+                            {
+                              "id": "35e7d8e6-94d7-478b-b203-51fa63f3eaef",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/modifications",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    "modifications"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-35e7d8e6-94d7-478b-b203-51fa63f3eaef"
+                            },
+                            {
+                              "id": "bce3d185-b1f3-4ffb-8e47-6a956500d049",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/modifications",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    "modifications"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-bce3d185-b1f3-4ffb-8e47-6a956500d049"
+                            },
+                            {
+                              "id": "a75d0f1c-bfb8-4f1e-a521-9498f6f8b1e4",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/modifications",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    "modifications"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-a75d0f1c-bfb8-4f1e-a521-9498f6f8b1e4"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:40:06.000Z",
+                          "updatedAt": "2026-10-22T01:40:06.000Z",
+                          "uid": "35240-dbfc16a1-bcf6-4f9e-89bc-c74a01026e48"
+                        }
+                      ],
+                      "id": "df2f7139-16c2-44e7-b96d-dea6f4e2985a",
+                      "createdAt": "2026-10-22T01:40:06.000Z",
+                      "updatedAt": "2026-10-22T01:40:06.000Z",
+                      "uid": "35240-df2f7139-16c2-44e7-b96d-dea6f4e2985a"
+                    },
+                    {
+                      "name": "preview",
+                      "item": [
+                        {
+                          "name": "{type}",
+                          "item": [
+                            {
+                              "name": "getPreview",
+                              "id": "2d4aad14-9a94-4956-8c54-c261da90d2f9",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/preview/:type",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    "preview",
+                                    ":type"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "14d7a9d1-1a8c-491c-b780-c7740fab570c",
+                                      "key": "companyId",
+                                      "value": "<string>",
+                                      "description": "(Required) companyId"
+                                    },
+                                    {
+                                      "id": "4bad4f4a-97b9-4022-8f3a-61b094a2d90d",
+                                      "key": "type",
+                                      "value": "REVIEW_NUDGE_SECONDARY_REVIEWER_UNSPECIFIC",
+                                      "description": "(Required) type"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "8773cd2c-6d9f-425c-b5fb-17ede101fb18",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json;charset=UTF-8"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/preview/:type",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        "preview",
+                                        ":type"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "type"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json;charset=UTF-8"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-8773cd2c-6d9f-425c-b5fb-17ede101fb18"
+                                },
+                                {
+                                  "id": "55907112-c47e-4008-9976-da36d8e3a1cb",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/preview/:type",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        "preview",
+                                        ":type"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "type"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-55907112-c47e-4008-9976-da36d8e3a1cb"
+                                },
+                                {
+                                  "id": "b0db3841-fe51-4ae8-b2b2-9bfd38497d06",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/preview/:type",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        "preview",
+                                        ":type"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "type"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-b0db3841-fe51-4ae8-b2b2-9bfd38497d06"
+                                },
+                                {
+                                  "id": "f340570a-a132-4e5f-98fb-7ed1087c8d5b",
+                                  "name": "Not Found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/preview/:type",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        "preview",
+                                        ":type"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "type"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-f340570a-a132-4e5f-98fb-7ed1087c8d5b"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-2d4aad14-9a94-4956-8c54-c261da90d2f9"
+                            }
+                          ],
+                          "id": "3efa48db-aab4-4416-a609-788bf177a6eb",
+                          "createdAt": "2026-10-22T01:40:06.000Z",
+                          "updatedAt": "2026-10-22T01:40:06.000Z",
+                          "uid": "35240-3efa48db-aab4-4416-a609-788bf177a6eb"
+                        }
+                      ],
+                      "id": "bed50e8b-1a84-4b0f-a236-685c591ae814",
+                      "createdAt": "2026-10-22T01:40:06.000Z",
+                      "updatedAt": "2026-10-22T01:40:06.000Z",
+                      "uid": "35240-bed50e8b-1a84-4b0f-a236-685c591ae814"
+                    },
+                    {
+                      "name": "{templateId}",
+                      "item": [
+                        {
+                          "name": "dummyPreview",
+                          "item": [
+                            {
+                              "name": "renderDummyPreview",
+                              "id": "5f94a193-d0b2-4ff8-b2f7-890c5bd734e7",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/dummyPreview",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    ":templateId",
+                                    "dummyPreview"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "934d61eb-a38d-4cf2-a466-da64f527c347",
+                                      "key": "companyId",
+                                      "value": "<string>",
+                                      "description": "(Required) companyId"
+                                    },
+                                    {
+                                      "id": "27463d59-1add-4f16-a40e-417d87de4029",
+                                      "key": "templateId",
+                                      "value": "<integer>",
+                                      "description": "(Required) templateId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "0fa40841-c916-4d6a-9f16-d2a23f4aa1e1",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json;charset=UTF-8"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/dummyPreview",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        ":templateId",
+                                        "dummyPreview"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "templateId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json;charset=UTF-8"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-0fa40841-c916-4d6a-9f16-d2a23f4aa1e1"
+                                },
+                                {
+                                  "id": "245f116f-e102-4c9b-b320-0b6a9b036c10",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/dummyPreview",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        ":templateId",
+                                        "dummyPreview"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "templateId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-245f116f-e102-4c9b-b320-0b6a9b036c10"
+                                },
+                                {
+                                  "id": "ba979724-60fb-4d1a-a330-5bce529ad729",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/dummyPreview",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        ":templateId",
+                                        "dummyPreview"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "templateId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-ba979724-60fb-4d1a-a330-5bce529ad729"
+                                },
+                                {
+                                  "id": "e6afb1a6-b9a8-41b4-9005-a0c93985fc04",
+                                  "name": "Not Found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/dummyPreview",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        ":templateId",
+                                        "dummyPreview"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "templateId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-e6afb1a6-b9a8-41b4-9005-a0c93985fc04"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-5f94a193-d0b2-4ff8-b2f7-890c5bd734e7"
+                            }
+                          ],
+                          "id": "f1daffb0-74c2-4955-8b0d-cda7320a7ad4",
+                          "createdAt": "2026-10-22T01:40:06.000Z",
+                          "updatedAt": "2026-10-22T01:40:06.000Z",
+                          "uid": "35240-f1daffb0-74c2-4955-8b0d-cda7320a7ad4"
+                        },
+                        {
+                          "name": "preview",
+                          "item": [
+                            {
+                              "name": "renderPreview",
+                              "id": "a2b73475-fe58-4069-aee4-2d209ceb1323",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/preview?feedbackCycleId=<string>&reviewCycleId=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    ":templateId",
+                                    "preview"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "feedbackCycleId",
+                                      "key": "feedbackCycleId",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "description": "reviewCycleId",
+                                      "key": "reviewCycleId",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "93e87398-7725-43d5-bd61-7e31e9031dc5",
+                                      "key": "companyId",
+                                      "value": "<string>",
+                                      "description": "(Required) companyId"
+                                    },
+                                    {
+                                      "id": "4032dd59-6bc0-4459-aae0-c1d21a0c0db5",
+                                      "key": "templateId",
+                                      "value": "<integer>",
+                                      "description": "(Required) templateId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "99d42bc9-a2ef-4769-aaf4-268eefad3c19",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json;charset=UTF-8"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/preview?feedbackCycleId=<string>&reviewCycleId=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        ":templateId",
+                                        "preview"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "feedbackCycleId",
+                                          "key": "feedbackCycleId",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "reviewCycleId",
+                                          "key": "reviewCycleId",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "templateId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json;charset=UTF-8"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-99d42bc9-a2ef-4769-aaf4-268eefad3c19"
+                                },
+                                {
+                                  "id": "5955b5ca-9c73-4d79-88b6-d0f26f6ec42e",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/preview?feedbackCycleId=<string>&reviewCycleId=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        ":templateId",
+                                        "preview"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "feedbackCycleId",
+                                          "key": "feedbackCycleId",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "reviewCycleId",
+                                          "key": "reviewCycleId",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "templateId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-5955b5ca-9c73-4d79-88b6-d0f26f6ec42e"
+                                },
+                                {
+                                  "id": "4735b931-ee6d-4fc7-ba7f-b483b2abbe85",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/preview?feedbackCycleId=<string>&reviewCycleId=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        ":templateId",
+                                        "preview"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "feedbackCycleId",
+                                          "key": "feedbackCycleId",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "reviewCycleId",
+                                          "key": "reviewCycleId",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "templateId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-4735b931-ee6d-4fc7-ba7f-b483b2abbe85"
+                                },
+                                {
+                                  "id": "d1560bf4-bec7-4a5a-8e57-273bd46df118",
+                                  "name": "Not Found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:templateId/preview?feedbackCycleId=<string>&reviewCycleId=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "companies",
+                                        ":companyId",
+                                        "emails",
+                                        ":templateId",
+                                        "preview"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "feedbackCycleId",
+                                          "key": "feedbackCycleId",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "reviewCycleId",
+                                          "key": "reviewCycleId",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "templateId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:40:06.000Z",
+                                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                                  "uid": "35240-d1560bf4-bec7-4a5a-8e57-273bd46df118"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-a2b73475-fe58-4069-aee4-2d209ceb1323"
+                            }
+                          ],
+                          "id": "3e9da023-e015-4201-af3c-e0da707d162d",
+                          "createdAt": "2026-10-22T01:40:06.000Z",
+                          "updatedAt": "2026-10-22T01:40:06.000Z",
+                          "uid": "35240-3e9da023-e015-4201-af3c-e0da707d162d"
+                        }
+                      ],
+                      "id": "8f03f853-bc27-4654-842e-90ca347663ea",
+                      "createdAt": "2026-10-22T01:40:06.000Z",
+                      "updatedAt": "2026-10-22T01:40:06.000Z",
+                      "uid": "35240-8f03f853-bc27-4654-842e-90ca347663ea"
+                    },
+                    {
+                      "name": "{type}",
+                      "item": [
+                        {
+                          "name": "getModificationForType",
+                          "id": "fa20c505-ac0e-4c98-9664-ac4b71d50be6",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:type",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "companies",
+                                ":companyId",
+                                "emails",
+                                ":type"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a0c0d2de-e358-494a-8b4a-2c97b5f47df1",
+                                  "key": "companyId",
+                                  "value": "<string>",
+                                  "description": "(Required) companyId"
+                                },
+                                {
+                                  "id": "48411577-880d-4c0d-bb20-022baa80b375",
+                                  "key": "type",
+                                  "value": "REVIEW_NUDGE_SECONDARY_REVIEWER_UNSPECIFIC",
+                                  "description": "(Required) type"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "f826caf3-e83e-45a9-866d-71195983cecc",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:type",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    ":type"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    },
+                                    {
+                                      "key": "type"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json;charset=UTF-8"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-f826caf3-e83e-45a9-866d-71195983cecc"
+                            },
+                            {
+                              "id": "bfbfabe7-900e-4918-ac78-917424e8deca",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:type",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    ":type"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    },
+                                    {
+                                      "key": "type"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-bfbfabe7-900e-4918-ac78-917424e8deca"
+                            },
+                            {
+                              "id": "7d09d3a8-c94f-4eb5-b046-b9d82a26dfc0",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:type",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    ":type"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    },
+                                    {
+                                      "key": "type"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-7d09d3a8-c94f-4eb5-b046-b9d82a26dfc0"
+                            },
+                            {
+                              "id": "ffb46a72-804a-4599-b128-f1bdc1ef0562",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/companies/:companyId/emails/:type",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "companies",
+                                    ":companyId",
+                                    "emails",
+                                    ":type"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    },
+                                    {
+                                      "key": "type"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:40:06.000Z",
+                              "updatedAt": "2026-10-22T01:40:06.000Z",
+                              "uid": "35240-ffb46a72-804a-4599-b128-f1bdc1ef0562"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:40:06.000Z",
+                          "updatedAt": "2026-10-22T01:40:06.000Z",
+                          "uid": "35240-fa20c505-ac0e-4c98-9664-ac4b71d50be6"
+                        }
+                      ],
+                      "id": "0896c38e-f618-4474-a451-103fd9e0f997",
+                      "createdAt": "2026-10-22T01:40:06.000Z",
+                      "updatedAt": "2026-10-22T01:40:06.000Z",
+                      "uid": "35240-0896c38e-f618-4474-a451-103fd9e0f997"
+                    }
+                  ],
+                  "id": "87713d85-5262-48e5-9cdc-0dacdc287b51",
+                  "createdAt": "2026-10-22T01:40:06.000Z",
+                  "updatedAt": "2026-10-22T01:40:06.000Z",
+                  "uid": "35240-87713d85-5262-48e5-9cdc-0dacdc287b51"
                 }
               ],
-              "body": "[]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f2f8ed7e-7f0b-4128-8929-121d5e147f8c",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    "modifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "d8a369db-2fd7-4ddf-b079-abecfba6053e",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    "modifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "1988faa8-4d20-40f4-a363-505956c1e465",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    "modifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "c33b4384-1e9d-4231-936e-aa692c2e7259",
+              "createdAt": "2026-10-22T01:40:06.000Z",
+              "updatedAt": "2026-10-22T01:40:06.000Z",
+              "uid": "35240-c33b4384-1e9d-4231-936e-aa692c2e7259"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f555b019-4564-41d8-90e1-1784cc778fcc",
-          "name": "getPreview",
-          "request": {
-            "name": "getPreview",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "companies",
-                ":companyId",
-                "emails",
-                "preview",
-                ":type"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) companyId"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "type",
-                  "description": "(Required) type"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "89177780-0924-496d-8437-1fc76017ada0",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    "preview",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) type"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2c77f5e5-5084-49de-acf2-850879cdd85d",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    "preview",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) type"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "4e0c5e5c-6cc0-40b9-a8f3-5cc33e35d52b",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    "preview",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) type"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "2f2187e4-8641-493a-8f3d-a783de7a531d",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    "preview",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) type"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7b9f985f-d387-42dd-8968-df86f425df1a",
-          "name": "renderDummyPreview",
-          "request": {
-            "name": "renderDummyPreview",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "companies",
-                ":companyId",
-                "emails",
-                ":templateId",
-                "dummyPreview"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) companyId"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "templateId",
-                  "description": "(Required) templateId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "376b4680-5f50-4b46-badd-e24e369cddd6",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":templateId",
-                    "dummyPreview"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "templateId",
-                      "description": "(Required) templateId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8570da7f-1483-42d2-b177-e0cbda033b20",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":templateId",
-                    "dummyPreview"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "templateId",
-                      "description": "(Required) templateId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "7a4914bc-4ce9-4494-b054-828aa1d280b8",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":templateId",
-                    "dummyPreview"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "templateId",
-                      "description": "(Required) templateId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a22ea338-058e-4a23-87e5-fcaeb6c62305",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":templateId",
-                    "dummyPreview"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "templateId",
-                      "description": "(Required) templateId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b19b8932-a0c5-4958-93ac-5c5fd17ccb18",
-          "name": "renderPreview",
-          "request": {
-            "name": "renderPreview",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "companies",
-                ":companyId",
-                "emails",
-                ":templateId",
-                "preview"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "feedbackCycleId",
-                  "value": "<string>",
-                  "description": "feedbackCycleId"
-                },
-                {
-                  "disabled": false,
-                  "key": "reviewCycleId",
-                  "value": "<string>",
-                  "description": "reviewCycleId"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) companyId"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<integer>",
-                  "key": "templateId",
-                  "description": "(Required) templateId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "69a9c336-dd79-4d88-89b1-fe82fbf1c6dd",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":templateId",
-                    "preview"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "feedbackCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "reviewCycleId",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "templateId",
-                      "description": "(Required) templateId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f2bcd52f-1d54-414b-9e72-0fea8e559bce",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":templateId",
-                    "preview"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "feedbackCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "reviewCycleId",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "templateId",
-                      "description": "(Required) templateId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "2912ea32-9479-465d-8c95-0dab65f51727",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":templateId",
-                    "preview"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "feedbackCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "reviewCycleId",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "templateId",
-                      "description": "(Required) templateId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "2b5d75cf-e806-4a43-bc21-a6668351ca0a",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":templateId",
-                    "preview"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "feedbackCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "reviewCycleId",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<integer>",
-                      "key": "templateId",
-                      "description": "(Required) templateId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "094ac05e-d2f1-47b1-bb2a-0d256b369453",
-          "name": "getModificationForType",
-          "request": {
-            "name": "getModificationForType",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "companies",
-                ":companyId",
-                "emails",
-                ":type"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) companyId"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "type",
-                  "description": "(Required) type"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "783b1ec1-393f-46e7-95dd-f980f0fabe98",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) type"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ebb0b2cd-fc1f-43fc-9497-17a1ef913856",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) type"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c1c9e61f-2aa9-48c6-af7e-44491ccbd95c",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) type"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "fc83b539-fea6-4007-9e1e-0750c01397b3",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "companies",
-                    ":companyId",
-                    "emails",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) type"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "9e212ab8-8597-45e6-a7c9-e2878724b076",
+          "createdAt": "2026-10-22T01:40:06.000Z",
+          "updatedAt": "2026-10-22T01:40:06.000Z",
+          "uid": "35240-9e212ab8-8597-45e6-a7c9-e2878724b076"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "f5369924-a6eb-4890-aa4a-398da972c9d5",
+      "createdAt": "2026-10-22T01:40:06.000Z",
+      "updatedAt": "2026-10-22T01:40:06.000Z",
+      "uid": "35240-f5369924-a6eb-4890-aa4a-398da972c9d5"
     }
   ],
   "auth": {
@@ -1489,17 +1357,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "b5418576-08a3-4b43-a898-9ae7bc5199a7",
-    "name": "Small Improvements action-item-resource companies-email-templates-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

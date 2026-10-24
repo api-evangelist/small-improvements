@@ -1,0 +1,578 @@
+{
+  "info": {
+    "_postman_id": "ee1f1fc8-33ff-4a69-8c0c-d883af481664",
+    "name": "Small Improvements Review Cycle Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:14.000Z",
+    "updatedAt": "2026-10-22T01:47:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ee1f1fc8-33ff-4a69-8c0c-d883af481664"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "review-cycle",
+          "item": [
+            {
+              "name": "list",
+              "id": "e815f700-ae79-41de-adad-8b169b3ea114",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v2/review-cycle?contributingReviewerId=<string>&mainReviewerId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "review-cycle"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) contributingReviewerId",
+                      "key": "contributingReviewerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) mainReviewerId",
+                      "key": "mainReviewerId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d792e334-5e3b-464a-921a-65c1604a7cd8",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle?contributingReviewerId=<string>&mainReviewerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) contributingReviewerId",
+                          "key": "contributingReviewerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) mainReviewerId",
+                          "key": "mainReviewerId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json;charset=UTF-8"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[]",
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-d792e334-5e3b-464a-921a-65c1604a7cd8"
+                },
+                {
+                  "id": "67cfd22e-1ba8-4876-80ac-023ebff47b25",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle?contributingReviewerId=<string>&mainReviewerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) contributingReviewerId",
+                          "key": "contributingReviewerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) mainReviewerId",
+                          "key": "mainReviewerId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-67cfd22e-1ba8-4876-80ac-023ebff47b25"
+                },
+                {
+                  "id": "0f8ab57a-efe8-44bb-9f84-1f1c1566b19f",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle?contributingReviewerId=<string>&mainReviewerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) contributingReviewerId",
+                          "key": "contributingReviewerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) mainReviewerId",
+                          "key": "mainReviewerId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-0f8ab57a-efe8-44bb-9f84-1f1c1566b19f"
+                },
+                {
+                  "id": "ed643dfd-4c3b-44e2-8819-bbbaf406707e",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle?contributingReviewerId=<string>&mainReviewerId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) contributingReviewerId",
+                          "key": "contributingReviewerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) mainReviewerId",
+                          "key": "mainReviewerId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-ed643dfd-4c3b-44e2-8819-bbbaf406707e"
+                }
+              ],
+              "createdAt": "2026-10-22T01:47:14.000Z",
+              "updatedAt": "2026-10-22T01:47:14.000Z",
+              "uid": "35240-e815f700-ae79-41de-adad-8b169b3ea114"
+            },
+            {
+              "name": "create",
+              "id": "8ad0a03d-2c79-4480-a237-afcd425b457b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json;charset=UTF-8"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json;charset=UTF-8"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v2/review-cycle",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v2",
+                    "review-cycle"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "8bcb60a3-f14d-4090-b24b-b6a0b5289b21",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json;charset=UTF-8"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{}",
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-8bcb60a3-f14d-4090-b24b-b6a0b5289b21"
+                },
+                {
+                  "id": "56d1f005-a4d8-4a11-b185-d4fb75b0794e",
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-56d1f005-a4d8-4a11-b185-d4fb75b0794e"
+                },
+                {
+                  "id": "d26d3ae7-0132-4ed0-ae15-85a9523eb188",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-d26d3ae7-0132-4ed0-ae15-85a9523eb188"
+                },
+                {
+                  "id": "7f28116a-9258-4d6d-8528-3b07885dd20a",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-7f28116a-9258-4d6d-8528-3b07885dd20a"
+                },
+                {
+                  "id": "6365e890-27f8-48ff-a4b5-bba0dc44359f",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:47:14.000Z",
+                  "updatedAt": "2026-10-22T01:47:14.000Z",
+                  "uid": "35240-6365e890-27f8-48ff-a4b5-bba0dc44359f"
+                }
+              ],
+              "createdAt": "2026-10-22T01:47:14.000Z",
+              "updatedAt": "2026-10-22T01:47:14.000Z",
+              "uid": "35240-8ad0a03d-2c79-4480-a237-afcd425b457b"
+            }
+          ],
+          "id": "1e5b5c90-738d-46b6-8e98-e9d800f2ccc5",
+          "createdAt": "2026-10-22T01:47:14.000Z",
+          "updatedAt": "2026-10-22T01:47:14.000Z",
+          "uid": "35240-1e5b5c90-738d-46b6-8e98-e9d800f2ccc5"
+        }
+      ],
+      "id": "35901f8e-9a32-4a6b-ae5b-868f80a62218",
+      "createdAt": "2026-10-22T01:47:14.000Z",
+      "updatedAt": "2026-10-22T01:47:14.000Z",
+      "uid": "35240-35901f8e-9a32-4a6b-ae5b-868f80a62218"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
+    }
+  ]
+}

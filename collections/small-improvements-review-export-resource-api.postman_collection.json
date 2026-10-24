@@ -1,0 +1,2657 @@
+{
+  "info": {
+    "_postman_id": "1dd7d851-7d97-4399-819d-269ed68eac07",
+    "name": "Small Improvements Review Export Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:26.000Z",
+    "updatedAt": "2026-10-22T01:47:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1dd7d851-7d97-4399-819d-269ed68eac07"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "review-cycles",
+          "item": [
+            {
+              "name": "{cycleId}",
+              "item": [
+                {
+                  "name": "export",
+                  "item": [
+                    {
+                      "name": "lazy",
+                      "item": [
+                        {
+                          "name": "{exportType}",
+                          "item": [
+                            {
+                              "name": "{outputType}",
+                              "item": [
+                                {
+                                  "name": "lazyExportReview",
+                                  "id": "3efc784a-3738-4a82-bd73-2dbdf42d3ccf",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        "lazy",
+                                        ":exportType",
+                                        ":outputType"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) columns",
+                                          "key": "columns",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "(Required) filters",
+                                          "key": "filters",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "cfc41f27-50f0-487c-88f8-ea0c082ac89c",
+                                          "key": "cycleId",
+                                          "value": "<string>",
+                                          "description": "(Required) cycleId"
+                                        },
+                                        {
+                                          "id": "b176a184-98fc-40ef-9e17-f069e4fac5b8",
+                                          "key": "exportType",
+                                          "value": "<string>",
+                                          "description": "(Required) exportType"
+                                        },
+                                        {
+                                          "id": "58a9c712-ae5b-4438-a8d5-13abe4293d45",
+                                          "key": "outputType",
+                                          "value": "EXCEL",
+                                          "description": "(Required) outputType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "7fc8399b-2391-4368-9a92-617064138527",
+                                      "name": "OK",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "review-cycles",
+                                            ":cycleId",
+                                            "export",
+                                            "lazy",
+                                            ":exportType",
+                                            ":outputType"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) columns",
+                                              "key": "columns",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) filters",
+                                              "key": "filters",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cycleId"
+                                            },
+                                            {
+                                              "key": "exportType"
+                                            },
+                                            {
+                                              "key": "outputType"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:47:27.000Z",
+                                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                                      "uid": "35240-7fc8399b-2391-4368-9a92-617064138527"
+                                    },
+                                    {
+                                      "id": "787e1a03-cf1a-4145-9fbe-b8a0859880a0",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "review-cycles",
+                                            ":cycleId",
+                                            "export",
+                                            "lazy",
+                                            ":exportType",
+                                            ":outputType"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) columns",
+                                              "key": "columns",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) filters",
+                                              "key": "filters",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cycleId"
+                                            },
+                                            {
+                                              "key": "exportType"
+                                            },
+                                            {
+                                              "key": "outputType"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:47:27.000Z",
+                                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                                      "uid": "35240-787e1a03-cf1a-4145-9fbe-b8a0859880a0"
+                                    },
+                                    {
+                                      "id": "b228384c-8980-4adb-9a69-504731726fab",
+                                      "name": "Forbidden",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "review-cycles",
+                                            ":cycleId",
+                                            "export",
+                                            "lazy",
+                                            ":exportType",
+                                            ":outputType"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) columns",
+                                              "key": "columns",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) filters",
+                                              "key": "filters",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cycleId"
+                                            },
+                                            {
+                                              "key": "exportType"
+                                            },
+                                            {
+                                              "key": "outputType"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:47:27.000Z",
+                                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                                      "uid": "35240-b228384c-8980-4adb-9a69-504731726fab"
+                                    },
+                                    {
+                                      "id": "beba5051-a9ad-4d20-bd9e-f8cfaace5588",
+                                      "name": "Not Found",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "review-cycles",
+                                            ":cycleId",
+                                            "export",
+                                            "lazy",
+                                            ":exportType",
+                                            ":outputType"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) columns",
+                                              "key": "columns",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) filters",
+                                              "key": "filters",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cycleId"
+                                            },
+                                            {
+                                              "key": "exportType"
+                                            },
+                                            {
+                                              "key": "outputType"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:47:27.000Z",
+                                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                                      "uid": "35240-beba5051-a9ad-4d20-bd9e-f8cfaace5588"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-3efc784a-3738-4a82-bd73-2dbdf42d3ccf"
+                                },
+                                {
+                                  "name": "lazyExportReview",
+                                  "id": "71b5b820-3328-4198-bd3c-0317fbfca923",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "POST",
+                                    "header": [],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        "lazy",
+                                        ":exportType",
+                                        ":outputType"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) columns",
+                                          "key": "columns",
+                                          "value": "<string>"
+                                        },
+                                        {
+                                          "description": "(Required) filters",
+                                          "key": "filters",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "6ba98f86-437f-4e67-85e7-aa21185999e2",
+                                          "key": "cycleId",
+                                          "value": "<string>",
+                                          "description": "(Required) cycleId"
+                                        },
+                                        {
+                                          "id": "486c8a93-c4e5-447f-8808-df362ebc0343",
+                                          "key": "exportType",
+                                          "value": "<string>",
+                                          "description": "(Required) exportType"
+                                        },
+                                        {
+                                          "id": "4b41e315-b223-4049-ac09-eca4902bbe69",
+                                          "key": "outputType",
+                                          "value": "EXCEL",
+                                          "description": "(Required) outputType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "b96b8eed-4f0b-4a8c-a3ee-8dd167728022",
+                                      "name": "OK",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "review-cycles",
+                                            ":cycleId",
+                                            "export",
+                                            "lazy",
+                                            ":exportType",
+                                            ":outputType"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) columns",
+                                              "key": "columns",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) filters",
+                                              "key": "filters",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cycleId"
+                                            },
+                                            {
+                                              "key": "exportType"
+                                            },
+                                            {
+                                              "key": "outputType"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:47:27.000Z",
+                                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                                      "uid": "35240-b96b8eed-4f0b-4a8c-a3ee-8dd167728022"
+                                    },
+                                    {
+                                      "id": "f53b9c3a-59f9-41e0-ae7b-c251e47cd974",
+                                      "name": "Created",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "review-cycles",
+                                            ":cycleId",
+                                            "export",
+                                            "lazy",
+                                            ":exportType",
+                                            ":outputType"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) columns",
+                                              "key": "columns",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) filters",
+                                              "key": "filters",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cycleId"
+                                            },
+                                            {
+                                              "key": "exportType"
+                                            },
+                                            {
+                                              "key": "outputType"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Created",
+                                      "code": 201,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:47:27.000Z",
+                                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                                      "uid": "35240-f53b9c3a-59f9-41e0-ae7b-c251e47cd974"
+                                    },
+                                    {
+                                      "id": "7d52207a-2b57-4938-b38a-6f593a453344",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "review-cycles",
+                                            ":cycleId",
+                                            "export",
+                                            "lazy",
+                                            ":exportType",
+                                            ":outputType"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) columns",
+                                              "key": "columns",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) filters",
+                                              "key": "filters",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cycleId"
+                                            },
+                                            {
+                                              "key": "exportType"
+                                            },
+                                            {
+                                              "key": "outputType"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:47:27.000Z",
+                                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                                      "uid": "35240-7d52207a-2b57-4938-b38a-6f593a453344"
+                                    },
+                                    {
+                                      "id": "4682cd34-d663-4a24-9832-f3e94a57ca98",
+                                      "name": "Forbidden",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "review-cycles",
+                                            ":cycleId",
+                                            "export",
+                                            "lazy",
+                                            ":exportType",
+                                            ":outputType"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) columns",
+                                              "key": "columns",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) filters",
+                                              "key": "filters",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cycleId"
+                                            },
+                                            {
+                                              "key": "exportType"
+                                            },
+                                            {
+                                              "key": "outputType"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:47:27.000Z",
+                                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                                      "uid": "35240-4682cd34-d663-4a24-9832-f3e94a57ca98"
+                                    },
+                                    {
+                                      "id": "27dd3e29-c9b4-4d3f-afa4-7a45ae2e3ca0",
+                                      "name": "Not Found",
+                                      "originalRequest": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/lazy/:exportType/:outputType?columns=<string>&filters=<string>",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "review-cycles",
+                                            ":cycleId",
+                                            "export",
+                                            "lazy",
+                                            ":exportType",
+                                            ":outputType"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "(Required) columns",
+                                              "key": "columns",
+                                              "value": "<string>"
+                                            },
+                                            {
+                                              "description": "(Required) filters",
+                                              "key": "filters",
+                                              "value": "<string>"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "cycleId"
+                                            },
+                                            {
+                                              "key": "exportType"
+                                            },
+                                            {
+                                              "key": "outputType"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:47:27.000Z",
+                                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                                      "uid": "35240-27dd3e29-c9b4-4d3f-afa4-7a45ae2e3ca0"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-71b5b820-3328-4198-bd3c-0317fbfca923"
+                                }
+                              ],
+                              "id": "139baee2-3dd8-4d3d-a4e1-11b562933783",
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-139baee2-3dd8-4d3d-a4e1-11b562933783"
+                            }
+                          ],
+                          "id": "a38c1357-78a4-4576-a4f4-2395a574008d",
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-a38c1357-78a4-4576-a4f4-2395a574008d"
+                        }
+                      ],
+                      "id": "057ea32d-c7a0-4fc4-a240-f4e0d6c1b959",
+                      "createdAt": "2026-10-22T01:47:27.000Z",
+                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                      "uid": "35240-057ea32d-c7a0-4fc4-a240-f4e0d6c1b959"
+                    },
+                    {
+                      "name": "{exportType}",
+                      "item": [
+                        {
+                          "name": "columns",
+                          "item": [
+                            {
+                              "name": "getAvailableColumns",
+                              "id": "6d055f27-72bb-4f52-99f6-dd2d9d61d7f7",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/columns",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export",
+                                    ":exportType",
+                                    "columns"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d5fda05f-4034-40b8-8cec-7d8d277dfef1",
+                                      "key": "cycleId",
+                                      "value": "<string>",
+                                      "description": "(Required) cycleId"
+                                    },
+                                    {
+                                      "id": "27a8bed7-f219-4475-8320-eb6dba9e22ca",
+                                      "key": "exportType",
+                                      "value": "<string>",
+                                      "description": "(Required) exportType"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "9a8a00d7-e704-48fa-bded-b1d1e76edac4",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json;charset=UTF-8"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/columns",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        ":exportType",
+                                        "columns"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cycleId"
+                                        },
+                                        {
+                                          "key": "exportType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json;charset=UTF-8"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[]",
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-9a8a00d7-e704-48fa-bded-b1d1e76edac4"
+                                },
+                                {
+                                  "id": "7458b1ad-6284-4054-ac8f-3254c952a9fa",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/columns",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        ":exportType",
+                                        "columns"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cycleId"
+                                        },
+                                        {
+                                          "key": "exportType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-7458b1ad-6284-4054-ac8f-3254c952a9fa"
+                                },
+                                {
+                                  "id": "249914e1-c1c4-47c8-8fd5-f48a12631673",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/columns",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        ":exportType",
+                                        "columns"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cycleId"
+                                        },
+                                        {
+                                          "key": "exportType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-249914e1-c1c4-47c8-8fd5-f48a12631673"
+                                },
+                                {
+                                  "id": "2cda3115-d234-4302-ad64-771ba754647c",
+                                  "name": "Not Found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/columns",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        ":exportType",
+                                        "columns"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cycleId"
+                                        },
+                                        {
+                                          "key": "exportType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-2cda3115-d234-4302-ad64-771ba754647c"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-6d055f27-72bb-4f52-99f6-dd2d9d61d7f7"
+                            }
+                          ],
+                          "id": "0554887a-e8bf-44d9-875b-3c20c813b000",
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-0554887a-e8bf-44d9-875b-3c20c813b000"
+                        },
+                        {
+                          "name": "{outputType}",
+                          "item": [
+                            {
+                              "name": "exportReview",
+                              "id": "b161cf0c-2947-4531-8e2f-5a2da3109930",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/:outputType?columns=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export",
+                                    ":exportType",
+                                    ":outputType"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) columns",
+                                      "key": "columns",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "c63c923d-eaea-4716-b5fa-ef01a2e77627",
+                                      "key": "cycleId",
+                                      "value": "<string>",
+                                      "description": "(Required) cycleId"
+                                    },
+                                    {
+                                      "id": "91cc4178-222f-441a-8194-f9057a01d56f",
+                                      "key": "exportType",
+                                      "value": "<string>",
+                                      "description": "(Required) exportType"
+                                    },
+                                    {
+                                      "id": "444b6c7c-f5d2-432f-9114-c3ef078c3139",
+                                      "key": "outputType",
+                                      "value": "EXCEL",
+                                      "description": "(Required) outputType"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "6c61913b-1e75-4e3a-b4e2-9a96165088d9",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json;charset=UTF-8"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/:outputType?columns=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        ":exportType",
+                                        ":outputType"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) columns",
+                                          "key": "columns",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cycleId"
+                                        },
+                                        {
+                                          "key": "exportType"
+                                        },
+                                        {
+                                          "key": "outputType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json;charset=UTF-8"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{}",
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-6c61913b-1e75-4e3a-b4e2-9a96165088d9"
+                                },
+                                {
+                                  "id": "6548381a-f203-4ced-a9af-ea7d33556e98",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/:outputType?columns=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        ":exportType",
+                                        ":outputType"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) columns",
+                                          "key": "columns",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cycleId"
+                                        },
+                                        {
+                                          "key": "exportType"
+                                        },
+                                        {
+                                          "key": "outputType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-6548381a-f203-4ced-a9af-ea7d33556e98"
+                                },
+                                {
+                                  "id": "7c850d6b-0e87-46ca-b11c-f5231622986c",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/:outputType?columns=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        ":exportType",
+                                        ":outputType"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) columns",
+                                          "key": "columns",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cycleId"
+                                        },
+                                        {
+                                          "key": "exportType"
+                                        },
+                                        {
+                                          "key": "outputType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-7c850d6b-0e87-46ca-b11c-f5231622986c"
+                                },
+                                {
+                                  "id": "a6e26731-22cd-4b98-a1d2-2271ec8b5a23",
+                                  "name": "Not Found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export/:exportType/:outputType?columns=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "review-cycles",
+                                        ":cycleId",
+                                        "export",
+                                        ":exportType",
+                                        ":outputType"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "(Required) columns",
+                                          "key": "columns",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "cycleId"
+                                        },
+                                        {
+                                          "key": "exportType"
+                                        },
+                                        {
+                                          "key": "outputType"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:47:27.000Z",
+                                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                                  "uid": "35240-a6e26731-22cd-4b98-a1d2-2271ec8b5a23"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-b161cf0c-2947-4531-8e2f-5a2da3109930"
+                            }
+                          ],
+                          "id": "ce282bf3-a740-449f-a5a9-25e09170c0e0",
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-ce282bf3-a740-449f-a5a9-25e09170c0e0"
+                        }
+                      ],
+                      "id": "024d9eca-9d62-4367-9401-a2120e3ebed9",
+                      "createdAt": "2026-10-22T01:47:27.000Z",
+                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                      "uid": "35240-024d9eca-9d62-4367-9401-a2120e3ebed9"
+                    }
+                  ],
+                  "id": "0622f8e1-7e13-4f63-8527-e52cdc96cba1",
+                  "createdAt": "2026-10-22T01:47:27.000Z",
+                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                  "uid": "35240-0622f8e1-7e13-4f63-8527-e52cdc96cba1"
+                },
+                {
+                  "name": "export_pdf",
+                  "item": [
+                    {
+                      "name": "exportPDF",
+                      "id": "543fe289-5642-4cce-b7fb-910695c96ac5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycles",
+                            ":cycleId",
+                            "export_pdf"
+                          ],
+                          "variable": [
+                            {
+                              "id": "404509a7-70ca-4150-b036-f10ab6de3715",
+                              "key": "cycleId",
+                              "value": "<string>",
+                              "description": "(Required) cycleId"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "3c4d32e5-6b97-4b9e-b31a-3ed2320e50f2",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_pdf"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json;charset=UTF-8"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "NOTHING_TO_EXPORT",
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-3c4d32e5-6b97-4b9e-b31a-3ed2320e50f2"
+                        },
+                        {
+                          "id": "647d0f4a-6b52-416d-b042-d09d00bd4bdd",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_pdf"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-647d0f4a-6b52-416d-b042-d09d00bd4bdd"
+                        },
+                        {
+                          "id": "b483926a-dacf-45a7-899c-857adf4a105a",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_pdf"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-b483926a-dacf-45a7-899c-857adf4a105a"
+                        },
+                        {
+                          "id": "a4d2eefe-ea3d-4536-891c-dd3205f221a7",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_pdf"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-a4d2eefe-ea3d-4536-891c-dd3205f221a7"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:47:27.000Z",
+                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                      "uid": "35240-543fe289-5642-4cce-b7fb-910695c96ac5"
+                    },
+                    {
+                      "name": "exportPDF",
+                      "id": "e40e9763-1323-4a46-b622-c0508ee4fe15",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycles",
+                            ":cycleId",
+                            "export_pdf"
+                          ],
+                          "variable": [
+                            {
+                              "id": "769b953a-86e2-47a1-a903-bc02987a0d54",
+                              "key": "cycleId",
+                              "value": "<string>",
+                              "description": "(Required) cycleId"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0fd1bff7-89cb-462b-b636-68c521d42a61",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_pdf"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json;charset=UTF-8"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "NOTHING_TO_EXPORT",
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-0fd1bff7-89cb-462b-b636-68c521d42a61"
+                        },
+                        {
+                          "id": "bcb00329-48f3-432b-8dc7-dd61c050dfb8",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_pdf"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-bcb00329-48f3-432b-8dc7-dd61c050dfb8"
+                        },
+                        {
+                          "id": "fc10c19b-b098-4758-89a1-517bb33e7938",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_pdf"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-fc10c19b-b098-4758-89a1-517bb33e7938"
+                        },
+                        {
+                          "id": "73a46c80-51eb-4c55-be58-e95e4f0abd64",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_pdf"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-73a46c80-51eb-4c55-be58-e95e4f0abd64"
+                        },
+                        {
+                          "id": "a081fdab-1815-499f-9152-2ac4436de6bf",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_pdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_pdf"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-a081fdab-1815-499f-9152-2ac4436de6bf"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:47:27.000Z",
+                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                      "uid": "35240-e40e9763-1323-4a46-b622-c0508ee4fe15"
+                    }
+                  ],
+                  "id": "91068ea8-3caf-428f-abc9-d1648fae5b0d",
+                  "createdAt": "2026-10-22T01:47:27.000Z",
+                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                  "uid": "35240-91068ea8-3caf-428f-abc9-d1648fae5b0d"
+                },
+                {
+                  "name": "export_xml",
+                  "item": [
+                    {
+                      "name": "lazy",
+                      "item": [
+                        {
+                          "name": "lazyGenerateXML",
+                          "id": "9855696a-7e1f-48e7-bf17-ba1dada914d1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_xml",
+                                "lazy"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e8057bfb-a4cb-4499-ae18-62426d878f71",
+                                  "key": "cycleId",
+                                  "value": "<string>",
+                                  "description": "(Required) cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "b562367e-999c-427a-8baa-4cae1676bc91",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export_xml",
+                                    "lazy"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-b562367e-999c-427a-8baa-4cae1676bc91"
+                            },
+                            {
+                              "id": "a414d5ad-0f43-487c-9177-2246fd11237b",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export_xml",
+                                    "lazy"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-a414d5ad-0f43-487c-9177-2246fd11237b"
+                            },
+                            {
+                              "id": "95b81a8b-45df-4931-8c6a-ed643e1ae658",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export_xml",
+                                    "lazy"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-95b81a8b-45df-4931-8c6a-ed643e1ae658"
+                            },
+                            {
+                              "id": "674e4550-be59-4752-ba58-59809dc2b61a",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export_xml",
+                                    "lazy"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-674e4550-be59-4752-ba58-59809dc2b61a"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-9855696a-7e1f-48e7-bf17-ba1dada914d1"
+                        },
+                        {
+                          "name": "lazyGenerateXML",
+                          "id": "d998c4c8-de4d-4f4c-ab34-7dc9c626d8e8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_xml",
+                                "lazy"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "00b39913-0fcb-40e9-93b7-e83dacfe25ce",
+                                  "key": "cycleId",
+                                  "value": "<string>",
+                                  "description": "(Required) cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "553fbb43-95b6-4960-9bbf-7fac69903a42",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export_xml",
+                                    "lazy"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-553fbb43-95b6-4960-9bbf-7fac69903a42"
+                            },
+                            {
+                              "id": "77e5ace6-9306-4be5-a826-f22b30a9afbc",
+                              "name": "Created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export_xml",
+                                    "lazy"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Created",
+                              "code": 201,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-77e5ace6-9306-4be5-a826-f22b30a9afbc"
+                            },
+                            {
+                              "id": "971c4899-2c03-4159-8728-81fd862b78e6",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export_xml",
+                                    "lazy"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-971c4899-2c03-4159-8728-81fd862b78e6"
+                            },
+                            {
+                              "id": "8f569476-c642-4496-8f4b-63d34555fe48",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export_xml",
+                                    "lazy"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-8f569476-c642-4496-8f4b-63d34555fe48"
+                            },
+                            {
+                              "id": "513ae68b-90d5-452e-98ce-e884bd3081c9",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml/lazy",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "review-cycles",
+                                    ":cycleId",
+                                    "export_xml",
+                                    "lazy"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:47:27.000Z",
+                              "updatedAt": "2026-10-22T01:47:27.000Z",
+                              "uid": "35240-513ae68b-90d5-452e-98ce-e884bd3081c9"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-d998c4c8-de4d-4f4c-ab34-7dc9c626d8e8"
+                        }
+                      ],
+                      "id": "dbd9e959-319b-4342-a3a9-ee8bda362152",
+                      "createdAt": "2026-10-22T01:47:27.000Z",
+                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                      "uid": "35240-dbd9e959-319b-4342-a3a9-ee8bda362152"
+                    },
+                    {
+                      "name": "generateXML",
+                      "id": "8e75d1c5-59a3-43f2-8c42-4c831d47679a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/xml"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycles",
+                            ":cycleId",
+                            "export_xml"
+                          ],
+                          "variable": [
+                            {
+                              "id": "73105e5b-c849-4985-a15e-93d334cc77a8",
+                              "key": "cycleId",
+                              "value": "<string>",
+                              "description": "(Required) cycleId"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e13a4ef4-6b00-482d-9559-346692aa3241",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/xml"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_xml"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "xml",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/xml"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n</element>",
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-e13a4ef4-6b00-482d-9559-346692aa3241"
+                        },
+                        {
+                          "id": "4497353c-5974-4c06-aa80-7cc1cbbc4aa9",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_xml"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-4497353c-5974-4c06-aa80-7cc1cbbc4aa9"
+                        },
+                        {
+                          "id": "9d40625b-2bc3-452a-bd1f-998046f06ff2",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_xml"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-9d40625b-2bc3-452a-bd1f-998046f06ff2"
+                        },
+                        {
+                          "id": "1256b4c7-0196-408f-a5ef-a3eaef5f6f0a",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/review-cycles/:cycleId/export_xml",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "review-cycles",
+                                ":cycleId",
+                                "export_xml"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:47:27.000Z",
+                          "updatedAt": "2026-10-22T01:47:27.000Z",
+                          "uid": "35240-1256b4c7-0196-408f-a5ef-a3eaef5f6f0a"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:47:27.000Z",
+                      "updatedAt": "2026-10-22T01:47:27.000Z",
+                      "uid": "35240-8e75d1c5-59a3-43f2-8c42-4c831d47679a"
+                    }
+                  ],
+                  "id": "00379f7b-f2c9-4525-91cc-7a83b027be62",
+                  "createdAt": "2026-10-22T01:47:27.000Z",
+                  "updatedAt": "2026-10-22T01:47:27.000Z",
+                  "uid": "35240-00379f7b-f2c9-4525-91cc-7a83b027be62"
+                }
+              ],
+              "id": "b05b598e-d47f-4ff5-9084-b647146854fe",
+              "createdAt": "2026-10-22T01:47:27.000Z",
+              "updatedAt": "2026-10-22T01:47:27.000Z",
+              "uid": "35240-b05b598e-d47f-4ff5-9084-b647146854fe"
+            }
+          ],
+          "id": "e6b5e60c-d096-4c26-947b-8429ab5d7400",
+          "createdAt": "2026-10-22T01:47:27.000Z",
+          "updatedAt": "2026-10-22T01:47:27.000Z",
+          "uid": "35240-e6b5e60c-d096-4c26-947b-8429ab5d7400"
+        }
+      ],
+      "id": "742e2277-0ff6-4c03-9f12-b3e3c9f2a5d4",
+      "createdAt": "2026-10-22T01:47:27.000Z",
+      "updatedAt": "2026-10-22T01:47:27.000Z",
+      "uid": "35240-742e2277-0ff6-4c03-9f12-b3e3c9f2a5d4"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
+    }
+  ]
+}

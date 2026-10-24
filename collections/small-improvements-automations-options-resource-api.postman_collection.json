@@ -1,252 +1,257 @@
 {
+  "info": {
+    "_postman_id": "155a63e3-57b2-446c-a6af-cbfe649e1257",
+    "name": "Small Improvements Automations Options Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:39:25.000Z",
+    "updatedAt": "2026-10-22T01:39:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-155a63e3-57b2-446c-a6af-cbfe649e1257"
+  },
   "item": [
     {
-      "id": "3ad76d97-c09e-425f-9533-91f22591d6ca",
-      "name": "automations-options-resource",
-      "description": {
-        "content": "Automations Options Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "d8b4db2d-ccfa-4867-8705-615b86d4cb09",
-          "name": "getAutomationsOptions",
-          "request": {
-            "name": "getAutomationsOptions",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "automations",
-                "options"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "targetGroup",
-                  "value": "<string>",
-                  "description": "(Required) targetGroup"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "automations",
+          "item": [
             {
-              "id": "dcfaab9c-2cc1-403b-8f5d-aacb8d3c84f6",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "automations",
-                    "options"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "targetGroup",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+              "name": "options",
+              "item": [
+                {
+                  "name": "getAutomationsOptions",
+                  "id": "0bae535c-c293-49f9-ba26-eaf12d98cd96",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "dce8d7ac-abf0-445f-aa17-a6aefee5faf9",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "automations",
-                    "options"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/automations/options?targetGroup=IC",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "automations",
+                        "options"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) targetGroup",
+                          "key": "targetGroup",
+                          "value": "IC"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "targetGroup",
-                      "value": "<string>"
+                      "id": "ac2aa18b-87d9-4027-a8e2-321ffe13aaff",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/automations/options?targetGroup=IC",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "automations",
+                            "options"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) targetGroup",
+                              "key": "targetGroup",
+                              "value": "IC"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json;charset=UTF-8"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-22T01:39:26.000Z",
+                      "updatedAt": "2026-10-22T01:39:26.000Z",
+                      "uid": "35240-ac2aa18b-87d9-4027-a8e2-321ffe13aaff"
+                    },
+                    {
+                      "id": "607dfa6f-952d-48b1-9c25-43bc678595e1",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/automations/options?targetGroup=IC",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "automations",
+                            "options"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) targetGroup",
+                              "key": "targetGroup",
+                              "value": "IC"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:26.000Z",
+                      "updatedAt": "2026-10-22T01:39:26.000Z",
+                      "uid": "35240-607dfa6f-952d-48b1-9c25-43bc678595e1"
+                    },
+                    {
+                      "id": "b6a65de6-7490-429b-803a-b70b9463dd1e",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/automations/options?targetGroup=IC",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "automations",
+                            "options"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) targetGroup",
+                              "key": "targetGroup",
+                              "value": "IC"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:26.000Z",
+                      "updatedAt": "2026-10-22T01:39:26.000Z",
+                      "uid": "35240-b6a65de6-7490-429b-803a-b70b9463dd1e"
+                    },
+                    {
+                      "id": "c3756dfe-a4d7-4043-954b-83bd3251a427",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/automations/options?targetGroup=IC",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "automations",
+                            "options"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) targetGroup",
+                              "key": "targetGroup",
+                              "value": "IC"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:26.000Z",
+                      "updatedAt": "2026-10-22T01:39:26.000Z",
+                      "uid": "35240-c3756dfe-a4d7-4043-954b-83bd3251a427"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-22T01:39:26.000Z",
+                  "updatedAt": "2026-10-22T01:39:26.000Z",
+                  "uid": "35240-0bae535c-c293-49f9-ba26-eaf12d98cd96"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "7e51fbdc-e0cf-4cac-bfde-d6f112cf328f",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "automations",
-                    "options"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "targetGroup",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "923814e9-4623-4ab3-8a3c-39cfaa54a0fb",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "automations",
-                    "options"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "targetGroup",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "820ff362-3c66-4222-ab01-0fc5846c9957",
+              "createdAt": "2026-10-22T01:39:26.000Z",
+              "updatedAt": "2026-10-22T01:39:26.000Z",
+              "uid": "35240-820ff362-3c66-4222-ab01-0fc5846c9957"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7272ee66-9b4b-43db-9c38-b7171ff1189b",
+          "createdAt": "2026-10-22T01:39:26.000Z",
+          "updatedAt": "2026-10-22T01:39:26.000Z",
+          "uid": "35240-7272ee66-9b4b-43db-9c38-b7171ff1189b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "2f3f30a8-04c8-4271-b231-225e39e38479",
+      "createdAt": "2026-10-22T01:39:26.000Z",
+      "updatedAt": "2026-10-22T01:39:26.000Z",
+      "uid": "35240-2f3f30a8-04c8-4271-b231-225e39e38479"
     }
   ],
   "auth": {
@@ -254,17 +259,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "613d5c41-eaab-45aa-a319-797fabbf0cfd",
-    "name": "Small Improvements action-item-resource automations-options-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

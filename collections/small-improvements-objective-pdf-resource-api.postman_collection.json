@@ -1,300 +1,282 @@
 {
+  "info": {
+    "_postman_id": "5973702b-143e-437d-a3a3-16d012fa2c4d",
+    "name": "Small Improvements Objective PDF Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:44:55.000Z",
+    "updatedAt": "2026-10-22T01:44:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5973702b-143e-437d-a3a3-16d012fa2c4d"
+  },
   "item": [
     {
-      "id": "71f4176f-db45-459a-8c02-5ae07bb03427",
-      "name": "objective-pdf-resource",
-      "description": {
-        "content": "Objective Pdf Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "cc8fef11-41f7-45c7-8a71-b60a5e6ec5c6",
-          "name": "getFile",
-          "request": {
-            "name": "getFile",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "objectives",
-                ":cycleId",
-                ":userId",
-                "getPdf"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "cycleId",
-                  "description": "(Required) cycleId"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "userId",
-                  "description": "(Required) userId"
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "objectives",
+          "item": [
             {
-              "id": "10380169-c55e-419d-9c03-33099f098054",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "objectives",
-                    ":cycleId",
-                    ":userId",
-                    "getPdf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "cycleId",
-                      "description": "(Required) cycleId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "userId",
-                      "description": "(Required) userId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "{cycleId}",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "name": "{userId}",
+                  "item": [
+                    {
+                      "name": "getPdf",
+                      "item": [
+                        {
+                          "name": "getFile",
+                          "id": "c582cf99-c85b-4f7c-ab78-36a7b3d5bcb3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/objectives/:cycleId/:userId/getPdf",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "objectives",
+                                ":cycleId",
+                                ":userId",
+                                "getPdf"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "86beec9f-0afa-4009-8863-d7bde12a4917",
+                                  "key": "cycleId",
+                                  "value": "<string>",
+                                  "description": "(Required) cycleId"
+                                },
+                                {
+                                  "id": "e787d4db-421c-4021-b1fe-9b06768a16f7",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) userId"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "4f7a6407-e754-4bb0-9274-49ad90056396",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/objectives/:cycleId/:userId/getPdf",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "objectives",
+                                    ":cycleId",
+                                    ":userId",
+                                    "getPdf"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:44:56.000Z",
+                              "updatedAt": "2026-10-22T01:44:56.000Z",
+                              "uid": "35240-4f7a6407-e754-4bb0-9274-49ad90056396"
+                            },
+                            {
+                              "id": "0afc00c1-67de-453e-be33-8fe922e660a3",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/objectives/:cycleId/:userId/getPdf",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "objectives",
+                                    ":cycleId",
+                                    ":userId",
+                                    "getPdf"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:44:56.000Z",
+                              "updatedAt": "2026-10-22T01:44:56.000Z",
+                              "uid": "35240-0afc00c1-67de-453e-be33-8fe922e660a3"
+                            },
+                            {
+                              "id": "63810a5f-3ea3-4654-801d-8089d5b5253c",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/objectives/:cycleId/:userId/getPdf",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "objectives",
+                                    ":cycleId",
+                                    ":userId",
+                                    "getPdf"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:44:56.000Z",
+                              "updatedAt": "2026-10-22T01:44:56.000Z",
+                              "uid": "35240-63810a5f-3ea3-4654-801d-8089d5b5253c"
+                            },
+                            {
+                              "id": "a4591186-df19-4879-885f-51117d6cdc6a",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/objectives/:cycleId/:userId/getPdf",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "objectives",
+                                    ":cycleId",
+                                    ":userId",
+                                    "getPdf"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "cycleId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:44:56.000Z",
+                              "updatedAt": "2026-10-22T01:44:56.000Z",
+                              "uid": "35240-a4591186-df19-4879-885f-51117d6cdc6a"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:44:56.000Z",
+                          "updatedAt": "2026-10-22T01:44:56.000Z",
+                          "uid": "35240-c582cf99-c85b-4f7c-ab78-36a7b3d5bcb3"
+                        }
+                      ],
+                      "id": "4c161c67-0b8c-4701-8df8-4a321b7c3812",
+                      "createdAt": "2026-10-22T01:44:56.000Z",
+                      "updatedAt": "2026-10-22T01:44:56.000Z",
+                      "uid": "35240-4c161c67-0b8c-4701-8df8-4a321b7c3812"
+                    }
+                  ],
+                  "id": "69ceef61-4258-406e-a437-544c57264c76",
+                  "createdAt": "2026-10-22T01:44:56.000Z",
+                  "updatedAt": "2026-10-22T01:44:56.000Z",
+                  "uid": "35240-69ceef61-4258-406e-a437-544c57264c76"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ba9d6699-ce02-4e08-af30-46b1f5ff6503",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "objectives",
-                    ":cycleId",
-                    ":userId",
-                    "getPdf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "cycleId",
-                      "description": "(Required) cycleId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "userId",
-                      "description": "(Required) userId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a0a5abaf-0ca4-491f-b864-4f50f0b59823",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "objectives",
-                    ":cycleId",
-                    ":userId",
-                    "getPdf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "cycleId",
-                      "description": "(Required) cycleId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "userId",
-                      "description": "(Required) userId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a1b1e22a-eec9-405f-84c6-51997a855f1a",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "objectives",
-                    ":cycleId",
-                    ":userId",
-                    "getPdf"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "cycleId",
-                      "description": "(Required) cycleId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "userId",
-                      "description": "(Required) userId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "1502b8cf-5c55-4f0a-8157-100c57920bbc",
+              "createdAt": "2026-10-22T01:44:56.000Z",
+              "updatedAt": "2026-10-22T01:44:56.000Z",
+              "uid": "35240-1502b8cf-5c55-4f0a-8157-100c57920bbc"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "b6112ad5-2114-4071-b3e7-36bc6e541da7",
+          "createdAt": "2026-10-22T01:44:56.000Z",
+          "updatedAt": "2026-10-22T01:44:56.000Z",
+          "uid": "35240-b6112ad5-2114-4071-b3e7-36bc6e541da7"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "638682aa-0c41-4cda-81ea-3c40e53880eb",
+      "createdAt": "2026-10-22T01:44:56.000Z",
+      "updatedAt": "2026-10-22T01:44:56.000Z",
+      "uid": "35240-638682aa-0c41-4cda-81ea-3c40e53880eb"
     }
   ],
   "auth": {
@@ -302,17 +284,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "54938c79-cd09-4f79-b195-712b30c9c31c",
-    "name": "Small Improvements action-item-resource objective-pdf-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

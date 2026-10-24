@@ -1,1169 +1,1126 @@
 {
+  "info": {
+    "_postman_id": "e49679ad-b3b9-4696-beda-5e2b4660f1fe",
+    "name": "Small Improvements Feedback Provide Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:42:17.000Z",
+    "updatedAt": "2026-10-22T01:42:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e49679ad-b3b9-4696-beda-5e2b4660f1fe"
+  },
   "item": [
     {
-      "id": "ffb0fd55-0b63-4464-a29f-a0d55b33fda5",
-      "name": "feedback-provide-resource",
-      "description": {
-        "content": "Feedback Provide Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "8317e051-b13b-4338-b766-acc37ca15224",
-          "name": "getResponse",
-          "request": {
-            "name": "getResponse",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "cycle-feedback-response",
-                ":responseId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "responseId",
-                  "description": "(Required) responseId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "cycle-feedback-response",
+          "item": [
             {
-              "id": "c765a810-2bb6-4927-9364-d6bacd82f19a",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "{responseId}",
+              "item": [
+                {
+                  "name": "answer",
+                  "item": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
+                      "name": "answer",
+                      "id": "d44658b9-23c6-4b4e-8254-d7d1a52bc4b0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/answer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "cycle-feedback-response",
+                            ":responseId",
+                            "answer"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c6b3fa0b-9809-4b05-a0f2-316bc83cc2ca",
+                              "key": "responseId",
+                              "value": "<string>",
+                              "description": "(Required) responseId"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "ddc602ae-d1a4-44db-9c80-940a110de329",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/answer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "answer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json;charset=UTF-8"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-ddc602ae-d1a4-44db-9c80-940a110de329"
+                        },
+                        {
+                          "id": "ba697667-2e04-493f-abfa-71ac1b7b3d6e",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/answer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "answer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-ba697667-2e04-493f-abfa-71ac1b7b3d6e"
+                        },
+                        {
+                          "id": "b2fa5996-3c6c-45eb-9490-7dbd4de4c613",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/answer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "answer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-b2fa5996-3c6c-45eb-9490-7dbd4de4c613"
+                        },
+                        {
+                          "id": "a2529e6a-370e-4711-8088-3d784bbda391",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/answer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "answer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-a2529e6a-370e-4711-8088-3d784bbda391"
+                        },
+                        {
+                          "id": "0acb2f32-6316-46e6-b6ac-3df1e733826c",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "[]",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/answer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "answer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-0acb2f32-6316-46e6-b6ac-3df1e733826c"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:42:18.000Z",
+                      "updatedAt": "2026-10-22T01:42:18.000Z",
+                      "uid": "35240-d44658b9-23c6-4b4e-8254-d7d1a52bc4b0"
                     }
-                  ]
+                  ],
+                  "id": "81f6cb82-2db7-4f5b-893b-970353c4a9e5",
+                  "createdAt": "2026-10-22T01:42:18.000Z",
+                  "updatedAt": "2026-10-22T01:42:18.000Z",
+                  "uid": "35240-81f6cb82-2db7-4f5b-893b-970353c4a9e5"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                {
+                  "name": "reopen",
+                  "item": [
+                    {
+                      "name": "reopenResponse",
+                      "id": "f1892a13-35db-47d8-97cc-b07b9ce0ca42",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/reopen",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "cycle-feedback-response",
+                            ":responseId",
+                            "reopen"
+                          ],
+                          "variable": [
+                            {
+                              "id": "27bb8408-26b6-449b-b8eb-2c62a3409696",
+                              "key": "responseId",
+                              "value": "<string>",
+                              "description": "(Required) responseId"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2434df7a-af9f-4852-a7ae-c98617725da1",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/reopen",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "reopen"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json;charset=UTF-8"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-2434df7a-af9f-4852-a7ae-c98617725da1"
+                        },
+                        {
+                          "id": "68e2804b-ee49-43b0-857e-82c77e554201",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/reopen",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "reopen"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-68e2804b-ee49-43b0-857e-82c77e554201"
+                        },
+                        {
+                          "id": "d3687b50-37d4-4818-8aa8-27b3005e5bcd",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/reopen",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "reopen"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-d3687b50-37d4-4818-8aa8-27b3005e5bcd"
+                        },
+                        {
+                          "id": "3b2b9c25-5b45-4f47-9149-c965c19d76e7",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/reopen",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "reopen"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-3b2b9c25-5b45-4f47-9149-c965c19d76e7"
+                        },
+                        {
+                          "id": "0717169b-5a32-4931-9ae7-55223e07056e",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/reopen",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "reopen"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-0717169b-5a32-4931-9ae7-55223e07056e"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:42:18.000Z",
+                      "updatedAt": "2026-10-22T01:42:18.000Z",
+                      "uid": "35240-f1892a13-35db-47d8-97cc-b07b9ce0ca42"
+                    }
+                  ],
+                  "id": "8a5dd8bd-0778-403f-93da-183293877ef5",
+                  "createdAt": "2026-10-22T01:42:18.000Z",
+                  "updatedAt": "2026-10-22T01:42:18.000Z",
+                  "uid": "35240-8a5dd8bd-0778-403f-93da-183293877ef5"
+                },
+                {
+                  "name": "share",
+                  "item": [
+                    {
+                      "name": "shareResponse",
+                      "id": "72f638a5-da33-4e4b-87fc-2cd575fcbcaf",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/share",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "cycle-feedback-response",
+                            ":responseId",
+                            "share"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c15eb73b-2776-466e-971d-8511d1ff683d",
+                              "key": "responseId",
+                              "value": "<string>",
+                              "description": "(Required) responseId"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "863b38e3-0a57-4c97-b34f-1f5ca37cf145",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/share",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "share"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json;charset=UTF-8"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-863b38e3-0a57-4c97-b34f-1f5ca37cf145"
+                        },
+                        {
+                          "id": "8360ebf1-b0e4-4133-96a2-3081bb26981e",
+                          "name": "Created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/share",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "share"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-8360ebf1-b0e4-4133-96a2-3081bb26981e"
+                        },
+                        {
+                          "id": "5eaa21fb-679e-4c24-b519-06290be747d8",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/share",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "share"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-5eaa21fb-679e-4c24-b519-06290be747d8"
+                        },
+                        {
+                          "id": "3fc18d7c-6bf1-4807-851e-c32a4bfa349f",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/share",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "share"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-3fc18d7c-6bf1-4807-851e-c32a4bfa349f"
+                        },
+                        {
+                          "id": "a4219f1a-b39a-4334-a225-ed0be6e4a917",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId/share",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "cycle-feedback-response",
+                                ":responseId",
+                                "share"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "responseId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:18.000Z",
+                          "updatedAt": "2026-10-22T01:42:18.000Z",
+                          "uid": "35240-a4219f1a-b39a-4334-a225-ed0be6e4a917"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:42:18.000Z",
+                      "updatedAt": "2026-10-22T01:42:18.000Z",
+                      "uid": "35240-72f638a5-da33-4e4b-87fc-2cd575fcbcaf"
+                    }
+                  ],
+                  "id": "8bd425cb-1b42-4c1c-927e-3de89fda77a9",
+                  "createdAt": "2026-10-22T01:42:18.000Z",
+                  "updatedAt": "2026-10-22T01:42:18.000Z",
+                  "uid": "35240-8bd425cb-1b42-4c1c-927e-3de89fda77a9"
+                },
+                {
+                  "name": "getResponse",
+                  "id": "8a1c965a-1dd2-4bc1-bde5-f29bf13ca8da",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3e36e6b3-3bb8-4509-98cf-bdbbe75d3a95",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "cycle-feedback-response",
+                        ":responseId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6ec81000-10e8-4d8e-a1f7-4180e2d809bb",
+                          "key": "responseId",
+                          "value": "<string>",
+                          "description": "(Required) responseId"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "1376fcd6-d1d3-4d9f-a84e-6b9bab710131",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  },
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
+                      "id": "609f8954-e220-4659-a7d0-9ae946e40c30",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "cycle-feedback-response",
+                            ":responseId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "responseId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json;charset=UTF-8"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-22T01:42:18.000Z",
+                      "updatedAt": "2026-10-22T01:42:18.000Z",
+                      "uid": "35240-609f8954-e220-4659-a7d0-9ae946e40c30"
                     },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "9ff5c691-abc3-4d98-9096-1915e4c97e9c",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
+                      "id": "f30239ad-b7c8-4d76-a7d6-0327d3a26fb6",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "cycle-feedback-response",
+                            ":responseId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "responseId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:42:18.000Z",
+                      "updatedAt": "2026-10-22T01:42:18.000Z",
+                      "uid": "35240-f30239ad-b7c8-4d76-a7d6-0327d3a26fb6"
                     },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                    {
+                      "id": "38a6073e-2856-46ad-b66e-d0e9a5bd28fb",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "cycle-feedback-response",
+                            ":responseId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "responseId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:42:18.000Z",
+                      "updatedAt": "2026-10-22T01:42:18.000Z",
+                      "uid": "35240-38a6073e-2856-46ad-b66e-d0e9a5bd28fb"
+                    },
+                    {
+                      "id": "d34a90e9-459b-4eed-b8f3-0eaa6d9b5410",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/cycle-feedback-response/:responseId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "cycle-feedback-response",
+                            ":responseId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "responseId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:42:18.000Z",
+                      "updatedAt": "2026-10-22T01:42:18.000Z",
+                      "uid": "35240-d34a90e9-459b-4eed-b8f3-0eaa6d9b5410"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:42:18.000Z",
+                  "updatedAt": "2026-10-22T01:42:18.000Z",
+                  "uid": "35240-8a1c965a-1dd2-4bc1-bde5-f29bf13ca8da"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "520a9680-e714-4385-b966-7869b855cfed",
+              "createdAt": "2026-10-22T01:42:18.000Z",
+              "updatedAt": "2026-10-22T01:42:18.000Z",
+              "uid": "35240-520a9680-e714-4385-b966-7869b855cfed"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "97c8eae6-dde4-4dd2-8c87-cd6d1a1bf53f",
-          "name": "answer",
-          "request": {
-            "name": "answer",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "cycle-feedback-response",
-                ":responseId",
-                "answer"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "responseId",
-                  "description": "(Required) responseId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json;charset=UTF-8"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "[\n  \"<object>\",\n  \"<object>\"\n]",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "d066dcbc-d5ca-4ce6-9afd-e2978ddf2982",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "answer"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "90d13572-828e-4473-b0c4-bd2322057ea2",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "answer"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "f5a88820-7b2c-42e0-9b54-a49490827994",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "answer"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a61b6505-3728-433b-98ec-7b5b631937bf",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "answer"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "37ef3c84-ecf0-4823-865a-2fe5541fa231",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "answer"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "245fa92b-fc45-41fe-9175-9b30588e1bed",
-          "name": "reopenResponse",
-          "request": {
-            "name": "reopenResponse",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "cycle-feedback-response",
-                ":responseId",
-                "reopen"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "responseId",
-                  "description": "(Required) responseId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d46e61fb-08c8-4a4d-967b-726f0267f129",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "reopen"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "30525859-e4d9-4fda-8a96-ba156ac01783",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "reopen"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "81d205b1-7077-47a7-851d-1a509acf3d86",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "reopen"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "90d16f1f-022e-4cef-87e4-4e3201b52688",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "reopen"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "65638827-d511-4448-9fab-9c3d15ef10fd",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "reopen"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6710a20e-f58c-47b6-a482-08584076cfed",
-          "name": "shareResponse",
-          "request": {
-            "name": "shareResponse",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "cycle-feedback-response",
-                ":responseId",
-                "share"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "responseId",
-                  "description": "(Required) responseId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d0e1ffdc-e9c9-42e5-8b71-5d82def211d6",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "share"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "150dee39-54a8-4402-9171-e71b212c33e5",
-              "name": "Created",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "share"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Created",
-              "code": 201,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "161a21d7-a275-49e1-8022-6a12f37aee5d",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "share"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "405d1503-8538-4c22-adab-b198026cd5ed",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "share"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "16c4a714-19d3-4d34-a895-9a218015fb5e",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "cycle-feedback-response",
-                    ":responseId",
-                    "share"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "responseId",
-                      "description": "(Required) responseId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "71eef82c-6686-4f99-ac21-75a2edfa7834",
+          "createdAt": "2026-10-22T01:42:18.000Z",
+          "updatedAt": "2026-10-22T01:42:18.000Z",
+          "uid": "35240-71eef82c-6686-4f99-ac21-75a2edfa7834"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "89e64a3e-e8df-4982-8120-e1f3973aa322",
+      "createdAt": "2026-10-22T01:42:18.000Z",
+      "updatedAt": "2026-10-22T01:42:18.000Z",
+      "uid": "35240-89e64a3e-e8df-4982-8120-e1f3973aa322"
     }
   ],
   "auth": {
@@ -1171,17 +1128,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "be52e2d6-f847-4778-9758-9ec9e2f8793b",
-    "name": "Small Improvements action-item-resource feedback-provide-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

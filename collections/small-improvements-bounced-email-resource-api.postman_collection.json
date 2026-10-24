@@ -1,1040 +1,969 @@
 {
+  "info": {
+    "_postman_id": "cc93454b-3c6c-4b08-b247-5ba3fee932bf",
+    "name": "Small Improvements Bounced Email Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:39:44.000Z",
+    "updatedAt": "2026-10-22T01:39:44.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cc93454b-3c6c-4b08-b247-5ba3fee932bf"
+  },
   "item": [
     {
-      "id": "c65a483d-eae7-4d25-9ba2-f695fb90d0c6",
-      "name": "bounced-email-resource",
-      "description": {
-        "content": "Bounced Email Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "c586780d-e2cf-447f-933c-861e0f94acd7",
-          "name": "getBouncedAggregatesByCompanyId",
-          "request": {
-            "name": "getBouncedAggregatesByCompanyId",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "bounced-email",
-                "company",
-                ":companyId",
-                "aggregate"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) companyId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "bounced-email",
+          "item": [
             {
-              "id": "b217ae8d-f153-4c8b-89e2-74d5372ae06b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "company",
-                    ":companyId",
-                    "aggregate"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+              "name": "company",
+              "item": [
+                {
+                  "name": "{companyId}",
+                  "item": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
+                      "name": "aggregate",
+                      "item": [
+                        {
+                          "name": "{encodedEmail}",
+                          "item": [
+                            {
+                              "name": "removeFromBounced",
+                              "id": "f44a20ef-5b40-41e4-8369-cc6fbd942712",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate/:encodedEmail",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "bounced-email",
+                                    "company",
+                                    ":companyId",
+                                    "aggregate",
+                                    ":encodedEmail"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "a5a093dd-f319-4401-bf3b-c641af48caee",
+                                      "key": "companyId",
+                                      "value": "<string>",
+                                      "description": "(Required) companyId"
+                                    },
+                                    {
+                                      "id": "9b43f787-e02d-4068-8f59-d7fe283f8440",
+                                      "key": "encodedEmail",
+                                      "value": "<string>",
+                                      "description": "(Required) encodedEmail"
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "f6a26732-b8ab-4500-9333-a1953546fd81",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate/:encodedEmail",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "bounced-email",
+                                        "company",
+                                        ":companyId",
+                                        "aggregate",
+                                        ":encodedEmail"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "encodedEmail"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:39:44.000Z",
+                                  "updatedAt": "2026-10-22T01:39:44.000Z",
+                                  "uid": "35240-f6a26732-b8ab-4500-9333-a1953546fd81"
+                                },
+                                {
+                                  "id": "1fb689c6-606d-433f-89bb-d3ffe3ebf424",
+                                  "name": "No Content",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate/:encodedEmail",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "bounced-email",
+                                        "company",
+                                        ":companyId",
+                                        "aggregate",
+                                        ":encodedEmail"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "encodedEmail"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "No Content",
+                                  "code": 204,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:39:44.000Z",
+                                  "updatedAt": "2026-10-22T01:39:44.000Z",
+                                  "uid": "35240-1fb689c6-606d-433f-89bb-d3ffe3ebf424"
+                                },
+                                {
+                                  "id": "311b7703-a22e-46c7-90f1-0928e9931a2d",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate/:encodedEmail",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "bounced-email",
+                                        "company",
+                                        ":companyId",
+                                        "aggregate",
+                                        ":encodedEmail"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "encodedEmail"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:39:44.000Z",
+                                  "updatedAt": "2026-10-22T01:39:44.000Z",
+                                  "uid": "35240-311b7703-a22e-46c7-90f1-0928e9931a2d"
+                                },
+                                {
+                                  "id": "7baccfd6-d77d-47bd-8d8f-4f9e145caec8",
+                                  "name": "Forbidden",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate/:encodedEmail",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "bounced-email",
+                                        "company",
+                                        ":companyId",
+                                        "aggregate",
+                                        ":encodedEmail"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "companyId"
+                                        },
+                                        {
+                                          "key": "encodedEmail"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-10-22T01:39:44.000Z",
+                                  "updatedAt": "2026-10-22T01:39:44.000Z",
+                                  "uid": "35240-7baccfd6-d77d-47bd-8d8f-4f9e145caec8"
+                                }
+                              ],
+                              "createdAt": "2026-10-22T01:39:44.000Z",
+                              "updatedAt": "2026-10-22T01:39:44.000Z",
+                              "uid": "35240-f44a20ef-5b40-41e4-8369-cc6fbd942712"
+                            }
+                          ],
+                          "id": "7a49282a-d500-46ca-85e7-b06474468f05",
+                          "createdAt": "2026-10-22T01:39:44.000Z",
+                          "updatedAt": "2026-10-22T01:39:44.000Z",
+                          "uid": "35240-7a49282a-d500-46ca-85e7-b06474468f05"
+                        },
+                        {
+                          "name": "getBouncedAggregatesByCompanyId",
+                          "id": "04f755f6-a3d5-459b-86d0-175668ae9ddf",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "bounced-email",
+                                "company",
+                                ":companyId",
+                                "aggregate"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b2622700-d800-4ad1-b2a2-88da791b14c7",
+                                  "key": "companyId",
+                                  "value": "<string>",
+                                  "description": "(Required) companyId"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "db9f390e-f342-46c9-ac5d-527e004d7bb2",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "bounced-email",
+                                    "company",
+                                    ":companyId",
+                                    "aggregate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json;charset=UTF-8"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[]",
+                              "createdAt": "2026-10-22T01:39:44.000Z",
+                              "updatedAt": "2026-10-22T01:39:44.000Z",
+                              "uid": "35240-db9f390e-f342-46c9-ac5d-527e004d7bb2"
+                            },
+                            {
+                              "id": "5c1866b5-18db-48b5-9594-8f9dcc239023",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "bounced-email",
+                                    "company",
+                                    ":companyId",
+                                    "aggregate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:39:44.000Z",
+                              "updatedAt": "2026-10-22T01:39:44.000Z",
+                              "uid": "35240-5c1866b5-18db-48b5-9594-8f9dcc239023"
+                            },
+                            {
+                              "id": "41aa6ff6-6520-4187-9773-dcb1fdc8c48e",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "bounced-email",
+                                    "company",
+                                    ":companyId",
+                                    "aggregate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:39:44.000Z",
+                              "updatedAt": "2026-10-22T01:39:44.000Z",
+                              "uid": "35240-41aa6ff6-6520-4187-9773-dcb1fdc8c48e"
+                            },
+                            {
+                              "id": "9be5df18-3254-44d9-8aad-de04ffd6cd13",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/bounced-email/company/:companyId/aggregate",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "bounced-email",
+                                    "company",
+                                    ":companyId",
+                                    "aggregate"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "companyId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:39:44.000Z",
+                              "updatedAt": "2026-10-22T01:39:44.000Z",
+                              "uid": "35240-9be5df18-3254-44d9-8aad-de04ffd6cd13"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:39:44.000Z",
+                          "updatedAt": "2026-10-22T01:39:44.000Z",
+                          "uid": "35240-04f755f6-a3d5-459b-86d0-175668ae9ddf"
+                        }
+                      ],
+                      "id": "58a3d3b2-646d-4c7d-b55f-25da70be3754",
+                      "createdAt": "2026-10-22T01:39:44.000Z",
+                      "updatedAt": "2026-10-22T01:39:44.000Z",
+                      "uid": "35240-58a3d3b2-646d-4c7d-b55f-25da70be3754"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+                  ],
+                  "id": "6f52dfc3-a15a-4450-9651-f0e23dd06f00",
+                  "createdAt": "2026-10-22T01:39:44.000Z",
+                  "updatedAt": "2026-10-22T01:39:44.000Z",
+                  "uid": "35240-6f52dfc3-a15a-4450-9651-f0e23dd06f00"
+                }
+              ],
+              "id": "a73e0b5b-ca07-4daa-b7bd-dadb9ac2bf8e",
+              "createdAt": "2026-10-22T01:39:44.000Z",
+              "updatedAt": "2026-10-22T01:39:44.000Z",
+              "uid": "35240-a73e0b5b-ca07-4daa-b7bd-dadb9ac2bf8e"
+            },
+            {
+              "name": "email",
+              "item": [
+                {
+                  "name": "getBouncedByEmail",
+                  "id": "de0029dd-0bb8-4006-9eed-33d46bd073a1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "[]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "2e663a81-b51f-47ec-8285-d57473aa25e6",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "company",
-                    ":companyId",
-                    "aggregate"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/bounced-email/email?companyId=<string>&email=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "bounced-email",
+                        "email"
+                      ],
+                      "query": [
+                        {
+                          "description": "companyId",
+                          "key": "companyId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) email",
+                          "key": "email",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "cd51c210-5386-420c-89ec-15631c0f9960",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "company",
-                    ":companyId",
-                    "aggregate"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "afc1e657-c62d-4ee4-8964-330e67ef0060",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "company",
-                    ":companyId",
-                    "aggregate"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9d46747d-1446-464f-8235-d8b79c5dc684",
-          "name": "removeFromBounced",
-          "request": {
-            "name": "removeFromBounced",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "bounced-email",
-                "company",
-                ":companyId",
-                "aggregate",
-                ":encodedEmail"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) companyId"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "encodedEmail",
-                  "description": "(Required) encodedEmail"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3db4a7cd-b8b4-4ff2-a50d-743f189fbb00",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "company",
-                    ":companyId",
-                    "aggregate",
-                    ":encodedEmail"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "encodedEmail",
-                      "description": "(Required) encodedEmail"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "dbeb4257-0f86-462e-8038-d525b7dd66d1",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "company",
-                    ":companyId",
-                    "aggregate",
-                    ":encodedEmail"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "encodedEmail",
-                      "description": "(Required) encodedEmail"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "fab5a73a-bac7-40c8-8b86-c0be07478f9f",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "company",
-                    ":companyId",
-                    "aggregate",
-                    ":encodedEmail"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "encodedEmail",
-                      "description": "(Required) encodedEmail"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "2c04b8b4-24e9-4ab7-9270-cbb9a8f0cecd",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "company",
-                    ":companyId",
-                    "aggregate",
-                    ":encodedEmail"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "encodedEmail",
-                      "description": "(Required) encodedEmail"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fd745529-01a3-491e-9ef0-2365c7f0c51d",
-          "name": "getBouncedByEmail",
-          "request": {
-            "name": "getBouncedByEmail",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "bounced-email",
-                "email"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "companyId",
-                  "value": "<string>",
-                  "description": "companyId"
-                },
-                {
-                  "disabled": false,
-                  "key": "email",
-                  "value": "<string>",
-                  "description": "(Required) email"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "179bdbe7-c6e3-402d-9972-9b6087811e69",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "email"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "companyId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "email",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9a7ace52-b1e0-4296-8b1d-2f5c486f7cf9",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "email"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "response": [
                     {
-                      "key": "companyId",
-                      "value": "<string>"
+                      "id": "98fd6133-7370-443a-936e-adce524cbd6e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/bounced-email/email?companyId=<string>&email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "bounced-email",
+                            "email"
+                          ],
+                          "query": [
+                            {
+                              "description": "companyId",
+                              "key": "companyId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) email",
+                              "key": "email",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json;charset=UTF-8"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-22T01:39:44.000Z",
+                      "updatedAt": "2026-10-22T01:39:44.000Z",
+                      "uid": "35240-98fd6133-7370-443a-936e-adce524cbd6e"
                     },
                     {
-                      "key": "email",
-                      "value": "<string>"
+                      "id": "eba0a050-99c4-46c4-93e8-85d5923d612a",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/bounced-email/email?companyId=<string>&email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "bounced-email",
+                            "email"
+                          ],
+                          "query": [
+                            {
+                              "description": "companyId",
+                              "key": "companyId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) email",
+                              "key": "email",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:44.000Z",
+                      "updatedAt": "2026-10-22T01:39:44.000Z",
+                      "uid": "35240-eba0a050-99c4-46c4-93e8-85d5923d612a"
+                    },
+                    {
+                      "id": "af2a106d-4696-4876-9364-39d3b8718099",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/bounced-email/email?companyId=<string>&email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "bounced-email",
+                            "email"
+                          ],
+                          "query": [
+                            {
+                              "description": "companyId",
+                              "key": "companyId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) email",
+                              "key": "email",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:44.000Z",
+                      "updatedAt": "2026-10-22T01:39:44.000Z",
+                      "uid": "35240-af2a106d-4696-4876-9364-39d3b8718099"
+                    },
+                    {
+                      "id": "b308b997-8b2b-438f-a89f-3df1b9b3fc7e",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/bounced-email/email?companyId=<string>&email=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "bounced-email",
+                            "email"
+                          ],
+                          "query": [
+                            {
+                              "description": "companyId",
+                              "key": "companyId",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) email",
+                              "key": "email",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:44.000Z",
+                      "updatedAt": "2026-10-22T01:39:44.000Z",
+                      "uid": "35240-b308b997-8b2b-438f-a89f-3df1b9b3fc7e"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-22T01:39:44.000Z",
+                  "updatedAt": "2026-10-22T01:39:44.000Z",
+                  "uid": "35240-de0029dd-0bb8-4006-9eed-33d46bd073a1"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "0582047d-592b-4061-9be0-c94f0f52c255",
+              "createdAt": "2026-10-22T01:39:44.000Z",
+              "updatedAt": "2026-10-22T01:39:44.000Z",
+              "uid": "35240-0582047d-592b-4061-9be0-c94f0f52c255"
             },
             {
-              "id": "ca8054fe-380e-411a-8571-854dcf16e72f",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "email"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "removeFromBounced",
+                  "id": "d8047089-737b-4ecb-9b67-cbe85488bd35",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/bounced-email/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "bounced-email",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "16c3bead-17f3-4189-8f6e-6114cac7587c",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) id"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "companyId",
-                      "value": "<string>"
+                      "id": "417f68d2-dc40-4cae-984b-055645d6f5ae",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/bounced-email/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "bounced-email",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:44.000Z",
+                      "updatedAt": "2026-10-22T01:39:44.000Z",
+                      "uid": "35240-417f68d2-dc40-4cae-984b-055645d6f5ae"
                     },
                     {
-                      "key": "email",
-                      "value": "<string>"
+                      "id": "26bcd41c-5061-4b91-af1e-80bdf2e45c35",
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/bounced-email/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "bounced-email",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:44.000Z",
+                      "updatedAt": "2026-10-22T01:39:44.000Z",
+                      "uid": "35240-26bcd41c-5061-4b91-af1e-80bdf2e45c35"
+                    },
+                    {
+                      "id": "ddf4e45c-bec8-4499-a6cc-0a320cf8f85f",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/bounced-email/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "bounced-email",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:44.000Z",
+                      "updatedAt": "2026-10-22T01:39:44.000Z",
+                      "uid": "35240-ddf4e45c-bec8-4499-a6cc-0a320cf8f85f"
+                    },
+                    {
+                      "id": "6870b062-becd-47cd-b0d4-7d64b38f003c",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/bounced-email/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "bounced-email",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:39:44.000Z",
+                      "updatedAt": "2026-10-22T01:39:44.000Z",
+                      "uid": "35240-6870b062-becd-47cd-b0d4-7d64b38f003c"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-22T01:39:44.000Z",
+                  "updatedAt": "2026-10-22T01:39:44.000Z",
+                  "uid": "35240-d8047089-737b-4ecb-9b67-cbe85488bd35"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "afc1c23f-20ec-4a30-b04a-9e4b0e573841",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    "email"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "companyId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "email",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "a4edc00f-1d1d-4416-a75e-4ba5fb8a0f77",
+              "createdAt": "2026-10-22T01:39:44.000Z",
+              "updatedAt": "2026-10-22T01:39:44.000Z",
+              "uid": "35240-a4edc00f-1d1d-4416-a75e-4ba5fb8a0f77"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "51cd6847-687b-420e-9543-9c5df753ce47",
-          "name": "removeFromBounced",
-          "request": {
-            "name": "removeFromBounced",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "bounced-email",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) id"
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ac29cc40-4fae-45d2-b5d9-e97ec7c0b22a",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5a62c5d5-8a92-4a4b-b837-db35d8beb91e",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0615d1ac-9bc7-4e71-9ef7-a658a0851340",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "843634f7-aeaa-46bb-a534-67f80109bc7a",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "bounced-email",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) id"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7e061d27-6d62-456d-b3e2-35ff1691fab8",
+          "createdAt": "2026-10-22T01:39:44.000Z",
+          "updatedAt": "2026-10-22T01:39:44.000Z",
+          "uid": "35240-7e061d27-6d62-456d-b3e2-35ff1691fab8"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "2494e1ed-133a-4f20-86f3-56a5e1e0b57b",
+      "createdAt": "2026-10-22T01:39:44.000Z",
+      "updatedAt": "2026-10-22T01:39:44.000Z",
+      "uid": "35240-2494e1ed-133a-4f20-86f3-56a5e1e0b57b"
     }
   ],
   "auth": {
@@ -1042,17 +971,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "8f4ac27f-e813-4bc1-aab8-29779c543aaa",
-    "name": "Small Improvements action-item-resource bounced-email-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

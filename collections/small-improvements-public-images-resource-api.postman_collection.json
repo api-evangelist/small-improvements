@@ -1,593 +1,585 @@
 {
+  "info": {
+    "_postman_id": "a07ded48-6002-4b5b-b53f-2c297382072a",
+    "name": "Small Improvements Public Images Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:46:13.000Z",
+    "updatedAt": "2026-10-22T01:46:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a07ded48-6002-4b5b-b53f-2c297382072a"
+  },
   "item": [
     {
-      "id": "79d42759-5d51-4665-8863-167d8f9bd136",
-      "name": "public-images-resource",
-      "description": {
-        "content": "Public Images Resource",
-        "type": "text/plain"
-      },
+      "name": "imageservice",
       "item": [
         {
-          "id": "45e05495-a227-4acd-9b93-c1701099b939",
           "name": "get",
+          "id": "b5daefa3-87e6-4b7b-b243-3b2870858686",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "get",
-            "description": {},
-            "url": {
-              "path": [
-                "imageservice"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "crop",
-                  "value": "true",
-                  "description": "crop"
-                },
-                {
-                  "disabled": false,
-                  "key": "format",
-                  "value": "ORIGINAL",
-                  "description": "format"
-                },
-                {
-                  "disabled": false,
-                  "key": "id",
-                  "value": "<string>",
-                  "description": "(Required) id"
-                },
-                {
-                  "disabled": false,
-                  "key": "size",
-                  "value": "200",
-                  "description": "size"
-                }
-              ],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "*/*"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "imageservice"
+              ],
+              "query": [
+                {
+                  "description": "crop",
+                  "key": "crop",
+                  "value": "true"
+                },
+                {
+                  "description": "format",
+                  "key": "format",
+                  "value": "ORIGINAL"
+                },
+                {
+                  "description": "(Required) id",
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "size",
+                  "key": "size",
+                  "value": "200"
+                }
+              ]
+            }
           },
           "response": [
             {
-              "id": "d3468aa0-e7d5-4eff-a260-75ff52d47623",
+              "id": "96d6b7a3-3034-404b-b95b-9bd76d85fceb",
               "name": "OK",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "imageservice"
-                  ],
+                  "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "imageservice"
+                  ],
                   "query": [
                     {
+                      "description": "crop",
                       "key": "crop",
                       "value": "true"
                     },
                     {
+                      "description": "format",
                       "key": "format",
                       "value": "ORIGINAL"
                     },
                     {
+                      "description": "(Required) id",
                       "key": "id",
                       "value": "<string>"
                     },
                     {
+                      "description": "size",
                       "key": "size",
                       "value": "200"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "*/*"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "text",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "*/*"
                 }
               ],
-              "body": "{}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-10-22T01:46:14.000Z",
+              "updatedAt": "2026-10-22T01:46:14.000Z",
+              "uid": "35240-96d6b7a3-3034-404b-b95b-9bd76d85fceb"
             },
             {
-              "id": "29e3b75e-43eb-4f27-b336-bc620af22573",
+              "id": "ade0b770-93f4-4757-85bd-d66d031ffa4a",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "imageservice"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "crop",
-                      "value": "true"
-                    },
-                    {
-                      "key": "format",
-                      "value": "ORIGINAL"
-                    },
-                    {
-                      "key": "id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "size",
-                      "value": "200"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "imageservice"
+                  ],
+                  "query": [
+                    {
+                      "description": "crop",
+                      "key": "crop",
+                      "value": "true"
+                    },
+                    {
+                      "description": "format",
+                      "key": "format",
+                      "value": "ORIGINAL"
+                    },
+                    {
+                      "description": "(Required) id",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "size",
+                      "key": "size",
+                      "value": "200"
+                    }
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:46:14.000Z",
+              "updatedAt": "2026-10-22T01:46:14.000Z",
+              "uid": "35240-ade0b770-93f4-4757-85bd-d66d031ffa4a"
             },
             {
-              "id": "c2c6472c-9729-4e22-a2ae-6b936fcf65e3",
+              "id": "52c709e6-232e-4c49-961a-acb03776cd15",
               "name": "Forbidden",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "imageservice"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "crop",
-                      "value": "true"
-                    },
-                    {
-                      "key": "format",
-                      "value": "ORIGINAL"
-                    },
-                    {
-                      "key": "id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "size",
-                      "value": "200"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "imageservice"
+                  ],
+                  "query": [
+                    {
+                      "description": "crop",
+                      "key": "crop",
+                      "value": "true"
+                    },
+                    {
+                      "description": "format",
+                      "key": "format",
+                      "value": "ORIGINAL"
+                    },
+                    {
+                      "description": "(Required) id",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "size",
+                      "key": "size",
+                      "value": "200"
+                    }
+                  ]
+                }
               },
               "status": "Forbidden",
               "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:46:14.000Z",
+              "updatedAt": "2026-10-22T01:46:14.000Z",
+              "uid": "35240-52c709e6-232e-4c49-961a-acb03776cd15"
             },
             {
-              "id": "6c6440f3-2f95-4990-8ebf-e17871114a6d",
+              "id": "d6dade9e-f4e3-49a7-a9c6-48d692a47862",
               "name": "Not Found",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "imageservice"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "crop",
-                      "value": "true"
-                    },
-                    {
-                      "key": "format",
-                      "value": "ORIGINAL"
-                    },
-                    {
-                      "key": "id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "size",
-                      "value": "200"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "imageservice"
+                  ],
+                  "query": [
+                    {
+                      "description": "crop",
+                      "key": "crop",
+                      "value": "true"
+                    },
+                    {
+                      "description": "format",
+                      "key": "format",
+                      "value": "ORIGINAL"
+                    },
+                    {
+                      "description": "(Required) id",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "size",
+                      "key": "size",
+                      "value": "200"
+                    }
+                  ]
+                }
               },
               "status": "Not Found",
               "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:46:14.000Z",
+              "updatedAt": "2026-10-22T01:46:14.000Z",
+              "uid": "35240-d6dade9e-f4e3-49a7-a9c6-48d692a47862"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:46:14.000Z",
+          "updatedAt": "2026-10-22T01:46:14.000Z",
+          "uid": "35240-b5daefa3-87e6-4b7b-b243-3b2870858686"
         },
         {
-          "id": "9d1ebe24-1eeb-4820-8fe4-45547456b11f",
           "name": "get",
+          "id": "501ca294-140d-4e4c-9da2-38ca58c8d8df",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "get",
-            "description": {},
-            "url": {
-              "path": [
-                "imageservice"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "crop",
-                  "value": "true",
-                  "description": "crop"
-                },
-                {
-                  "disabled": false,
-                  "key": "format",
-                  "value": "ORIGINAL",
-                  "description": "format"
-                },
-                {
-                  "disabled": false,
-                  "key": "id",
-                  "value": "<string>",
-                  "description": "(Required) id"
-                },
-                {
-                  "disabled": false,
-                  "key": "size",
-                  "value": "200",
-                  "description": "size"
-                }
-              ],
-              "variable": []
-            },
+            "method": "HEAD",
             "header": [
               {
                 "key": "Accept",
                 "value": "*/*"
               }
             ],
-            "method": "HEAD",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "imageservice"
+              ],
+              "query": [
+                {
+                  "description": "crop",
+                  "key": "crop",
+                  "value": "true"
+                },
+                {
+                  "description": "format",
+                  "key": "format",
+                  "value": "ORIGINAL"
+                },
+                {
+                  "description": "(Required) id",
+                  "key": "id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "size",
+                  "key": "size",
+                  "value": "200"
+                }
+              ]
+            }
           },
           "response": [
             {
-              "id": "f23f5fe5-6cfe-4884-8367-4b55459e85a9",
+              "id": "b9df92c0-9431-40ab-83a7-9ddafbd549c2",
               "name": "OK",
               "originalRequest": {
+                "method": "HEAD",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "imageservice"
-                  ],
+                  "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "imageservice"
+                  ],
                   "query": [
                     {
+                      "description": "crop",
                       "key": "crop",
                       "value": "true"
                     },
                     {
+                      "description": "format",
                       "key": "format",
                       "value": "ORIGINAL"
                     },
                     {
+                      "description": "(Required) id",
                       "key": "id",
                       "value": "<string>"
                     },
                     {
+                      "description": "size",
                       "key": "size",
                       "value": "200"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "*/*"
-                  }
-                ],
-                "method": "HEAD",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "text",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "*/*"
                 }
               ],
-              "body": "{}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-10-22T01:46:14.000Z",
+              "updatedAt": "2026-10-22T01:46:14.000Z",
+              "uid": "35240-b9df92c0-9431-40ab-83a7-9ddafbd549c2"
             },
             {
-              "id": "d392d93e-3b79-4b91-97d5-72728368c0ec",
+              "id": "8f1055be-773e-433e-ab34-f46b7eadca43",
               "name": "No Content",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "imageservice"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "crop",
-                      "value": "true"
-                    },
-                    {
-                      "key": "format",
-                      "value": "ORIGINAL"
-                    },
-                    {
-                      "key": "id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "size",
-                      "value": "200"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "HEAD",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "HEAD",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "imageservice"
+                  ],
+                  "query": [
+                    {
+                      "description": "crop",
+                      "key": "crop",
+                      "value": "true"
+                    },
+                    {
+                      "description": "format",
+                      "key": "format",
+                      "value": "ORIGINAL"
+                    },
+                    {
+                      "description": "(Required) id",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "size",
+                      "key": "size",
+                      "value": "200"
+                    }
+                  ]
+                }
               },
               "status": "No Content",
               "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:46:14.000Z",
+              "updatedAt": "2026-10-22T01:46:14.000Z",
+              "uid": "35240-8f1055be-773e-433e-ab34-f46b7eadca43"
             },
             {
-              "id": "19c8a308-64ee-4069-9445-e484e37c6bb7",
+              "id": "2e570424-a072-4ac7-a123-e40d2a5e5747",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "imageservice"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "crop",
-                      "value": "true"
-                    },
-                    {
-                      "key": "format",
-                      "value": "ORIGINAL"
-                    },
-                    {
-                      "key": "id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "size",
-                      "value": "200"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "HEAD",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "HEAD",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "imageservice"
+                  ],
+                  "query": [
+                    {
+                      "description": "crop",
+                      "key": "crop",
+                      "value": "true"
+                    },
+                    {
+                      "description": "format",
+                      "key": "format",
+                      "value": "ORIGINAL"
+                    },
+                    {
+                      "description": "(Required) id",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "size",
+                      "key": "size",
+                      "value": "200"
+                    }
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:46:14.000Z",
+              "updatedAt": "2026-10-22T01:46:14.000Z",
+              "uid": "35240-2e570424-a072-4ac7-a123-e40d2a5e5747"
             },
             {
-              "id": "213615d6-be93-4496-95fa-d87da14a9adc",
+              "id": "b3afbed8-9581-4af5-af77-d9daf36087b3",
               "name": "Forbidden",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "imageservice"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "crop",
-                      "value": "true"
-                    },
-                    {
-                      "key": "format",
-                      "value": "ORIGINAL"
-                    },
-                    {
-                      "key": "id",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "size",
-                      "value": "200"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "HEAD",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "HEAD",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/imageservice?crop=true&format=ORIGINAL&id=<string>&size=200",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "imageservice"
+                  ],
+                  "query": [
+                    {
+                      "description": "crop",
+                      "key": "crop",
+                      "value": "true"
+                    },
+                    {
+                      "description": "format",
+                      "key": "format",
+                      "value": "ORIGINAL"
+                    },
+                    {
+                      "description": "(Required) id",
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "size",
+                      "key": "size",
+                      "value": "200"
+                    }
+                  ]
+                }
               },
               "status": "Forbidden",
               "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:46:14.000Z",
+              "updatedAt": "2026-10-22T01:46:14.000Z",
+              "uid": "35240-b3afbed8-9581-4af5-af77-d9daf36087b3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:46:14.000Z",
+          "updatedAt": "2026-10-22T01:46:14.000Z",
+          "uid": "35240-501ca294-140d-4e4c-9da2-38ca58c8d8df"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "728c389e-155b-4067-84b4-8303fb326fe2",
+      "createdAt": "2026-10-22T01:46:14.000Z",
+      "updatedAt": "2026-10-22T01:46:14.000Z",
+      "uid": "35240-728c389e-155b-4067-84b4-8303fb326fe2"
     }
   ],
   "auth": {
@@ -595,17 +587,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "be5311d3-702c-4a4a-93be-f0d256a5afbb",
-    "name": "Small Improvements action-item-resource public-images-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

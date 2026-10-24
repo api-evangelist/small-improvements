@@ -1,274 +1,282 @@
 {
+  "info": {
+    "_postman_id": "fe885f3f-474e-4650-afc8-056c6d084e51",
+    "name": "Small Improvements Events Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:41:32.000Z",
+    "updatedAt": "2026-10-22T01:41:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fe885f3f-474e-4650-afc8-056c6d084e51"
+  },
   "item": [
     {
-      "id": "8d639df3-f0bc-436d-be32-37a5c9a720a9",
-      "name": "events-resource",
-      "description": {
-        "content": "Events Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "d90184ba-c50d-445e-a881-b5a77ecc583d",
-          "name": "list",
-          "request": {
-            "name": "list",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "analytics",
-                "events"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "from",
-                  "value": "<dateTime>",
-                  "description": "(Required) from"
-                },
-                {
-                  "disabled": false,
-                  "key": "to",
-                  "value": "<dateTime>",
-                  "description": "(Required) to"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "analytics",
+          "item": [
             {
-              "id": "b7c9dfbb-2bd6-4327-a767-e409e80c1c29",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "analytics",
-                    "events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "from",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "to",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+              "name": "events",
+              "item": [
+                {
+                  "name": "list",
+                  "id": "3b7c7f8d-cb63-423f-a721-5e32212cd104",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "68a4475d-0fca-4f7e-ac4d-d608aa40a0f1",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "analytics",
-                    "events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/analytics/events?from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "analytics",
+                        "events"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) from",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "(Required) to",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "from",
-                      "value": "<dateTime>"
+                      "id": "a9230f11-c9e8-4c77-a275-8cdd9871f7a9",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/analytics/events?from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "analytics",
+                            "events"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) from",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) to",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{}",
+                      "createdAt": "2026-10-22T01:41:32.000Z",
+                      "updatedAt": "2026-10-22T01:41:32.000Z",
+                      "uid": "35240-a9230f11-c9e8-4c77-a275-8cdd9871f7a9"
                     },
                     {
-                      "key": "to",
-                      "value": "<dateTime>"
+                      "id": "abdc5ce0-44b2-467f-ad70-9eae531018a9",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/analytics/events?from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "analytics",
+                            "events"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) from",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) to",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:41:32.000Z",
+                      "updatedAt": "2026-10-22T01:41:32.000Z",
+                      "uid": "35240-abdc5ce0-44b2-467f-ad70-9eae531018a9"
+                    },
+                    {
+                      "id": "4d491ef3-ac74-4973-8202-e0a0e0ef9b6a",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/analytics/events?from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "analytics",
+                            "events"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) from",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) to",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:41:32.000Z",
+                      "updatedAt": "2026-10-22T01:41:32.000Z",
+                      "uid": "35240-4d491ef3-ac74-4973-8202-e0a0e0ef9b6a"
+                    },
+                    {
+                      "id": "9e439aab-66c1-42b8-a320-e800f06fe519",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/analytics/events?from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "analytics",
+                            "events"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) from",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "(Required) to",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:41:32.000Z",
+                      "updatedAt": "2026-10-22T01:41:32.000Z",
+                      "uid": "35240-9e439aab-66c1-42b8-a320-e800f06fe519"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-22T01:41:32.000Z",
+                  "updatedAt": "2026-10-22T01:41:32.000Z",
+                  "uid": "35240-3b7c7f8d-cb63-423f-a721-5e32212cd104"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "24c02fb2-24e1-46fe-ab5e-1cf1728e7cbb",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "analytics",
-                    "events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "from",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "to",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "4825b9a3-5134-4a91-9cd7-c0090c174aa3",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "analytics",
-                    "events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "from",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "to",
-                      "value": "<dateTime>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "695f133f-de96-4f2f-8ce9-b8ecd6bec25a",
+              "createdAt": "2026-10-22T01:41:32.000Z",
+              "updatedAt": "2026-10-22T01:41:32.000Z",
+              "uid": "35240-695f133f-de96-4f2f-8ce9-b8ecd6bec25a"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "6ba50a7f-1308-4f69-8bee-2fe14e8f9350",
+          "createdAt": "2026-10-22T01:41:32.000Z",
+          "updatedAt": "2026-10-22T01:41:32.000Z",
+          "uid": "35240-6ba50a7f-1308-4f69-8bee-2fe14e8f9350"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "6c289554-37d7-47d3-b1ba-302337410cef",
+      "createdAt": "2026-10-22T01:41:32.000Z",
+      "updatedAt": "2026-10-22T01:41:32.000Z",
+      "uid": "35240-6c289554-37d7-47d3-b1ba-302337410cef"
     }
   ],
   "auth": {
@@ -276,17 +284,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "10c87598-2aa0-4309-aa29-0629d7d08f00",
-    "name": "Small Improvements action-item-resource events-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

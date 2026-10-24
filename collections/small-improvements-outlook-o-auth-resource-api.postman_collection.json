@@ -1,530 +1,541 @@
 {
+  "info": {
+    "_postman_id": "4f07a3b3-cc84-4a32-8935-ebc7a14bdc49",
+    "name": "Small Improvements Outlook O Auth Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:45:30.000Z",
+    "updatedAt": "2026-10-22T01:45:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4f07a3b3-cc84-4a32-8935-ebc7a14bdc49"
+  },
   "item": [
     {
-      "id": "a92cd3b4-a598-49f0-9c3c-0937719186b1",
-      "name": "outlook-o-auth-resource",
-      "description": {
-        "content": "Outlook O Auth Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "d0f56603-dd6f-4d2e-bf47-ec9debb88863",
-          "name": "authorizeAdmin",
-          "request": {
-            "name": "authorizeAdmin",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "outlook",
-                "oauth",
-                "authorize"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "*/*"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "outlook",
+          "item": [
             {
-              "id": "d3520c4c-4c7f-49e8-985b-b725b7b9aec7",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "outlook",
-                    "oauth",
-                    "authorize"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "*/*"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "oauth",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "*/*"
+                  "name": "authorize",
+                  "item": [
+                    {
+                      "name": "authorizeAdmin",
+                      "id": "d5ab63bc-221b-408e-adf1-6350c5a3b15e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/outlook/oauth/authorize",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "outlook",
+                            "oauth",
+                            "authorize"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "86b7c4f4-7780-4d8b-96c6-3c3135ada46b",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/outlook/oauth/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "outlook",
+                                "oauth",
+                                "authorize"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:45:31.000Z",
+                          "updatedAt": "2026-10-22T01:45:31.000Z",
+                          "uid": "35240-86b7c4f4-7780-4d8b-96c6-3c3135ada46b"
+                        },
+                        {
+                          "id": "57b51336-347c-4e86-8d1e-463cfca0e614",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/outlook/oauth/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "outlook",
+                                "oauth",
+                                "authorize"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:31.000Z",
+                          "updatedAt": "2026-10-22T01:45:31.000Z",
+                          "uid": "35240-57b51336-347c-4e86-8d1e-463cfca0e614"
+                        },
+                        {
+                          "id": "a800a9da-b457-4903-b54e-8e40c5795935",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/outlook/oauth/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "outlook",
+                                "oauth",
+                                "authorize"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:31.000Z",
+                          "updatedAt": "2026-10-22T01:45:31.000Z",
+                          "uid": "35240-a800a9da-b457-4903-b54e-8e40c5795935"
+                        },
+                        {
+                          "id": "1dbfcda1-49ea-4e19-8b60-6b693ebbf478",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/outlook/oauth/authorize",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "outlook",
+                                "oauth",
+                                "authorize"
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:31.000Z",
+                          "updatedAt": "2026-10-22T01:45:31.000Z",
+                          "uid": "35240-1dbfcda1-49ea-4e19-8b60-6b693ebbf478"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:31.000Z",
+                      "updatedAt": "2026-10-22T01:45:31.000Z",
+                      "uid": "35240-d5ab63bc-221b-408e-adf1-6350c5a3b15e"
+                    }
+                  ],
+                  "id": "87659745-504b-4214-9828-02ed94172554",
+                  "createdAt": "2026-10-22T01:45:31.000Z",
+                  "updatedAt": "2026-10-22T01:45:31.000Z",
+                  "uid": "35240-87659745-504b-4214-9828-02ed94172554"
+                },
+                {
+                  "name": "callback",
+                  "item": [
+                    {
+                      "name": "adminConsentCallback",
+                      "id": "6e9468cb-6c88-4528-abea-c8e98b2dcffe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/outlook/oauth/callback?error=<string>&error_description=<string>&state=<string>&tenant=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "outlook",
+                            "oauth",
+                            "callback"
+                          ],
+                          "query": [
+                            {
+                              "description": "error",
+                              "key": "error",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "error_description",
+                              "key": "error_description",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "state",
+                              "key": "state",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "tenant",
+                              "key": "tenant",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "88b9e19e-05c8-4b8d-94ec-0b7d3384846d",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/outlook/oauth/callback?error=<string>&error_description=<string>&state=<string>&tenant=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "outlook",
+                                "oauth",
+                                "callback"
+                              ],
+                              "query": [
+                                {
+                                  "description": "error",
+                                  "key": "error",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "error_description",
+                                  "key": "error_description",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "state",
+                                  "key": "state",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "tenant",
+                                  "key": "tenant",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:45:31.000Z",
+                          "updatedAt": "2026-10-22T01:45:31.000Z",
+                          "uid": "35240-88b9e19e-05c8-4b8d-94ec-0b7d3384846d"
+                        },
+                        {
+                          "id": "87c76ff7-6a35-4e2b-8a3f-509d83b63368",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/outlook/oauth/callback?error=<string>&error_description=<string>&state=<string>&tenant=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "outlook",
+                                "oauth",
+                                "callback"
+                              ],
+                              "query": [
+                                {
+                                  "description": "error",
+                                  "key": "error",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "error_description",
+                                  "key": "error_description",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "state",
+                                  "key": "state",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "tenant",
+                                  "key": "tenant",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:31.000Z",
+                          "updatedAt": "2026-10-22T01:45:31.000Z",
+                          "uid": "35240-87c76ff7-6a35-4e2b-8a3f-509d83b63368"
+                        },
+                        {
+                          "id": "26699a2e-ff12-42ab-ab75-728d5e9bbcda",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/outlook/oauth/callback?error=<string>&error_description=<string>&state=<string>&tenant=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "outlook",
+                                "oauth",
+                                "callback"
+                              ],
+                              "query": [
+                                {
+                                  "description": "error",
+                                  "key": "error",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "error_description",
+                                  "key": "error_description",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "state",
+                                  "key": "state",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "tenant",
+                                  "key": "tenant",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:31.000Z",
+                          "updatedAt": "2026-10-22T01:45:31.000Z",
+                          "uid": "35240-26699a2e-ff12-42ab-ab75-728d5e9bbcda"
+                        },
+                        {
+                          "id": "cbf29678-89ca-4513-854b-6ce68109ea51",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/outlook/oauth/callback?error=<string>&error_description=<string>&state=<string>&tenant=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "outlook",
+                                "oauth",
+                                "callback"
+                              ],
+                              "query": [
+                                {
+                                  "description": "error",
+                                  "key": "error",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "error_description",
+                                  "key": "error_description",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "state",
+                                  "key": "state",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "tenant",
+                                  "key": "tenant",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:45:31.000Z",
+                          "updatedAt": "2026-10-22T01:45:31.000Z",
+                          "uid": "35240-cbf29678-89ca-4513-854b-6ce68109ea51"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:45:31.000Z",
+                      "updatedAt": "2026-10-22T01:45:31.000Z",
+                      "uid": "35240-6e9468cb-6c88-4528-abea-c8e98b2dcffe"
+                    }
+                  ],
+                  "id": "c0e75db5-abf7-4ca6-9bd1-680d586f13d7",
+                  "createdAt": "2026-10-22T01:45:31.000Z",
+                  "updatedAt": "2026-10-22T01:45:31.000Z",
+                  "uid": "35240-c0e75db5-abf7-4ca6-9bd1-680d586f13d7"
                 }
               ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a560ccc7-a457-439c-ab19-622213d9600c",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "outlook",
-                    "oauth",
-                    "authorize"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "dbf9078c-e454-4a37-98a7-ae66c0c0b106",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "outlook",
-                    "oauth",
-                    "authorize"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e00bb914-f8e3-4275-abb7-e665a356f73b",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "outlook",
-                    "oauth",
-                    "authorize"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "7ec510a1-9360-425c-876c-ea4370e6c9d3",
+              "createdAt": "2026-10-22T01:45:31.000Z",
+              "updatedAt": "2026-10-22T01:45:31.000Z",
+              "uid": "35240-7ec510a1-9360-425c-876c-ea4370e6c9d3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9e066e41-727e-46c3-a5bc-15b852697abe",
-          "name": "adminConsentCallback",
-          "request": {
-            "name": "adminConsentCallback",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "outlook",
-                "oauth",
-                "callback"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "error",
-                  "value": "<string>",
-                  "description": "error"
-                },
-                {
-                  "disabled": false,
-                  "key": "error_description",
-                  "value": "<string>",
-                  "description": "error_description"
-                },
-                {
-                  "disabled": false,
-                  "key": "state",
-                  "value": "<string>",
-                  "description": "state"
-                },
-                {
-                  "disabled": false,
-                  "key": "tenant",
-                  "value": "<string>",
-                  "description": "tenant"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "*/*"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "fcc27726-c5d3-42a7-9924-00f6ff8b41c0",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "outlook",
-                    "oauth",
-                    "callback"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "error",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "error_description",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "state",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "tenant",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "*/*"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "*/*"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3d6e1558-8399-44d1-b5dc-3b5b10fa1b44",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "outlook",
-                    "oauth",
-                    "callback"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "error",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "error_description",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "state",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "tenant",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "30c49afd-f2fc-4830-9fc6-d4a855b41f1d",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "outlook",
-                    "oauth",
-                    "callback"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "error",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "error_description",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "state",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "tenant",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "0bad0d55-7dc9-4e2a-a98b-335197f17295",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "outlook",
-                    "oauth",
-                    "callback"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "error",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "error_description",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "state",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "tenant",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "54502f2b-452f-4e87-8e4c-fa039c26e7c9",
+          "createdAt": "2026-10-22T01:45:31.000Z",
+          "updatedAt": "2026-10-22T01:45:31.000Z",
+          "uid": "35240-54502f2b-452f-4e87-8e4c-fa039c26e7c9"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "daba4b9a-520d-45b6-aac5-52770438fcd8",
+      "createdAt": "2026-10-22T01:45:31.000Z",
+      "updatedAt": "2026-10-22T01:45:31.000Z",
+      "uid": "35240-daba4b9a-520d-45b6-aac5-52770438fcd8"
     }
   ],
   "auth": {
@@ -532,17 +543,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "9813981a-07a0-40ac-b3a7-7eefe1d9745b",
-    "name": "Small Improvements action-item-resource outlook-o-auth-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

@@ -1,0 +1,489 @@
+{
+  "info": {
+    "_postman_id": "7836dfb2-dd46-4984-ba64-0e9ea57d88f1",
+    "name": "Small Improvements Review Cycle Import Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:47:07.000Z",
+    "updatedAt": "2026-10-22T01:47:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7836dfb2-dd46-4984-ba64-0e9ea57d88f1"
+  },
+  "item": [
+    {
+      "name": "v2",
+      "item": [
+        {
+          "name": "review-cycle",
+          "item": [
+            {
+              "name": "import",
+              "item": [
+                {
+                  "name": "importCycle",
+                  "id": "e66149f8-bd1a-4ea7-b2aa-d9299db7bcaf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "key": "targetCompany.id",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "dateFormat",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "hrUserTargetCompany.id",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "csv",
+                          "type": "file",
+                          "value": null
+                        },
+                        {
+                          "key": "cycleName",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "key": "columnMapping",
+                          "value": "REVIEWER_QUESTION,REVIEWER_EMAIL",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/review-cycle/import",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "review-cycle",
+                        "import"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "ab7d1cf0-4df3-4b41-8c06-c2d1622135d8",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "targetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "dateFormat",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "hrUserTargetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "csv",
+                              "type": "file"
+                            },
+                            {
+                              "key": "cycleName",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "columnMapping",
+                              "value": "REVIEWER_QUESTION,REVIEWER_EMAIL",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycle/import",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycle",
+                            "import"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:47:07.000Z",
+                      "updatedAt": "2026-10-22T01:47:07.000Z",
+                      "uid": "35240-ab7d1cf0-4df3-4b41-8c06-c2d1622135d8"
+                    },
+                    {
+                      "id": "69dce7f9-2848-4ec6-b5d2-67af6fe7a9d8",
+                      "name": "Created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "targetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "dateFormat",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "hrUserTargetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "csv",
+                              "type": "file"
+                            },
+                            {
+                              "key": "cycleName",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "columnMapping",
+                              "value": "REVIEWER_QUESTION,REVIEWER_EMAIL",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycle/import",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycle",
+                            "import"
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:47:07.000Z",
+                      "updatedAt": "2026-10-22T01:47:07.000Z",
+                      "uid": "35240-69dce7f9-2848-4ec6-b5d2-67af6fe7a9d8"
+                    },
+                    {
+                      "id": "51c0fe62-5c60-4da1-a7e7-22450911c5ba",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "targetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "dateFormat",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "hrUserTargetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "csv",
+                              "type": "file"
+                            },
+                            {
+                              "key": "cycleName",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "columnMapping",
+                              "value": "REVIEWER_QUESTION,REVIEWER_EMAIL",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycle/import",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycle",
+                            "import"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:47:07.000Z",
+                      "updatedAt": "2026-10-22T01:47:07.000Z",
+                      "uid": "35240-51c0fe62-5c60-4da1-a7e7-22450911c5ba"
+                    },
+                    {
+                      "id": "ad3db32c-a2cc-4f97-b20f-f859e53c0c60",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "targetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "dateFormat",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "hrUserTargetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "csv",
+                              "type": "file"
+                            },
+                            {
+                              "key": "cycleName",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "columnMapping",
+                              "value": "REVIEWER_QUESTION,REVIEWER_EMAIL",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycle/import",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycle",
+                            "import"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:47:07.000Z",
+                      "updatedAt": "2026-10-22T01:47:07.000Z",
+                      "uid": "35240-ad3db32c-a2cc-4f97-b20f-f859e53c0c60"
+                    },
+                    {
+                      "id": "e6aee571-4c42-4275-ac10-f941b74a1116",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "targetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "dateFormat",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "hrUserTargetCompany.id",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "csv",
+                              "type": "file"
+                            },
+                            {
+                              "key": "cycleName",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "columnMapping",
+                              "value": "REVIEWER_QUESTION,REVIEWER_EMAIL",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/review-cycle/import",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "review-cycle",
+                            "import"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:47:07.000Z",
+                      "updatedAt": "2026-10-22T01:47:07.000Z",
+                      "uid": "35240-e6aee571-4c42-4275-ac10-f941b74a1116"
+                    }
+                  ],
+                  "createdAt": "2026-10-22T01:47:07.000Z",
+                  "updatedAt": "2026-10-22T01:47:07.000Z",
+                  "uid": "35240-e66149f8-bd1a-4ea7-b2aa-d9299db7bcaf"
+                }
+              ],
+              "id": "a2832cf6-d73e-40d4-a5af-9f4b4424f338",
+              "createdAt": "2026-10-22T01:47:07.000Z",
+              "updatedAt": "2026-10-22T01:47:07.000Z",
+              "uid": "35240-a2832cf6-d73e-40d4-a5af-9f4b4424f338"
+            }
+          ],
+          "id": "304a8409-1639-4f33-b8b8-9ff1656226af",
+          "createdAt": "2026-10-22T01:47:07.000Z",
+          "updatedAt": "2026-10-22T01:47:07.000Z",
+          "uid": "35240-304a8409-1639-4f33-b8b8-9ff1656226af"
+        }
+      ],
+      "id": "214ba2a6-3f35-4024-90e5-677f210aec0c",
+      "createdAt": "2026-10-22T01:47:07.000Z",
+      "updatedAt": "2026-10-22T01:47:07.000Z",
+      "uid": "35240-214ba2a6-3f35-4024-90e5-677f210aec0c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
+    }
+  ]
+}

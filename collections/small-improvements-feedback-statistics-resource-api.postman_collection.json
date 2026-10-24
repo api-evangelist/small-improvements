@@ -1,499 +1,489 @@
 {
+  "info": {
+    "_postman_id": "d25ce46c-814b-4d45-b0be-382d90dbcaca",
+    "name": "Small Improvements Feedback Statistics Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:42:33.000Z",
+    "updatedAt": "2026-10-22T01:42:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d25ce46c-814b-4d45-b0be-382d90dbcaca"
+  },
   "item": [
     {
-      "id": "afd92fec-72d3-4f85-84f5-82ba62f1169d",
-      "name": "feedback-statistics-resource",
-      "description": {
-        "content": "Feedback Statistics Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "54da5c4b-cf8c-418c-a2fc-9b587bc600a1",
-          "name": "getCycleStatistics",
-          "request": {
-            "name": "getCycleStatistics",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "feedback-cycles",
-                "statistics"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "cycleIds",
-                  "value": "<string>",
-                  "description": "(Required) cycleIds"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "feedback-cycles",
+          "item": [
             {
-              "id": "5f6ed7ec-e352-4085-b22e-7b17bab0e441",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback-cycles",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "cycleIds",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
+              "name": "statistics",
+              "item": [
+                {
+                  "name": "getCycleStatistics",
+                  "id": "13c55eaf-7247-4164-b4cd-39a11e77a7fa",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "[]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "6cee1dbe-9281-4828-9fab-d21c8216c36e",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback-cycles",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/feedback-cycles/statistics?cycleIds=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "feedback-cycles",
+                        "statistics"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) cycleIds",
+                          "key": "cycleIds",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
                     {
-                      "key": "cycleIds",
-                      "value": "<string>"
+                      "id": "b7a1bb42-7aa1-4c4c-9c4e-0d0386ff0926",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/feedback-cycles/statistics?cycleIds=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "feedback-cycles",
+                            "statistics"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) cycleIds",
+                              "key": "cycleIds",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json;charset=UTF-8"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[]",
+                      "createdAt": "2026-10-22T01:42:34.000Z",
+                      "updatedAt": "2026-10-22T01:42:34.000Z",
+                      "uid": "35240-b7a1bb42-7aa1-4c4c-9c4e-0d0386ff0926"
+                    },
+                    {
+                      "id": "6a396678-4f4b-4196-8311-385c94e9c9d9",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/feedback-cycles/statistics?cycleIds=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "feedback-cycles",
+                            "statistics"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) cycleIds",
+                              "key": "cycleIds",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:42:34.000Z",
+                      "updatedAt": "2026-10-22T01:42:34.000Z",
+                      "uid": "35240-6a396678-4f4b-4196-8311-385c94e9c9d9"
+                    },
+                    {
+                      "id": "611fe0f5-ad05-4bf3-8216-9b71836b0fec",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/feedback-cycles/statistics?cycleIds=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "feedback-cycles",
+                            "statistics"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) cycleIds",
+                              "key": "cycleIds",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:42:34.000Z",
+                      "updatedAt": "2026-10-22T01:42:34.000Z",
+                      "uid": "35240-611fe0f5-ad05-4bf3-8216-9b71836b0fec"
+                    },
+                    {
+                      "id": "d6b034e9-bf67-491b-aa9f-d909a352102a",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/feedback-cycles/statistics?cycleIds=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "feedback-cycles",
+                            "statistics"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) cycleIds",
+                              "key": "cycleIds",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-10-22T01:42:34.000Z",
+                      "updatedAt": "2026-10-22T01:42:34.000Z",
+                      "uid": "35240-d6b034e9-bf67-491b-aa9f-d909a352102a"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-22T01:42:34.000Z",
+                  "updatedAt": "2026-10-22T01:42:34.000Z",
+                  "uid": "35240-13c55eaf-7247-4164-b4cd-39a11e77a7fa"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "a29b65c4-4a48-4407-8017-e5545168b3b1",
+              "createdAt": "2026-10-22T01:42:34.000Z",
+              "updatedAt": "2026-10-22T01:42:34.000Z",
+              "uid": "35240-a29b65c4-4a48-4407-8017-e5545168b3b1"
             },
             {
-              "id": "74e8ac76-4b4d-49a7-b5cb-af7d4c565090",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback-cycles",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "{cycleId}",
+              "item": [
+                {
+                  "name": "statistics",
+                  "item": [
                     {
-                      "key": "cycleIds",
-                      "value": "<string>"
+                      "name": "getCycleStatistics",
+                      "id": "8c96472c-ac84-48f9-bce7-08b6efb8f84e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json;charset=UTF-8"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v2/feedback-cycles/:cycleId/statistics",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v2",
+                            "feedback-cycles",
+                            ":cycleId",
+                            "statistics"
+                          ],
+                          "variable": [
+                            {
+                              "id": "4c760b21-68e4-4aa6-a16c-af93c063e4a5",
+                              "key": "cycleId",
+                              "value": "<string>",
+                              "description": "(Required) cycleId"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "b217c6c9-cf30-4239-bef8-8c7809fc19d2",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/feedback-cycles/:cycleId/statistics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "feedback-cycles",
+                                ":cycleId",
+                                "statistics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json;charset=UTF-8"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{}",
+                          "createdAt": "2026-10-22T01:42:34.000Z",
+                          "updatedAt": "2026-10-22T01:42:34.000Z",
+                          "uid": "35240-b217c6c9-cf30-4239-bef8-8c7809fc19d2"
+                        },
+                        {
+                          "id": "98cf2ae0-5464-4438-a97b-e5a26304bcd1",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/feedback-cycles/:cycleId/statistics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "feedback-cycles",
+                                ":cycleId",
+                                "statistics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:34.000Z",
+                          "updatedAt": "2026-10-22T01:42:34.000Z",
+                          "uid": "35240-98cf2ae0-5464-4438-a97b-e5a26304bcd1"
+                        },
+                        {
+                          "id": "1e3e0e9e-b118-4450-94e0-5231ffc4c214",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/feedback-cycles/:cycleId/statistics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "feedback-cycles",
+                                ":cycleId",
+                                "statistics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:34.000Z",
+                          "updatedAt": "2026-10-22T01:42:34.000Z",
+                          "uid": "35240-1e3e0e9e-b118-4450-94e0-5231ffc4c214"
+                        },
+                        {
+                          "id": "17c4c997-2537-4db1-9fdb-d5f9fdc86c8b",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/feedback-cycles/:cycleId/statistics",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "feedback-cycles",
+                                ":cycleId",
+                                "statistics"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "cycleId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-22T01:42:34.000Z",
+                          "updatedAt": "2026-10-22T01:42:34.000Z",
+                          "uid": "35240-17c4c997-2537-4db1-9fdb-d5f9fdc86c8b"
+                        }
+                      ],
+                      "createdAt": "2026-10-22T01:42:34.000Z",
+                      "updatedAt": "2026-10-22T01:42:34.000Z",
+                      "uid": "35240-8c96472c-ac84-48f9-bce7-08b6efb8f84e"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "9235fe8e-1a66-4df1-9761-f69b6f667a66",
+                  "createdAt": "2026-10-22T01:42:34.000Z",
+                  "updatedAt": "2026-10-22T01:42:34.000Z",
+                  "uid": "35240-9235fe8e-1a66-4df1-9761-f69b6f667a66"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ebff89c0-4e4c-412a-957f-d974d0031f82",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback-cycles",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "cycleIds",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "1db0b08f-f81e-4ce2-b0f4-5e5116d7d89b",
+              "createdAt": "2026-10-22T01:42:34.000Z",
+              "updatedAt": "2026-10-22T01:42:34.000Z",
+              "uid": "35240-1db0b08f-f81e-4ce2-b0f4-5e5116d7d89b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b421df58-ac73-4c8e-969a-57391e0ba123",
-          "name": "getCycleStatistics",
-          "request": {
-            "name": "getCycleStatistics",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "feedback-cycles",
-                ":cycleId",
-                "statistics"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "cycleId",
-                  "description": "(Required) cycleId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b2d7d206-1f71-4302-98f4-9c3308eae375",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback-cycles",
-                    ":cycleId",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "cycleId",
-                      "description": "(Required) cycleId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ea485b69-1f50-4635-9f97-4815b5648bff",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback-cycles",
-                    ":cycleId",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "cycleId",
-                      "description": "(Required) cycleId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "610fab52-4281-448d-82cf-cdc45158fe4d",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback-cycles",
-                    ":cycleId",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "cycleId",
-                      "description": "(Required) cycleId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e3796adf-ab9a-4eda-9779-b07e488f33cb",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback-cycles",
-                    ":cycleId",
-                    "statistics"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "cycleId",
-                      "description": "(Required) cycleId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "9362defc-7edc-482e-8da7-1581c0441cb0",
+          "createdAt": "2026-10-22T01:42:34.000Z",
+          "updatedAt": "2026-10-22T01:42:34.000Z",
+          "uid": "35240-9362defc-7edc-482e-8da7-1581c0441cb0"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "44fae06a-924e-47aa-b8d5-16615d85c25d",
+      "createdAt": "2026-10-22T01:42:34.000Z",
+      "updatedAt": "2026-10-22T01:42:34.000Z",
+      "uid": "35240-44fae06a-924e-47aa-b8d5-16615d85c25d"
     }
   ],
   "auth": {
@@ -501,17 +491,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "629ad312-bdd8-4d9a-bead-de6fe508ab50",
-    "name": "Small Improvements action-item-resource feedback-statistics-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

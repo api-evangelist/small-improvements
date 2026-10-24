@@ -1,447 +1,450 @@
 {
+  "info": {
+    "_postman_id": "84f3c2aa-f45f-433d-953c-9b4572d20e71",
+    "name": "Small Improvements Request Feedback Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:46:46.000Z",
+    "updatedAt": "2026-10-22T01:46:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-84f3c2aa-f45f-433d-953c-9b4572d20e71"
+  },
   "item": [
     {
-      "id": "b6464e15-5659-475d-8775-8c12a821a014",
-      "name": "request-feedback-resource",
-      "description": {
-        "content": "Request Feedback Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "a560fd4c-8de6-4503-9589-3a86c9a1488b",
-          "name": "getSummariesCompany",
-          "request": {
-            "name": "getSummariesCompany",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "feedback",
-                "request",
-                "overview",
-                "company"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "feedback",
+          "item": [
             {
-              "id": "520731af-e136-4d4d-83d7-9e591a056a41",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback",
-                    "request",
-                    "overview",
-                    "company"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "request",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
+                  "name": "overview",
+                  "item": [
+                    {
+                      "name": "company",
+                      "item": [
+                        {
+                          "name": "getSummariesCompany",
+                          "id": "69f8b632-5db3-439e-b2fe-026758c87329",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/feedback/request/overview/company",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "feedback",
+                                "request",
+                                "overview",
+                                "company"
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "cd8b1279-1b47-4a86-998f-c00d3a7e5d4d",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/feedback/request/overview/company",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "feedback",
+                                    "request",
+                                    "overview",
+                                    "company"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json;charset=UTF-8"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[]",
+                              "createdAt": "2026-10-22T01:46:46.000Z",
+                              "updatedAt": "2026-10-22T01:46:46.000Z",
+                              "uid": "35240-cd8b1279-1b47-4a86-998f-c00d3a7e5d4d"
+                            },
+                            {
+                              "id": "6d22a363-ec46-430d-8794-9730ec41922e",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/feedback/request/overview/company",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "feedback",
+                                    "request",
+                                    "overview",
+                                    "company"
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:46.000Z",
+                              "updatedAt": "2026-10-22T01:46:46.000Z",
+                              "uid": "35240-6d22a363-ec46-430d-8794-9730ec41922e"
+                            },
+                            {
+                              "id": "ec92055c-31e4-451e-8cce-a3b8b618469e",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/feedback/request/overview/company",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "feedback",
+                                    "request",
+                                    "overview",
+                                    "company"
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:46.000Z",
+                              "updatedAt": "2026-10-22T01:46:46.000Z",
+                              "uid": "35240-ec92055c-31e4-451e-8cce-a3b8b618469e"
+                            },
+                            {
+                              "id": "d446b6d7-d324-420a-b0c7-d0509d7d693a",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/feedback/request/overview/company",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "feedback",
+                                    "request",
+                                    "overview",
+                                    "company"
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:46.000Z",
+                              "updatedAt": "2026-10-22T01:46:46.000Z",
+                              "uid": "35240-d446b6d7-d324-420a-b0c7-d0509d7d693a"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:46:46.000Z",
+                          "updatedAt": "2026-10-22T01:46:46.000Z",
+                          "uid": "35240-69f8b632-5db3-439e-b2fe-026758c87329"
+                        }
+                      ],
+                      "id": "f50ac05b-0105-4a94-b72c-f71fc60ce2b6",
+                      "createdAt": "2026-10-22T01:46:46.000Z",
+                      "updatedAt": "2026-10-22T01:46:46.000Z",
+                      "uid": "35240-f50ac05b-0105-4a94-b72c-f71fc60ce2b6"
+                    },
+                    {
+                      "name": "team",
+                      "item": [
+                        {
+                          "name": "getSummariesTeam",
+                          "id": "a5b3d1e5-1971-4490-8f51-e752ff638fec",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json;charset=UTF-8"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v2/feedback/request/overview/team",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v2",
+                                "feedback",
+                                "request",
+                                "overview",
+                                "team"
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "b580a0a2-79a8-4f8e-9029-48c3446ae011",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json;charset=UTF-8"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/feedback/request/overview/team",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "feedback",
+                                    "request",
+                                    "overview",
+                                    "team"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json;charset=UTF-8"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[]",
+                              "createdAt": "2026-10-22T01:46:46.000Z",
+                              "updatedAt": "2026-10-22T01:46:46.000Z",
+                              "uid": "35240-b580a0a2-79a8-4f8e-9029-48c3446ae011"
+                            },
+                            {
+                              "id": "bbf2d0c1-5a68-4924-b177-72f795834f54",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/feedback/request/overview/team",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "feedback",
+                                    "request",
+                                    "overview",
+                                    "team"
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:46.000Z",
+                              "updatedAt": "2026-10-22T01:46:46.000Z",
+                              "uid": "35240-bbf2d0c1-5a68-4924-b177-72f795834f54"
+                            },
+                            {
+                              "id": "65679d54-ed5a-4e52-b6be-d74771763396",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/feedback/request/overview/team",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "feedback",
+                                    "request",
+                                    "overview",
+                                    "team"
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:46.000Z",
+                              "updatedAt": "2026-10-22T01:46:46.000Z",
+                              "uid": "35240-65679d54-ed5a-4e52-b6be-d74771763396"
+                            },
+                            {
+                              "id": "b5b9a68f-99ab-49c9-b3ad-eb46710c67bd",
+                              "name": "Not Found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v2/feedback/request/overview/team",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v2",
+                                    "feedback",
+                                    "request",
+                                    "overview",
+                                    "team"
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-22T01:46:46.000Z",
+                              "updatedAt": "2026-10-22T01:46:46.000Z",
+                              "uid": "35240-b5b9a68f-99ab-49c9-b3ad-eb46710c67bd"
+                            }
+                          ],
+                          "createdAt": "2026-10-22T01:46:46.000Z",
+                          "updatedAt": "2026-10-22T01:46:46.000Z",
+                          "uid": "35240-a5b3d1e5-1971-4490-8f51-e752ff638fec"
+                        }
+                      ],
+                      "id": "aed989e0-abff-4f9b-8fea-ed6f866df918",
+                      "createdAt": "2026-10-22T01:46:46.000Z",
+                      "updatedAt": "2026-10-22T01:46:46.000Z",
+                      "uid": "35240-aed989e0-abff-4f9b-8fea-ed6f866df918"
+                    }
+                  ],
+                  "id": "7fd3a12f-5764-4328-bfe5-1dc01835c055",
+                  "createdAt": "2026-10-22T01:46:46.000Z",
+                  "updatedAt": "2026-10-22T01:46:46.000Z",
+                  "uid": "35240-7fd3a12f-5764-4328-bfe5-1dc01835c055"
                 }
               ],
-              "body": "[]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "4d19375f-3980-405b-a61f-b95fdd98758e",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback",
-                    "request",
-                    "overview",
-                    "company"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "a8348824-9483-4668-870f-8a427a7f7c14",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback",
-                    "request",
-                    "overview",
-                    "company"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "d266ff0b-69e5-4158-9092-b433ca52d78c",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback",
-                    "request",
-                    "overview",
-                    "company"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "3b5dd092-07c1-48ff-ad4f-339667d5c911",
+              "createdAt": "2026-10-22T01:46:46.000Z",
+              "updatedAt": "2026-10-22T01:46:46.000Z",
+              "uid": "35240-3b5dd092-07c1-48ff-ad4f-339667d5c911"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ec1e43fb-ee54-4004-82e3-f8c3912fb77f",
-          "name": "getSummariesTeam",
-          "request": {
-            "name": "getSummariesTeam",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "feedback",
-                "request",
-                "overview",
-                "team"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "831fa98f-0b66-4c4e-bf37-f708c161232a",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback",
-                    "request",
-                    "overview",
-                    "team"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "[]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "d79fdf35-4a25-4074-8dc4-400d0545b0a8",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback",
-                    "request",
-                    "overview",
-                    "team"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "c0638e2f-0767-49a3-950f-fcf5e481d140",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback",
-                    "request",
-                    "overview",
-                    "team"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "4a4e2f1f-a9ec-4190-8a1d-ab1497ef3e6d",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "feedback",
-                    "request",
-                    "overview",
-                    "team"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "c86ff3ce-cd89-48a3-8ff8-3f475d05d6d4",
+          "createdAt": "2026-10-22T01:46:46.000Z",
+          "updatedAt": "2026-10-22T01:46:46.000Z",
+          "uid": "35240-c86ff3ce-cd89-48a3-8ff8-3f475d05d6d4"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "6d3322ee-8cf4-4d14-ba20-2055dcf66f8e",
+      "createdAt": "2026-10-22T01:46:46.000Z",
+      "updatedAt": "2026-10-22T01:46:46.000Z",
+      "uid": "35240-6d3322ee-8cf4-4d14-ba20-2055dcf66f8e"
     }
   ],
   "auth": {
@@ -449,17 +452,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "73a96e84-eadb-490a-90b8-14e71c72305f",
-    "name": "Small Improvements action-item-resource request-feedback-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

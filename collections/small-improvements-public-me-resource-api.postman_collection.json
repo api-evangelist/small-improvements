@@ -1,215 +1,194 @@
 {
+  "info": {
+    "_postman_id": "76a00551-0a50-4602-a5f8-e5ab30dc299e",
+    "name": "Small Improvements Public Me Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:46:17.000Z",
+    "updatedAt": "2026-10-22T01:46:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-76a00551-0a50-4602-a5f8-e5ab30dc299e"
+  },
   "item": [
     {
-      "id": "d76c23e5-a930-40a7-b9b3-95ae16fa1efc",
-      "name": "public-me-resource",
-      "description": {
-        "content": "Public Me Resource",
-        "type": "text/plain"
-      },
+      "name": "me",
       "item": [
         {
-          "id": "67fece38-c76a-4e3c-8c5e-4ca53d30819f",
           "name": "get",
+          "id": "6543661c-af4b-4853-89e4-cff4bd031043",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "get",
-            "description": {},
-            "url": {
-              "path": [
-                "me"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json;charset=UTF-8"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "me"
+              ]
+            }
           },
           "response": [
             {
-              "id": "25e9ab70-7220-45e7-b6b3-c1b44c7142f9",
+              "id": "e0925e00-dbf1-4f64-b671-3e579b6a8136",
               "name": "OK",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "me"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json;charset=UTF-8"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me"
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json;charset=UTF-8"
                 }
               ],
-              "body": "{}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-10-22T01:46:18.000Z",
+              "updatedAt": "2026-10-22T01:46:18.000Z",
+              "uid": "35240-e0925e00-dbf1-4f64-b671-3e579b6a8136"
             },
             {
-              "id": "30e7dd72-7b1d-4fac-b73c-373c91306ec0",
+              "id": "966da4e0-b43c-49f8-9793-3a64d576c65e",
               "name": "Unauthorized",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "me"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me"
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:46:18.000Z",
+              "updatedAt": "2026-10-22T01:46:18.000Z",
+              "uid": "35240-966da4e0-b43c-49f8-9793-3a64d576c65e"
             },
             {
-              "id": "c09b41ff-dedf-4ab4-9f72-5d4a43e1ed36",
+              "id": "74b1967b-c12d-4e82-ae30-ef2dec907330",
               "name": "Forbidden",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "me"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me"
+                  ]
+                }
               },
               "status": "Forbidden",
               "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:46:18.000Z",
+              "updatedAt": "2026-10-22T01:46:18.000Z",
+              "uid": "35240-74b1967b-c12d-4e82-ae30-ef2dec907330"
             },
             {
-              "id": "8fae27e2-c758-412b-9189-7c59cadf3651",
+              "id": "228ab021-0bd0-44c9-b0fe-9077cf376a4f",
               "name": "Not Found",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "me"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: bearer",
                     "key": "Authorization",
                     "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "me"
+                  ]
+                }
               },
               "status": "Not Found",
               "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-22T01:46:18.000Z",
+              "updatedAt": "2026-10-22T01:46:18.000Z",
+              "uid": "35240-228ab021-0bd0-44c9-b0fe-9077cf376a4f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-22T01:46:18.000Z",
+          "updatedAt": "2026-10-22T01:46:18.000Z",
+          "uid": "35240-6543661c-af4b-4853-89e4-cff4bd031043"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "a357a94c-a3c3-46d8-ba7c-e36c108c7831",
+      "createdAt": "2026-10-22T01:46:18.000Z",
+      "updatedAt": "2026-10-22T01:46:18.000Z",
+      "uid": "35240-a357a94c-a3c3-46d8-ba7c-e36c108c7831"
     }
   ],
   "auth": {
@@ -217,17 +196,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "93ffe6b0-d81a-42da-b0aa-5d6333efc96d",
-    "name": "Small Improvements action-item-resource public-me-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

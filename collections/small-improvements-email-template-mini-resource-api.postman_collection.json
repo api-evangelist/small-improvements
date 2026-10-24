@@ -1,291 +1,293 @@
 {
+  "info": {
+    "_postman_id": "0e82b41f-96d8-4b34-81f0-f8d6e038674b",
+    "name": "Small Improvements Email Template Mini Resource API",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:41:12.000Z",
+    "updatedAt": "2026-10-22T01:41:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0e82b41f-96d8-4b34-81f0-f8d6e038674b"
+  },
   "item": [
     {
-      "id": "32e2b4a8-da59-4d4c-b481-074107edbafb",
-      "name": "email-template-mini-resource",
-      "description": {
-        "content": "Email Template Mini Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "8b53dd6c-3a29-493f-8b4b-d0e0d11843b2",
-          "name": "getByIds",
-          "request": {
-            "name": "getByIds",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "email-templates-mini"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "feedbackCycleId",
-                  "value": "<string>",
-                  "description": "feedbackCycleId"
-                },
-                {
-                  "disabled": false,
-                  "key": "reviewCycleId",
-                  "value": "<string>",
-                  "description": "reviewCycleId"
-                },
-                {
-                  "disabled": false,
-                  "key": "types",
-                  "value": "OBJECTIVES_DUE",
-                  "description": "types"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "email-templates-mini",
+          "item": [
             {
-              "id": "da6d160d-078b-4275-b195-473be2470bb0",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-templates-mini"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "feedbackCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "reviewCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "ANYTIME_FEEDBACK_INVITATION_ABOUT_SELF"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "getByIds",
+              "id": "621ec113-07ee-445d-a326-7396ef8556eb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json;charset=UTF-8"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
-                }
-              ],
-              "body": "[]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "205beeec-5da4-4826-a851-b9d8e993c174",
-              "name": "Unauthorized",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/v2/email-templates-mini?feedbackCycleId=<string>&reviewCycleId=<string>&types=ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "v2",
                     "email-templates-mini"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "feedbackCycleId",
                       "key": "feedbackCycleId",
                       "value": "<string>"
                     },
                     {
+                      "description": "reviewCycleId",
                       "key": "reviewCycleId",
                       "value": "<string>"
                     },
                     {
+                      "description": "types",
                       "key": "types",
-                      "value": "ANYTIME_FEEDBACK_INVITATION_ABOUT_SELF"
+                      "value": "ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "8de98de3-c0b1-4951-9974-fe28f5cdcf73",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json;charset=UTF-8"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/email-templates-mini?feedbackCycleId=<string>&reviewCycleId=<string>&types=ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "email-templates-mini"
+                      ],
+                      "query": [
+                        {
+                          "description": "feedbackCycleId",
+                          "key": "feedbackCycleId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "reviewCycleId",
+                          "key": "reviewCycleId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "types",
+                          "key": "types",
+                          "value": "ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json;charset=UTF-8"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[]",
+                  "createdAt": "2026-10-22T01:41:13.000Z",
+                  "updatedAt": "2026-10-22T01:41:13.000Z",
+                  "uid": "35240-8de98de3-c0b1-4951-9974-fe28f5cdcf73"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "e5e7db80-f28a-44db-8481-df2f21fc6e92",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-templates-mini"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "feedbackCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "reviewCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "ANYTIME_FEEDBACK_INVITATION_ABOUT_SELF"
+                  "id": "4649a7c9-72b6-4c3c-9237-c4698f831723",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/email-templates-mini?feedbackCycleId=<string>&reviewCycleId=<string>&types=ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "email-templates-mini"
+                      ],
+                      "query": [
+                        {
+                          "description": "feedbackCycleId",
+                          "key": "feedbackCycleId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "reviewCycleId",
+                          "key": "reviewCycleId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "types",
+                          "key": "types",
+                          "value": "ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:41:13.000Z",
+                  "updatedAt": "2026-10-22T01:41:13.000Z",
+                  "uid": "35240-4649a7c9-72b6-4c3c-9237-c4698f831723"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "ccf8f3d9-dae1-45e9-a760-fc290e2b1baa",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "email-templates-mini"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "feedbackCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "reviewCycleId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "types",
-                      "value": "ANYTIME_FEEDBACK_INVITATION_ABOUT_SELF"
+                  "id": "0b09893b-2c85-4908-a5e7-fdcc2b57b73e",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/email-templates-mini?feedbackCycleId=<string>&reviewCycleId=<string>&types=ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "email-templates-mini"
+                      ],
+                      "query": [
+                        {
+                          "description": "feedbackCycleId",
+                          "key": "feedbackCycleId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "reviewCycleId",
+                          "key": "reviewCycleId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "types",
+                          "key": "types",
+                          "value": "ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:41:13.000Z",
+                  "updatedAt": "2026-10-22T01:41:13.000Z",
+                  "uid": "35240-0b09893b-2c85-4908-a5e7-fdcc2b57b73e"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "bed90fe2-f717-4c92-aa20-8c9b39fed98b",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v2/email-templates-mini?feedbackCycleId=<string>&reviewCycleId=<string>&types=ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v2",
+                        "email-templates-mini"
+                      ],
+                      "query": [
+                        {
+                          "description": "feedbackCycleId",
+                          "key": "feedbackCycleId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "reviewCycleId",
+                          "key": "reviewCycleId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "types",
+                          "key": "types",
+                          "value": "ANYTIME_FEEDBACK_REMINDER_FOR_REQUEST_ABOUT_OTHERS"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-22T01:41:13.000Z",
+                  "updatedAt": "2026-10-22T01:41:13.000Z",
+                  "uid": "35240-bed90fe2-f717-4c92-aa20-8c9b39fed98b"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-22T01:41:13.000Z",
+              "updatedAt": "2026-10-22T01:41:13.000Z",
+              "uid": "35240-621ec113-07ee-445d-a326-7396ef8556eb"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "a1a0928b-bea9-400a-b111-8e273cb6d799",
+          "createdAt": "2026-10-22T01:41:13.000Z",
+          "updatedAt": "2026-10-22T01:41:13.000Z",
+          "uid": "35240-a1a0928b-bea9-400a-b111-8e273cb6d799"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "723b433f-e327-4879-8a06-30d3360a099f",
+      "createdAt": "2026-10-22T01:41:13.000Z",
+      "updatedAt": "2026-10-22T01:41:13.000Z",
+      "uid": "35240-723b433f-e327-4879-8a06-30d3360a099f"
     }
   ],
   "auth": {
@@ -293,17 +295,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "290c10ea-bd7f-4fff-a4fc-13f642bc43ec",
-    "name": "Small Improvements action-item-resource email-template-mini-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }

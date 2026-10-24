@@ -1,320 +1,324 @@
 {
+  "info": {
+    "_postman_id": "588e28f4-a767-42c2-a5ad-f0b5de6b9748",
+    "name": "Small Improvements Meeting Calendar Company Observer\u2026",
+    "description": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-22T01:43:10.000Z",
+    "updatedAt": "2026-10-22T01:43:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-588e28f4-a767-42c2-a5ad-f0b5de6b9748"
+  },
   "item": [
     {
-      "id": "f582d692-2132-43ba-9495-a9abaf543aa7",
-      "name": "meeting-calendar-company-observer-resource",
-      "description": {
-        "content": "Meeting Calendar Company Observer Resource",
-        "type": "text/plain"
-      },
+      "name": "v2",
       "item": [
         {
-          "id": "7c8fedbf-1b1d-4112-9d98-7aa380c90eff",
-          "name": "getCalendarEvents",
-          "request": {
-            "name": "getCalendarEvents",
-            "description": {},
-            "url": {
-              "path": [
-                "v2",
-                "meeting-calendar-integration",
-                "companies",
-                ":companyId",
-                "users",
-                ":userId",
-                "events"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "companyId",
-                  "description": "(Required) companyId"
-                },
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "userId",
-                  "description": "(Required) userId"
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json;charset=UTF-8"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "meeting-calendar-integration",
+          "item": [
             {
-              "id": "f76834aa-d721-47f3-b860-366b7641df0b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "meeting-calendar-integration",
-                    "companies",
-                    ":companyId",
-                    "users",
-                    ":userId",
-                    "events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "userId",
-                      "description": "(Required) userId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json;charset=UTF-8"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
+              "name": "companies",
+              "item": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json;charset=UTF-8"
+                  "name": "{companyId}",
+                  "item": [
+                    {
+                      "name": "users",
+                      "item": [
+                        {
+                          "name": "{userId}",
+                          "item": [
+                            {
+                              "name": "events",
+                              "item": [
+                                {
+                                  "name": "getCalendarEvents",
+                                  "id": "4f47106e-4da8-40f2-84a1-eb1416022460",
+                                  "protocolProfileBehavior": {
+                                    "disableBodyPruning": true
+                                  },
+                                  "request": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json;charset=UTF-8"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v2/meeting-calendar-integration/companies/:companyId/users/:userId/events",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v2",
+                                        "meeting-calendar-integration",
+                                        "companies",
+                                        ":companyId",
+                                        "users",
+                                        ":userId",
+                                        "events"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "id": "72007cef-9f02-49af-94a0-56b0198f3917",
+                                          "key": "companyId",
+                                          "value": "<string>",
+                                          "description": "(Required) companyId"
+                                        },
+                                        {
+                                          "id": "6dc4e708-273b-4fcc-b6df-4032b865dca0",
+                                          "key": "userId",
+                                          "value": "<string>",
+                                          "description": "(Required) userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "response": [
+                                    {
+                                      "id": "3a6153d1-56ac-414f-9d51-c0b65dbde7ee",
+                                      "name": "OK",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json;charset=UTF-8"
+                                          },
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/meeting-calendar-integration/companies/:companyId/users/:userId/events",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "meeting-calendar-integration",
+                                            "companies",
+                                            ":companyId",
+                                            "users",
+                                            ":userId",
+                                            "events"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "companyId"
+                                            },
+                                            {
+                                              "key": "userId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "OK",
+                                      "code": 200,
+                                      "_postman_previewlanguage": "json",
+                                      "header": [
+                                        {
+                                          "key": "Content-Type",
+                                          "value": "application/json;charset=UTF-8"
+                                        }
+                                      ],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": "[]",
+                                      "createdAt": "2026-10-22T01:43:10.000Z",
+                                      "updatedAt": "2026-10-22T01:43:10.000Z",
+                                      "uid": "35240-3a6153d1-56ac-414f-9d51-c0b65dbde7ee"
+                                    },
+                                    {
+                                      "id": "5908ee7e-3d88-4949-aacb-b9582739d456",
+                                      "name": "Unauthorized",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/meeting-calendar-integration/companies/:companyId/users/:userId/events",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "meeting-calendar-integration",
+                                            "companies",
+                                            ":companyId",
+                                            "users",
+                                            ":userId",
+                                            "events"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "companyId"
+                                            },
+                                            {
+                                              "key": "userId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Unauthorized",
+                                      "code": 401,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:43:10.000Z",
+                                      "updatedAt": "2026-10-22T01:43:10.000Z",
+                                      "uid": "35240-5908ee7e-3d88-4949-aacb-b9582739d456"
+                                    },
+                                    {
+                                      "id": "56e10d94-ae67-4a9e-a309-a8da17a63660",
+                                      "name": "Forbidden",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/meeting-calendar-integration/companies/:companyId/users/:userId/events",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "meeting-calendar-integration",
+                                            "companies",
+                                            ":companyId",
+                                            "users",
+                                            ":userId",
+                                            "events"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "companyId"
+                                            },
+                                            {
+                                              "key": "userId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Forbidden",
+                                      "code": 403,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:43:10.000Z",
+                                      "updatedAt": "2026-10-22T01:43:10.000Z",
+                                      "uid": "35240-56e10d94-ae67-4a9e-a309-a8da17a63660"
+                                    },
+                                    {
+                                      "id": "97de2ff4-457a-478a-bf7b-9d7844a367cf",
+                                      "name": "Not Found",
+                                      "originalRequest": {
+                                        "method": "GET",
+                                        "header": [
+                                          {
+                                            "description": "Added as a part of security scheme: bearer",
+                                            "key": "Authorization",
+                                            "value": "Bearer <token>"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/v2/meeting-calendar-integration/companies/:companyId/users/:userId/events",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "v2",
+                                            "meeting-calendar-integration",
+                                            "companies",
+                                            ":companyId",
+                                            "users",
+                                            ":userId",
+                                            "events"
+                                          ],
+                                          "variable": [
+                                            {
+                                              "key": "companyId"
+                                            },
+                                            {
+                                              "key": "userId"
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "status": "Not Found",
+                                      "code": 404,
+                                      "_postman_previewlanguage": "text",
+                                      "header": [],
+                                      "cookie": [],
+                                      "responseTime": null,
+                                      "body": null,
+                                      "createdAt": "2026-10-22T01:43:10.000Z",
+                                      "updatedAt": "2026-10-22T01:43:10.000Z",
+                                      "uid": "35240-97de2ff4-457a-478a-bf7b-9d7844a367cf"
+                                    }
+                                  ],
+                                  "createdAt": "2026-10-22T01:43:10.000Z",
+                                  "updatedAt": "2026-10-22T01:43:10.000Z",
+                                  "uid": "35240-4f47106e-4da8-40f2-84a1-eb1416022460"
+                                }
+                              ],
+                              "id": "d5568d62-91d1-4774-a517-64f526d473a3",
+                              "createdAt": "2026-10-22T01:43:10.000Z",
+                              "updatedAt": "2026-10-22T01:43:10.000Z",
+                              "uid": "35240-d5568d62-91d1-4774-a517-64f526d473a3"
+                            }
+                          ],
+                          "id": "03073da9-515a-4759-b864-52c2ba4d434a",
+                          "createdAt": "2026-10-22T01:43:10.000Z",
+                          "updatedAt": "2026-10-22T01:43:10.000Z",
+                          "uid": "35240-03073da9-515a-4759-b864-52c2ba4d434a"
+                        }
+                      ],
+                      "id": "57d39fc3-3ee1-4e83-a81c-158b72c8a1d7",
+                      "createdAt": "2026-10-22T01:43:10.000Z",
+                      "updatedAt": "2026-10-22T01:43:10.000Z",
+                      "uid": "35240-57d39fc3-3ee1-4e83-a81c-158b72c8a1d7"
+                    }
+                  ],
+                  "id": "43786073-39f1-40bf-aa62-97ee5b3de025",
+                  "createdAt": "2026-10-22T01:43:10.000Z",
+                  "updatedAt": "2026-10-22T01:43:10.000Z",
+                  "uid": "35240-43786073-39f1-40bf-aa62-97ee5b3de025"
                 }
               ],
-              "body": "[]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "3b3c4326-5eae-4d54-8b5e-ae93661f8859",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "meeting-calendar-integration",
-                    "companies",
-                    ":companyId",
-                    "users",
-                    ":userId",
-                    "events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "userId",
-                      "description": "(Required) userId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "5fbbb587-7118-4dad-8219-e2115510cd54",
-              "name": "Forbidden",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "meeting-calendar-integration",
-                    "companies",
-                    ":companyId",
-                    "users",
-                    ":userId",
-                    "events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "userId",
-                      "description": "(Required) userId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Forbidden",
-              "code": 403,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            },
-            {
-              "id": "16631bb6-31b8-4196-894c-b5c7fae4d1d0",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "v2",
-                    "meeting-calendar-integration",
-                    "companies",
-                    ":companyId",
-                    "users",
-                    ":userId",
-                    "events"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "companyId",
-                      "description": "(Required) companyId"
-                    },
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "userId",
-                      "description": "(Required) userId"
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "5977d96a-eef0-41a1-8846-f877cd55b6cb",
+              "createdAt": "2026-10-22T01:43:10.000Z",
+              "updatedAt": "2026-10-22T01:43:10.000Z",
+              "uid": "35240-5977d96a-eef0-41a1-8846-f877cd55b6cb"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "146a3d24-7a35-4d28-ae7a-04989d07fbb6",
+          "createdAt": "2026-10-22T01:43:10.000Z",
+          "updatedAt": "2026-10-22T01:43:10.000Z",
+          "uid": "35240-146a3d24-7a35-4d28-ae7a-04989d07fbb6"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.small-improvements.com/api",
-      "key": "baseUrl"
+      "id": "c1cc1158-ef6d-4419-8d20-0cca654217e4",
+      "createdAt": "2026-10-22T01:43:10.000Z",
+      "updatedAt": "2026-10-22T01:43:10.000Z",
+      "uid": "35240-c1cc1158-ef6d-4419-8d20-0cca654217e4"
     }
   ],
   "auth": {
@@ -322,17 +326,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "b05bd804-a95b-4e1d-beea-422b803e8d96",
-    "name": "Small Improvements action-item-resource meeting-calendar-company-observer-resource API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Small Improvements REST API (v2) provides programmatic access to the core performance management platform, covering users, feedback cycles, review questionnaires, objectives, 1:1 meetings, pulse surveys, praise, messages, and administrative settings. Authentication uses personal Bearer access tokens generated from user profile settings.\n\nContact Support:\n Name: Small Improvements",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.small-improvements.com/api"
     }
-  }
+  ]
 }
